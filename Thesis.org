@@ -1,0 +1,26 @@
+#+TITLE: Thesis
+#+AUTHOR: Bart van Pelt
+
+* Questions :noexport:
+** TODO Wat is de context van mijn werk?
+Energietransitie!
+** TODO Wat is de "holy grail"?
+Efficiente zonnecellen!
+** TODO Wat heb ik gedaan?
+Nieuwe materialen onderzocht voor betere zonnecellen!
+** TODO Welk materiaal dan?
+AZO!
+** TODO Waarom AZO?
+Recent onderzocht als TCO, eigenschappen zijn "promising"!
+*** TODO Wat is een TCO?
+** TODO Welke eigenschappen dan?
+Nuttige eigenschappen:
+- Optisch: lage absorptie!
+- Elektrisch: lage bulk resistivity!
+** TODO Naar welke eigenschappen heb ik dan gekeken?
+De contactweerstand!
+*** TODO De contactweerstand op?
+Verschillende subsraten:
+- Doping
+- Textuur
+** TODO

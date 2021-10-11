@@ -1,0 +1,17 @@
+#+TITLE: Planning
+
+* Actions
+** TODO Make up overall flow
+** TODO Discuss overall flow
+* Weeks
+** 4-8 okt
+** 11-15 okt
+** 18-22 okt
+** 25-29 okt
+** 1-5 nov
+** 8-12 nov
+** 15-19 nov
+** 22-26 nov
+** 29 nov - 3 dec
+** 6-10 dec
+** 13-17 dec
