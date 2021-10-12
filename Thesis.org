@@ -23,4 +23,4 @@ De contactweerstand!
 Verschillende subsraten:
 - Doping
 - Textuur
-** TODO
+** TODO test GIT
