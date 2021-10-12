@@ -4,26 +4,25 @@
 # +OPTIONS: toc:nil
 # +EXCLUDE_TAGS: questions
 
-* Questions :questions:
-** TODO Wat is de context van mijn werk?
-Energietransitie!
-** TODO Wat is de "holy grail"?
-Efficiente zonnecellen!
-** TODO Wat heb ik gedaan?
-Nieuwe materialen onderzocht voor betere zonnecellen!
-** TODO Welk materiaal dan?
-AZO!
-** TODO Waarom AZO?
-Recent onderzocht als TCO, eigenschappen zijn "promising"!
-*** TODO Wat is een TCO?
-** TODO Welke eigenschappen dan?
-Nuttige eigenschappen:
-- Optisch: lage absorptie!
-- Elektrisch: lage bulk resistivity!
-** TODO Wat maakt deze eigenschappen belangrijk?
-Overzichtje efficientie zonnecellen
-** TODO Welke parameters kunnen we controleren?
-** TODO
+* Inleiding
+Dit bestand bevat een overzicht van zaken die ik op papier wil zetten.
+
+Als eerst een voorgestelde setup van mijn thesis.
+Voorstel is om hem op te splitsen in twee delen, het AZO deel en het rho_c deel.
+
+Gezien het AZO deel een vrij coherent verhaal is lijkt het me een slecht idee deze door midden te splitsen met een ellenlange "methods" sectie.
+Hier ga ik kort in op de rho_c meting, iets met "a custom setup, detailed in Part II".
+Ik rond het AZO verhaal meteen af, voordat ik naar de meetsetup ga.
+
+Daarna volgt een verhaal over de contactweerstandssetup.
+Voordeel van dit na het AZO verhaal doen is dat een deel van de theorie over contactweerstanden al aan bod is gekomen, en hier vooral een praktische discussie over het meten van contactweerstanden mogelijk is.
+Daarnaast is door het AZO verhaal als het goed is helemaal duidelijk /waarom/ ik contactweerstanden wilde meten.
+
+Naast dat de twee delen eigenlijk als losstaande verslagen worden opgebouwd worden er nog wel een (wat kortere) omvattende introductie en conclusie geschreven.
+
+Als laatst een (oncomplete) lijst van vragen die ik wil beantwoorden.
+Ik hoop een beetje een duidelijke Q&A draad te kunnen trekken door het verslag, vooral gezien ervaring leert dat ik nog wel eens begin bij een veel te specifiek onderwerp zonder de high-level vragen in zicht te houden.
+
 * Skelet AZO
 ** Introductie
 We willen efficiënte zonnecellen!
@@ -117,3 +116,22 @@ Werkt best prima!
 We hebben nu een systeem om makkelijk contactweerstanden te meten.
 ** Recommendations
 O.a. Kruisverificatie met C&S reference sample
+* Questions :questions:
+** TODO Wat is de context van mijn werk?
+Energietransitie!
+** TODO Wat is de "holy grail"?
+Efficiente zonnecellen!
+** TODO Wat heb ik gedaan?
+Nieuwe materialen onderzocht voor betere zonnecellen!
+** TODO Welk materiaal dan?
+AZO!
+** TODO Waarom AZO?
+Recent onderzocht als TCO, eigenschappen zijn "promising"!
+*** TODO Wat is een TCO?
+** TODO Welke eigenschappen dan?
+Nuttige eigenschappen:
+- Optisch: lage absorptie!
+- Elektrisch: lage bulk resistivity!
+** TODO Wat maakt deze eigenschappen belangrijk?
+Overzichtje efficientie zonnecellen
+** TODO Welke parameters kunnen we controleren?
