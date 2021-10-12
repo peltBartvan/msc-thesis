@@ -1,7 +1,10 @@
 #+TITLE: Thesis
 #+AUTHOR: Bart van Pelt
 
-* Questions :noexport:
+#+OPTIONS: toc:nil
+#+EXCLUDE_TAGS: questions
+
+* Questions :questions:
 ** TODO Wat is de context van mijn werk?
 Energietransitie!
 ** TODO Wat is de "holy grail"?
@@ -17,10 +20,23 @@ Recent onderzocht als TCO, eigenschappen zijn "promising"!
 Nuttige eigenschappen:
 - Optisch: lage absorptie!
 - Elektrisch: lage bulk resistivity!
-** TODO Naar welke eigenschappen heb ik dan gekeken?
-De contactweerstand!
-*** TODO De contactweerstand op?
-Verschillende subsraten:
-- Doping
-- Textuur
-** TODO test GIT
+** TODO Wat maakt deze eigenschappen belangrijk?
+Overzichtje efficientie zonnecellen
+** TODO Welke parameters kunnen we controleren?
+** TODO
+* Skelet
+** Introductie
+We willen efficiënte zonnecellen!
+AZO heeft bepaalde goede eigenschappen.
+AZO kan gedeponeerd worden met ALD.
+Ook voor ALD: AZO is prima (tot zover bekend)
+Dus we gaan kijken of de andere eigenschappen van ALD AZO ook goed zijn.
+** Theorie
+*** Hoe werkt een zonnecel?
+Welke eigenschappen zijn uberhaupt interessant?
+En waarom?
+*** Wat is ALD eigenlijk?
+Aan welke knoppen kunnen we draaien?
+*** Valt er verder nog iets zinnigs te doen met de gelegde lagen?
+Jazeker, annealing (met capping).
+*** Leuk,
