@@ -1,17 +1,40 @@
 #+TITLE: Planning
 
+#+LATEX_HEADER: \newcommand{\rhoc}{$\rho\textsubscript{c}$}
+
 * Actions
 ** TODO Make up overall flow
 ** TODO Discuss overall flow
+** TODO Chapters
+*** TODO Abstract
+*** TODO Introduction
+*** TODO Theory
+*** TODO Experimental details
+**** TODO Hall
+**** TODO SE
+**** TODO standard fpp
+**** TODO ALD process
+*** TODO Development of \rhoc{} measurement setup
+*** TODO Characterization of setup
+*** TODO ALD process
 * Weeks
-** 4-8 okt
-** 11-15 okt
-** 18-22 okt
-** 25-29 okt
-** 1-5 nov
-** 8-12 nov
-** 15-19 nov
-** 22-26 nov
-** 29 nov - 3 dec
-** 6-10 dec
-** 13-17 dec
+** [X] 4-8 oct
+*** DONE Finish up internship report
+** [ ] 11-15 oct
+*** TODO Write skeleton
+*** TODO Submit to Bart and Erwin for feedback
+*** TODO Make internship presentation
+*** TODO Present in MaccoMeeting?
+** [ ] 18-22 oct
+*** TODO Give internship presentation
+*** TODO Process skeleton feedback
+*** TODO Write
+** [ ] 25-29 oct
+** [ ] 1-5 nov
+** [ ] 8-12 nov
+** [ ] 15-19 nov
+** [ ] 22-26 nov
+** [ ] 29 nov - 3 dec
+** [ ] 6-10 dec
+** [ ] 13-17 dec
+Extra week, do not plan!
