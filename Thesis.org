@@ -1,7 +1,7 @@
 #+TITLE: Thesis
 #+AUTHOR: Bart van Pelt
 
-#+OPTIONS: toc:nil
+# +OPTIONS: toc:nil
 # +EXCLUDE_TAGS: questions
 
 * Questions :questions:
@@ -24,7 +24,7 @@ Nuttige eigenschappen:
 Overzichtje efficientie zonnecellen
 ** TODO Welke parameters kunnen we controleren?
 ** TODO
-* Skelet
+* Skelet AZO
 ** Introductie
 We willen efficiënte zonnecellen!
 AZO heeft bepaalde goede eigenschappen.
@@ -61,3 +61,59 @@ Te hoge doping zorgt voor meer absorptie, maar overall transparant genoeg [citat
 Trends zichtbaar, overall prima waardes haalbaar
 *** Optisch + elektrisch
 Tradeoff weerstand en transparantie
+** Conclusie
+Contactweerstanden zijn prima!
+* Skelet rho
+** Introductie
+We willen contactweerstanden meten!
+Bovenstaande is zinnig wanneer AZO verhaal eerst is verteld...
+Anders: waarom rho_c meten?
+Welke andere methodes zijn er?
+Waarom doe ik iets anders?
+** Theorie
+*** Wat is contactweerstand?
+*** Waarvan kunnen contactweerstanden afhangen?
+Vrij algemeen, intro zonnecelfysica helpt hier al...
+*** Hoe worden ze normaal gemeten?
+**** Top-down
+Waarom werkt dit hier niet? (de naieve manier)
+**** Cox-Strack
+**** Cross Bridge Kelvin Resistor
+Generalisatie, verschillende gerelateerde geometrieën.
+**** Of iets nieuws: toch wel top-down?
+*** Meer diepgang: top-down
+Waarom werkt naieve top-down soms wel, soms niet?
+Balans in-plane transport vs through-plane transport -> Transfer length/Damkohler getal
+Dimensieloos, wat betekent dit in het algemeen? -> Da klein -> goede spreiding
+Analyse goed uitwerken, hoe ligt vergelijking met CBKR?
+Goede meting oppervlakte nodig!
+*** Welke design lessen vallen te leren uit theorie?
+** Experimentele methods
+*** Four point probing met Keithley
+*** PCB vorm, waarom zo?
+*** Zilver voor contact
+Hoe aangebracht?
+*** Image analysis
+Korte bespreking, uitgebreide code mag in een appendix (of gewoon github link)
+*** Per sample: varieer
+- Sample size
+- Geometrie (dus ook alternatieve probings met aluminiumfolie)
+*** Verificatie met CBKR
+Hoe uitgevoerd?
+** Resultaten
+Zet op een rijtje
+Niet alleen samples, ook sanity checks
+** Discussie
+Sanity checks zijn gedaan, gingen goed!
+Samples geven hier en daar wat spreiding, maar wel zelfde order of magnitude
+Kruisverificatie met CBKR gaat /wel/ goed!
+Wat zijn de limitaties?
+- Alleen bovengrens op rho_c, maar hoe dichtbij echte waarde?
+- Helaas niet goed omgegaan met edge depo, stukje "waferboekhouding" aangeraden voor volgend werk
+- Geen referentiesample kunnen vinden
+- Flinke afwijkingen tussen Ag samples en no-Ag samples, waarom?
+** Conclusie
+Werkt best prima!
+We hebben nu een systeem om makkelijk contactweerstanden te meten.
+** Recommendations
+O.a. Kruisverificatie met C&S reference sample
