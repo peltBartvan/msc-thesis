@@ -3,33 +3,36 @@
 #+LATEX_HEADER: \newcommand{\rhoc}{$\rho\textsubscript{c}$}
 
 * Actions
-** TODO Make up overall flow
-** TODO Discuss overall flow
-** TODO Chapters
-*** TODO Abstract
-*** TODO Introduction
-*** TODO Theory
-*** TODO Experimental details
-**** TODO Hall
-**** TODO SE
-**** TODO standard fpp
+** Meta
+*** TODO Get a committee in time!
+** Report
+*** TODO Make up overall flow
+*** TODO Discuss overall flow
+*** TODO Chapters
+**** TODO Abstract
+**** TODO Introduction
+**** TODO Theory
+**** TODO Experimental details
+***** TODO Hall
+***** TODO SE
+***** TODO standard fpp
+***** TODO ALD process
+**** TODO Development of \rhoc{} measurement setup
+**** TODO Characterization of setup
 **** TODO ALD process
-*** TODO Development of \rhoc{} measurement setup
-*** TODO Characterization of setup
-*** TODO ALD process
 * Weeks
 ** [X] 4-8 oct
 *** DONE Finish up internship report
 ** [ ] 11-15 oct
-*** TODO Write skeleton
-*** TODO Submit to Bart and Erwin for feedback
-*** TODO Make internship presentation
-*** TODO Present in MaccoMeeting?
+*** DONE Write skeleton
+*** DONE Submit to Bart and Erwin for feedback
+*** TODO Make internship presentation slides
+*** TODO Fill in planning
 ** [ ] 18-22 oct
-*** TODO Give internship presentation
 *** TODO Process skeleton feedback
-*** TODO Write
+*** TODO Present internship slides in MaccoMeeting?
 ** [ ] 25-29 oct
+*** TODO Give internship presentation
 ** [ ] 1-5 nov
 ** [ ] 8-12 nov
 ** [ ] 15-19 nov
