@@ -2,7 +2,7 @@
 #+AUTHOR: Bart van Pelt
 
 #+OPTIONS: toc:nil
-#+EXCLUDE_TAGS: questions
+# +EXCLUDE_TAGS: questions
 
 * Questions :questions:
 ** TODO Wat is de context van mijn werk?
@@ -39,4 +39,25 @@ En waarom?
 Aan welke knoppen kunnen we draaien?
 *** Valt er verder nog iets zinnigs te doen met de gelegde lagen?
 Jazeker, annealing (met capping).
-*** Leuk,
+** Experimenten: methods
+*** Sample preparatie
+**** Praktisch: welk ALD proces
+**** Annealing
+*** Meetmethodes
+**** Optisch
+Uitleg VASE en IR-SE
+**** Elektrisch
+***** Hall
+***** FPP
+***** Contactweerstand
+Ga hier ook in op Ag evap
+** Resultaten
+*** Optisch
+*** Elektrisch
+** Discussie
+*** Optisch
+Te hoge doping zorgt voor meer absorptie, maar overall transparant genoeg [citation needed]
+*** Elektrisch
+Trends zichtbaar, overall prima waardes haalbaar
+*** Optisch + elektrisch
+Tradeoff weerstand en transparantie
