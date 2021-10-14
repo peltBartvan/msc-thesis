@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-12 di 18:10 -->
+<!-- 2021-10-14 do 14:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thesis</title>
@@ -215,97 +215,35 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">Thesis</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgf6e7388">1. Inleiding</a></li>
-<li><a href="#org438e8b3">2. Skelet AZO</a>
-<ul>
-<li><a href="#org58c33bf">2.1. Introductie</a></li>
-<li><a href="#org778cfe0">2.2. Theorie</a>
-<ul>
-<li><a href="#orgb0b1c47">2.2.1. Hoe werkt een zonnecel?</a></li>
-<li><a href="#org2e3386f">2.2.2. Wat is ALD eigenlijk?</a></li>
-<li><a href="#org8c452eb">2.2.3. Valt er verder nog iets zinnigs te doen met de gelegde lagen?</a></li>
-</ul>
-</li>
-<li><a href="#orgadb41ec">2.3. Experimenten: methods</a>
-<ul>
-<li><a href="#orgba836b5">2.3.1. Sample preparatie</a></li>
-<li><a href="#orgb7bac62">2.3.2. Meetmethodes</a></li>
-</ul>
-</li>
-<li><a href="#org2d6da53">2.4. Resultaten</a>
-<ul>
-<li><a href="#orgdfdb72e">2.4.1. Optisch</a></li>
-<li><a href="#org77190de">2.4.2. Elektrisch</a></li>
-</ul>
-</li>
-<li><a href="#orgc6834f6">2.5. Discussie</a>
-<ul>
-<li><a href="#org933ab03">2.5.1. Optisch</a></li>
-<li><a href="#org6969d2e">2.5.2. Elektrisch</a></li>
-<li><a href="#orgfa4e5d0">2.5.3. Optisch + elektrisch</a></li>
-</ul>
-</li>
-<li><a href="#orge08afb7">2.6. Conclusie</a></li>
-</ul>
-</li>
-<li><a href="#orgcd6c15c">3. Skelet rho</a>
-<ul>
-<li><a href="#orgef3bc73">3.1. Introductie</a></li>
-<li><a href="#orgb094721">3.2. Theorie</a>
-<ul>
-<li><a href="#org5d597e5">3.2.1. Wat is contactweerstand?</a></li>
-<li><a href="#org54c7c6c">3.2.2. Waarvan kunnen contactweerstanden afhangen?</a></li>
-<li><a href="#org02804b4">3.2.3. Hoe worden ze normaal gemeten?</a></li>
-<li><a href="#org2e3938a">3.2.4. Meer diepgang: top-down</a></li>
-<li><a href="#org7b9c57b">3.2.5. Welke design lessen vallen te leren uit theorie?</a></li>
-</ul>
-</li>
-<li><a href="#org775592f">3.3. Experimentele methods</a>
-<ul>
-<li><a href="#org6fb8560">3.3.1. Four point probing met Keithley</a></li>
-<li><a href="#org3a8624a">3.3.2. PCB vorm, waarom zo?</a></li>
-<li><a href="#orgd1ef738">3.3.3. Zilver voor contact</a></li>
-<li><a href="#orgd863528">3.3.4. Image analysis</a></li>
-<li><a href="#org4d28f2e">3.3.5. Per sample: varieer</a></li>
-<li><a href="#org251384c">3.3.6. Verificatie met CBKR</a></li>
-</ul>
-</li>
-<li><a href="#orgb3e3dcd">3.4. Resultaten</a></li>
-<li><a href="#orga6ead5b">3.5. Discussie</a></li>
-<li><a href="#org98ca895">3.6. Conclusie</a></li>
-<li><a href="#org0127daf">3.7. Recommendations</a></li>
-</ul>
-</li>
-<li><a href="#org2381947">4. Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="questions">questions</span></span></a>
-<ul>
-<li><a href="#org67e82e9">4.1. <span class="todo TODO">TODO</span> Wat is de context van mijn werk?</a></li>
-<li><a href="#org2b39491">4.2. <span class="todo TODO">TODO</span> Wat is de &ldquo;holy grail&rdquo;?</a></li>
-<li><a href="#org9640553">4.3. <span class="todo TODO">TODO</span> Wat heb ik gedaan?</a></li>
-<li><a href="#org21bbfaf">4.4. <span class="todo TODO">TODO</span> Welk materiaal dan?</a></li>
-<li><a href="#org8e3fb4a">4.5. <span class="todo TODO">TODO</span> Waarom AZO?</a>
-<ul>
-<li><a href="#org67e5580">4.5.1. <span class="todo TODO">TODO</span> Wat is een TCO?</a></li>
-</ul>
-</li>
-<li><a href="#org9ceaae2">4.6. <span class="todo TODO">TODO</span> Welke eigenschappen dan?</a></li>
-<li><a href="#orgc068ca1">4.7. <span class="todo TODO">TODO</span> Wat maakt deze eigenschappen belangrijk?</a></li>
-<li><a href="#orgbbdd45e">4.8. <span class="todo TODO">TODO</span> Welke parameters kunnen we controleren?</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-orgf6e7388" class="outline-2">
-<h2 id="orgf6e7388"><span class="section-number-2">1</span> Inleiding</h2>
+<div id="outline-container-org46623f4" class="outline-2">
+<h2 id="org46623f4"><span class="section-number-2">1</span> Inleiding</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Dit bestand bevat een overzicht van zaken die ik op papier wil zetten.
@@ -335,49 +273,56 @@ Naast dat de twee delen eigenlijk als losstaande verslagen worden opgebouwd word
 <p>
 Als laatst een (oncomplete) lijst van vragen die ik wil beantwoorden.
 Ik hoop een beetje een duidelijke Q&amp;A draad te kunnen trekken door het verslag, vooral gezien ervaring leert dat ik nog wel eens begin bij een veel te specifiek onderwerp zonder de high-level vragen in zicht te houden.
+Dit is vooral een soort rubber-duck debugging ding voor mezelf, besteed er vooral niet te veel aandacht aan.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org438e8b3" class="outline-2">
-<h2 id="org438e8b3"><span class="section-number-2">2</span> Skelet AZO</h2>
+<div id="outline-container-orge5a8a3f" class="outline-2">
+<h2 id="orge5a8a3f"><span class="section-number-2">2</span> Skelet AZO</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org58c33bf" class="outline-3">
-<h3 id="org58c33bf"><span class="section-number-3">2.1</span> Introductie</h3>
+<div id="outline-container-org9131e8c" class="outline-3">
+<h3 id="org9131e8c"><span class="section-number-3">2.1</span> Introductie</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 We willen efficiënte zonnecellen!
-AZO heeft bepaalde goede eigenschappen.
+AZO heeft bepaalde unieke eigenschappen.
 AZO kan gedeponeerd worden met ALD.
 Ook voor ALD: AZO is prima (tot zover bekend)
 Dus we gaan kijken of de andere eigenschappen van ALD AZO ook goed zijn.
+Noem Percspective voor context (komt later ook uit met pSi verhaal)
 </p>
 </div>
 </div>
-<div id="outline-container-org778cfe0" class="outline-3">
-<h3 id="org778cfe0"><span class="section-number-3">2.2</span> Theorie</h3>
+<div id="outline-container-org67e7c58" class="outline-3">
+<h3 id="org67e7c58"><span class="section-number-3">2.2</span> Theorie</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgb0b1c47" class="outline-4">
-<h4 id="orgb0b1c47"><span class="section-number-4">2.2.1</span> Hoe werkt een zonnecel?</h4>
+<div id="outline-container-org142f41b" class="outline-4">
+<h4 id="org142f41b"><span class="section-number-4">2.2.1</span> Hoe werkt een zonnecel?</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 Welke eigenschappen zijn uberhaupt interessant?
 En waarom?
+Contrast PERC, Perovskite tandem
 </p>
+<ul class="org-ul">
+<li>PERC: R<sub>sheet</sub> belangrijk</li>
+<li>Tandem: alleen \(\rhoc{}\) belangrijk.</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org2e3386f" class="outline-4">
-<h4 id="org2e3386f"><span class="section-number-4">2.2.2</span> Wat is ALD eigenlijk?</h4>
+<div id="outline-container-orge7ce34a" class="outline-4">
+<h4 id="orge7ce34a"><span class="section-number-4">2.2.2</span> Wat is ALD eigenlijk?</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 Aan welke knoppen kunnen we draaien?
 </p>
 </div>
 </div>
-<div id="outline-container-org8c452eb" class="outline-4">
-<h4 id="org8c452eb"><span class="section-number-4">2.2.3</span> Valt er verder nog iets zinnigs te doen met de gelegde lagen?</h4>
+<div id="outline-container-org78e36f7" class="outline-4">
+<h4 id="org78e36f7"><span class="section-number-4">2.2.3</span> Valt er verder nog iets zinnigs te doen met de gelegde lagen?</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 Jazeker, annealing (met capping).
@@ -385,36 +330,67 @@ Jazeker, annealing (met capping).
 </div>
 </div>
 </div>
-<div id="outline-container-orgadb41ec" class="outline-3">
-<h3 id="orgadb41ec"><span class="section-number-3">2.3</span> Experimenten: methods</h3>
+<div id="outline-container-org57202c5" class="outline-3">
+<h3 id="org57202c5"><span class="section-number-3">2.3</span> Experimenten: methods</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orgba836b5" class="outline-4">
-<h4 id="orgba836b5"><span class="section-number-4">2.3.1</span> Sample preparatie</h4>
+<div id="outline-container-org687caf5" class="outline-4">
+<h4 id="org687caf5"><span class="section-number-4">2.3.1</span> Sample preparatie</h4>
 <div class="outline-text-4" id="text-2-3-1">
+<p>
+Algemeen: zie opbouw paper voor inspiratie
+</p>
 </div>
 <ol class="org-ol">
-<li><a id="orga5a3488"></a>Praktisch: welk ALD proces<br /></li>
-<li><a id="orgffd5bbf"></a>Annealing<br /></li>
+<li><a id="org6cf51c0"></a>Praktisch: welk ALD proces<br />
+<div class="outline-text-5" id="text-2-3-1-1">
+<p>
+Mag best een beetje black box, vooral supercycle goed documenteren.
+ALD 101 is niet nodig.
+</p>
+</div>
+</li>
+<li><a id="orgb762531"></a>Annealing<br />
+<div class="outline-text-5" id="text-2-3-1-2">
+<p>
+Dit is erg belangrijk, stress het cap/anneal/ets/evap proces
+</p>
+</div>
+</li>
+<li><a id="orgbc7b6cc"></a>Etsen<br />
+<div class="outline-text-5" id="text-2-3-1-3">
+<p>
+Is de ets succesvol?
+Etssnelheid?
+</p>
+</div>
+</li>
+<li><a id="orgf6c055b"></a>Ag evap<br />
+<div class="outline-text-5" id="text-2-3-1-4">
+<p>
+Hoe doe ik dit?
+</p>
+</div>
+</li>
 </ol>
 </div>
-<div id="outline-container-orgb7bac62" class="outline-4">
-<h4 id="orgb7bac62"><span class="section-number-4">2.3.2</span> Meetmethodes</h4>
+<div id="outline-container-org68c2ab7" class="outline-4">
+<h4 id="org68c2ab7"><span class="section-number-4">2.3.2</span> Meetmethodes</h4>
 <div class="outline-text-4" id="text-2-3-2">
 </div>
 <ol class="org-ol">
-<li><a id="orga465ec1"></a>Optisch<br />
+<li><a id="orgdb7a0e9"></a>Optisch<br />
 <div class="outline-text-5" id="text-2-3-2-1">
 <p>
 Uitleg VASE en IR-SE
 </p>
 </div>
 </li>
-<li><a id="org28afbd4"></a>Elektrisch<br />
+<li><a id="org865674e"></a>Elektrisch<br />
 <ol class="org-ol">
-<li><a id="org32a781e"></a>Hall<br /></li>
-<li><a id="org89414e3"></a>FPP<br /></li>
-<li><a id="org844fef5"></a>Contactweerstand<br />
+<li><a id="orge0df4f4"></a>Hall<br /></li>
+<li><a id="org41db3cd"></a>FPP<br /></li>
+<li><a id="orgd7e60fc"></a>Contactweerstand<br />
 <div class="outline-text-6" id="text-2-3-2-2-3">
 <p>
 Ga hier ook in op Ag evap
@@ -426,61 +402,78 @@ Ga hier ook in op Ag evap
 </ol>
 </div>
 </div>
-<div id="outline-container-org2d6da53" class="outline-3">
-<h3 id="org2d6da53"><span class="section-number-3">2.4</span> Resultaten</h3>
+<div id="outline-container-orgd6083ad" class="outline-3">
+<h3 id="orgd6083ad"><span class="section-number-3">2.4</span> Resultaten</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-orgdfdb72e" class="outline-4">
-<h4 id="orgdfdb72e"><span class="section-number-4">2.4.1</span> Optisch</h4>
+<div id="outline-container-orgc8fdb41" class="outline-4">
+<h4 id="orgc8fdb41"><span class="section-number-4">2.4.1</span> Optisch</h4>
 </div>
-<div id="outline-container-org77190de" class="outline-4">
-<h4 id="org77190de"><span class="section-number-4">2.4.2</span> Elektrisch</h4>
+<div id="outline-container-org479db5b" class="outline-4">
+<h4 id="org479db5b"><span class="section-number-4">2.4.2</span> Elektrisch</h4>
 </div>
 </div>
-<div id="outline-container-orgc6834f6" class="outline-3">
-<h3 id="orgc6834f6"><span class="section-number-3">2.5</span> Discussie</h3>
+<div id="outline-container-org65547d0" class="outline-3">
+<h3 id="org65547d0"><span class="section-number-3">2.5</span> Discussie</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-org933ab03" class="outline-4">
-<h4 id="org933ab03"><span class="section-number-4">2.5.1</span> Optisch</h4>
+<div id="outline-container-org2bf4ba5" class="outline-4">
+<h4 id="org2bf4ba5"><span class="section-number-4">2.5.1</span> Optisch</h4>
 <div class="outline-text-4" id="text-2-5-1">
 <p>
 Te hoge doping zorgt voor meer absorptie, maar overall transparant genoeg [citation needed]
 </p>
 </div>
 </div>
-<div id="outline-container-org6969d2e" class="outline-4">
-<h4 id="org6969d2e"><span class="section-number-4">2.5.2</span> Elektrisch</h4>
+<div id="outline-container-org69c4968" class="outline-4">
+<h4 id="org69c4968"><span class="section-number-4">2.5.2</span> Elektrisch</h4>
 <div class="outline-text-4" id="text-2-5-2">
 <p>
 Trends zichtbaar, overall prima waardes haalbaar
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa4e5d0" class="outline-4">
-<h4 id="orgfa4e5d0"><span class="section-number-4">2.5.3</span> Optisch + elektrisch</h4>
+<div id="outline-container-org8431a11" class="outline-4">
+<h4 id="org8431a11"><span class="section-number-4">2.5.3</span> Optisch + elektrisch</h4>
 <div class="outline-text-4" id="text-2-5-3">
 <p>
 Tradeoff weerstand en transparantie
 </p>
 </div>
 </div>
+<div id="outline-container-org8f41ba2" class="outline-4">
+<h4 id="org8f41ba2"><span class="section-number-4">2.5.4</span> Hoe integratie in cel?</h4>
+<div class="outline-text-4" id="text-2-5-4">
+<p>
+Tandem/perc noemen
+</p>
 </div>
-<div id="outline-container-orge08afb7" class="outline-3">
-<h3 id="orge08afb7"><span class="section-number-3">2.6</span> Conclusie</h3>
+</div>
+</div>
+<div id="outline-container-orgab0822a" class="outline-3">
+<h3 id="orgab0822a"><span class="section-number-3">2.6</span> Conclusie</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Contactweerstanden zijn prima!
 </p>
 </div>
 </div>
+<div id="outline-container-orgb0d61de" class="outline-3">
+<h3 id="orgb0d61de"><span class="section-number-3">2.7</span> Recommendations</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li>Long term stability</li>
+<li>Integratie in cel</li>
+</ul>
 </div>
-<div id="outline-container-orgcd6c15c" class="outline-2">
-<h2 id="orgcd6c15c"><span class="section-number-2">3</span> Skelet rho</h2>
+</div>
+</div>
+<div id="outline-container-orgbafcc20" class="outline-2">
+<h2 id="orgbafcc20"><span class="section-number-2">3</span> Skelet rho</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgef3bc73" class="outline-3">
-<h3 id="orgef3bc73"><span class="section-number-3">3.1</span> Introductie</h3>
+<div id="outline-container-org611ddd8" class="outline-3">
+<h3 id="org611ddd8"><span class="section-number-3">3.1</span> Introductie</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We willen contactweerstanden meten!
@@ -491,46 +484,46 @@ Waarom doe ik iets anders?
 </p>
 </div>
 </div>
-<div id="outline-container-orgb094721" class="outline-3">
-<h3 id="orgb094721"><span class="section-number-3">3.2</span> Theorie</h3>
+<div id="outline-container-org9bb7112" class="outline-3">
+<h3 id="org9bb7112"><span class="section-number-3">3.2</span> Theorie</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org5d597e5" class="outline-4">
-<h4 id="org5d597e5"><span class="section-number-4">3.2.1</span> Wat is contactweerstand?</h4>
+<div id="outline-container-org982937b" class="outline-4">
+<h4 id="org982937b"><span class="section-number-4">3.2.1</span> Wat is contactweerstand?</h4>
 </div>
-<div id="outline-container-org54c7c6c" class="outline-4">
-<h4 id="org54c7c6c"><span class="section-number-4">3.2.2</span> Waarvan kunnen contactweerstanden afhangen?</h4>
+<div id="outline-container-org490a38d" class="outline-4">
+<h4 id="org490a38d"><span class="section-number-4">3.2.2</span> Waarvan kunnen contactweerstanden afhangen?</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <p>
 Vrij algemeen, intro zonnecelfysica helpt hier al&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-org02804b4" class="outline-4">
-<h4 id="org02804b4"><span class="section-number-4">3.2.3</span> Hoe worden ze normaal gemeten?</h4>
+<div id="outline-container-orgbbc3836" class="outline-4">
+<h4 id="orgbbc3836"><span class="section-number-4">3.2.3</span> Hoe worden ze normaal gemeten?</h4>
 <div class="outline-text-4" id="text-3-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org2ce2fae"></a>Top-down<br />
+<li><a id="orgb44136b"></a>Top-down<br />
 <div class="outline-text-5" id="text-3-2-3-1">
 <p>
 Waarom werkt dit hier niet? (de naieve manier)
 </p>
 </div>
 </li>
-<li><a id="org3df94c5"></a>Cox-Strack<br /></li>
-<li><a id="org21ce78a"></a>Cross Bridge Kelvin Resistor<br />
+<li><a id="org2378a0d"></a>Cox-Strack<br /></li>
+<li><a id="org9570a4b"></a>Cross Bridge Kelvin Resistor<br />
 <div class="outline-text-5" id="text-3-2-3-3">
 <p>
 Generalisatie, verschillende gerelateerde geometrieën.
 </p>
 </div>
 </li>
-<li><a id="org3b9f54e"></a>Of iets nieuws: toch wel top-down?<br /></li>
+<li><a id="orgad5fa1f"></a>Of iets nieuws: toch wel top-down?<br /></li>
 </ol>
 </div>
-<div id="outline-container-org2e3938a" class="outline-4">
-<h4 id="org2e3938a"><span class="section-number-4">3.2.4</span> Meer diepgang: top-down</h4>
+<div id="outline-container-org54b4bc5" class="outline-4">
+<h4 id="org54b4bc5"><span class="section-number-4">3.2.4</span> Meer diepgang: top-down</h4>
 <div class="outline-text-4" id="text-3-2-4">
 <p>
 Waarom werkt naieve top-down soms wel, soms niet?
@@ -541,38 +534,38 @@ Goede meting oppervlakte nodig!
 </p>
 </div>
 </div>
-<div id="outline-container-org7b9c57b" class="outline-4">
-<h4 id="org7b9c57b"><span class="section-number-4">3.2.5</span> Welke design lessen vallen te leren uit theorie?</h4>
+<div id="outline-container-org2de4430" class="outline-4">
+<h4 id="org2de4430"><span class="section-number-4">3.2.5</span> Welke design lessen vallen te leren uit theorie?</h4>
 </div>
 </div>
-<div id="outline-container-org775592f" class="outline-3">
-<h3 id="org775592f"><span class="section-number-3">3.3</span> Experimentele methods</h3>
+<div id="outline-container-orgb554bda" class="outline-3">
+<h3 id="orgb554bda"><span class="section-number-3">3.3</span> Experimentele methods</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org6fb8560" class="outline-4">
-<h4 id="org6fb8560"><span class="section-number-4">3.3.1</span> Four point probing met Keithley</h4>
+<div id="outline-container-orgafbda97" class="outline-4">
+<h4 id="orgafbda97"><span class="section-number-4">3.3.1</span> Four point probing met Keithley</h4>
 </div>
-<div id="outline-container-org3a8624a" class="outline-4">
-<h4 id="org3a8624a"><span class="section-number-4">3.3.2</span> PCB vorm, waarom zo?</h4>
+<div id="outline-container-org67afc9f" class="outline-4">
+<h4 id="org67afc9f"><span class="section-number-4">3.3.2</span> PCB vorm, waarom zo?</h4>
 </div>
-<div id="outline-container-orgd1ef738" class="outline-4">
-<h4 id="orgd1ef738"><span class="section-number-4">3.3.3</span> Zilver voor contact</h4>
+<div id="outline-container-orgb5c3d0b" class="outline-4">
+<h4 id="orgb5c3d0b"><span class="section-number-4">3.3.3</span> Zilver voor contact</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 Hoe aangebracht?
 </p>
 </div>
 </div>
-<div id="outline-container-orgd863528" class="outline-4">
-<h4 id="orgd863528"><span class="section-number-4">3.3.4</span> Image analysis</h4>
+<div id="outline-container-orgb543e5a" class="outline-4">
+<h4 id="orgb543e5a"><span class="section-number-4">3.3.4</span> Image analysis</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <p>
 Korte bespreking, uitgebreide code mag in een appendix (of gewoon github link)
 </p>
 </div>
 </div>
-<div id="outline-container-org4d28f2e" class="outline-4">
-<h4 id="org4d28f2e"><span class="section-number-4">3.3.5</span> Per sample: varieer</h4>
+<div id="outline-container-orgdc19a11" class="outline-4">
+<h4 id="orgdc19a11"><span class="section-number-4">3.3.5</span> Per sample: varieer</h4>
 <div class="outline-text-4" id="text-3-3-5">
 <ul class="org-ul">
 <li>Sample size</li>
@@ -580,8 +573,8 @@ Korte bespreking, uitgebreide code mag in een appendix (of gewoon github link)
 </ul>
 </div>
 </div>
-<div id="outline-container-org251384c" class="outline-4">
-<h4 id="org251384c"><span class="section-number-4">3.3.6</span> Verificatie met CBKR</h4>
+<div id="outline-container-org8eae16c" class="outline-4">
+<h4 id="org8eae16c"><span class="section-number-4">3.3.6</span> Verificatie met CBKR</h4>
 <div class="outline-text-4" id="text-3-3-6">
 <p>
 Hoe uitgevoerd?
@@ -589,8 +582,8 @@ Hoe uitgevoerd?
 </div>
 </div>
 </div>
-<div id="outline-container-orgb3e3dcd" class="outline-3">
-<h3 id="orgb3e3dcd"><span class="section-number-3">3.4</span> Resultaten</h3>
+<div id="outline-container-org848af24" class="outline-3">
+<h3 id="org848af24"><span class="section-number-3">3.4</span> Resultaten</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Zet op een rijtje
@@ -598,8 +591,8 @@ Niet alleen samples, ook sanity checks
 </p>
 </div>
 </div>
-<div id="outline-container-orga6ead5b" class="outline-3">
-<h3 id="orga6ead5b"><span class="section-number-3">3.5</span> Discussie</h3>
+<div id="outline-container-org4b8eb19" class="outline-3">
+<h3 id="org4b8eb19"><span class="section-number-3">3.5</span> Discussie</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Sanity checks zijn gedaan, gingen goed!
@@ -615,8 +608,8 @@ Wat zijn de limitaties?
 </ul>
 </div>
 </div>
-<div id="outline-container-org98ca895" class="outline-3">
-<h3 id="org98ca895"><span class="section-number-3">3.6</span> Conclusie</h3>
+<div id="outline-container-orgc27cead" class="outline-3">
+<h3 id="orgc27cead"><span class="section-number-3">3.6</span> Conclusie</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 Werkt best prima!
@@ -624,8 +617,8 @@ We hebben nu een systeem om makkelijk contactweerstanden te meten.
 </p>
 </div>
 </div>
-<div id="outline-container-org0127daf" class="outline-3">
-<h3 id="org0127daf"><span class="section-number-3">3.7</span> Recommendations</h3>
+<div id="outline-container-org06bbe4b" class="outline-3">
+<h3 id="org06bbe4b"><span class="section-number-3">3.7</span> Recommendations</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 O.a. Kruisverificatie met C&amp;S reference sample
@@ -633,56 +626,69 @@ O.a. Kruisverificatie met C&amp;S reference sample
 </div>
 </div>
 </div>
-<div id="outline-container-org2381947" class="outline-2">
-<h2 id="org2381947"><span class="section-number-2">4</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="questions">questions</span></span></h2>
+<div id="outline-container-org92fb14d" class="outline-2">
+<h2 id="org92fb14d"><span class="section-number-2">4</span> Appendices</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org67e82e9" class="outline-3">
-<h3 id="org67e82e9"><span class="section-number-3">4.1</span> <span class="todo TODO">TODO</span> Wat is de context van mijn werk?</h3>
+<div id="outline-container-org00a7109" class="outline-3">
+<h3 id="org00a7109"><span class="section-number-3">4.1</span> Beeldsegmentatie algoritme</h3>
 <div class="outline-text-3" id="text-4-1">
+<p>
+Goed documenteren, soortvan handleiding voor geïnteresseerden.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1f8f6ff" class="outline-2">
+<h2 id="org1f8f6ff"><span class="section-number-2">5</span> Questions&#xa0;&#xa0;&#xa0;<span class="tag"><span class="questions">questions</span></span></h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgc65f194" class="outline-3">
+<h3 id="orgc65f194"><span class="section-number-3">5.1</span> <span class="todo TODO">TODO</span> Wat is de context van mijn werk?</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 Energietransitie!
 </p>
 </div>
 </div>
-<div id="outline-container-org2b39491" class="outline-3">
-<h3 id="org2b39491"><span class="section-number-3">4.2</span> <span class="todo TODO">TODO</span> Wat is de &ldquo;holy grail&rdquo;?</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org77d8079" class="outline-3">
+<h3 id="org77d8079"><span class="section-number-3">5.2</span> <span class="todo TODO">TODO</span> Wat is de &ldquo;holy grail&rdquo;?</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 Efficiente zonnecellen!
 </p>
 </div>
 </div>
-<div id="outline-container-org9640553" class="outline-3">
-<h3 id="org9640553"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> Wat heb ik gedaan?</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org4024c60" class="outline-3">
+<h3 id="org4024c60"><span class="section-number-3">5.3</span> <span class="todo TODO">TODO</span> Wat heb ik gedaan?</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 Nieuwe materialen onderzocht voor betere zonnecellen!
 </p>
 </div>
 </div>
-<div id="outline-container-org21bbfaf" class="outline-3">
-<h3 id="org21bbfaf"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> Welk materiaal dan?</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-org8acc1b1" class="outline-3">
+<h3 id="org8acc1b1"><span class="section-number-3">5.4</span> <span class="todo TODO">TODO</span> Welk materiaal dan?</h3>
+<div class="outline-text-3" id="text-5-4">
 <p>
 AZO!
 </p>
 </div>
 </div>
-<div id="outline-container-org8e3fb4a" class="outline-3">
-<h3 id="org8e3fb4a"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> Waarom AZO?</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-org05cbc88" class="outline-3">
+<h3 id="org05cbc88"><span class="section-number-3">5.5</span> <span class="todo TODO">TODO</span> Waarom AZO?</h3>
+<div class="outline-text-3" id="text-5-5">
 <p>
 Recent onderzocht als TCO, eigenschappen zijn &ldquo;promising&rdquo;!
 </p>
 </div>
-<div id="outline-container-org67e5580" class="outline-4">
-<h4 id="org67e5580"><span class="section-number-4">4.5.1</span> <span class="todo TODO">TODO</span> Wat is een TCO?</h4>
+<div id="outline-container-org466efda" class="outline-4">
+<h4 id="org466efda"><span class="section-number-4">5.5.1</span> <span class="todo TODO">TODO</span> Wat is een TCO?</h4>
 </div>
 </div>
-<div id="outline-container-org9ceaae2" class="outline-3">
-<h3 id="org9ceaae2"><span class="section-number-3">4.6</span> <span class="todo TODO">TODO</span> Welke eigenschappen dan?</h3>
-<div class="outline-text-3" id="text-4-6">
+<div id="outline-container-orgc174a8a" class="outline-3">
+<h3 id="orgc174a8a"><span class="section-number-3">5.6</span> <span class="todo TODO">TODO</span> Welke eigenschappen dan?</h3>
+<div class="outline-text-3" id="text-5-6">
 <p>
 Nuttige eigenschappen:
 </p>
@@ -692,22 +698,22 @@ Nuttige eigenschappen:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc068ca1" class="outline-3">
-<h3 id="orgc068ca1"><span class="section-number-3">4.7</span> <span class="todo TODO">TODO</span> Wat maakt deze eigenschappen belangrijk?</h3>
-<div class="outline-text-3" id="text-4-7">
+<div id="outline-container-org326233b" class="outline-3">
+<h3 id="org326233b"><span class="section-number-3">5.7</span> <span class="todo TODO">TODO</span> Wat maakt deze eigenschappen belangrijk?</h3>
+<div class="outline-text-3" id="text-5-7">
 <p>
 Overzichtje efficientie zonnecellen
 </p>
 </div>
 </div>
-<div id="outline-container-orgbbdd45e" class="outline-3">
-<h3 id="orgbbdd45e"><span class="section-number-3">4.8</span> <span class="todo TODO">TODO</span> Welke parameters kunnen we controleren?</h3>
+<div id="outline-container-orgf1b49dc" class="outline-3">
+<h3 id="orgf1b49dc"><span class="section-number-3">5.8</span> <span class="todo TODO">TODO</span> Welke parameters kunnen we controleren?</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Bart van Pelt</p>
-<p class="date">Created: 2021-10-12 di 18:10</p>
+<p class="date">Created: 2021-10-14 do 14:33</p>
 </div>
 </body>
 </html>

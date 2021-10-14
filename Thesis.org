@@ -1,7 +1,9 @@
 #+TITLE: Thesis
 #+AUTHOR: Bart van Pelt
 
-# +OPTIONS: toc:nil
+#+LATEX_HEADER: \newcommand{\rhoc}{\ensuremath{\rho_c}}
+
+#+OPTIONS: toc:nil
 # +EXCLUDE_TAGS: questions
 
 * Inleiding
@@ -22,26 +24,40 @@ Naast dat de twee delen eigenlijk als losstaande verslagen worden opgebouwd word
 
 Als laatst een (oncomplete) lijst van vragen die ik wil beantwoorden.
 Ik hoop een beetje een duidelijke Q&A draad te kunnen trekken door het verslag, vooral gezien ervaring leert dat ik nog wel eens begin bij een veel te specifiek onderwerp zonder de high-level vragen in zicht te houden.
+Dit is vooral een soort rubber-duck debugging ding voor mezelf, besteed er vooral niet te veel aandacht aan.
 
 * Skelet AZO
 ** Introductie
 We willen efficiënte zonnecellen!
-AZO heeft bepaalde goede eigenschappen.
+AZO heeft bepaalde unieke eigenschappen.
 AZO kan gedeponeerd worden met ALD.
 Ook voor ALD: AZO is prima (tot zover bekend)
 Dus we gaan kijken of de andere eigenschappen van ALD AZO ook goed zijn.
+Noem Percspective voor context (komt later ook uit met pSi verhaal)
 ** Theorie
 *** Hoe werkt een zonnecel?
 Welke eigenschappen zijn uberhaupt interessant?
 En waarom?
+Contrast PERC, Perovskite tandem
+- PERC: R_sheet belangrijk
+- Tandem: alleen $\rhoc{}$ belangrijk.
 *** Wat is ALD eigenlijk?
 Aan welke knoppen kunnen we draaien?
 *** Valt er verder nog iets zinnigs te doen met de gelegde lagen?
 Jazeker, annealing (met capping).
 ** Experimenten: methods
 *** Sample preparatie
+Algemeen: zie opbouw paper voor inspiratie
 **** Praktisch: welk ALD proces
+Mag best een beetje black box, vooral supercycle goed documenteren.
+ALD 101 is niet nodig.
 **** Annealing
+Dit is erg belangrijk, stress het cap/anneal/ets/evap proces
+**** Etsen
+Is de ets succesvol?
+Etssnelheid?
+**** Ag evap
+Hoe doe ik dit?
 *** Meetmethodes
 **** Optisch
 Uitleg VASE en IR-SE
@@ -60,8 +76,13 @@ Te hoge doping zorgt voor meer absorptie, maar overall transparant genoeg [citat
 Trends zichtbaar, overall prima waardes haalbaar
 *** Optisch + elektrisch
 Tradeoff weerstand en transparantie
+*** Hoe integratie in cel?
+Tandem/perc noemen
 ** Conclusie
 Contactweerstanden zijn prima!
+** Recommendations
+- Long term stability
+- Integratie in cel
 * Skelet rho
 ** Introductie
 We willen contactweerstanden meten!
@@ -116,6 +137,9 @@ Werkt best prima!
 We hebben nu een systeem om makkelijk contactweerstanden te meten.
 ** Recommendations
 O.a. Kruisverificatie met C&S reference sample
+* Appendices
+** Beeldsegmentatie algoritme
+Goed documenteren, soortvan handleiding voor geïnteresseerden.
 * Questions :questions:
 ** TODO Wat is de context van mijn werk?
 Energietransitie!
