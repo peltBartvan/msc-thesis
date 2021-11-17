@@ -1,0 +1,36 @@
+#+TITLE: Azo
+
+#+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
+#+LATEX_HEADER: \newcommand{\SiOx}{SiO_2}
+#+LATEX_HEADER: \newcommand{\AlOx}{\text{Al$_2$O$_3$}}
+
+#+EXCLUDE_TAGS: todoex
+
+* Introduction
+* Theory
+** TODO todos :todoex:
+*** TODO Mention importance of AlOx capping found previously
+
+* Methods
+** TODO Sample preparation
+To study its optical and electronic properties, \AZO{} was deposited on silicon wafers with 450 nm thermal \SiOx{}.
+On some of these samples, a capping layer of 30 nm \AlOx{} was deposited as this was expected to enhance passivation.
+After thermal annealing, optical and electrical properties were measured through spectroscopic ellipsometry, Hall measurements and four point probing.
+The sample processing steps will be discussed in more detail in the following sections.
+Another type of sample was used to study the contact resistivities of deposited \AZO on substrates of c-Si with different doping levels and, for comparison, on polished and textured polysilicon.
+On both sides of these samples, \AZO{} was deposited, followed by an \AlOx{} capping layer. After annealing, the capping layer was selectively removed using a wet etching process, so that the \AZO{} films on both sides of the sample could be electrically contacted.
+To ensure good contacting and help reduce current spreading effects, 300 nm of Ag was deposited on both sides of the sample.
+
+
+
+
+*** Oxidation
+*** ALD process
+*** Annealing
+*** Etching
+*** Silver evaporation
+** Measurements
+* Results
+* Discussion
+* Conclusion
+* Recommendations
