@@ -1,8 +1,10 @@
 #+TITLE: Azo
 
 #+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
-#+LATEX_HEADER: \newcommand{\SiOx}{SiO_2}
+#+LATEX_HEADER: \newcommand{\Celsius}{$^\circ$C}
+#+LATEX_HEADER: \newcommand{\SiOx}{\text{SiO$_2$}}
 #+LATEX_HEADER: \newcommand{\AlOx}{\text{Al$_2$O$_3$}}
+#+LATEX_HEADER: \newcommand{\HHO}{\text{H$_2$O}}
 
 #+EXCLUDE_TAGS: todoex
 
@@ -13,24 +15,45 @@
 
 * Methods
 ** TODO Sample preparation
+# SAMPLES A
 To study its optical and electronic properties, \AZO{} was deposited on silicon wafers with 450 nm thermal \SiOx{}.
 On some of these samples, a capping layer of 30 nm \AlOx{} was deposited as this was expected to enhance passivation.
 After thermal annealing, optical and electrical properties were measured through spectroscopic ellipsometry, Hall measurements and four point probing.
-The sample processing steps will be discussed in more detail in the following sections.
-Another type of sample was used to study the contact resistivities of deposited \AZO on substrates of c-Si with different doping levels and, for comparison, on polished and textured polysilicon.
+# SAMPLES B
+Another type of sample was used to study the contact resistivities of deposited \AZO{} on substrates of c-Si with different doping levels and, for comparison, on polished and textured polysilicon.
 On both sides of these samples, \AZO{} was deposited, followed by an \AlOx{} capping layer. After annealing, the capping layer was selectively removed using a wet etching process, so that the \AZO{} films on both sides of the sample could be electrically contacted.
 To ensure good contacting and help reduce current spreading effects, 300 nm of Ag was deposited on both sides of the sample.
-
-
-
-
+The sample processing steps will be discussed in more detail in the following sections.
 *** Oxidation
+Samples of type A feature a 450 nm thermal \SiOx{} layer which functions to electrically insulate the deposited \AZO{} from the rest of the substrate, while also enhancing the sensitivity of SE.
+In the type B samples, a native oxide layer was removed using a 1 min dip in 1% HF at room temperature.
+After this oxide removal, a 30 min UV/O$_3$ oxidation was performed at room temperature using a Novascan PSD Series UV Ozone Cleaner.
 *** ALD process
+\AZO{} and \AlOx{} films were deposited by thermal ALD using an Oxford Instruments OpAL reactor.
+The table and wall were kept at temperatures of 200\Celsius{} and 180\Celsius{}, respectively.
+\AZO was deposited with using a supercycle approach consisting of diethylzinc (DEZ) or dimethylaluminumisopropoxide (DMAI) alternated with \HHO{} doses.
+To control the Al doping levels, the ratio of DEZ and DMAI cycles was varied.
+Overall, given cycle ratio $r$, the supercycle consists of $\frac{r}{2}$ DEZ/\HHO{} cycles followed by one DMAI/\HHO{} cycle, followed by $\frac{r}{2}$ DEZ/\HHO{} cycles again.
 *** Annealing
 *** Etching
 *** Silver evaporation
+*** TODO todos :todoex:
+**** TODO Include figure detailing stacks
+Include references to samples type A and B
+**** TODO Put reference to figure in introduction
+**** TODO Traceability 450 nm \SiOx{} wafers
+**** TODO UV/O$_3$ sample flipped?
+**** TODO \AlOx{} layer deposited using TMA? Should be DMAI, right?
+**** [?] Figure illustrating supercycle
 ** Measurements
 * Results
 * Discussion
 * Conclusion
 * Recommendations
+* TODO Symbols/abbreviations :todoex:
+A list of all symbols/abbreviations used.
+todo indicates that they have not been well defined yet, and require some minor attention in the future.
+** TODO SE
+introduce, probably in introduction.
+** TODO AZO
+** TODO ALD
