@@ -6,11 +6,12 @@
 #+LATEX_HEADER: \newcommand{\AlOx}{\text{Al$_2$O$_3$}}
 #+LATEX_HEADER: \newcommand{\HHO}{\text{H$_2$O}}
 
-#+EXCLUDE_TAGS: todoex
+# #+EXCLUDE_TAGS: todoex
+#+OPTIONS: toc:nil
 
 * Introduction
 * Theory
-** TODO todos :todoex:
+** Todos :todoex:
 *** TODO Mention importance of AlOx capping found previously
 
 * Methods
@@ -34,18 +35,85 @@ The table and wall were kept at temperatures of 200\Celsius{} and 180\Celsius{},
 \AZO was deposited with using a supercycle approach consisting of diethylzinc (DEZ) or dimethylaluminumisopropoxide (DMAI) alternated with \HHO{} doses.
 To control the Al doping levels, the ratio of DEZ and DMAI cycles was varied.
 Overall, given cycle ratio $r$, the supercycle consists of $\frac{r}{2}$ DEZ/\HHO{} cycles followed by one DMAI/\HHO{} cycle, followed by $\frac{r}{2}$ DEZ/\HHO{} cycles again.
+Cycle ratios of 16, 24, 48 and 96 were used in addition to intrinsic, undoped, ZnO.
+In this work, the \AZO{} doping level will be indicated by the letter 'r' followed by the cycle ratio or the abbreviation 'int' for intrinsic.
+# How many cycles per sample?!
+After \AZO{} deposition samples were optionally covered with 30 nm ALD \AlOx{}.
+In the symmetric type B samples, the recipe consisting of \AZO{} deposition followed by \AlOx{} deposition was run, after which the samples were flipped, and the recipe was repeated.
 *** Annealing
+Type A samples were sequentially annealed between 300\Celsius{} and 700\Celsius{} in steps of 50\Celsius{}.
+The anneals up to 500\Celsius{} were performed on a hotplate in ambient air, while a Jipelec rapid thermal anneal (RTA) furnace in 10/90 mixture of H$_{2}$ \slash N$_{2}$.
+All anneals were performed for 5 min.
+To check if the sequential annealing procedure compares well to a direct anneal to a specified temperature, a series of capped r16 \AZO{} type A samples was annealed to the specified temperatures.
 *** Etching
+To enable contacting of the type B samples, the \AlOx{} capping layer was removed after annealing.
+This was done with a selective wet etching process that favorably etches \AlOx{} over \AZO{}.
+A 60\Celsius{} 0.1 M solution of \text{Na$_2$CO$_3$} was used, the pH of which was controlled to be around 11.8 through addition of KOH.
+Some type A dummy samples were annealed and etched for different times, after which layer thicknesses were measured by SE.
 *** Silver evaporation
-*** TODO todos :todoex:
+To enable good contacting and reduce current spreading effects, both sides of the type B samples received a 300 nm Ag coating by e-beam evaporation.
+After deposition the edges of the samples were cut off so that no shorts occur through silver deposited here.
+The need for this Ag coating and the contact resistivity measurement will be discussed in detail in the second part of this thesis.
+*** Todos :todoex:
 **** TODO Include figure detailing stacks
 Include references to samples type A and B
 **** TODO Put reference to figure in introduction
 **** TODO Traceability 450 nm \SiOx{} wafers
 **** TODO UV/O$_3$ sample flipped?
 **** TODO \AlOx{} layer deposited using TMA? Should be DMAI, right?
+**** TODO How many supercycles in each sample case?
+480 cycles DEZ in Dennis's work, which amounts to ~80 nm AZO
+How much for ~20 nm AZO on type B?
+**** TODO Incorporate etching steps motivation somewhere
 **** [?] Figure illustrating supercycle
 ** Measurements
+*** Hall effect measurements
+The Hall effect can be used to measure carrier density and mobility of type A samples.
+In this work, measurements were performed using a Lakeshore 8400 series Hall measurement system.
+Samples were cut into approximately 9 mm by 9 mm squares, taking care to cut away any \AZO{} deposited along the edge of the wafer.
+The samples were mounted on a sample holder using four probe pins, which were firmly pressed against the sample to make contact with the \AZO{}.
+Due to the small thickness of the \AlOx{} capping layers, these did not need to be removed prior to measurements, as the probe pins were able to puncture them.
+After an Ohmic contact check, the sheet resistivity of the \AZO{} film is determined using the Van der Pauw method (TODO: sources).
+When the sheet resistivity is measured, the sample is subjected to a magnetic field of 1 T, and the hall voltage is measured, from this the carrier density and mobility can be determined.
+*** Spectroscopic ellipsometry
+The optical properties of the deposited \AZO{} films were studied using Spectroscopic Ellipsometry (SE).
+As the photon adsorption by free carriers is considered an important loss factor in TCOs, an ellipsometer with a broad spectrum was used, including near-infrared wavelenghts.
+This makes the ellipsometer sensitive in the free carrier adsorption range.
+
+*** Contact resistivity measurement
+*** Todos :todoex:
+**** TODO Include van der Pauw measurement theory
+How much?
+Probably not needed to put in an explanation similar to Dennis's thesis, just refer to the Hall measurement handbook and the original paper by van de Pauw.
+**** TODO What SE type?
+**** TODO Elaborate quite a bit more on SE analysis.
+How much more though? I should include the used model.
+I think results, including a discussion of the fits should go in the results/discussion chapters.
+Should I just let this be a "I used this apparatus, data analysis will be discussed later" section?
+** Measurements
+*** Hall effect measurements
+The Hall effect can be used to measure carrier density and mobility of type A samples.
+In this work, measurements were performed using a Lakeshore 8400 series Hall measurement system.
+Samples were cut into approximately 9 mm by 9 mm squares, taking care to cut away any \AZO{} deposited along the edge of the wafer.
+The samples were mounted on a sample holder using four probe pins, which were firmly pressed against the sample to make contact with the \AZO{}.
+Due to the small thickness of the \AlOx{} capping layers, these did not need to be removed prior to measurements, as the probe pins were able to puncture them.
+After an Ohmic contact check, the sheet resistivity of the \AZO{} film is determined using the Van der Pauw method (TODO: sources).
+When the sheet resistivity is measured, the sample is subjected to a magnetic field of 1 T, and the hall voltage is measured, from this the carrier density and mobility can be determined.
+*** Spectroscopic ellipsometry
+The optical properties of the deposited \AZO{} films were studied using Spectroscopic Ellipsometry (SE).
+As the photon adsorption by free carriers is considered an important loss factor in TCOs, an ellipsometer with a broad spectrum was used, including near-infrared wavelenghts.
+This makes the ellipsometer sensitive in the free carrier adsorption range.
+
+
+
+
+*** Contact resistivity measurement
+*** Todos :todoex:
+**** TODO Include van der Pauw measurement theory
+How much?
+Probably not needed to put in an explanation similar to Dennis's thesis, just refer to the Hall measurement handbook and the original paper by van de Pauw.
+**** TODO What SE type?
+**** TODO How m
 * Results
 * Discussion
 * Conclusion
@@ -57,3 +125,4 @@ todo indicates that they have not been well defined yet, and require some minor 
 introduce, probably in introduction.
 ** TODO AZO
 ** TODO ALD
+** TODO TCO
