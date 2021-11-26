@@ -38,9 +38,9 @@ After this oxide removal, a 30 min UV/O$_3$ oxidation was performed at room temp
 *** ALD process
 \AZO{} and \AlOx{} films were deposited by thermal ALD using an Oxford Instruments OpAL reactor.
 The table and wall were kept at temperatures of 200\Celsius{} and 180\Celsius{}, respectively.
-\AZO was deposited with using a supercycle approach consisting of diethylzinc (DEZ) or dimethylaluminumisopropoxide (DMAI) alternated with \HHO{} doses.
+\AZO{} was deposited using a supercycle approach consisting of diethylzinc (DEZ) or dimethylaluminumisopropoxide (DMAI) alternated with \HHO{} doses.
 To control the Al doping levels, the ratio of DEZ and DMAI cycles was varied.
-Overall, given cycle ratio $r$, the supercycle consists of $\frac{r}{2}$ DEZ/\HHO{} cycles followed by one DMAI/\HHO{} cycle, followed by $\frac{r}{2}$ DEZ/\HHO{} cycles again.
+Overall, for a given cycle ratio $r$, the supercycle consists of $\frac{r}{2}$ DEZ/\HHO{} cycles followed by one DMAI/\HHO{} cycle, followed by $\frac{r}{2}$ DEZ/\HHO{} cycles again.
 Cycle ratios of 16, 24, 48 and 96 were used in addition to intrinsic, undoped, ZnO.
 In this work, the \AZO{} doping level will be indicated by the letter 'r' followed by the cycle ratio or the abbreviation 'int' for intrinsic.
 # How many cycles per sample?!
@@ -71,11 +71,12 @@ Include references to samples type A and B
 480 cycles DEZ in Dennis's work, which amounts to ~80 nm AZO
 How much for ~20 nm AZO on type B?
 **** TODO Incorporate etching steps motivation somewhere
+**** TODO Include reference to etching paper
 **** TODO Check if poly-Si samples received oxidation steps
 **** [?] Figure illustrating supercycle
 ** Measurements
 *** Hall effect measurements
-The Hall effect can be used to measure carrier density and mobility of type A samples.
+The Hall effect has been used to measure carrier density and mobility of type A samples.
 In this work, measurements were performed using a Lakeshore 8400 series Hall measurement system.
 Samples were cut into approximately 9 mm by 9 mm squares, taking care to cut away any \AZO{} deposited along the edge of the wafer.
 The samples were mounted on a sample holder using four probe pins, which were firmly pressed against the sample to make contact with the \AZO{}.
@@ -84,8 +85,8 @@ After an Ohmic contact check, the sheet resistivity of the \AZO{} film is determ
 When the sheet resistivity is measured, the sample is subjected to a magnetic field of 1 T, and the hall voltage is measured, from this the carrier density and mobility can be determined.
 *** Spectroscopic ellipsometry
 The optical properties of the deposited \AZO{} films were studied using Spectroscopic Ellipsometry (SE).
-As the photon adsorption by free carriers is considered an important loss factor in TCOs, an ellipsometer with a broad spectrum was used, including near-infrared wavelenghts.
-This makes the ellipsometer sensitive in the free carrier adsorption range.
+As the photon absorption by free carriers is considered an important loss factor in TCOs, an ellipsometer with a broad spectrum was used, including near-infrared wavelenghts.
+This makes the ellipsometer sensitive in the free carrier absorption range.
 
 *** Contact resistivity measurement
 *** Todos :todoex:
@@ -97,30 +98,6 @@ Probably not needed to put in an explanation similar to Dennis's thesis, just re
 How much more though? I should include the used model.
 I think results, including a discussion of the fits should go in the results/discussion chapters.
 Should I just let this be a "I used this apparatus, data analysis will be discussed later" section?
-** Measurements
-*** Hall effect measurements
-The Hall effect can be used to measure carrier density and mobility of type A samples.
-In this work, measurements were performed using a Lakeshore 8400 series Hall measurement system.
-Samples were cut into approximately 9 mm by 9 mm squares, taking care to cut away any \AZO{} deposited along the edge of the wafer.
-The samples were mounted on a sample holder using four probe pins, which were firmly pressed against the sample to make contact with the \AZO{}.
-Due to the small thickness of the \AlOx{} capping layers, these did not need to be removed prior to measurements, as the probe pins were able to puncture them.
-After an Ohmic contact check, the sheet resistivity of the \AZO{} film is determined using the Van der Pauw method (TODO: sources).
-When the sheet resistivity is measured, the sample is subjected to a magnetic field of 1 T, and the hall voltage is measured, from this the carrier density and mobility can be determined.
-*** Spectroscopic ellipsometry
-The optical properties of the deposited \AZO{} films were studied using Spectroscopic Ellipsometry (SE).
-As the photon adsorption by free carriers is considered an important loss factor in TCOs, an ellipsometer with a broad spectrum was used, including near-infrared wavelenghts.
-This makes the ellipsometer sensitive in the free carrier adsorption range.
-
-
-
-
-*** Contact resistivity measurement
-*** Todos :todoex:
-**** TODO Include van der Pauw measurement theory
-How much?
-Probably not needed to put in an explanation similar to Dennis's thesis, just refer to the Hall measurement handbook and the original paper by van de Pauw.
-**** TODO What SE type?
-**** TODO How m
 * Results
 * Discussion
 * Conclusion
