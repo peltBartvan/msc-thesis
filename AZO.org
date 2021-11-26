@@ -17,12 +17,18 @@
 * Methods
 ** TODO Sample preparation
 # SAMPLES A
-To study its optical and electronic properties, \AZO{} was deposited on silicon wafers with 450 nm thermal \SiOx{}.
+To study how its optical and electronic properties are influenced by doping, annealing and capping, \AZO{} was deposited on silicon wafers with 450 nm thermal \SiOx{}.
 On some of these samples, a capping layer of 30 nm \AlOx{} was deposited as this was expected to enhance passivation.
 After thermal annealing, optical and electrical properties were measured through spectroscopic ellipsometry, Hall measurements and four point probing.
 # SAMPLES B
-Another type of sample was used to study the contact resistivities of deposited \AZO{} on substrates of c-Si with different doping levels and, for comparison, on polished and textured polysilicon.
-On both sides of these samples, \AZO{} was deposited, followed by an \AlOx{} capping layer. After annealing, the capping layer was selectively removed using a wet etching process, so that the \AZO{} films on both sides of the sample could be electrically contacted.
+Besides a good in-plane conductivity of the \AZO{} films, the ability to form good contacts on silicon is critical for applications in solar energy applications.
+To study the contacting behaviour of these layers another type of sample, referred to as type B, was used.
+In these samples the doping of both \AZO{} and Si were varied.
+As will be discussed later, the type A samples show good characteristics when annealed at 400\Celsius{} and 500\Celsius{}, after which they degrade.
+To focus on this temperature range all type B samples were annealed to either 400\Celsius{} or 500\Celsius{}.
+For comparison with other solar PV materials, some similar experiments were done on LPCVD poly-Si.
+On both sides of these samples, \AZO{} was deposited, followed by an \AlOx{} capping layer.
+After annealing to activate the surface passivation, the capping layer was selectively removed using a wet etching process, so that the \AZO{} films on both sides of the sample could be electrically contacted.
 To ensure good contacting and help reduce current spreading effects, 300 nm of Ag was deposited on both sides of the sample.
 The sample processing steps will be discussed in more detail in the following sections.
 *** Oxidation
@@ -65,6 +71,7 @@ Include references to samples type A and B
 480 cycles DEZ in Dennis's work, which amounts to ~80 nm AZO
 How much for ~20 nm AZO on type B?
 **** TODO Incorporate etching steps motivation somewhere
+**** TODO Check if poly-Si samples received oxidation steps
 **** [?] Figure illustrating supercycle
 ** Measurements
 *** Hall effect measurements
@@ -126,3 +133,4 @@ introduce, probably in introduction.
 ** TODO AZO
 ** TODO ALD
 ** TODO TCO
+** TODO PV
