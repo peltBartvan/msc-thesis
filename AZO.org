@@ -10,6 +10,24 @@
 #+OPTIONS: toc:nil
 
 * Introduction
+The need for efficient solar cells needs little explanation.
+Amid global warming and pollution concerns, clean forms of energy, such as solar photovoltaics (PV) are becoming more and more important parts of the global energy portfolio.
+
+** Todos :todoex:
+*** TODO Need for efficient solar cells
+Do I need to go into the efficiency and cost aspects? Or just focus on the
+*** TODO Very quick overview of solar cell, what should the contact do? What does a TCO do?
+*** TODO \AZO{} has been shown to have good properties as TCO
+Refs: Dennis, Bas, Bart
+Stress: Only passivating TCO, just stress that it's good at "conducting" and "passivating", and that this combination is unique (rare?).
+Details will follow later
+*** TODO Goals: good TCO: low resistivity, low photon absorption, low contact resistivity
+This might go well in the theory section, allowing some more depth in considering overall efficiency.
+*** TODO Why capping/annealing
+Shown to work quite well for passivation, refer to theory for more details
+*** TODO Include possible integration pathway
+Real life case, stress relevance.
+Mention Percspective project.
 * Theory
 ** Todos :todoex:
 *** TODO Mention importance of AlOx capping found previously
