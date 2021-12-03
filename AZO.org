@@ -1,5 +1,9 @@
 #+TITLE: Azo
 
+#+BIBLIOGRAPHY: zotero_refs
+#+LATEX_HEADER: \usepackage{natbib}
+#+LATEX_HEADER: \bibliographystyle{abbrv}
+
 #+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
 #+LATEX_HEADER: \newcommand{\Celsius}{$^\circ$C}
 #+LATEX_HEADER: \newcommand{\SiOx}{\text{SiO$_2$}}
@@ -9,13 +13,36 @@
 # #+EXCLUDE_TAGS: todoex
 #+OPTIONS: toc:nil
 
+# To compile with new sources:
+#   0) Check for name typo's, they are embarrassing...
+#   1) Export Zotero library to zotero_refs.bib (this should happen automatically)
+#   2) Export as TeX file: SPC m e l l
+#   3) Run: pdflatex AZO && bibtex AZO && pdflatex AZO && pdflatex AZO
+#   4) Emacs: SPC m e l o
+
 * Introduction
 The need for efficient solar cells needs little explanation.
 Amid global warming and pollution concerns, clean forms of energy, such as solar photovoltaics (PV) are becoming more and more important parts of the global energy portfolio.
+When choosing whether to install a PV system or not, one of the major consideration points will be the cost of the system.
+The most straight-forward way of driving down this cost is to make the solar cells cheaper to manufacture through for example cost-optimization of the cell or scaling up production.
+This approach has its limits though, as the costs of the solar cells themselves accounts to only a small part of the total system cost.
+For this reason, increasing the efficiency of the cells is key to driving down the costs of a PV system by reducing the number of modules to be placed and space needed.
+Sadly, the solar cell market is suffering from the scarcity of some important materials, notably: silver and indium.
+Indium is used in indium tin oxide (ITO) films on the fronts of cells to conduct the generated photocurrents towards metal contacts, which in turn are made out of silver.
+Simply speaking the problem is this: front side contacting materials are expensive, and they are not expected to get cheaper anytime soon.
+Can we use other, cheaper, materials instead, while not compromising on efficiency?
+In this work, aluminium doped zinc oxide (\AZO{}) is investigated as a contact material by looking at its optical and electrical properties.
+The materials themselves are much cheaper and more available than ITO, but can \AZO{} compete in efficiency as well?
+Previous work focused on the lateral conductivity and optical transparency \cite{MasterThesisDGJA} and passivation \cite{melskens2018}, in this work the contact resistivity between \AZO{} and doped silicon is investigated.
+To study this contact resistivity, a novel method has been devised, which is explained in detail in the second part of this thesis.
+Luckily, very low contact resistivities were found, showing good potential for \AZO{} contacts in novel cell designs.
+
 
 ** Todos :todoex:
 *** TODO Need for efficient solar cells
 Do I need to go into the efficiency and cost aspects? Or just focus on the
+*** TODO What part is labor costs?
+Tried looking up some recent sources, add these (they are in Zotero atm)
 *** TODO Very quick overview of solar cell, what should the contact do? What does a TCO do?
 *** TODO \AZO{} has been shown to have good properties as TCO
 Refs: Dennis, Bas, Bart
@@ -125,7 +152,11 @@ A list of all symbols/abbreviations used.
 todo indicates that they have not been well defined yet, and require some minor attention in the future.
 ** TODO SE
 introduce, probably in introduction.
-** TODO AZO
+** DONE AZO
 ** TODO ALD
 ** TODO TCO
 ** TODO PV
+
+\bibliography{zotero_refs}
+* TODO References :todoex:
+** TODO fix reference data for Dennis's thesis
