@@ -32,32 +32,40 @@ Indium is used in indium tin oxide (ITO) films on the fronts of cells to conduct
 Simply speaking the problem is this: front side contacting materials are expensive, and they are not expected to get cheaper anytime soon.
 Can we use other, cheaper, materials instead, while not compromising on efficiency?
 In this work, aluminium doped zinc oxide (\AZO{}) is investigated as a contact material by looking at its optical and electrical properties.
-The materials themselves are much cheaper and more available than ITO, but can \AZO{} compete in efficiency as well?
 Previous work focused on the lateral conductivity and optical transparency \cite{MasterThesisDGJA} and passivation \cite{melskens2018}, in this work the contact resistivity between \AZO{} and doped silicon is investigated.
+The same work also showed an annealing step to greatly improve the material properties, but only if an aluminium oxide (\AlOx{}) capping layer was present during annealing \cite{BasPassivation}.
+In this work, the effects of annealing, capping and doping of both the \AZO{} and c-Si substrates are investigated.
 To study this contact resistivity, a novel method has been devised, which is explained in detail in the second part of this thesis.
 Luckily, very low contact resistivities were found, showing good potential for \AZO{} contacts in novel cell designs.
 
 
+
+
+
 ** Todos :todoex:
-*** TODO Need for efficient solar cells
-Do I need to go into the efficiency and cost aspects? Or just focus on the
-*** TODO What part is labor costs?
+*** DONE Need for efficient solar cells
+Do I need to go into the efficiency and cost aspects?
+*** DONE What part is labor costs?
 Tried looking up some recent sources, add these (they are in Zotero atm)
-*** TODO Very quick overview of solar cell, what should the contact do? What does a TCO do?
-*** TODO \AZO{} has been shown to have good properties as TCO
+Skip this..
+*** DONE Very quick overview of solar cell, what should the contact do? What does a TCO do?
+Tried abstracting this away "contacts are expensive"
+*** DONE \AZO{} has been shown to have good properties as TCO
 Refs: Dennis, Bas, Bart
 Stress: Only passivating TCO, just stress that it's good at "conducting" and "passivating", and that this combination is unique (rare?).
 Details will follow later
-*** TODO Goals: good TCO: low resistivity, low photon absorption, low contact resistivity
+*** DONE Goals: good TCO: low resistivity, low photon absorption, low contact resistivity
 This might go well in the theory section, allowing some more depth in considering overall efficiency.
-*** TODO Why capping/annealing
+Noted this, have not yet gone in depth.
+*** DONE Why capping/annealing
 Shown to work quite well for passivation, refer to theory for more details
 *** TODO Include possible integration pathway
-Real life case, stress relevance.
 Mention Percspective project.
+Should I do this here already? Maybe more useful to describe after explaining some solar cell theory.
 * Theory
 ** Todos :todoex:
 *** TODO Mention importance of AlOx capping found previously
+Elaborate on intro.
 
 * Methods
 ** TODO Sample preparation
