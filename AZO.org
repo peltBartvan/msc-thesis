@@ -10,7 +10,10 @@
 #+LATEX_HEADER: \newcommand{\AlOx}{\text{Al$_2$O$_3$}}
 #+LATEX_HEADER: \newcommand{\HHO}{\text{H$_2$O}}
 
-# #+EXCLUDE_TAGS: todoex
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \captionsetup{font=footnotesize}
+
+#+EXCLUDE_TAGS: todoex
 #+OPTIONS: toc:nil
 
 # To compile with new sources:
@@ -151,7 +154,35 @@ Probably not needed to put in an explanation similar to Dennis's thesis, just re
 How much more though? I should include the used model.
 I think results, including a discussion of the fits should go in the results/discussion chapters.
 Should I just let this be a "I used this apparatus, data analysis will be discussed later" section?
-* Results
+* Results/discussions
+** First steps
+Anneal order does not matter much, as supported by Hall data
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Hall data obtained while either annealing one sample for a full range of temperatures (full), compared with separate samples, annealed to only their target temperatures (part).
+#+LABEL: fig:annealOrder
+[[./images/anneal_order.png]]
+** Capping/annealing
+Figure \ref{fig:resistivityHall}, shows the effects of annealing and capping on sheet resistivity.
+A dip in resistivity can be seen when annealing to temperatures around 600\Celsius{}
+# Capping has the most impact on film quality of the process parameters mentioned, without a capping layer the resistivity increases tremendously.
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Sheet resistivity of capped and uncapped samples of varying doping level, as function of annealing temperature. For uncapped samples, the resistivity increases dramatically after even mild annealing, while the capped samples show a decreasing resistivity.
+#+LABEL: fig:resistivityHall
+[[./images/rho_sh_vs_anneal.png]]
+This decrease in resistivity can be explained by an increase in mobility and carrier density, as shown in figures \ref{fig:carrierDensityHall}.
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Sheet carrier density as measured with the van der Pauw method.
+#+LABEL: fig:carrierDensityHall
+[[./images/n_sh_vs_anneal.png]]
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Sheet carrier density as measured with the van der Pauw method.
+#+LABEL: fig:mobilityHall
+[[./images/mu_H_vs_anneal.png]]
+
+
 * Discussion
 * Conclusion
 * Recommendations
