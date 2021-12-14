@@ -1,10 +1,10 @@
 #+TITLE: Azo
 
 #+BIBLIOGRAPHY: zotero_refs
-#+LATEX_HEADER: \usepackage{natbib}
+#+LATEX_HEADER: \usepackage[numbers]{natbib}
 #+LATEX_HEADER: \bibliographystyle{abbrv}
 
-#+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
+#+Latex_HEADER: \newcommand{\AZO}{ZnO:Al}
 #+LATEX_HEADER: \newcommand{\Celsius}{$^\circ$C}
 #+LATEX_HEADER: \newcommand{\SiOx}{\text{SiO$_2$}}
 #+LATEX_HEADER: \newcommand{\AlOx}{\text{Al$_2$O$_3$}}
@@ -13,7 +13,7 @@
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
-#+EXCLUDE_TAGS: todoex
+#+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
 
 # To compile with new sources:
@@ -40,11 +40,6 @@ The same work also showed an annealing step to greatly improve the material prop
 In this work, the effects of annealing, capping and doping of both the \AZO{} and c-Si substrates are investigated.
 To study this contact resistivity, a novel method has been devised, which is explained in detail in the second part of this thesis.
 Luckily, very low contact resistivities were found, showing good potential for \AZO{} contacts in novel cell designs.
-
-
-
-
-
 ** Todos :todoex:
 *** DONE Need for efficient solar cells
 Do I need to go into the efficiency and cost aspects?
@@ -154,15 +149,46 @@ Probably not needed to put in an explanation similar to Dennis's thesis, just re
 How much more though? I should include the used model.
 I think results, including a discussion of the fits should go in the results/discussion chapters.
 Should I just let this be a "I used this apparatus, data analysis will be discussed later" section?
-* Results/discussions
-** First steps
+* Results/discussion
+Previous work has shown capping and annealing of the \AZO{} layers to be necessary for obtaining a good passivation (source).
+As shown in Figure \ref{fig:resistivityHall}, these steps also decrease the resistity, especially in the 550-650\Celsius{} range, but only for capped samples.
+The sheet resistivity of the uncapped samples grows significantly during annealing, to the point where measuring resistivity with the Hall apparatus was not practical anymore.
+This shows that the use of a capping layer is not only a neccessity for achieving good passivation, but also for decreasing the resistivity.
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Sheet resistivity of capped and uncapped samples of varying doping level, as function of annealing temperature. For uncapped samples, the resistivity increases dramatically after even mild annealing, while the capped samples show a decreasing resistivity.
+#+LABEL: fig:resistivityHall
+[[./images/rho_sh_vs_anneal.png]]
+
+The decrease in resistivity can be explained by an increasing Hall mobility and increasing carrier density, as shown in Figures \ref{fig:mobilityHall} and \ref{fig:carrierDensityHall}.
+While an increasing carrier density leads to more optical losses, an increasing mobility is expected to reduce them.
+However, it is important to note that the optical mobility may deviate from the Hall mobility \ref{fig:mobilityOpt}.
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Hall mobility as measured with the van der Pauw method.
+#+LABEL: fig:mobilityHall
+[[./images/mu_H_vs_anneal.png]]
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Sheet carrier density as measured with the van der Pauw method.
+#+LABEL: fig:carrierDensityHall
+[[./images/n_sh_vs_anneal.png]]
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Optical mobility as measured with SE.
+#+LABEL: fig:mobilityOpt
+[[./images/mu_opt_vs_anneal.png]]
+
+
+
+** First steps :noexport:
 Anneal order does not matter much, as supported by Hall data
 
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: Hall data obtained while either annealing one sample for a full range of temperatures (full), compared with separate samples, annealed to only their target temperatures (part).
 #+LABEL: fig:annealOrder
 [[./images/anneal_order.png]]
-** Capping/annealing
+** Capping/annealing :noexport:
 Figure \ref{fig:resistivityHall}, shows the effects of annealing and capping on sheet resistivity.
 A dip in resistivity can be seen when annealing to temperatures around 600\Celsius{}
 # Capping has the most impact on film quality of the process parameters mentioned, without a capping layer the resistivity increases tremendously.
@@ -182,11 +208,16 @@ This decrease in resistivity can be explained by an increase in mobility and car
 #+LABEL: fig:mobilityHall
 [[./images/mu_H_vs_anneal.png]]
 
+** TODO todos :todoex:
+*** TODO Get plots in right order
+*** TODO Write part on conductivity
+*** TODO Write part on transparency
+*** TODO Write part on contact resistivity
 
 * Discussion
 * Conclusion
 * Recommendations
-* TODO Symbols/abbreviations :todoex:
+* TODO Symbols/abbreviations
 A list of all symbols/abbreviations used.
 todo indicates that they have not been well defined yet, and require some minor attention in the future.
 ** TODO SE
