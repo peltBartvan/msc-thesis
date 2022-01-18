@@ -1,0 +1,92 @@
+#+TITLE: Top-down measurements of contact resistivity.
+
+#+BIBLIOGRAPHY: zotero_refs
+#+LATEX_HEADER: \usepackage[numbers]{natbib}
+#+LATEX_HEADER: \bibliographystyle{abbrv}
+
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{svg}
+#+LATEX_HEADER: \captionsetup{font=footnotesize}
+
+#+EXCLUDE_TAGS: todoex noexport
+#+OPTIONS: toc:nil
+
+* Introduction
+In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
+In this part of this thesis, the devised measurement setup and method will be described in full detail.
+The method provides an alternative to typical contact resistivity measurements, in which several processing steps are needed to create accurately shaped contacts on the samples of interest.
+Not only are these steps time-consuming and complicated to perform, they pose limitations on the types of samples that can be used.
+Furthermore, thermal and chemical processing steps could alter the electrical properties of the contact of interest, and there is no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
+The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
+* Theory
+** Contact resistivity
+Contacts between different materials often exhibit a voltage drop when a current is applied.
+In general, the relation between voltage drop, $V$, and resulting current density, $J$, can be described as
+\begin{equation}
+J = f(V, \text{other parameters}).
+\end{equation}
+The other parameters may include, for example, the potential barrier height and doping densities of either material, their roles will be discussed later.
+# Will they?
+The contact resisivity is then defined as
+\begin{equation}
+\rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0},
+\end{equation}
+in which the dependency on the "other parameters" is implicit.
+** Typical measurement methods
+Hier wil ik eigenlijk een beetje terugpakken op hoofdstuk drie van Semiconductor material and device characterization van Schroder.
+Het lijkt me een goed idee om van de two-terminal methods een paar te kiezen, zoals transmission line method en Cox & Strack, hoewel er andere varianten bestaan hebben ze allemaal hetzelfde praktische probleem: patterning stappen.
+Eigenlijk is de boodschap vooral "two terminal kan, maar je moet sowieso patternen, en interne weerstanden in je meetopstelling kunnen belangrijk zijn".
+Daarna wil ik snel door naar de four terminal methodes. Hoofdzakelijk de cross bridge Kelvin resistor (CBKR) setup, maar ook even refereren naar alternatieve opstellingen (Loh et al. - 1985 - 2-D Simulations for accurate extraction ...).
+Belangrijke takeaway is hier het belang van de transfer length, en dat zaken makkelijker worden als deze groot is.
+*** Cox & Strack
+** COMMENT Wiskunde achter spreiding: transfer length
+Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
+** A generalization: Transfer length effects
+So far, all the top-down measurement methods had to mitigate one phenomenon, transfer length effects.
+Consider ideal conductors used as contacts, as these form regions of equal electric potential, the potential difference between top and bottom of the sample will be equal everywhere.
+The driven current density will be uniform, found simply by: $J = \frac{\Delta V}{\rho_s}$.
+In this idealized case, contact resistivities would be trivial to measure, but in reality the driven current distributions and potential differences can be significantly inhomogeneous, as illustrated in Figure \ref{fig:inhomogeneityIllustration}.
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: A comparison between contacting with ideally conducting electrodes (top) and electrodes with significant resistivity (bottom). Positive and negative voltages are shown as shades of red and blue in the electrodes, while the current density through the sample is depicted using arrows and shades of yellow. In the ideal case the contact voltages and current densities are uniform, while in the non-ideal case the current distribution is localized near the current injection point of the contacting electrodes.
+#+LABEL: fig:inhomogeneityIllustration
+[[./images/current_homogeneity.drawio.png]]
+To quantify these effects, the interaction between electrodes and sample was modeled, as illustrated in Figure \ref{fig:lengthIllustration}.
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: A model of a sample with two contacting electrodes. In the electrodes the current density is determined from the electrodes' conductivity and the electric fields. The current density through the sample can be determined from the stack resistivity $\rho$ and the local potential difference between the top and bottom electrode.
+#+LABEL: fig:lengthIllustration
+[[./images/length_diagram.png]]
+
+In this model an arbitrary slab of sample and electrodes is considered, oriented along the x-y plane, with the z-direction defining the top and bottom of the setup.
+The electrodes are considered to be very thin, and relatively conductive, so that the voltage within each electrode are independent of $z$.
+Within these electrodes, the current density is determined by Ohm's law, so that
+\begin{equation}
+\vec{J}_{top} = -\sigma\nabla_{(x,y)} V_{top}(x,y),
+\end{equation}
+and
+\begin{equation}
+\vec{J}_{bottom} = -\sigma\nabla_{(x,y)} V_{bottom}(x,y),
+\end{equation}
+in which $\sigma$ is the conductivity of the electrode material.
+The current density through the sample is given by
+\begin{equation}
+J_\perp = \frac{V_{top} - V_{bottom}}{\rho},
+\end{equation}
+for some specific sample resistance $\rho$.
+Consider charge conservation in some arbitrary $\Omega$ in the top electrode, which can be expressed as a sum of currents flowing into the region from other parts of the electrodes, and a current flowing into the sample:
+\begin{equation}
+0 = \int_\Omega \vec{J}\cdot\vec{\mathrm{d}A} = \int_\Omega J_\perp \mathrm{d}A + \oint_{\partial\Omega}\vec{J}_{top}\cdot\hat{n}h\mathrm{d}s,
+\end{equation}
+where $h$ is the thickness of the electrode.
+Substitution of the current densities followed by application of the divergence theorem yields
+\begin{equation}
+0 = \int_\Omega \frac{1}{\rho}(V_{top} - V_{bottom}) \mathrm{d}A - \int_\Omega \sigma h \nabla^2_{(x,y)}V_{top}\mathrm{d}A,
+\end{equation}
+and similarly for the bottom equation, except the sign of the $J_\perp$ contribution is switched
+\begin{equation}
+0 = \int_\Omega \frac{1}{\rho}(V_{top} - V_{bottom}) \mathrm{d}A + \int_\Omega \sigma h \nabla^2_{(x,y)}V_{bottom}\mathrm{d}A.
+\end{equation}
+Adding the two together, and letting $\Delta V \equiv V_{top} - V_{bottom}$, one gets
+\begin{equation}
+0 = \int_\Omega \frac{1}{\rho}(V_{top} - V_{bottom}) \mathrm{d}A + \int_\Omega \sigma h \nabla^2_{(x,y)}V_{bottom}\mathrm{d}A
+\end{equation}
