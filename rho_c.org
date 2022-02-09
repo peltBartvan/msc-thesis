@@ -7,6 +7,8 @@
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
+# TODO: change occurences of R_{sq} into \Rsq
+#+LATEX_HEADER: \newcommand{\Rsq}{R_s}
 
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
@@ -55,8 +57,9 @@ To quantify these effects, the interaction between electrodes and sample was mod
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: A model of a sample with two contacting electrodes. In the electrodes the current density is determined from the electrodes' conductivity and the electric fields. The current density through the sample can be determined from the stack resistivity $\rho$ and the local potential difference between the top and bottom electrode.
 #+LABEL: fig:lengthIllustration
-[[./images/length_diagram.png]]
+[[./images/length_diagram_new.png]]
 
+*** Governing equations
 In this model an arbitrary slab of sample and electrodes is considered, oriented along the x-y plane, with the z-direction defining the top and bottom of the setup.
 The electrodes are considered to be very thin, and relatively conductive, so that the voltage within each electrode are independent of $z$.
 Within these electrodes, the current density is determined by Ohm's law, so that
@@ -73,7 +76,7 @@ The current density through the sample is given by
 J_\perp = \frac{V_{top} - V_{bottom}}{\rho},
 \end{equation}
 for some specific sample resistance $\rho$.
-Consider charge conservation in some arbitrary $\Omega$ in the top electrode, which can be expressed as a sum of currents flowing into the region from other parts of the electrodes, and a current flowing into the sample:
+Consider charge conservation in some arbitrary region $\Omega$ in the top electrode, which can be expressed as a sum of currents flowing into the region from other parts of the electrodes, and a current flowing into the sample:
 \begin{equation}
 0 = \int_\Omega \vec{J}\cdot\vec{\mathrm{d}A} = \int_\Omega J_\perp \mathrm{d}A + \oint_{\partial\Omega}\vec{J}_{top}\cdot\hat{n}h\mathrm{d}s,
 \end{equation}
@@ -86,7 +89,183 @@ and similarly for the bottom equation, except the sign of the $J_\perp$ contribu
 \begin{equation}
 0 = \int_\Omega \frac{1}{\rho}(V_{top} - V_{bottom}) \mathrm{d}A + \int_\Omega \sigma h \nabla^2_{(x,y)}V_{bottom}\mathrm{d}A.
 \end{equation}
-Adding the two together, and letting $\Delta V \equiv V_{top} - V_{bottom}$, one gets
+Adding the two together, and letting $\phi \equiv V_{top} - V_{bottom}$, one gets
 \begin{equation}
-0 = \int_\Omega \frac{1}{\rho}(V_{top} - V_{bottom}) \mathrm{d}A + \int_\Omega \sigma h \nabla^2_{(x,y)}V_{bottom}\mathrm{d}A
+0 = \int_\Omega -\sigma h\nabla^2_{(x,y)}\phi + \frac{\phi}{\rho}\mathrm{d}A
 \end{equation}
+As the choice of $\Omega$ was arbitrary, the integrand must vanish almost everywhere, so that
+\begin{equation}
+\nabla^2 \phi = \frac{R_{sq}}{\rho}\phi.
+\end{equation}
+
+No PDE is complete without appropriate boundary conditions, in this work Neumann boundary conditions are considered, as these describe four-point probing setups the best.
+A current distribution is driven along some part of the domain boundary, and some resulting potential difference is measured.
+In dimensionless form, the equation can be written as
+\begin{equation}
+\tilde{\nabla}^2 \phi = \left(\frac{L}{L_t}\right)^2 \phi \equiv k^2\phi,
+\end{equation}
+where $L$ is the characteristic dimension of the sample, and $L_t \equiv \sqrt{\frac{\rho}{R_{sq}}}$ is the so called transfer length, and the dimensionless Laplacian is given by $\tilde{\nabla}^2 = \frac{1}{L^2}\nabla^2$.
+In following sections the tilde on the Laplacian will be omitted, so that the dimensionless form of the PDE is given by
+\begin{align}
+\nabla^2\phi &= k^2\phi, &\Omega\\
+\nabla\phi\cdot \hat{n} &= f  &\partial\Omega.
+\end{align}
+*** Uniqueness of solutions
+To show that solutions are unique, consider two solutions, $\phi_1$ and $\phi_2$ and let $\hat\phi \equiv \phi_1 - \phi_2$, the goal will be to show that the PDE and boundary conditions force $\phi$ to vanish.
+Linearity shows that $\hat\phi$ must obey
+\begin{align}
+\nabla^2\hat\phi &= k^2\hat\phi, \quad \Omega\\
+\nabla\hat\phi\cdot \hat{n} &= 0 \quad \partial\Omega.
+\end{align}
+Now consider the following integral,
+\begin{equation}
+\int_\Omega \nabla \cdot(\hat\phi\nabla\hat\phi) \mathrm{d}x= \oint_{\partial\Omega}\hat\phi\nabla\hat\phi\cdot\vec{\mathrm{d}A} \overset{\mathrm{B.C.}}{=} 0,
+\end{equation}
+apply the chain rule
+\begin{equation}
+0=\int_\Omega \nabla\cdot(\hat\phi\nabla\hat\phi)\mathrm{d}x = \int_\Omega\hat\phi\nabla^2\hat\phi + \nabla\hat\phi\cdot\nabla\hat\phi\mathrm{d}x,
+\end{equation}
+and apply the PDE to clear the $\nabla^2\hat\phi$ term,
+\begin{equation}
+0 = \int_\Omega k^2\hat\phi^2 + \left|\nabla\hat\phi\right|^2\mathrm{d}x.
+\end{equation}
+With the inner product
+\begin{equation}
+\langle\phi,\psi\rangle = \int_\Omega k\phi\psi + \nabla\phi\cdot\nabla\psi \mathrm{d}x,
+\end{equation}
+the result can be recognized as $0 = \langle\hat\phi,\hat\phi\rangle \Rightarrow \hat\phi = 0$, which proves that the solutions of the PDE are indeed unique.
+*** Influence of transfer length
+Now, let's solve these equations for a few geometries.
+The first is the simplest realizable geometry, take a sample, and contact it with pins at its center to drive the currents, while measuring a potential drop somewhere else along the sample.
+While in practice a rectangular sample is often used, the problem is reduced to a circular domain in order to more easily look into the spreading effects.
+The unit disk is chosen as a solution domain without the origin, at which the current is driven, by symmetry, this allows us to look at solutions of the form $\phi(r)$
+As all currents are contained in the sample, the current density must vanish at the boundary, so that $\phi'(1) = 0$.
+In experimental conditions the total supplied current, $I$, is known.
+In this model however the average potential drop, $\bar{\phi}$, is specified, so that
+\begin{equation}
+\bar{\phi} = \frac{\int_\Omega \phi\mathrm{d}A}{\int_\Omega \mathrm{d}A} = \frac{2\pi}{\pi 1^2}\int_0^1r\phi(r)\mathrm{d}r.
+\end{equation}
+In the adopted cylindrical coordinates, the PDE can be expressed as
+\begin{equation}
+r^2\phi''(r) + r\phi'(r) - r^2 k^2 \phi(r) = 0,
+\end{equation}
+which is known as the modified Bessel equation.
+This modified Bessel function has solutions:
+\begin{equation}
+\phi(r) = AI_0(kr) + BK_0(kr),
+\end{equation}
+in which $A$ and $B$ are integration constants and $I_0$ and $K_0$ are modified Bessel functions of the first and second kind.
+By applying the boundary and integral conditions the integration constants can be found, these steps are omitted here, as it is mostly textbook linear algebra.
+In a simpler 1D system, the PDE reduces to $\phi'' = k^2\phi$, which was solved with a similar boundary and integral condition.
+The solutions are shown in Figure \ref{fig:phiSolutions}
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: A comparison of solutions for $\phi$ on $(0,1]$ in Cartesian and cylindrical coordinates, for varying $k \equiv \frac{L}{L_t}$. With boundary condition $\phi'(1) = 0$ and integral condition $\bar\phi = 1$. Note that the cylindrical solutions have much steeper gradients than the Cartesian ones, and that the homogeneity of the current distribution depends strongly on $k$, with large $k$ leading to very inhomogeneous currents.
+#+LABEL: fig:phiSolutions
+[[./images/phi_solutions.png]]
+
+Suppose you were to conduct a four-point probing experiment in either geometry, in which a current is driven through the sample, and some potential difference between the top and bottom of the sample, $\phi_M$, is measured.
+What would be a good way to perform these measurements?
+
+To answer this question, it is useful to first estimate $L_t$ for the samples of interest.
+As the current distribution is least homogeneous for small $L_t$, it is safest to underestimate it by using large sheet resistivities and low stack resistivities.
+While the stack resistivity is of course not known before the measurements, the lowest order of magnitude of $\rho$ was estimated at 10 m\Omega{}cm^2, while for the used AZO films, $R_{sq} \approx 100$ \Omega{} is not uncommon, in this case the transfer length is on the order of 0.1 mm.
+
+In practice, we'd like to be able to work with samples with dimensions of at least a few mm, not just because these are easier to handle, but because these can be easily be prepared by hand-cleaving a bigger sample piece.
+In these cases $k$ would be significantly larger than 1, so the majority of current will be driven only through a small part of the sample near the current drive electrode.
+
+The goal now is to reduce $k$ through some means, in the ideal limiting case $k = 0$, but how close is close enough?
+In Figure \ref{fig:phiSolutionsEdge}, the normalized value of \phi is shown at the extremes of a sample for different $k$, the black horizontal line is at 99%.
+This shows that, in order to measure the average potential to within a percent relative error, $k$ has to be around 0.25 or lower.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: $\frac{\phi_M}{\bar\phi}$ at the edge of the sample, as function of $\frac{L}{L_t}$. For small $\frac{L}{L_t}$ the potential measured at the edge very closely resembles the average potential.
+#+LABEL: fig:phiSolutionsEdge
+[[./images/phi_solutions_edge.png]]
+
+To realize this goal of decreasing $\frac{L}{L_t}$, two separate approaches are combined.
+The first is to increase $L_t$ by making the contacting layers more conductive, this is achieved by depositing 300nm of silver by e-beam evaporation.
+This increases $L_t$ to approximately a few millimeters.
+# hoe kom ik hier aan?
+The second approach is to effectively reduce $L$ by controlling the probe geometry.
+At first glance, $L$ appears to be determined by the sample size, a current is driven through some point, and this current cannot flow out of the sample, represented in the boundary condition $\phi'(L) = 0$.
+An obvious option to reduce $L$ could be to simply cut smaller samples, but in the millimeter range this is difficult, especially when areas need to be accurately determined.
+Working with tiny samples, while perfectly fine in theory, is undesired in practice, so can we decrease $L$ in bigger samples? The answer is yes!
+The trick lies in the nature of the boundary condition, it is only required that $\phi'(L) = 0$, but does this imply that the sample is contained in the $0 < x < L$ range? Not neccesarily.
+As an example, consider the one dimensional case: $\phi''(x) = k^2\phi(x)$ on $(0,1)$.
+Now instead of applying a zero flux condition at any domain edge, simply consider solutions that are symmetric around $x = \frac{1}{2}$, these can easily be constructed from the solutions, $\phi_k(x)$, shown in Figure \ref{fig:phiSolutionsEdge}, by
+\begin{equation}
+\phi_{k,\mathrm{sym}}(x) = \frac{1}{2}(\phi_k(x) + \phi_k(1-x)).
+\end{equation}
+
+Symmetric solutions are shown in Figure \ref{fig:phiSolutionsSym}, it is clear that now $\phi'(\frac{1}{2}) = 0$.
+Notice the similarity between the solutions as shown in Figure \ref{fig:phiSolutions} and the left half of Figure \ref{fig:phiSolutionsSym}, they are the same!
+Apparently driving currents with a grid of symmetric electrodes will let us effectively change $L$.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: TODO
+#+LABEL: fig:phiSolutionsSym
+[[./images/phi_solutions_symmetric.png]]
+
+This approach was realized using custom made printed circuit boards (PCBs), as shown in Figure \ref{fig:PCBimage}.
+The PCBs feature a pad of regularly spaced copper lines, covering an area of 15 by 15 mm^2.
+The copper lines are alternately connected to either of the shown pins, so that they resemble interleaved combs.
+To perform a measurement, a sample is clamped between two such PCBs, and a current is driven between two combs on alternate sides of the sample, while the other combs are used to measure the resulting potential across the sample in a four-terminal configuration.
+The used copper lines were 0.6 mm wide and spaced 0.3 mm apart, with this spacing and a sample spreading length on the order of half a cm, the requirement that $\frac{L}{L_t} < 0.25$ is easily met, so that the current distribution can be considered homogeneous.
+
+Practically, the measurements come down to the following steps:
+1) Create samples that:
+   - Have a spreading length significantly larger than the distance between the fingers of the PCBs to be used. Cover with silver if neccesary.
+   - Are homogeneous, this might not be the case when deposited films wrap around the samples.
+   - Feature no edge deposited conductive films, it is recommended to cleave off the edges of the samples after silver deposition.
+   - Have an accurately known surface area, $A$, in this work this was achieved with a computer vision method, which will be discussed later.
+   - Fit on the 15 mm by 15 mm measurement pads of the PCBs.
+2) Set up the resistance measurement system:
+   - Use a sourcemeter in a four-terminal sensing configuration, in this work a Keithley 2400 was used.
+   - Connect the current source terminals of the sourcemeter to "combs" on the two separate PCBs.
+   - Connect the voltage measurement terminals to the remaining combs.
+3) Clamp the sample between the PCBs
+   - Make sure that the sample is located on the pads, and does not shift before measuring.
+   - Use the alignment holes of the PCBs for consistent alignment.
+   - Apply an evenly distributed pressure to the sample, this can be achieved with a glue clamp.
+4) Perform a standard four-terminal resistance measurement, yielding resistance $R$.
+5) Calculate the stack resistivity $\rho_s = R\cdot A$.
+
+The interpretation of the measured stack resistivity depends on the used samples, as in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
+In this case an upper bound on contact resistivity can be given as $\rho_c < \frac{1}{2}\rho_s$.
+
+
+
+
+
+
+
+
+
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: TODO
+#+LABEL: fig:PCBimage
+[[./images/pcb_cropped.jpeg]]
+
+*** TODO :noexport:
+**** DONE Waarde L_t is ingeschat, wat betekent dit?
+Met samples van 1x1cm^2 betekent dit een flinke spreiding in mogelijke \phi_M, zeker in cylindrische samples (oftewel, naieve fpp setup).
+Wanneer je precies aan de rand meet is er een minder groot probleem, zie Figuur \ref{fig:phiSolutionsEdge}.
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: $\frac{\phi_M}{\bar\phi}$ at the edge of the sample, as function of $\frac{L}{L_t}$. For small $\frac{L}{L_t}$ the potential measured at the edge very closely resembles the average potential.
+#+LABEL: fig:phiSolutionsEdge
+[[./images/phi_solutions_edge.png]]
+**** DONE Leuk, maar wat kunnen we hiermee?
+Het zou mooi zijn als we L/L_t klein kunnen krijgen (~0.25 voor 1% error) zonder met ontzettend kleine ongecontroleerd gemaakte samples te hoeven werken.
+Vandaar: translatiesymmetrie, met een grid van electrodes breng je in principe dezelfde randvoorwaardes aan als in het originele cartesiaanse geval (toelichting: symmetrie leidt tot \phi'(1) = 0).
+Met hetzelfde sample kan je dus alsnog een veel kortere $L$ bereiken.
+
+**** TODO Implementatie: PCBs
+Hoe zijn ze gemaakt, welke elektrische eigenschappen
+**** TODO resultaten
+Spreidingen laten zien, maken orientatie en sample grootte nog uit?
+**** TODO Reflectie
+Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
+**** TODO Conclusie
+Methode is handig te gebruiken, levert herhaalbare resultaten.
