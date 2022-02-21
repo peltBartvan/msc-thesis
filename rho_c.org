@@ -11,7 +11,7 @@
 #+LATEX_HEADER: \newcommand{\Rsq}{R_s}
 
 #+EXCLUDE_TAGS: todoex noexport
-#+OPTIONS: toc:nil
+# +OPTIONS: toc:nil
 
 * Introduction
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
@@ -234,38 +234,41 @@ Practically, the measurements come down to the following steps:
 The interpretation of the measured stack resistivity depends on the used samples, as in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
 In this case an upper bound on contact resistivity can be given as $\rho_c < \frac{1}{2}\rho_s$.
 
-
-
-
-
-
-
-
-
-
 #+ATTR_LATEX: :width 1\textwidth
 #+CAPTION: TODO
 #+LABEL: fig:PCBimage
 [[./images/pcb_cropped.jpeg]]
 
-*** TODO :noexport:
-**** DONE Waarde L_t is ingeschat, wat betekent dit?
+**** Method validation
+The PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
+While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
+To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
+These contacting pads were made for each specific sample.
+Then the sample was clamped between the pieces of foil, while pieces of electrical tape ensured that no shorts could occur between the contacting pads.
+Two opposing "legs" were used to drive a current, while the potential difference was measured between the others, again in a four-point probe configuration.
+
+
+
+
+
+* TODO :noexport:
+** DONE Waarde L_t is ingeschat, wat betekent dit?
 Met samples van 1x1cm^2 betekent dit een flinke spreiding in mogelijke \phi_M, zeker in cylindrische samples (oftewel, naieve fpp setup).
 Wanneer je precies aan de rand meet is er een minder groot probleem, zie Figuur \ref{fig:phiSolutionsEdge}.
 #+ATTR_LATEX: :width 1\textwidth
 #+CAPTION: $\frac{\phi_M}{\bar\phi}$ at the edge of the sample, as function of $\frac{L}{L_t}$. For small $\frac{L}{L_t}$ the potential measured at the edge very closely resembles the average potential.
 #+LABEL: fig:phiSolutionsEdge
 [[./images/phi_solutions_edge.png]]
-**** DONE Leuk, maar wat kunnen we hiermee?
+** DONE Leuk, maar wat kunnen we hiermee?
 Het zou mooi zijn als we L/L_t klein kunnen krijgen (~0.25 voor 1% error) zonder met ontzettend kleine ongecontroleerd gemaakte samples te hoeven werken.
 Vandaar: translatiesymmetrie, met een grid van electrodes breng je in principe dezelfde randvoorwaardes aan als in het originele cartesiaanse geval (toelichting: symmetrie leidt tot \phi'(1) = 0).
 Met hetzelfde sample kan je dus alsnog een veel kortere $L$ bereiken.
 
-**** TODO Implementatie: PCBs
+** DONE Implementatie: PCBs
 Hoe zijn ze gemaakt, welke elektrische eigenschappen
-**** TODO resultaten
+** TODO resultaten
 Spreidingen laten zien, maken orientatie en sample grootte nog uit?
-**** TODO Reflectie
+** TODO Reflectie
 Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
-**** TODO Conclusie
+** TODO Conclusie
 Methode is handig te gebruiken, levert herhaalbare resultaten.

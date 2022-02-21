@@ -26,6 +26,8 @@ Als laatst een (oncomplete) lijst van vragen die ik wil beantwoorden.
 Ik hoop een beetje een duidelijke Q&A draad te kunnen trekken door het verslag, vooral gezien ervaring leert dat ik nog wel eens begin bij een veel te specifiek onderwerp zonder de high-level vragen in zicht te houden.
 Dit is vooral een soort rubber-duck debugging ding voor mezelf, besteed er vooral niet te veel aandacht aan.
 
+#+INCLUDE: "./AZO.org" :minlevel 1
+
 * Skelet AZO
 ** Introductie
 We willen efficiënte zonnecellen!

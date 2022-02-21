@@ -14,7 +14,7 @@
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
 #+EXCLUDE_TAGS: todoex noexport
-#+OPTIONS: toc:nil
+# +OPTIONS: toc:nil
 
 # To compile with new sources:
 #   0) Check for name typo's, they are embarrassing...
@@ -162,12 +162,16 @@ This shows that the use of a capping layer is not only a neccessity for achievin
 
 The decrease in resistivity can be explained by an increasing Hall mobility and increasing carrier density, as shown in Figures \ref{fig:mobilityHall} and \ref{fig:carrierDensityHall}.
 While an increasing carrier density leads to more optical losses, an increasing mobility is expected to reduce them.
-However, it is important to note that the optical mobility may deviate from the Hall mobility \ref{fig:mobilityOpt}.
+However, it is important to note that the optical mobility may deviate from the Hall mobility, as the optical mobility only describes the local mobility, but larger-scale features such as grain boundaries may influence the Hall mobility.
+For comparison Hall and optical mobilities are shown in Figure \ref{fig:mobilityOptVsHall}.
+The mobilities of doped ZnO are similar at low annealing temperatures, but start to diverge at higher annealing temperatures.
+In instrisic ZnO, the optical mobility is significantly higher than the Hall mobility.
+The trend of mobility decreasing with doping level is expected to be caused by scattering of electrons on dopant atoms.
+In intrinsic ZnO, the absence of dopant atoms implies that scattering occurs mainly at grain boundaries and crystal defects.
+With increasing carrier densities, these grain boundaries and crystal defects become easier to pass, so these effects are less pronounced in doped ZnO.
+# Put in some more on mobilities: grain sizes, scattering, etc..
 
-#+ATTR_LATEX: :width 0.9\textwidth
-#+CAPTION: Hall mobility as measured with the van der Pauw method.
-#+LABEL: fig:mobilityHall
-[[./images/mu_H_vs_anneal.png]]
+Overall, at anneal temperatures around 500\Celsius{}, a low resistivity can be obtained with a high transparency.
 
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: Sheet carrier density as measured with the van der Pauw method.
@@ -175,11 +179,9 @@ However, it is important to note that the optical mobility may deviate from the 
 [[./images/n_sh_vs_anneal.png]]
 
 #+ATTR_LATEX: :width 0.9\textwidth
-#+CAPTION: Optical mobility as measured with SE.
-#+LABEL: fig:mobilityOpt
-[[./images/mu_opt_vs_anneal.png]]
-
-
+#+CAPTION: Optical and Hall mobilities of capped samples, by anneal temperature. In intrinsic ZnO the mobilities differ significantly over the whole anneal range. In doped ZnO the mobilities are similar, but diverge at the highest anneal temperatures.
+#+LABEL: fig:mobilityOptVsHall
+[[./images/mobilities_vs_anneal.png]]
 
 ** First steps :noexport:
 Anneal order does not matter much, as supported by Hall data
@@ -214,8 +216,8 @@ This decrease in resistivity can be explained by an increase in mobility and car
 *** TODO Write part on transparency
 *** TODO Write part on contact resistivity
 
-* Discussion
 * Conclusion
+- Capping is really important
 * Recommendations
 * TODO Symbols/abbreviations
 A list of all symbols/abbreviations used.
