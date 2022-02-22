@@ -20,7 +20,7 @@ The method provides an alternative to typical contact resistivity measurements, 
 Not only are these steps time-consuming and complicated to perform, they pose limitations on the types of samples that can be used.
 Furthermore, thermal and chemical processing steps could alter the electrical properties of the contact of interest, and there is no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
-* Theory
+* Background
 ** Contact resistivity
 Contacts between different materials often exhibit a voltage drop when a current is applied.
 In general, the relation between voltage drop, $V$, and resulting current density, $J$, can be described as
@@ -41,6 +41,7 @@ Eigenlijk is de boodschap vooral "two terminal kan, maar je moet sowieso pattern
 Daarna wil ik snel door naar de four terminal methodes. Hoofdzakelijk de cross bridge Kelvin resistor (CBKR) setup, maar ook even refereren naar alternatieve opstellingen (Loh et al. - 1985 - 2-D Simulations for accurate extraction ...).
 Belangrijke takeaway is hier het belang van de transfer length, en dat zaken makkelijker worden als deze groot is.
 *** Cox & Strack
+* Theory
 ** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
 ** A generalization: Transfer length effects
@@ -206,7 +207,10 @@ Apparently driving currents with a grid of symmetric electrodes will let us effe
 #+CAPTION: TODO
 #+LABEL: fig:phiSolutionsSym
 [[./images/phi_solutions_symmetric.png]]
-
+*** TODOS
+**** TODO Generalization to what?
+Weird wording, fix this
+* New approach
 This approach was realized using custom made printed circuit boards (PCBs), as shown in Figure \ref{fig:PCBimage}.
 The PCBs feature a pad of regularly spaced copper lines, covering an area of 15 by 15 mm^2.
 The copper lines are alternately connected to either of the shown pins, so that they resemble interleaved combs.
@@ -239,17 +243,76 @@ In this case an upper bound on contact resistivity can be given as $\rho_c < \fr
 #+LABEL: fig:PCBimage
 [[./images/pcb_cropped.jpeg]]
 
-**** Method validation
-The PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
+* Testing methods
+** TODOS
+*** TODO How will I check if the method works
+**** TODO Check reliability with PCBs
+Good, measurements are reliable, but are they accurate?
+**** TODO Check accuracy with CBKR
+
+* Results
+** Reliability
+Ideally the PCB method should yield the same contact resistivities, regardless of
+- Sample orientation,
+- Sample position,
+- Sample shape.
+These assumptions were checked, starting with the sample orientation.
+Here the contact resistivity was measured for two cases, in the "long" case the long edge of the sample was aligned parallel to the fingers of the PCBs, while in the "short" case the short edge was aligned parallel to the fingers.
+This was done for two symmetric samples:
+1) pSi substrate with r48 AZO annealed at 400C, measuring approx 4.5 mm by 6.5 mm.
+2) 130 \Omega n+ Si with r48 AZO annealed at 400C, measuring approx 6.5 mm by 9.0 mm.
+
+The results are shown in Figure \ref{fig:PCBOrientation}.
+For the pSi sample, the results are quite consistent, while for the n+ Si sample there is more spreading in the measurements.
+This can be explained by the pSi sample having a larger contact resistivity than the n+ Si sample, and thus a larger spreading length, this sample also happened to have smaller dimensions, so that overall the current distribution can be expected to be more homogeneous.
+Overall, the measurement seems most repeatable in the "short" configuration.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: Measured contact resistivities with varying orientation. Two different samples were used, for which the contact resistivity was measured in different orientations. In the "short" cases, when the short side of the sample lies parallel to the PCB's fingers, the measurements are most reliable.
+#+LABEL: fig:PCBOrientation
+[[./images/measurement_orientation.png]]
+
+Next the location of the sample on the PCB was varied for a few samples. The samples were located at all four extreme corners of the PCB pad and at the center.
+Figure \ref{fig:PCBPiece} shows the measured results for each of the tested samples, note the logarithmic vertical axis.
+This shows that the measurement is typically reliable on a per-sample basis.
+Clear are the deviations between pieces of similar samples, while these should all have the same contact resistivities, Figure \ref{fig:PCBPiece} shows clear differences between samples which were cut out of exactly the same wafer.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. This is not totally understood, but wrap-around of ALD films is expected to play a significant role.
+#+LABEL: fig:PCBPiece
+[[./images/measurement_piece.png]]
+
+*** TODOS
+**** TODO Verschillen tussen samples
+Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside depo goed weg snijden geeft vergelijkbare data. Deze dataset moet ik nog even goed bij elkaar sprokkelen...
+**** TODO New samples with less backside depo
+Better results?
+
+** Accuracy: Cross Bridge Kelvin Resistor comparison
+Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
 While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
 To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
 These contacting pads were made for each specific sample.
 Then the sample was clamped between the pieces of foil, while pieces of electrical tape ensured that no shorts could occur between the contacting pads.
 Two opposing "legs" were used to drive a current, while the potential difference was measured between the others, again in a four-point probe configuration.
+Several samples were used, for which the contact resistivity was measured multiple times with the PCB method and the CBKR method, Figure \ref{fig:CBKRvsPCB} shows that the results correlate strongly, here the error bars show the minimal and maximal values for each measurement.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: Comparison between PCB measurements and and CBKR measurements on a set of samples, the error bars indicate the minimum and maximum of the measured values. Ideally the measurements should match exactly, which is indicated by the black line.
+#+LABEL: fig:CBKRvsPCB
+[[./images/CBKRvsPCB.png]]
 
 
 
 
+
+* Discussion
+** TODOS
+*** TODO Ease of measurement
+**** TODO Easy to execute
+**** TODO Ag step still needed
+*** TODO Reliability of results
+* Conclusion
 
 * TODO :noexport:
 ** DONE Waarde L_t is ingeschat, wat betekent dit?
@@ -266,7 +329,7 @@ Met hetzelfde sample kan je dus alsnog een veel kortere $L$ bereiken.
 
 ** DONE Implementatie: PCBs
 Hoe zijn ze gemaakt, welke elektrische eigenschappen
-** TODO resultaten
+** DONE resultaten
 Spreidingen laten zien, maken orientatie en sample grootte nog uit?
 ** TODO Reflectie
 Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
