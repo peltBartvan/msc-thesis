@@ -286,7 +286,7 @@ Clear are the deviations between pieces of similar samples, while these should a
 **** TODO Verschillen tussen samples
 Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside depo goed weg snijden geeft vergelijkbare data. Deze dataset moet ik nog even goed bij elkaar sprokkelen...
 **** TODO New samples with less backside depo
-Better results?
+Better results? -> Not really, dataset is small, no real way to know...
 
 ** Accuracy: Cross Bridge Kelvin Resistor comparison
 Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
@@ -307,6 +307,9 @@ Several samples were used, for which the contact resistivity was measured multip
 
 
 * Discussion
+A method for easy contact resistivity measurements was developed.
+In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
+
 ** TODOS
 *** TODO Ease of measurement
 **** TODO Easy to execute
