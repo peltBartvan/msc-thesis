@@ -243,12 +243,70 @@ In this case an upper bound on contact resistivity can be given as $\rho_c < \fr
 #+LABEL: fig:PCBimage
 [[./images/pcb_cropped.jpeg]]
 
-* Testing methods
+* Characterization of measurement method
+So far the case for PCB measurements has boiled down on purely theoretical arguments, in the following chapters the measurement method will be experimentally characterized.
+The characterization will focus on two desired properties of the new measurement: reliability and validity.
+A measurement method is reliable when it is reproducible, yielding the same results on each measurement.
+Reliability by itself is not enough though, simply because observatios being close to each other does not imply that they are close to the /correct/ value.
+A measurement is called valid if its results actually resemble what is *intended* to be measured.
+For a good measurement system these two qualities obviously go hand in hand.
+
+While the reliability often refers to repeated measurements under the exact same conditions, this strict definition is not very useful when considering the PCB measurements, as the goal is to reliably measure the contact resistivity *without* regard to some sample handling details.
+For context, the initial measurement system (TODO footnote: detail pin to plate) proved quite reliable when a single sample was contacted and stayed fixed between measurements.
+Problems started appearing however, as soon as this sample was contacted with different pins, in slightly different locations, rotated a bit, or a different sample piece was used.
+The estimated contact resistivities varied unpredictably when even slight, to the user practically unnoticeable, changes were made to the setup.
+The goal here is not to be reliable under strict control of all influencing factors, but to be reliable in a somewhat chaotic environment, one in which the user can choose not to care about the exact shape and contacting points of their samples, and still get /reliable/ results.
+For this reason, the term reliability is used in a looser sense in this work: a measurement is considered reliable when it yields similar (enough) results in a range of realistic usage scenarios.
+
+More practically speaking, these "realistic usage scenarios" should at least include different contacting conditions, like where the sample is located and in which orientation, but also simply using another sample of differing dimensions.
+These reliability experiments were done by varying exactly the mentioned conditions and measuring if these influence the measurement, this will be discussed in more detail in following sections.
+
+To check the validity of the measurement, a reference measurement is needed.
+Ideally a sample with a well known specific resistance could be used, but these were not available.
+Another option is to take a sample, measure the specific resistance through some other means, and then compare the results with the new method.
+This concurrent validity test was chosen, in which the novel method was compared to a cross bridge kelvin resistor (CBKR).
+The choice for a CBKR test was made since it can handle the same type of samples that the PCBs can.
+The needed patterning for Cox & Strack and other methods would imply the need to make separate samples, process them differently, and just hope that they have the same specific resistance.
+A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations.
+
+
+
 ** TODOS
-*** TODO How will I check if the method works
+*** DONE Why check validity/reliability?
+Because method has only been discussed theoretically, a proper assessment is needed in practice
+**** DONE Contrast reliability validity
+Reliability indicates how closely the measurements are spaced.
+Validity indicates the error between measurement and actual value.
+Both are needed for a proper measurement.
+Reliability can be assessed using just the PCBs, for validity at least one secondary method is required for calibration.
+*** TODO How will I check if the method works?
 **** TODO Check reliability with PCBs
-Good, measurements are reliable, but are they accurate?
-**** TODO Check accuracy with CBKR
+As discussed before, the reliability can be assessed using just the PCBs, but how?
+Ideally this method is "hufter-proof", in the sense that it doesn't matter where the sample is exactly, as long as you know its area.
+First, the placement invarance is tackled in two steps: first the rotation (in?)variance, second the translation (in?)variance.
+After that, the sample area dependence is checked.
+***** TODO Is the measurement invariant in rotations?
+A few rectangular samples were selected (why these? basically arbitrary...)
+For these, measurements were conducted in either orientation, with the long side parallel to the fingers and with the short side parallel to the fingers.
+To probe the per-measurement variance, measurements were conducted five times per orientation.
+(hint: does not matter much, you can mostly forget about it!)
+***** TODO Is the measurement invariant in translations?
+Next, the influence of the position of the sample on measured \rho was checked.
+Here the samples were located at each extreme of the PCB, i.e. top-right, top-left, etc.. and in the center.
+This was done for a few samples, including those used in the rotation experiment, again multiple times.
+***** TODO Is the measurement invariant in sample area?
+Out of each sample wafer, different sample pieces were cut.
+A possible limitation of this method is that inhomogeneous processing such as localized backside deposition can effect in differences in overall sample resistivity.
+As it is difficult to cut out samples of specific sizes, wafer pieces are ranked by overall dimensions, with piece A being larger than piece B, and piece B being larger than piece C.
+These measurements were also performed on the five different positions noted in the translation invariance experiment, so that the resulting data can be used for either experiment.
+**** TODO Check validity with CBKR
+While the reliability can be assessed using just the PCB method itself, an extra calibration in needed to assess the validity of the method.
+For this a Cross Bridge Kelvin Resistor setup was devised out of aluminium foil.
+A few samples were probed with the PCBs and the CBKR setup, measuring multiple times to obtain decent statistics.
+Ideally the results match for both measurement methods.
+***** TODO How were CBKR experiments conducted?
+Cut out of aluminium foil.
+***** TODO Do the results match with the PCB method?
 
 * Results
 ** Reliability
