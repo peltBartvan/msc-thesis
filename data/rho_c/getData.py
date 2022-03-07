@@ -11,7 +11,8 @@ def getDF(filename):
         nums = np.fromstring(f, sep = ',')
         nums = np.reshape(nums, (-1, 5))
         df = pd.DataFrame(nums, columns = ['V', 'I', 'R', 't', '?'])
-        cum = cum.append(df)
+        # cum = cum.append(df)
+        cum = pd.concat([cum, df])
     return cum
 
 def parser(fname):
@@ -35,7 +36,8 @@ def get_all_data(filenameparser = parser, files = filelist):
     for filename in files:
         data = getDF(filename)
         parameters = filenameparser(filename)
-        df = df.append({**parameters, 'data' : data}, ignore_index = True)
+        #df = df.append({**parameters, 'data' : data}, ignore_index = True)
+        df = pd.concat([df,pd.DataFrame.from_dict({1:{**parameters, 'data' : data}}, orient = 'index')], ignore_index = True)
     return df
 
 if __name__ == '__main__':
