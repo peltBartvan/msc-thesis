@@ -219,6 +219,9 @@ To perform a measurement, a sample is clamped between two such PCBs, and a curre
 The used copper lines were 0.6 mm wide and spaced 0.3 mm apart, with this spacing and a sample spreading length on the order of half a cm, the requirement that $\frac{L}{L_t} < 0.25$ is easily met, so that the current distribution can be considered homogeneous.
 
 Practically, the measurements come down to the following steps:
+
+#+LATEX: \noindent\fbox{
+#+LATEX: \parbox{\textwidth}{%
 1) Create samples that:
    - Have a spreading length significantly larger than the distance between the fingers of the PCBs to be used. Cover with silver if neccesary.
    - Are homogeneous, this might not be the case when deposited films wrap around the samples.
@@ -234,7 +237,8 @@ Practically, the measurements come down to the following steps:
    - Use the alignment holes of the PCBs for consistent alignment.
    - Apply an evenly distributed pressure to the sample, this can be achieved with a glue clamp.
 4) Perform a standard four-terminal resistance measurement, yielding resistance $R$.
-5) Calculate the stack resistivity $\rho_s = R\cdot A$.
+5) Calculate the specific resistivity $\rho_s = R\cdot A$.
+#+LATEX:   }}
 
 The interpretation of the measured stack resistivity depends on the used samples, as in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
 In this case an upper bound on contact resistivity can be given as $\rho_c < \frac{1}{2}\rho_s$.
