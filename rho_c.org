@@ -165,6 +165,7 @@ The solutions are shown in Figure \ref{fig:phiSolutions}
 #+LABEL: fig:phiSolutions
 [[./images/phi_solutions.png]]
 
+** Idea: reduce effective sample dimensions
 Suppose you were to conduct a four-point probing experiment in either geometry, in which a current is driven through the sample, and some potential difference between the top and bottom of the sample, $\phi_M$, is measured.
 What would be a good way to perform these measurements?
 
@@ -247,7 +248,7 @@ In this case an upper bound on contact resistivity can be given as $\rho_c < \fr
 So far the case for PCB measurements has boiled down on purely theoretical arguments, in the following chapters the measurement method will be experimentally characterized.
 The characterization will focus on two desired properties of the new measurement: reliability and validity.
 A measurement method is reliable when it is reproducible, yielding the same results on each measurement.
-Reliability by itself is not enough though, simply because observatios being close to each other does not imply that they are close to the /correct/ value.
+Reliability by itself is not enough though, simply because observations being close to each other does not imply that they are close to the /correct/ value.
 A measurement is called valid if its results actually resemble what is *intended* to be measured.
 For a good measurement system these two qualities obviously go hand in hand.
 
@@ -267,9 +268,7 @@ Another option is to take a sample, measure the specific resistance through some
 This concurrent validity test was chosen, in which the novel method was compared to a cross bridge kelvin resistor (CBKR).
 The choice for a CBKR test was made since it can handle the same type of samples that the PCBs can.
 The needed patterning for Cox & Strack and other methods would imply the need to make separate samples, process them differently, and just hope that they have the same specific resistance.
-A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations.
-
-
+A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations, making it fit for a direct comparison of measurement methods.
 
 ** TODOS
 *** DONE Why check validity/reliability?
