@@ -17,8 +17,20 @@
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
 In this part of this thesis, the devised measurement setup and method will be described in full detail.
 The method provides an alternative to typical contact resistivity measurements, in which several processing steps are needed to create accurately shaped contacts on the samples of interest.
+These methods include the Cox and Strack (C&S) and Transmission Line Method (TLM) methods, which will be explained later.
 Not only are these steps time-consuming and complicated to perform, they pose limitations on the types of samples that can be used.
 Furthermore, thermal and chemical processing steps could alter the electrical properties of the contact of interest, and there is no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
+At the start of this project a simple measurement method was suggested, coat a sample with a thin film of silver, drive a current between the top and bottom of this sample and measure the resulting potential difference.
+Multiplying the obtained resistance by the area of the sample should then give the specific resistance of the sample.
+While this suggested pin-to-plate measurement is very easy to perform, not needing any patterning and etching steps as required by C&S and TLM, it quickly became clear that the method was so unreliable that useful data could not be obtained.
+As the C&S and TLM methods provide some significant challenges, the choice was made to look deeper into the pin-to-plate method, and see if it can be improved on enough to be useful.
+This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
+With this controlled current flow
+# TODO
+
+
+
+
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
 ** Contact resistivity
@@ -40,7 +52,29 @@ Het lijkt me een goed idee om van de two-terminal methods een paar te kiezen, zo
 Eigenlijk is de boodschap vooral "two terminal kan, maar je moet sowieso patternen, en interne weerstanden in je meetopstelling kunnen belangrijk zijn".
 Daarna wil ik snel door naar de four terminal methodes. Hoofdzakelijk de cross bridge Kelvin resistor (CBKR) setup, maar ook even refereren naar alternatieve opstellingen (Loh et al. - 1985 - 2-D Simulations for accurate extraction ...).
 Belangrijke takeaway is hier het belang van de transfer length, en dat zaken makkelijker worden als deze groot is.
-*** Cox & Strack
+Ook belangrijk om het voornaamste probleem te highlighten: scheiding van rho_c en andere termen kan lastig zijn.
+*** Cox and Strack
+In the Cox and Strack (C&S) method samples are made that feature circular contacts of varying size on one side of the sample, while the other side has a full backplane contact.
+The resistance between the backplane and the circular contacts is then measured for the different circular contacts.
+The main assumption here is that the total resistance can be described as a sum of three resistances: contact resistance $R_c$, spreading resistance $R_s$, and some fixed residual resistance $R_0$.
+Cox and Strack model these terms as
+\begin{equation}
+R_{T} \approx \underbrace{\frac{\rho_W}{\pi d}\arctan\left(\frac{4t}{d}\right)}_{R_s} + \underbrace{\frac{\rho_c}{\frac{1}{4}\pi d^2}}_{R_c} + R_0,
+\end{equation}
+where $d$ is the diameter of the contact, $\rho_W$ is the wafer resistivity, $\rho_c$ the contact resistivity and $t$ is the thickness of the wafer.
+# TODO source on C&S model
+Since the contact and spreading resistances depend differently on the contact radius, the contact resistivity can be determined by varying $d$ and fitting to the model.
+The practical implications of this method are that samples have to be precisely made, the circular contacts are typically tens of micrometers in radius.
+To make structures like this one would need to remove part of the contacting layer, for the delicate ZnO:Al films considered in this work this is known to be difficult.
+Not only are these extra processing steps difficult to perform, they are incompatible with typical solar cell processes, so the question remains whether the fabricated samples accurately resemble the films in solar cell processes.
+*** Transmission line method
+The transmission line method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
+In TLM, the chosen geometry is typically linear, with rectangular contacts spaced at different distances.
+Here again, the resistances are measured for the different distances, and the contact resistivity can be fitted out.
+# TODO: describe model
+The drawbacks here are similar to those in the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
+*** Cross bridge Kelvin resistor
+While the previously described methods rely on being able to fit out the contact resistivity from some dataset, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
 * Theory
 ** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
@@ -349,7 +383,7 @@ Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside d
 **** TODO New samples with less backside depo
 Better results? -> Not really, dataset is small, no real way to know...
 
-** Accuracy: Cross Bridge Kelvin Resistor comparison
+** Validity: Cross Bridge Kelvin Resistor comparison
 Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
 While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
 To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
@@ -367,7 +401,7 @@ Several samples were used, for which the contact resistivity was measured multip
 
 
 
-* Discussion
+* Conclusion and outlook
 A method for easy contact resistivity measurements was developed.
 In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
 
