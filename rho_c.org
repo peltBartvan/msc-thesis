@@ -72,13 +72,23 @@ To make structures like this one would need to remove part of the contacting lay
 Not only are these extra processing steps difficult to perform, they are incompatible with typical solar cell processes, so the question remains whether the fabricated samples accurately resemble the films in solar cell processes.
 *** Transmission line method
 The transmission line method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
-In TLM, the chosen geometry is typically linear, with rectangular contacts spaced at different distances.
+In TLM, the chosen geometry is typically linear, with rectangular contacts spaced at different distances, as illustrated in Figure \ref{fig:TLMIllustration}.
+#+ATTR_LATEX: :width 0.7\textwidth
+#+LABEL: fig:TLMIllustration
+#+CAPTION: TODO
+[[./images/TLM_drawing.drawio.png]]
 Here again, the resistances are measured for the different distances, and the contact resistivity can be fitted out.
 # TODO: describe model
 The drawbacks here are similar to those in the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
 *** Cross bridge Kelvin resistor
 While the previously described methods rely on being able to fit out the contact resistivity from some set of measurements, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
 In essence the method is a top-down four-terminal measurement, a current is driven from the top to the bottom of a sample using two terminals, while two other terminals are used to measure the resulting voltage.
+
+#+ATTR_LATEX: :width 0.7\textwidth
+#+LABEL: fig:CBKRIllustration
+#+CAPTION: TODO
+[[./images/CBKR_drawing.png]]
+
 These electrodes are formed as two L-shapes, one on either side of the sample, with the "legs" opposed to each other.
 One set of opposed legs is used to drive the current, while the other opposed set is used to measure the voltage.
 # TODO: picture of CBKR
@@ -88,6 +98,12 @@ While the method might sound very simple, just drive a current and measure /the/
 When measuring samples with low specific resistivities these assumptions might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
 Additionally, misaligned contacts can result in currents "wrapping around" the sample, resulting in more systematic errors.
 In practice this results in a need for well-controlled samples and a good understanding of the driven current distributions.
+*** Pin to plate
+#+ATTR_LATEX: :width 0.7\textwidth
+#+LABEL: fig:PtPIllustration
+#+CAPTION: TODO
+[[./images/pin_plate_drawing.drawio.png]]
+
 
 * Theory
 ** COMMENT Wiskunde achter spreiding: transfer length
@@ -430,10 +446,6 @@ In contrast to the Cox & Strack and transmission line methods, which involve del
 ** DONE Waarde L_t is ingeschat, wat betekent dit?
 Met samples van 1x1cm^2 betekent dit een flinke spreiding in mogelijke \phi_M, zeker in cylindrische samples (oftewel, naieve fpp setup).
 Wanneer je precies aan de rand meet is er een minder groot probleem, zie Figuur \ref{fig:phiSolutionsEdge}.
-#+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: $\frac{\phi_M}{\bar\phi}$ at the edge of the sample, as function of $\frac{L}{L_t}$. For small $\frac{L}{L_t}$ the potential measured at the edge very closely resembles the average potential.
-#+LABEL: fig:phiSolutionsEdge
-[[./images/phi_solutions_edge.png]]
 ** DONE Leuk, maar wat kunnen we hiermee?
 Het zou mooi zijn als we L/L_t klein kunnen krijgen (~0.25 voor 1% error) zonder met ontzettend kleine ongecontroleerd gemaakte samples te hoeven werken.
 Vandaar: translatiesymmetrie, met een grid van electrodes breng je in principe dezelfde randvoorwaardes aan als in het originele cartesiaanse geval (toelichting: symmetrie leidt tot \phi'(1) = 0).
