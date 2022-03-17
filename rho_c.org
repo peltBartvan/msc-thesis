@@ -73,12 +73,36 @@ Not only are these extra processing steps difficult to perform, they are incompa
 *** Transmission line method
 The transmission line method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
 In TLM, the chosen geometry is typically linear, with rectangular contacts spaced at different distances, as illustrated in Figure \ref{fig:TLMIllustration}.
+
 #+ATTR_LATEX: :width 0.7\textwidth
 #+LABEL: fig:TLMIllustration
-#+CAPTION: TODO
+#+CAPTION: Side view illustration of a TLM measurement setup, on a rectangular sample of width $W$ (not shown) several rectangular contacts are made, two shown here. The distance $L$ between the contacts is varied. Note that the current is not uniformly distributed over the contact, but is localized within a transfer length $L_t$.
 [[./images/TLM_drawing.drawio.png]]
-Here again, the resistances are measured for the different distances, and the contact resistivity can be fitted out.
-# TODO: describe model
+
+In this setup the total resistance consists of twice the contact resistance $R_c$ and the resistance of the Si wafer $R_w$.
+The wafer resistance can be expressed as
+\begin{equation}
+R_w = \frac{L R_\square}{W},
+\end{equation}
+in which $W$ is the width of the sample and $R_\square$ is the sheet resistance of the wafer.
+
+Within the contact, the currents are localized to within a spreading length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$ of the contact edge, this so-called current crowding effect will be discussed in more detail in the theory chapter of this thesis.
+This current crowding implies that the contact has an effective area of $WL_t$.
+Now take for the contact resistance $R_c = \frac{\rho_c}{WL_t} = \frac{R_\square L_t}{W}$, where the definition of spreading length was used to obtain the second expression.
+Now the total resistance can be expressed as
+\begin{equation}
+R_T = 2\underbrace{\frac{R_\square L_t}{W}}_{R_c} + \underbrace{\frac{LR_\square}{W}}_{R_w} = \frac{R_\square}{W}(2L_t + L).
+\end{equation}
+Here, the horizontal and vertical intercepts signify twice the transfer length and twice the contact resistance respectively, as shown in Figure \ref{fig:TLMGraph}.
+
+#+ATTR_LATEX: :width 0.7\textwidth
+#+LABEL: fig:TLMGraph
+#+CAPTION: Example of a TLM analysis, the red fit line intercepts the horizontal axis at $-2L_t$ and the vertical axis at $2R_c$.
+[[./images/TLM_graph.png]]
+
+After finding the intercepts, the specific contact resistivity can be found as $\rho_c = R_c L_t W$.
+
+
 The drawbacks here are similar to those in the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
 *** Cross bridge Kelvin resistor
 While the previously described methods rely on being able to fit out the contact resistivity from some set of measurements, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
