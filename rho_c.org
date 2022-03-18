@@ -102,26 +102,32 @@ Here, the horizontal and vertical intercepts signify twice the transfer length a
 
 After finding the intercepts, the specific contact resistivity can be found as $\rho_c = R_c L_t W$.
 
-
-The drawbacks here are similar to those in the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
+The drawbacks of this method are similar to those of the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
+Again, the ZnO:Al film should be partially removed in a controlled way, something that proves challenging with typical etchants.
+A difference with the C&S method is that TLM samples imply symmetric measurements of a contact, in Ohmic contacts this is not an issue, but since in TLM the contacts are always in an antiseries configuration, this can make non-Ohmic contacts difficult to characterize.
 *** Cross bridge Kelvin resistor
 While the previously described methods rely on being able to fit out the contact resistivity from some set of measurements, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
 In essence the method is a top-down four-terminal measurement, a current is driven from the top to the bottom of a sample using two terminals, while two other terminals are used to measure the resulting voltage.
 
 #+ATTR_LATEX: :width 0.7\textwidth
 #+LABEL: fig:CBKRIllustration
-#+CAPTION: TODO
+#+CAPTION: Illustration of a CBKR setup, shown are two L-shaped electrodes with a sample located in between. The electrodes are not in direct contact with each other. A current is driven from one of the legs of an L, through the sample, through the opposing leg of the other L. Meanwhile the resulting voltage is measured along the remaining legs. Also shown is a misalignment between the edges of the sample and the edges of the electrodes, this should ideally be small.
 [[./images/CBKR_drawing.png]]
 
 These electrodes are formed as two L-shapes, one on either side of the sample, with the "legs" opposed to each other.
 One set of opposed legs is used to drive the current, while the other opposed set is used to measure the voltage.
-# TODO: picture of CBKR
+
 After measuring compute the total resistance of the sample, and multiply this by its area to get its specific resistance.
 With this approach parasitic resistances are easily ignored, as the voltage measuring wires carry no current.
 While the method might sound very simple, just drive a current and measure /the/ voltage, a possible challenge lies in the basic assumption that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
 When measuring samples with low specific resistivities these assumptions might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
 Additionally, misaligned contacts can result in currents "wrapping around" the sample, resulting in more systematic errors.
-In practice this results in a need for well-controlled samples and a good understanding of the driven current distributions.
+This effect was modeled by Schreyer and Saraswat, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}$, their main result can be expressed as,
+\begin{equation}
+\frac{\rho_M}{\rho_c} = 1 + \frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right],
+\end{equation}
+in which $\delta$ is the sample misalignment, and $W_x$ and $W_y$ are the thicknesses of the legs of the electrodes.
+
 *** Pin to plate
 #+ATTR_LATEX: :width 0.7\textwidth
 #+LABEL: fig:PtPIllustration
