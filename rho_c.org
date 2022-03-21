@@ -116,17 +116,32 @@ In essence the method is a top-down four-terminal measurement, a current is driv
 
 These electrodes are formed as two L-shapes, one on either side of the sample, with the "legs" opposed to each other.
 One set of opposed legs is used to drive the current, while the other opposed set is used to measure the voltage.
-
-After measuring compute the total resistance of the sample, and multiply this by its area to get its specific resistance.
 With this approach parasitic resistances are easily ignored, as the voltage measuring wires carry no current.
-While the method might sound very simple, just drive a current and measure /the/ voltage, a possible challenge lies in the basic assumption that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
-When measuring samples with low specific resistivities these assumptions might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
-Additionally, misaligned contacts can result in currents "wrapping around" the sample, resulting in more systematic errors.
-This effect was modeled by Schreyer and Saraswat, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}$, their main result can be expressed as,
+
+Measure the total resistance of the sample, and multiply this by its area to get the /measured/ specific resistance,
 \begin{equation}
-\frac{\rho_M}{\rho_c} = 1 + \frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right],
+\rho_M \equiv \frac{V_\text{meas}}{I_\text{src}} A,
+\end{equation}
+ideally this should equal the specific resistance, $\rho_c$, of the sample, but this relies on some assumptions that will be checked next.
+# While the method might sound very simple, just drive a current and measure /the/ voltage, a possible challenge lies in the basic assumption that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
+One of there assumptions is that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
+When measuring samples with low specific resistivities this might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
+Additionally, misaligned contacts can result in currents "wrapping around" the sample, this can result in an overestimation of the average voltage over the sample.
+# TODO source, probably Schreyer&Saraswat
+This effect was modeled by Schreyer and Saraswat, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}}$, their main result can be expressed as,
+\begin{equation}
+\label{eqn:CBKRError}
+\frac{\rho_M}{\rho_c} = 1 + \underbrace{\frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right]}_{C_g},
 \end{equation}
 in which $\delta$ is the sample misalignment, and $W_x$ and $W_y$ are the thicknesses of the legs of the electrodes.
+Here the second term is referred to as the geometric correction factor, or $C_g$.
+Ideally $C_g$ is small, so that $\rho_M \approx \rho_c$, this can be realized by using small samples, small misalignments, and highly conductive electrodes.
+Luckily $C_g$ can easily be estimated.
+Taking $\rho_c \approx 10\text{m}\Omega\text{cm}^2$ as a lower bound, and suppose using pieces of household aluminium foil for contacts ($R_\square \approx 3\text{m}\Omega_\square$, measured with a four-point probe), this gives a worst case (i.e. shortest) transfer length of around 2 cm.
+For easy measurements, the needed samples should not be much smaller than a squared cm, otherwise they will be difficult to cleave and handle with tweezers.
+By cutting carefully, electrodes can be made with an estimated misalignment of around one mm.
+Substitution yields a $C_g$ on the order of magnitude of a few thousandth's, indicating that geometric effects will not be significant in this setup.
+
 
 *** Pin to plate
 #+ATTR_LATEX: :width 0.7\textwidth
