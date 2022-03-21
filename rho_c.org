@@ -142,6 +142,11 @@ For easy measurements, the needed samples should not be much smaller than a squa
 By cutting carefully, electrodes can be made with an estimated misalignment of around one mm.
 Substitution yields a $C_g$ on the order of magnitude of a few thousandth's, indicating that geometric effects will not be significant in this setup.
 
+In contrast to TLM and the C&S method, no patterning and etching steps are required by the CBKR method, making it a viable option for ZnO:Al samples.
+Still, there are some practical drawbacks to this method regarding the fabrication of test structures.
+In practice it can be difficult to cleave samples to specified dimensions, so that electrodes need to be custom made for each sample piece to reduce misalignment.
+Additionally, making sure that there are no shorts between the flimsy pieces of aluminium foil can be challenging.
+Experience shows that strategically placed pieces of insulating tape can help, but in the end eyebrows will probably be raised when reading "we sandwiched the sample between some household foil and duct tape, and it just appeared to work" in the methods section of any report.
 
 *** Pin to plate
 #+ATTR_LATEX: :width 0.7\textwidth
