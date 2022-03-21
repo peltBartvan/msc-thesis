@@ -149,13 +149,30 @@ Additionally, making sure that there are no shorts between the flimsy pieces of 
 Experience shows that strategically placed pieces of insulating tape can help, but in the end eyebrows will probably be raised when reading "we sandwiched the sample between some household foil and duct tape, and it just appeared to work" in the methods section of any report.
 
 *** Pin to plate
+The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable patterning and etching of this material is difficult, making TLM and the C&S method impractical.
+The approach that had been used to far was to clamp samples between a copper plate and some of the probe pins of the already available four point probe setup, as illustrated in Figure \ref{fig:PtPIllustration}.
+One of the probe pins would be used to drive a current to the plate, while another pin would be used to measure the voltage across the sample.
+The copper plate would serve as both a current driving electrode and a reference voltage since, due to its high conductivity, the electric fields within the plate can be assumed to be negligible.
+
 #+ATTR_LATEX: :width 0.7\textwidth
 #+LABEL: fig:PtPIllustration
-#+CAPTION: TODO
+#+CAPTION: Illustration of a pin to plate measurement, featuring a copper base plate on which a silver coated sample is located. A current is driven between a pin and the base plate, while the voltage between another pin and the base plate is measured.
 [[./images/pin_plate_drawing.drawio.png]]
 
+In essence this method is quite similar to the CBKR method, where a current is driven through the sample, /the/ resulting voltage is measured, and the resulting resistance is multiplied by sample area to get the specific resistivity.
+While in the CBKR method the average voltage along the sample is measured (neglecting geometric resistance), in the pin to plate method the relation between measured voltage and average voltage is not so clear.
+Due to the contacting geometry, the voltage in the top contact is highly nonuniform, so that the measured voltage can differ by orders of magnitude on a single sample, depending on where this voltage is measured.
 
+It quickly became clear that this method provided neither reliable nor valid results, since measurements on exactly the same sample could yield values that vary by orders of magnitude.
+Nonetheless, the extreme ease of measurement compared to the previously discussed measurement methods made it a good candidate for further investigation.
+If the poorly chosen probing geometry is the cause of the problematic voltage nonuniformities, then maybe a different choice of probing geometry could solve this problem.
+
+Addressing these challenges in the pin to plate method is the goal of the rest of this thesis.
+The first step is to better understand the nature of current (or equivalently, voltage, by Ohm's law) inhomogeneities, this will be the goal of Chapter \ref{ch:TheoryChapter}.
+# What causes these inhomogeneities? Does this depend on geometry, physical properties of the samples, or maybe something else? Can these effects be fit out, like in TLM or the C&S method? Can they be neglected by a proper choice of electrode materials, like in the CBKR method?
+# In Chapter \ref{ch:TheoryChapter} these questions will be addressed, and
 * Theory
+\label{ch:TheoryChapter}
 ** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
 ** A generalization: Transfer length effects
