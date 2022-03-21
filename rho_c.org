@@ -175,7 +175,7 @@ The first step is to better understand the nature of current (or equivalently, v
 \label{ch:TheoryChapter}
 ** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
-** A generalization: Transfer length effects
+** Transfer length effects
 So far, all the top-down measurement methods had to mitigate one phenomenon, transfer length effects.
 Consider ideal conductors used as contacts, as these form regions of equal electric potential, the potential difference between top and bottom of the sample will be equal everywhere.
 The driven current density will be uniform, found simply by: $J = \frac{\Delta V}{\rho_s}$.
@@ -339,7 +339,7 @@ Apparently driving currents with a grid of symmetric electrodes will let us effe
 #+CAPTION: TODO
 #+LABEL: fig:phiSolutionsSym
 [[./images/phi_solutions_symmetric.png]]
-*** TODOS
+*** TODOS :noexport:
 **** TODO Generalization to what?
 Weird wording, fix this
 * New approach
@@ -405,7 +405,7 @@ The choice for a CBKR test was made since it can handle the same type of samples
 The needed patterning for Cox & Strack and other methods would imply the need to make separate samples, process them differently, and just hope that they have the same specific resistance.
 A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations, making it fit for a direct comparison of measurement methods.
 
-** TODOS
+** TODOS :noexport:
 *** DONE Why check validity/reliability?
 Because method has only been discussed theoretically, a proper assessment is needed in practice
 **** DONE Contrast reliability validity
@@ -474,7 +474,7 @@ Clear are the deviations between pieces of similar samples, while these should a
 #+LABEL: fig:PCBPiece
 [[./images/measurement_piece.png]]
 
-*** TODOS
+*** TODOS :noexport:
 **** TODO Verschillen tussen samples
 Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside depo goed weg snijden geeft vergelijkbare data. Deze dataset moet ik nog even goed bij elkaar sprokkelen...
 **** TODO New samples with less backside depo
@@ -485,7 +485,7 @@ Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (
 While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
 To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
 These contacting pads were made for each specific sample.
-Then the sample was clamped between the pieces of foil, while pieces of electrical tape ensured that no shorts could occur between the contacting pads.
+Then the sample was clamped between the pieces of foil, while pieces of insulating tape ensured that no shorts could occur between the contacting pads.
 Two opposing "legs" were used to drive a current, while the potential difference was measured between the others, again in a four-point probe configuration.
 Several samples were used, for which the contact resistivity was measured multiple times with the PCB method and the CBKR method, Figure \ref{fig:CBKRvsPCB} shows that the results correlate strongly, here the error bars show the minimal and maximal values for each measurement.
 
@@ -494,22 +494,20 @@ Several samples were used, for which the contact resistivity was measured multip
 #+LABEL: fig:CBKRvsPCB
 [[./images/CBKRvsPCB.png]]
 
-
-
-
-
 * Conclusion and outlook
 A method for easy contact resistivity measurements was developed.
 In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
+This is especially important for ZnO:Al samples, since controlled etching of these layers is known to be difficult, rendering TLM and the C&S method impractical.
+In essence, the new method shows similarities to the CBKR method, both methods use a four terminal approach, and both aim to eliminate inhomogeneous currents by electrode design.
+In contrast to the CBKR method, in which the electrode dimensions need to match the sample dimensions, the PCBs used in the new method enable a rapid reuse of the same testing structure for samples of different dimensions.
 
-** TODOS
+** TODOS :noexport:
 *** TODO Ease of measurement
 **** TODO Easy to execute
 **** TODO Ag step still needed
 *** TODO Reliability of results
-* Conclusion
 
-* TODO :noexport:
+* TODOS :noexport:
 ** DONE Waarde L_t is ingeschat, wat betekent dit?
 Met samples van 1x1cm^2 betekent dit een flinke spreiding in mogelijke \phi_M, zeker in cylindrische samples (oftewel, naieve fpp setup).
 Wanneer je precies aan de rand meet is er een minder groot probleem, zie Figuur \ref{fig:phiSolutionsEdge}.
