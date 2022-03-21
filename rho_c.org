@@ -495,11 +495,13 @@ Several samples were used, for which the contact resistivity was measured multip
 [[./images/CBKRvsPCB.png]]
 
 * Conclusion and outlook
-A method for easy contact resistivity measurements was developed.
+A method for easy contact resistivity measurements on laterally uniform samples was developed.
+This was achieved by contacting samples with custom made printed circuit boards, featuring interleaved comb-like copper contacts, which are used to drive a uniform current distribution through a sample.
 In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
 This is especially important for ZnO:Al samples, since controlled etching of these layers is known to be difficult, rendering TLM and the C&S method impractical.
 In essence, the new method shows similarities to the CBKR method, both methods use a four terminal approach, and both aim to eliminate inhomogeneous currents by electrode design.
 In contrast to the CBKR method, in which the electrode dimensions need to match the sample dimensions, the PCBs used in the new method enable a rapid reuse of the same testing structure for samples of different dimensions.
+
 
 ** TODOS :noexport:
 *** TODO Ease of measurement
