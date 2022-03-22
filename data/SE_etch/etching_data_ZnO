@@ -1,0 +1,20 @@
+# etched: 'before' or 'after'
+# time: label either seconds or minutes
+# ZnO: ZnO thickness [Angstrom]
+# AlOx: AlOx thickness [Angstrom]
+# Roughness: [Angstrom]
+# time_s: numeric time [seconds] 
+# tot_height: ZnO thickness + AlOx thickness [Angstrom] used for plotting
+,etched,time,ZnO,AlOx,Roughness,time_s,tot_height
+0,before,30S,883.76,334.69,151.19,30,1218.45
+1,after,30S,890.83,202.96,70.21,30,1093.79
+2,before,1M,899.18,322.02,143.84,60,1221.1999999999998
+3,after,1M,898.47,96.45,0.0,60,994.9200000000001
+4,before,2M,893.33,309.13,151.46,120,1202.46
+5,after,2M,896.64,184.76,81.63,120,1081.4
+6,before,3M,885.76,339.04,160.44,180,1224.8
+7,after,3M,881.63,97.26,10.0,180,978.89
+8,before,4M,901.73,318.44,144.56,240,1220.17
+9,after,4M,892.83,77.36,0.0,240,970.19
+10,before,5M,884.3,331.22,149.62,300,1215.52
+11,after,5M,873.47,69.27,0.0,300,942.74
