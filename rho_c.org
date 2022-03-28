@@ -28,12 +28,10 @@ This work presents a solution to this problem, in which custom printed circuit b
 With this controlled current flow
 # TODO
 
-
-
-
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
-** Contact resistivity
+** COMMENT Contact resistivity
+# made this section a comment, still meant for inspiration.
 Contacts between different materials often exhibit a voltage drop when a current is applied.
 In general, the relation between voltage drop, $V$, and resulting current density, $J$, can be described as
 \begin{equation}
@@ -46,6 +44,29 @@ The contact resisivity is then defined as
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0},
 \end{equation}
 in which the dependency on the "other parameters" is implicit.
+** Contact resistance
+In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
+There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
+Here $\rho_c$ can be defined as
+\begin{equation}
+\rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0}.
+\end{equation}
+While from a theoretical point of view this description of contacts in terms of $J(V)$ sounds perfectly reasonable, its usage can be challenging in practice.
+In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding.
+The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, this phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
+Here $R_\square$ is the sheet resistance of the wafer.
+
+#+LABEL: fig:LtIllustration
+#+CAPTION: Illustration of current crowding along the edge of a contact. The current density $J$ decays exponentially with distance from the contact edge. Shown are a wafer and a contact, current flows into the wafer from the left and into the contact, as indicated by the arrows.
+[[./images/Lt_diagram.png]]
+
+This effect will be explained in more detail in Chapter \ref{ch:TheoryChapter}, but first, let's think about its experimental implications.
+If the transfer length is much larger than the contacts, then the current will effectively be equally distributed, but this might not be the case.
+
+# The main difficulty lies in measuring the /local/ current density, $J$, when in practice it is typically a total current, $I$, that is measured.
+# This challenge of trying to probe local current densities with only global measures such as total supplied current and some voltage needs to be addressed when performing contact resistivity measurements.
+
+
 ** Typical measurement methods
 Hier wil ik eigenlijk een beetje terugpakken op hoofdstuk drie van Semiconductor material and device characterization van Schroder.
 Het lijkt me een goed idee om van de two-terminal methods een paar te kiezen, zoals transmission line method en Cox & Strack, hoewel er andere varianten bestaan hebben ze allemaal hetzelfde praktische probleem: patterning stappen.
@@ -504,9 +525,9 @@ In contrast to the CBKR method, in which the electrode dimensions need to match 
 
 
 ** TODOS :noexport:
-*** TODO Ease of measurement
-**** TODO Easy to execute
-**** TODO Ag step still needed
+*** DONE Ease of measurement
+**** DONE Easy to execute
+**** DONE Ag step still needed
 *** TODO Reliability of results
 
 * TODOS :noexport:
