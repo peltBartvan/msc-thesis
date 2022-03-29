@@ -52,6 +52,7 @@ Here $\rho_c$ can be defined as
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0}.
 \end{equation}
 While from a theoretical point of view this description of contacts in terms of $J(V)$ sounds perfectly reasonable, its usage can be challenging in practice.
+Preparing a sample of area $A$ and assuming that the current is uniformly distributed along the contact, the definition easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can easily be measured.
 In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding.
 The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, this phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
 Here $R_\square$ is the sheet resistance of the wafer.
@@ -62,6 +63,9 @@ Here $R_\square$ is the sheet resistance of the wafer.
 
 This effect will be explained in more detail in Chapter \ref{ch:TheoryChapter}, but first, let's think about its experimental implications.
 If the transfer length is much larger than the contacts, then the current will effectively be equally distributed, but this might not be the case.
+In such cases measuring $V$ and $J$ is not trivial, as they can vary greatly within the contact.
+In contrast, it is typically only the total current and /some/ induced voltage that can be measured experimentally.
+This is the main challenge of contact resistivity measurements, reliably distilling local $J(V)$ behaviour from globally measured $I(V)$ data.
 
 # The main difficulty lies in measuring the /local/ current density, $J$, when in practice it is typically a total current, $I$, that is measured.
 # This challenge of trying to probe local current densities with only global measures such as total supplied current and some voltage needs to be addressed when performing contact resistivity measurements.
