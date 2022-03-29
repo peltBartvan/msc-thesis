@@ -9,6 +9,7 @@
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 # TODO: change occurences of R_{sq} into \Rsq
 #+LATEX_HEADER: \newcommand{\Rsq}{R_s}
+#+LATEX_HEADER: \newcommand{\AlOx}{$Al_2O_3$}
 
 #+EXCLUDE_TAGS: todoex noexport
 # +OPTIONS: toc:nil
@@ -65,11 +66,13 @@ This effect will be explained in more detail in Chapter \ref{ch:TheoryChapter}, 
 If the transfer length is much larger than the contacts, then the current will effectively be equally distributed, but this might not be the case.
 In such cases measuring $V$ and $J$ is not trivial, as they can vary greatly within the contact.
 In contrast, it is typically only the total current and /some/ induced voltage that can be measured experimentally.
-This is the main challenge of contact resistivity measurements, reliably distilling local $J(V)$ behaviour from globally measured $I(V)$ data.
-
-# The main difficulty lies in measuring the /local/ current density, $J$, when in practice it is typically a total current, $I$, that is measured.
-# This challenge of trying to probe local current densities with only global measures such as total supplied current and some voltage needs to be addressed when performing contact resistivity measurements.
-
+This is the main challenge of contact resistivity measurements, reliably distilling local $J(V)$ behaviour from global $I(V)$ measurements.
+In the next sections some popular solutions to this challenge will be discussed.
+Sadly, most of these methods involve patterning and etching, which is known to be difficult for ZnO:Al films with typical etchants.
+Within the context of this project, symmetric lifetime samples were often made, consisting of a substrate with ZnO:Al deposited on both sides.
+These are further processed by thermal annealing after optional deposition of an \AlOx capping layer.
+As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
+This was the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
 
 ** Typical measurement methods
 Hier wil ik eigenlijk een beetje terugpakken op hoofdstuk drie van Semiconductor material and device characterization van Schroder.
