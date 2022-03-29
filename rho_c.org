@@ -4,6 +4,10 @@
 #+LATEX_HEADER: \usepackage[numbers]{natbib}
 #+LATEX_HEADER: \bibliographystyle{abbrv}
 
+# compilation: first run SPC m e l l
+# then bash : pdflatex rho_c && bibtex rho_c && pdflatex rho_c && pdflatex rho_c
+# to get sources working
+
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
@@ -28,6 +32,7 @@ As the C&S and TLM methods provide some significant challenges, the choice was m
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
 With this controlled current flow
 # TODO
+Here is a sourced statement\cite{MasterThesisDGJA}.
 
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
@@ -45,7 +50,7 @@ The contact resisivity is then defined as
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0},
 \end{equation}
 in which the dependency on the "other parameters" is implicit.
-** Contact resistance
+** Contact resistivity
 In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
 There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
 Here $\rho_c$ can be defined as
@@ -72,15 +77,17 @@ Sadly, most of these methods involve patterning and etching, which is known to b
 Within the context of this project, symmetric lifetime samples were often made, consisting of a substrate with ZnO:Al deposited on both sides.
 These are further processed by thermal annealing after optional deposition of an \AlOx capping layer.
 As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
-This was the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
+This is the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
 
 ** Typical measurement methods
+#+BEGIN_COMMENT
 Hier wil ik eigenlijk een beetje terugpakken op hoofdstuk drie van Semiconductor material and device characterization van Schroder.
 Het lijkt me een goed idee om van de two-terminal methods een paar te kiezen, zoals transmission line method en Cox & Strack, hoewel er andere varianten bestaan hebben ze allemaal hetzelfde praktische probleem: patterning stappen.
 Eigenlijk is de boodschap vooral "two terminal kan, maar je moet sowieso patternen, en interne weerstanden in je meetopstelling kunnen belangrijk zijn".
 Daarna wil ik snel door naar de four terminal methodes. Hoofdzakelijk de cross bridge Kelvin resistor (CBKR) setup, maar ook even refereren naar alternatieve opstellingen (Loh et al. - 1985 - 2-D Simulations for accurate extraction ...).
 Belangrijke takeaway is hier het belang van de transfer length, en dat zaken makkelijker worden als deze groot is.
 Ook belangrijk om het voornaamste probleem te highlighten: scheiding van rho_c en andere termen kan lastig zijn.
+#+END_COMMENT
 *** Cox and Strack
 In the Cox and Strack (C&S) method samples are made that feature circular contacts of varying size on one side of the sample, while the other side has a full backplane contact, as illustrated in Figure \ref{fig:CnSIllustration}.
 #+LABEL: fig:CnSIllustration
@@ -530,6 +537,8 @@ This is especially important for ZnO:Al samples, since controlled etching of the
 In essence, the new method shows similarities to the CBKR method, both methods use a four terminal approach, and both aim to eliminate inhomogeneous currents by electrode design.
 In contrast to the CBKR method, in which the electrode dimensions need to match the sample dimensions, the PCBs used in the new method enable a rapid reuse of the same testing structure for samples of different dimensions.
 
+\bibliography{zotero_refs}
+
 
 ** TODOS :noexport:
 *** DONE Ease of measurement
@@ -554,3 +563,4 @@ Spreidingen laten zien, maken orientatie en sample grootte nog uit?
 Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
 ** TODO Conclusie
 Methode is handig te gebruiken, levert herhaalbare resultaten.
+
