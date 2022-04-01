@@ -15,13 +15,26 @@
 # Some commands for often used variables
 # TODO: change occurences of R_{sq} into \Rsq
 #+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
-#+LATEX_HEADER: \newcommand{\AlOx}{$Al_2O_3$}
+#+LATEX_HEADER: \newcommand{\AlOx}{$\mathrm{Al_2O_3}$}
 
-#
+# Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
 
 #+EXCLUDE_TAGS: todoex noexport
 # +OPTIONS: toc:nil
+
+* COMMENT Scratchpad
+\LaTeX stuff to test goes here.
+Also serves as usage examples.
+
+Sheet resistance $\Rsq$ in text.
+
+AlOx \AlOx{} in text.
+
+This is my goal: \colorbox{orange}{some custom TODO block}, with some following text for testing
+Lets test it: \todo{achieve goal}.
+
 
 * Introduction
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
@@ -36,7 +49,7 @@ While this suggested pin-to-plate measurement is very easy to perform, not needi
 As the C&S and TLM methods provide some significant challenges, the choice was made to look deeper into the pin-to-plate method, and see if it can be improved on enough to be useful.
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
 With this controlled current flow
-# TODO
+\todo{fill in this part}
 
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
@@ -84,9 +97,9 @@ In contrast to these locally defined $V$ and $J$, it is typically only the total
 This is the main challenge of contact resistivity measurements: reliably distilling local $J(V)$ behaviour from global $I(V_M)$ measurements.
 In the next sections some typical solutions to this challenge will be discussed.
 Sadly, most of these methods involve patterning and etching, which, as discussed, can be difficult for ZnO:Al.
-# TODO: does the next part fit here?
+\todo{does the next part fit here?}
 Within the context of this project, symmetric lifetime samples were often made, consisting of a substrate with ZnO:Al deposited on both sides.
-These are further processed by thermal annealing after optional deposition of an \AlOx capping layer.
+These are further processed by thermal annealing after optional deposition of an \AlOx{} capping layer.
 As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
 This is the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
 
@@ -113,11 +126,12 @@ Cox and Strack originally modeled these terms as
 R_{T} \approx \underbrace{\frac{\rho_W}{\pi d}\arctan\left(\frac{4t}{d}\right)}_{R_s} + \underbrace{\frac{\rho_c}{\frac{1}{4}\pi d^2}}_{R_c} + R_0,
 \end{equation}
 where $d$ is the diameter of the contact, $\rho_W$ is the wafer resistivity, $\rho_c$ the contact resistivity and $t$ is the thickness of the wafer \cite{coxOhmicContactsGaAs1967}.
-While more accurate models for the resistance terms have been found \cite{vanrijnbachAccuracyCoxStrack2020,ahmadDeterminationContactResistivity1995}, this form is sufficient for explaining the method.
 Since the contact and spreading resistances depend differently on the contact radius, the contact resistivity can be determined by varying $d$ and fitting to the model.
-The practical implications of this method are that samples have to be precisely made, the circular contacts are typically tens of micrometers in radius.
-To make structures like this one would need to remove part of the contacting layer, for the delicate ZnO:Al films considered in this work this is known to be difficult.
-Not only are these extra processing steps difficult to perform, they are incompatible with typical solar cell processes, so the question remains whether the fabricated samples accurately resemble the films in solar cell processes.
+While more accurate models for the resistance terms have been found \cite{vanrijnbachAccuracyCoxStrack2020,ahmadDeterminationContactResistivity1995}, the concept behind the measurement stays the same.
+The practical implications of this method are that samples have to be precisely made, the circular contacts are typically tens of micrometers in radius. \todo{source, this depends on resistances, how?}
+To make structures like this one would need to remove part of the contacting layer, this extra processing, as explained previously, is best avoided.
+\todo{what measurement range?}
+
 *** Transmission line method
 The transmission line method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
 In TLM, the chosen geometry is typically linear, with rectangular contacts spaced at different distances, as illustrated in Figure \ref{fig:TLMIllustration}.
