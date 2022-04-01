@@ -11,9 +11,14 @@
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
+
+# Some commands for often used variables
 # TODO: change occurences of R_{sq} into \Rsq
-#+LATEX_HEADER: \newcommand{\Rsq}{R_s}
+#+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
 #+LATEX_HEADER: \newcommand{\AlOx}{$Al_2O_3$}
+
+#
+#+LATEX_HEADER: \usepackage{xcolor}
 
 #+EXCLUDE_TAGS: todoex noexport
 # +OPTIONS: toc:nil
@@ -50,29 +55,36 @@ The contact resisivity is then defined as
 \end{equation}
 in which the dependency on the "other parameters" is implicit.
 ** Contact resistivity
-In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
-There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
-Here $\rho_c$ can be defined as
+# In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
+# There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
+In solar cells, contact resistance can be an important loss mechanism, limiting cell efficiency.
+As a result, it is an important parameter to minimize.
+While the total contact resistance can be defined as $R_c = \frac{V}{I}$, with $V$ and $I$ being the voltage along the contact and the total current respectively, this changes with contact area.
+A more useful quantity is the contact resistivity, also known as specific contact resistance, which is area independent.
+This $\rho_c$ is defined not using the total current, but the current density $J$:
 \begin{equation}
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0}.
 \end{equation}
 While from a theoretical point of view this description of contacts in terms of $J(V)$ sounds perfectly reasonable, its usage can be challenging in practice.
 To understand the problem, consider preparing a sample of area $A$ and assuming that the current is uniformly distributed along the contact.
-The definition then easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can easily be measured.
+The definition then easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can be measured.
 In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding\cite{schroderSolarCellContact1984}.
-The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, this phenomenon is illustrated in Figure \ref{fig:LtIllustration}, where $R_\square$ is the sheet resistance of the wafer.
+The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, here $R_\square$ is the sheet resistance of the wafer.
+This phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
 
 #+LABEL: fig:LtIllustration
 #+CAPTION: Illustration of current crowding along the edge of a contact. The current density $J$ decays exponentially with distance from the contact edge. Shown are a wafer and a contact, current flows into the wafer from the left and into the contact, as indicated by the arrows.
 [[./images/Lt_diagram.png]]
 
 This effect will be explained in more detail in Chapter \ref{ch:TheoryChapter}, but first, let's think about its experimental implications.
-If the transfer length is much larger than the contacts, then the current will effectively be equally distributed, but this might not be the case.
+If the transfer length is much larger than the contacts, then the current will effectively be equally distributed.
+Sadly, for the samples used in this work, the transfer length was often found to be smaller than the contact dimensions.
 In such cases measuring $V$ and $J$ is not trivial, as they can vary greatly within the contact.
-In contrast, it is typically only the total current and /some/ induced voltage that can be measured experimentally.
-This is the main challenge of contact resistivity measurements, reliably distilling local $J(V)$ behaviour from global $I(V)$ measurements.
-In the next sections some popular solutions to this challenge will be discussed.
-Sadly, most of these methods involve patterning and etching, which is known to be difficult for ZnO:Al films with typical etchants.
+In contrast to these locally defined $V$ and $J$, it is typically only the total current, $I$, and /some/ induced voltage, $V_M$, that can be measured experimentally.
+This is the main challenge of contact resistivity measurements: reliably distilling local $J(V)$ behaviour from global $I(V_M)$ measurements.
+In the next sections some typical solutions to this challenge will be discussed.
+Sadly, most of these methods involve patterning and etching, which, as discussed, can be difficult for ZnO:Al.
+# TODO: does the next part fit here?
 Within the context of this project, symmetric lifetime samples were often made, consisting of a substrate with ZnO:Al deposited on both sides.
 These are further processed by thermal annealing after optional deposition of an \AlOx capping layer.
 As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
