@@ -32,7 +32,6 @@ As the C&S and TLM methods provide some significant challenges, the choice was m
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
 With this controlled current flow
 # TODO
-Here is a sourced statement\cite{MasterThesisDGJA}.
 
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
@@ -58,10 +57,10 @@ Here $\rho_c$ can be defined as
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0}.
 \end{equation}
 While from a theoretical point of view this description of contacts in terms of $J(V)$ sounds perfectly reasonable, its usage can be challenging in practice.
-Preparing a sample of area $A$ and assuming that the current is uniformly distributed along the contact, the definition easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can easily be measured.
-In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding.
-The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, this phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
-Here $R_\square$ is the sheet resistance of the wafer.
+To understand the problem, consider preparing a sample of area $A$ and assuming that the current is uniformly distributed along the contact.
+The definition then easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can easily be measured.
+In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding\cite{schroderSolarCellContact1984}.
+The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, this phenomenon is illustrated in Figure \ref{fig:LtIllustration}, where $R_\square$ is the sheet resistance of the wafer.
 
 #+LABEL: fig:LtIllustration
 #+CAPTION: Illustration of current crowding along the edge of a contact. The current density $J$ decays exponentially with distance from the contact edge. Shown are a wafer and a contact, current flows into the wafer from the left and into the contact, as indicated by the arrows.
@@ -89,18 +88,20 @@ Belangrijke takeaway is hier het belang van de transfer length, en dat zaken mak
 Ook belangrijk om het voornaamste probleem te highlighten: scheiding van rho_c en andere termen kan lastig zijn.
 #+END_COMMENT
 *** Cox and Strack
-In the Cox and Strack (C&S) method samples are made that feature circular contacts of varying size on one side of the sample, while the other side has a full backplane contact, as illustrated in Figure \ref{fig:CnSIllustration}.
+In the Cox and Strack (C&S) method\cite{schroderDeviceCharacterization} samples are made that feature circular contacts of varying size on one side of the sample, while the other side has a full backplane contact, as illustrated in Figure \ref{fig:CnSIllustration}.
+
 #+LABEL: fig:CnSIllustration
 #+CAPTION: Illustration of a Cox and Strack measurement setup, the ZnO:Al and covering Ag layers are circularly shaped with diameter $d$, the Si and bottom Ag layers are much larger than the circular contact. $t$ indicates the thickness of the Si layer. In practice, a single sample would be covered by multiple dots of varying diameter. The spreading resistance in the silicon scales differently with $d$ than the contact resistance does, so that it can be fit out with sufficient data points.
 [[./images/cox_strack.drawio.png]]
+
 The resistance between the backplane and the circular contacts is then measured for the different circular contacts.
 The main assumption here is that the total resistance can be described as a sum of three resistances: contact resistance $R_c$, spreading resistance $R_s$, and some fixed residual resistance $R_0$.
-Cox and Strack model these terms as
+Cox and Strack originally modeled these terms as
 \begin{equation}
 R_{T} \approx \underbrace{\frac{\rho_W}{\pi d}\arctan\left(\frac{4t}{d}\right)}_{R_s} + \underbrace{\frac{\rho_c}{\frac{1}{4}\pi d^2}}_{R_c} + R_0,
 \end{equation}
-where $d$ is the diameter of the contact, $\rho_W$ is the wafer resistivity, $\rho_c$ the contact resistivity and $t$ is the thickness of the wafer.
-# TODO source on C&S model
+where $d$ is the diameter of the contact, $\rho_W$ is the wafer resistivity, $\rho_c$ the contact resistivity and $t$ is the thickness of the wafer \cite{coxOhmicContactsGaAs1967}.
+While more accurate models for the resistance terms have been found \cite{vanrijnbachAccuracyCoxStrack2020,ahmadDeterminationContactResistivity1995}, this form is sufficient for explaining the method.
 Since the contact and spreading resistances depend differently on the contact radius, the contact resistivity can be determined by varying $d$ and fitting to the model.
 The practical implications of this method are that samples have to be precisely made, the circular contacts are typically tens of micrometers in radius.
 To make structures like this one would need to remove part of the contacting layer, for the delicate ZnO:Al films considered in this work this is known to be difficult.
