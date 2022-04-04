@@ -205,7 +205,7 @@ Luckily $C_g$ can easily be estimated.
 \todo{how does next section fit here?}
 Taking $\rho_c \approx 10\text{m}\Omega\text{cm}^2$ as a lower bound, and suppose using pieces of household aluminium foil for contacts ($R_\square \approx 3\text{m}\Omega_\square$, measured with a four-point probe), this gives a worst case (i.e. shortest) transfer length of around 2 cm.
 For easy measurements, the needed samples should not be much smaller than a squared cm, otherwise they will be difficult to cleave and handle with tweezers.
-By cutting carefully, electrodes can be made with an estimated misalignment of around one mm.
+By cutting the foil carefully, electrodes can be made with an estimated misalignment of around one mm.
 Substitution yields a $C_g$ on the order of magnitude of a few thousandth's, indicating that geometric effects will not be significant in this setup.
 
 In contrast to TLM and the C&S method, no patterning and etching steps are required by the CBKR method, making it a viable option for ZnO:Al samples.
@@ -228,12 +228,13 @@ The copper plate would serve as both a current driving electrode and a reference
 #+CAPTION: Illustration of a pin to plate measurement, featuring a copper base plate on which a silver coated sample is located. A current is driven between a pin and the base plate, while the voltage between another pin and the base plate is measured.
 [[./images/pin_plate_drawing.drawio.png]]
 
-In essence this method is quite similar to the CBKR method, where a current is driven through the sample, /the/ resulting voltage is measured, and the resulting resistance is multiplied by sample area to get the specific resistivity.
+In essence this method is somewhat similar to the CBKR method, where a current is driven through the sample, /the/ resulting voltage is measured, and the resulting resistance is multiplied by sample area to get the specific resistivity.
 While in the CBKR method the average voltage along the sample is measured (neglecting geometric resistance), in the pin to plate method the relation between measured voltage and average voltage is not so clear.
 Due to the contacting geometry, the voltage in the top contact is highly nonuniform, so that the measured voltage can differ by orders of magnitude on a single sample, depending on where this voltage is measured.
+These inhomogeneities will be analyzed in detail in Chapter \ref{ch:TheoryChapter}.
 
 It quickly became clear that this method provided neither reliable nor valid results, since measurements on exactly the same sample could yield values that vary by orders of magnitude.
-Nonetheless, the extreme ease of measurement compared to the previously discussed measurement methods made it a good candidate for further investigation.
+Nonetheless, the extreme ease of measurement compared to the previously discussed measurement methods made it an interesting candidate for further investigation.
 If the poorly chosen probing geometry is the cause of the problematic voltage nonuniformities, then maybe a different choice of probing geometry could solve this problem.
 
 Addressing these challenges in the pin to plate method is the goal of the rest of this thesis.
@@ -249,11 +250,16 @@ So far, all the top-down measurement methods had to mitigate one phenomenon, tra
 Consider ideal conductors used as contacts, as these form regions of equal electric potential, the potential difference between top and bottom of the sample will be equal everywhere.
 The driven current density will be uniform, found simply by: $J = \frac{\Delta V}{\rho_s}$.
 In this idealized case, contact resistivities would be trivial to measure, but in reality the driven current distributions and potential differences can be significantly inhomogeneous, as illustrated in Figure \ref{fig:inhomogeneityIllustration}.
+
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: A comparison between contacting with ideally conducting electrodes (top) and electrodes with significant resistivity (bottom). Positive and negative voltages are shown as shades of red and blue in the electrodes, while the current density through the sample is depicted using arrows and shades of yellow. In the ideal case the contact voltages and current densities are uniform, while in the non-ideal case the current distribution is localized near the current injection point of the contacting electrodes.
 #+LABEL: fig:inhomogeneityIllustration
 [[./images/current_homogeneity.drawio.png]]
+
 To quantify these effects, the interaction between electrodes and sample was modeled, as illustrated in Figure \ref{fig:lengthIllustration}.
+# Here a slab of material is shown laying in the $xy$ -plane \todo{typesetting}, the slab consists of a substrate with a conductive layer on either side.
+# The potentials within these layers are indicated by $V_{top}$ and $V_{bottom}$ respectively.
+# Currents can flow within the contacts, as indicated by $J_{top}$ and $J_{bottom}$, but also through the contact, as indicated by $J_\perp$.
 
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: A model of a sample with two contacting electrodes. In the electrodes the current density is determined from the electrodes' conductivity and the electric fields. The current density through the sample can be determined from the stack resistivity $\rho$ and the local potential difference between the top and bottom electrode.
@@ -262,7 +268,7 @@ To quantify these effects, the interaction between electrodes and sample was mod
 
 *** Governing equations
 In this model an arbitrary slab of sample and electrodes is considered, oriented along the x-y plane, with the z-direction defining the top and bottom of the setup.
-The electrodes are considered to be very thin, and relatively conductive, so that the voltage within each electrode are independent of $z$.
+The electrodes are considered to be very thin, and relatively conductive, so that the voltage within each electrode is independent of $z$.
 Within these electrodes, the current density is determined by Ohm's law, so that
 \begin{equation}
 \vec{J}_{top} = -\sigma\nabla_{(x,y)} V_{top}(x,y),
@@ -277,7 +283,7 @@ The current density through the sample is given by
 J_\perp = \frac{V_{top} - V_{bottom}}{\rho},
 \end{equation}
 for some specific sample resistance $\rho$.
-Consider charge conservation in some arbitrary region $\Omega$ in the top electrode, which can be expressed as a sum of currents flowing into the region from other parts of the electrodes, and a current flowing into the sample:
+Consider charge conservation in any region $\Omega$ in the top electrode, which can be expressed as a sum of currents flowing into the region from other parts of the electrodes, and a current flowing into the sample:
 \begin{equation}
 0 = \int_\Omega \vec{J}\cdot\vec{\mathrm{d}A} = \int_\Omega J_\perp \mathrm{d}A + \oint_{\partial\Omega}\vec{J}_{top}\cdot\hat{n}h\mathrm{d}s,
 \end{equation}
@@ -296,20 +302,22 @@ Adding the two together, and letting $\phi \equiv V_{top} - V_{bottom}$, one get
 \end{equation}
 As the choice of $\Omega$ was arbitrary, the integrand must vanish almost everywhere, so that
 \begin{equation}
-\nabla^2 \phi = \frac{R_{sq}}{\rho}\phi.
+\nabla^2 \phi
+= \frac{1}{\sigma h \rho}\phi
+= \frac{\Rsq}{\rho}\phi,
 \end{equation}
+where $\frac{1}{\sigma h}$ is recognized as the sheet resistance $\Rsq$.
 
-No PDE is complete without appropriate boundary conditions, in this work Neumann boundary conditions are considered, as these describe four-point probing setups the best.
-A current distribution is driven along some part of the domain boundary, and some resulting potential difference is measured.
+No PDE is complete without appropriate boundary conditions, in this work Neumann boundary conditions are considered, as these describe four-point probing setups the best: a current distribution is driven along some part of the domain boundary, and some resulting potential difference is measured.
 In dimensionless form, the equation can be written as
 \begin{equation}
 \tilde{\nabla}^2 \phi = \left(\frac{L}{L_t}\right)^2 \phi \equiv k^2\phi,
 \end{equation}
-where $L$ is the characteristic dimension of the sample, and $L_t \equiv \sqrt{\frac{\rho}{R_{sq}}}$ is the so called transfer length, and the dimensionless Laplacian is given by $\tilde{\nabla}^2 = \frac{1}{L^2}\nabla^2$.
+where $L$ is the characteristic dimension of the sample, and $L_t \equiv \sqrt{\frac{\rho}{R_{sq}}}$ is the familiar transfer length, and the dimensionless Laplacian is given by $\tilde{\nabla}^2 = \frac{1}{L^2}\nabla^2$.
 In following sections the tilde on the Laplacian will be omitted, so that the dimensionless form of the PDE is given by
 \begin{align}
-\nabla^2\phi &= k^2\phi, &\Omega\\
-\nabla\phi\cdot \hat{n} &= f  &\partial\Omega.
+\nabla^2\phi &= k^2\phi, &\text{Contact}\\
+\nabla\phi\cdot \hat{n} &= f  &\text{Contact edge}.
 \end{align}
 *** Uniqueness of solutions
 To show that solutions are unique, consider two solutions, $\phi_1$ and $\phi_2$ and let $\hat\phi \equiv \phi_1 - \phi_2$, the goal will be to show that the PDE and boundary conditions force $\phi$ to vanish.
