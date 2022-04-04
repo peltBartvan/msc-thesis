@@ -190,8 +190,9 @@ ideally this should equal the specific resistance, $\rho_c$, of the sample, but 
 One of there assumptions is that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
 When measuring samples with low specific resistivities this might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
 Additionally, misaligned contacts can result in currents "wrapping around" the sample, this can result in an overestimation of the average voltage over the sample.
+\todo{illustrate wrap-around}
 # TODO source, probably Schreyer&Saraswat
-This effect was modeled by Schreyer and Saraswat, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}}$, their main result can be expressed as,
+This effect was modeled by Schreyer and Saraswat \cite{schreyerTwodimensionalAnalyticalModel1986a}, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}}$, their main result can be expressed as,
 \begin{equation}
 \label{eqn:CBKRError}
 \frac{\rho_M}{\rho_c} = 1 + \underbrace{\frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right]}_{C_g},
@@ -200,6 +201,8 @@ in which $\delta$ is the sample misalignment, and $W_x$ and $W_y$ are the thickn
 Here the second term is referred to as the geometric correction factor, or $C_g$.
 Ideally $C_g$ is small, so that $\rho_M \approx \rho_c$, this can be realized by using small samples, small misalignments, and highly conductive electrodes.
 Luckily $C_g$ can easily be estimated.
+# For example, consider making a rudimentary CBKR structure using household aluminium foil.
+\todo{how does next section fit here?}
 Taking $\rho_c \approx 10\text{m}\Omega\text{cm}^2$ as a lower bound, and suppose using pieces of household aluminium foil for contacts ($R_\square \approx 3\text{m}\Omega_\square$, measured with a four-point probe), this gives a worst case (i.e. shortest) transfer length of around 2 cm.
 For easy measurements, the needed samples should not be much smaller than a squared cm, otherwise they will be difficult to cleave and handle with tweezers.
 By cutting carefully, electrodes can be made with an estimated misalignment of around one mm.
@@ -210,6 +213,9 @@ Still, there are some practical drawbacks to this method regarding the fabricati
 In practice it can be difficult to cleave samples to specified dimensions, so that electrodes need to be custom made for each sample piece to reduce misalignment.
 Additionally, making sure that there are no shorts between the flimsy pieces of aluminium foil can be challenging.
 Experience shows that strategically placed pieces of insulating tape can help, but in the end eyebrows will probably be raised when reading "we sandwiched the sample between some household foil and duct tape, and it just appeared to work" in the methods section of any report.
+Despite these drawbacks, by working carefully it is possible to make these structures from aluminium foil.
+Due to its compatibility with the ZnO:Al samples, the CBKR method can be used as a good sanity check for any new measurements of these samples.
+\todo{measurement limits}.
 
 *** Pin to plate
 The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable patterning and etching of this material is difficult, making TLM and the C&S method impractical.
