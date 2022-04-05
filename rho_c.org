@@ -347,11 +347,16 @@ With the inner product
 \end{equation}
 Equation \ref{eq:unicityInnerProduct} can be recognized as $\langle\hat\phi,\hat\phi\rangle = 0$, so that $V_{top} - V_{bottom} \equiv \phi = 0$, proving that solutions of Equations \ref{eq:modelDefDomain} and \ref{eq:modelDefBC} are indeed unique.
 *** Influence of transfer length
-Now, let's solve these equations for a few geometries.
+Now, let's apply this model to a few practical situations, starting with a pin to plate measurement.
+#+BEGIN_COMMENT
 The first is the simplest realizable geometry, take a sample, and contact it with pins at its center to drive the currents, while measuring a potential drop somewhere else along the sample.
 While in practice a rectangular sample is often used, the problem is reduced to a circular domain in order to more easily look into the spreading effects.
 The unit disk is chosen as a solution domain without the origin, at which the current is driven, by symmetry, this allows us to look at solutions of the form $\phi(r)$
+#+END_COMMENT
+For simplicity, the samples are modeled as circular with radius $1$, excluding the origin.
+Through an appropriate choice of $k$ the solutions can describe any arbitrary combination of sample radius, contact resistivity and sheet resistance.
 As all currents are contained in the sample, the current density must vanish at the boundary, so that $\phi'(1) = 0$.
+The origin is excluded from the domain, so that a current source can be located here.
 In experimental conditions the total supplied current, $I$, is known.
 In this model however the average potential drop, $\bar{\phi}$, is specified, so that
 \begin{equation}
