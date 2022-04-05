@@ -450,7 +450,7 @@ Practically, the measurements come down to the following steps:
    - Have a spreading length significantly larger than the distance between the fingers of the PCBs to be used. Cover with silver if neccesary.
    - Are homogeneous, this might not be the case when deposited films wrap around the samples.
    - Feature no edge deposited conductive films, it is recommended to cleave off the edges of the samples after silver deposition.
-   - Have an accurately known surface area, $A$, in this work this was achieved with a computer vision method, which will be discussed later.
+   - Have an accurately known surface area, $A$, in this work this was achieved with a computer vision method, which will be discussed later. \todo{describe script in appendix}
    - Fit on the 15 mm by 15 mm measurement pads of the PCBs.
 2) Set up the resistance measurement system:
    - Use a sourcemeter in a four-terminal sensing configuration, in this work a Keithley 2400 was used.
@@ -464,11 +464,13 @@ Practically, the measurements come down to the following steps:
 5) Calculate the specific resistivity $\rho_s = R\cdot A$.
 #+LATEX:   }}
 
+\todo{include figure of wiring}
+
 The interpretation of the measured stack resistivity depends on the used samples, as in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
 In this case an upper bound on contact resistivity can be given as $\rho_c < \frac{1}{2}\rho_s$.
 
-#+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: TODO
+#+ATTR_LATEX: :width 1\textwidth :options angle=270
+#+CAPTION: An image of a used PCB, shown are two interleaved comb-shaped copper contacts, these can be connected to measurement equipment using the two header pins. The four holes can be used to systematically align two PCBs using a pin.
 #+LABEL: fig:PCBimage
 [[./images/pcb_cropped.jpeg]]
 
@@ -497,6 +499,7 @@ This concurrent validity test was chosen, in which the novel method was compared
 The choice for a CBKR test was made since it can handle the same type of samples that the PCBs can.
 The needed patterning for Cox & Strack and other methods would imply the need to make separate samples, process them differently, and just hope that they have the same specific resistance.
 A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations, making it fit for a direct comparison of measurement methods.
+The used CBKR setup will be discussed in more detail in Section \ref{sec:CBKRResults}.
 
 ** TODOS :noexport:
 *** DONE Why check validity/reliability?
@@ -560,10 +563,12 @@ Overall, the measurement seems most repeatable in the "short" configuration.
 Next the location of the sample on the PCB was varied for a few samples. The samples were located at all four extreme corners of the PCB pad and at the center.
 Figure \ref{fig:PCBPiece} shows the measured results for each of the tested samples, note the logarithmic vertical axis.
 This shows that the measurement is typically reliable on a per-sample basis.
-Clear are the deviations between pieces of similar samples, while these should all have the same contact resistivities, Figure \ref{fig:PCBPiece} shows clear differences between samples which were cut out of exactly the same wafer.
+There are some clear deviations between pieces cut out of the same wafer, while these should all have the same contact resistivities, Figure \ref{fig:PCBPiece} shows that this is not the case.
+A possible cause for this is backside deposition of \AlOx{} resulting in nonuniform samples, which was observed to occur by TEM. \todo{reference to figure}
+\todo{how does this influence $\rho_c$, why is it expected to increase?}
 
 #+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. This is not totally understood, but wrap-around of ALD films is expected to play a significant role.
+#+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. The pieces are labeled in order of their overall size, A being the largest within each category.
 #+LABEL: fig:PCBPiece
 [[./images/measurement_piece.png]]
 
@@ -574,6 +579,7 @@ Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside d
 Better results? -> Not really, dataset is small, no real way to know...
 
 ** Validity: Cross Bridge Kelvin Resistor comparison
+\label{sec:CBKRResults}
 Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
 While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
 To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
@@ -587,7 +593,7 @@ Several samples were used, for which the contact resistivity was measured multip
 #+LABEL: fig:CBKRvsPCB
 [[./images/CBKRvsPCB.png]]
 
-* Conclusion and outlook
+* Conclusion
 A method for easy contact resistivity measurements on laterally uniform samples was developed.
 This was achieved by contacting samples with custom made printed circuit boards, featuring interleaved comb-like copper contacts, which are used to drive a uniform current distribution through a sample.
 In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
