@@ -20,6 +20,7 @@
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
 #+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
+#+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
 
 #+EXCLUDE_TAGS: todoex noexport
 # +OPTIONS: toc:nil
@@ -34,6 +35,8 @@ AlOx \AlOx{} in text.
 
 This is my goal: \colorbox{orange}{some custom TODO block}, with some following text for testing
 Lets test it: \todo{achieve goal}.
+
+Also, \question{does my question command work?} it seems so!
 
 
 * Introduction
@@ -348,11 +351,6 @@ With the inner product
 Equation \ref{eq:unicityInnerProduct} can be recognized as $\langle\hat\phi,\hat\phi\rangle = 0$, so that $V_{top} - V_{bottom} \equiv \phi = 0$, proving that solutions of Equations \ref{eq:modelDefDomain} and \ref{eq:modelDefBC} are indeed unique.
 *** Influence of transfer length
 Now, let's apply this model to a few practical situations, starting with a pin to plate measurement.
-#+BEGIN_COMMENT
-The first is the simplest realizable geometry, take a sample, and contact it with pins at its center to drive the currents, while measuring a potential drop somewhere else along the sample.
-While in practice a rectangular sample is often used, the problem is reduced to a circular domain in order to more easily look into the spreading effects.
-The unit disk is chosen as a solution domain without the origin, at which the current is driven, by symmetry, this allows us to look at solutions of the form $\phi(r)$
-#+END_COMMENT
 For simplicity, the samples are modeled as circular with radius $1$, excluding the origin.
 Through an appropriate choice of $k$ the solutions can describe any arbitrary combination of sample radius, contact resistivity and sheet resistance.
 As all currents are contained in the sample, the current density must vanish at the boundary, so that $\phi'(1) = 0$.
@@ -360,8 +358,9 @@ The origin is excluded from the domain, so that a current source can be located 
 In experimental conditions the total supplied current, $I$, is known.
 In this model however the average potential drop, $\bar{\phi}$, is specified, so that
 \begin{equation}
-\bar{\phi} = \frac{\int_\Omega \phi\mathrm{d}A}{\int_\Omega \mathrm{d}A} = \frac{2\pi}{\pi 1^2}\int_0^1r\phi(r)\mathrm{d}r.
+\bar{\phi} = \frac{\int_\Omega \phi\mathrm{d}A}{\int_\Omega \mathrm{d}A} = \frac{2\pi}{\pi R^2}\int_0^1r\phi(r)\mathrm{d}r = 2\int_0^1r\phi(r)\mathrm{d}r.
 \end{equation}
+Since we're interested in deviations from the average potential, the average potential is fixed at a dimensionless value of $1$.
 In the adopted cylindrical coordinates, the PDE can be expressed as
 \begin{equation}
 r^2\phi''(r) + r\phi'(r) - r^2 k^2 \phi(r) = 0,
@@ -371,15 +370,19 @@ This modified Bessel function has solutions:
 \begin{equation}
 \phi(r) = AI_0(kr) + BK_0(kr),
 \end{equation}
-in which $A$ and $B$ are integration constants and $I_0$ and $K_0$ are modified Bessel functions of the first and second kind.
-By applying the boundary and integral conditions the integration constants can be found, these steps are omitted here, as it is mostly textbook linear algebra.
-In a simpler 1D system, the PDE reduces to $\phi'' = k^2\phi$, which was solved with a similar boundary and integral condition.
-The solutions are shown in Figure \ref{fig:phiSolutions}
+in which $A$ and $B$ are integration constants and $I_0$ and $K_0$ are modified Bessel functions of the first and second kind \cite{abramowitzHandbookMathematicalFunctions1964}.
+By applying the boundary and integral conditions the integration constants can be found.
+These steps are omitted here, as it is mostly textbook linear algebra.
+In a simpler 1D cartesian system, the PDE reduces to $\phi'' = k^2\phi$, which was solved with a similar boundary and integral condition.
+The solutions for both geometries and varying $k$ are shown in Figure \ref{fig:phiSolutions}.
 
 #+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: A comparison of solutions for $\phi$ on $(0,1]$ in Cartesian and cylindrical coordinates, for varying $k \equiv \frac{L}{L_t}$. With boundary condition $\phi'(1) = 0$ and integral condition $\bar\phi = 1$. Note that the cylindrical solutions have much steeper gradients than the Cartesian ones, and that the homogeneity of the current distribution depends strongly on $k$, with large $k$ leading to very inhomogeneous currents.
+#+CAPTION: A comparison of solutions for $\phi$ on $(0,1]$ in Cartesian and cylindrical coordinates, for varying $k \equiv \frac{L}{L_t}$. With boundary condition $\phi'(1) = 0$ and integral condition $\bar\phi = 1$. Note that the cylindrical solutions have much steeper gradients than the Cartesian ones, and that the homogeneity of the current distribution depends strongly on $k$, with large $k$ leading to very inhomogeneous currents. \todo{capitalize cylindrical}
 #+LABEL: fig:phiSolutions
 [[./images/phi_solutions.png]]
+
+Figure \ref{fig:phiSolutions} clearly shows the impact of the transfer length on the homogeneity of the current distribution, short transfer lengths (compared to sample dimensions) result in very inhomogeneous current distributions.
+Additionally, when compared at similar transfer lengths, the cylindrical solutions are much less homogeneous than the cartesian ones.
 
 ** Idea: reduce effective sample dimensions
 Suppose you were to conduct a four-point probing experiment in either geometry, in which a current is driven through the sample, and some potential difference between the top and bottom of the sample, $\phi_M$, is measured.
@@ -387,23 +390,23 @@ What would be a good way to perform these measurements?
 
 To answer this question, it is useful to first estimate $L_t$ for the samples of interest.
 As the current distribution is least homogeneous for small $L_t$, it is safest to underestimate it by using large sheet resistivities and low stack resistivities.
-While the stack resistivity is of course not known before the measurements, the lowest order of magnitude of $\rho$ was estimated at 10 m\Omega{}cm^2, while for the used AZO films, $R_{sq} \approx 100$ \Omega{} is not uncommon, in this case the transfer length is on the order of 0.1 mm.
+While the stack resistivity is of course not known before the measurements, the lowest order of magnitude of $\rho$ was estimated at 10 m\Omega{}cm^2, while for the used AZO films, $R_{sq} \approx 100$ \Omega{} is not uncommon, in this case the transfer length is on the order of 0.1 mm. \question{is meer toelichting nodig?}
 
 In practice, we'd like to be able to work with samples with dimensions of at least a few mm, not just because these are easier to handle, but because these can be easily be prepared by hand-cleaving a bigger sample piece.
 In these cases $k$ would be significantly larger than 1, so the majority of current will be driven only through a small part of the sample near the current drive electrode.
 
 The goal now is to reduce $k$ through some means, in the ideal limiting case $k = 0$, but how close is close enough?
-In Figure \ref{fig:phiSolutionsEdge}, the normalized value of \phi is shown at the extremes of a sample for different $k$, the black horizontal line is at 99%.
+In Figure \ref{fig:phiSolutionsEdge}, the normalized (with respect to the average) value of \phi is shown at the extremes of a sample for different $k$, the black horizontal line indicates 99%.
 This shows that, in order to measure the average potential to within a percent relative error, $k$ has to be around 0.25 or lower.
 
-#+ATTR_LATEX: :width 1\textwidth
+#+ATTR_LATEX: :placement [!htb] :width 1\textwidth
 #+CAPTION: $\frac{\phi_M}{\bar\phi}$ at the edge of the sample, as function of $\frac{L}{L_t}$. For small $\frac{L}{L_t}$ the potential measured at the edge very closely resembles the average potential.
 #+LABEL: fig:phiSolutionsEdge
 [[./images/phi_solutions_edge.png]]
 
 To realize this goal of decreasing $\frac{L}{L_t}$, two separate approaches are combined.
-The first is to increase $L_t$ by making the contacting layers more conductive, this is achieved by depositing 300nm of silver by e-beam evaporation.
-This increases $L_t$ to approximately a few millimeters.
+The first is to increase $L_t$ by making the contacting layers more conductive, this is achieved by depositing 300 nm of silver by e-beam evaporation.
+This increases $L_t$ to approximately a few millimeters. \question{meer toelichting nodig?}
 # hoe kom ik hier aan?
 The second approach is to effectively reduce $L$ by controlling the probe geometry.
 At first glance, $L$ appears to be determined by the sample size, a current is driven through some point, and this current cannot flow out of the sample, represented in the boundary condition $\phi'(L) = 0$.
@@ -411,19 +414,24 @@ An obvious option to reduce $L$ could be to simply cut smaller samples, but in t
 Working with tiny samples, while perfectly fine in theory, is undesired in practice, so can we decrease $L$ in bigger samples? The answer is yes!
 The trick lies in the nature of the boundary condition, it is only required that $\phi'(L) = 0$, but does this imply that the sample is contained in the $0 < x < L$ range? Not neccesarily.
 As an example, consider the one dimensional case: $\phi''(x) = k^2\phi(x)$ on $(0,1)$.
-Now instead of applying a zero flux condition at any domain edge, simply consider solutions that are symmetric around $x = \frac{1}{2}$, these can easily be constructed from the solutions, $\phi_k(x)$, shown in Figure \ref{fig:phiSolutionsEdge}, by
+Now instead of applying a zero flux condition at any domain edge, simply consider solutions that are symmetric around $x = \frac{1}{2}$.
+These can easily be constructed from the solutions, $\phi_k(x)$, as
+
 \begin{equation}
 \phi_{k,\mathrm{sym}}(x) = \frac{1}{2}(\phi_k(x) + \phi_k(1-x)).
 \end{equation}
 
+These solutions correspond to a current being injected through two separate contacts, located at $x = 0$ and $x=1$.
+
 Symmetric solutions are shown in Figure \ref{fig:phiSolutionsSym}, it is clear that now $\phi'(\frac{1}{2}) = 0$.
 Notice the similarity between the solutions as shown in Figure \ref{fig:phiSolutions} and the left half of Figure \ref{fig:phiSolutionsSym}, they are the same!
-Apparently driving currents with a grid of symmetric electrodes will let us effectively change $L$.
+Apparently driving currents with a grid of symmetric electrodes will let us effectively change $L$. \question{is dit argument duidelijk?}
 
 #+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: TODO
+#+CAPTION: Symmetric solutions to Equation \ref{eq:modelDefDomain} in a 1D Cartesian geometry. Note that $\phi' = 0$ halfway between the two contacts, in this case the boundary conditions are imposed through the contact spacing, not through the total dimensions of the sample.
 #+LABEL: fig:phiSolutionsSym
 [[./images/phi_solutions_symmetric.png]]
+
 *** TODOS :noexport:
 **** TODO Generalization to what?
 Weird wording, fix this
