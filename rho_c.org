@@ -29,6 +29,8 @@
 #+OPTIONS: toc:nil
 
 \begin{abstract}
+\todo{lipsum vervangen}
+
 \lipsum[1-2]
 \end{abstract}
 
@@ -36,10 +38,15 @@
 
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-\lipsum[1-2]
-
-
-
+- Motivatie :: Wat is AZO, en waarom is het interessant voor zonnecellen?
+  + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
+  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in intro/theorie/background deel I.
+- Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
+- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, AZO) en anneal?
+  + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
+- Hoe ga ik dat doen? :: ALD AZO op verschillende substraten deponeren en annealen, dan doormeten.
+  + Wat zijn de resultaten? :: Wordt besproken in deel I.
+  + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
 
 * COMMENT Scratchpad
 \LaTeX stuff to test goes here.
@@ -58,7 +65,7 @@ Also, \question{does my question command work?} it seems so!
 
 
 * Zinc oxide contacts for solar cells
-** Intro
+** Introduction
 \lipsum[1-2]
 ** Background
 \lipsum[1-2]
