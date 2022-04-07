@@ -1,5 +1,7 @@
 #+TITLE: Top-down measurements of contact resistivity.
 
+# +LATEX_CLASS: report
+
 #+BIBLIOGRAPHY: zotero_refs
 #+LATEX_HEADER: \usepackage[numbers]{natbib}
 #+LATEX_HEADER: \bibliographystyle{abbrv}
@@ -43,7 +45,7 @@ Also, \question{does my question command work?} it seems so!
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
 In this part of this thesis, the devised measurement setup and method will be described in full detail.
 The method provides an alternative to typical contact resistivity measurements, in which several processing steps are needed to create accurately shaped contacts on the samples of interest.
-These methods include the Cox and Strack (C&S) and Transmission Line Method (TLM) methods, which will be explained later.
+These methods include the Cox and Strack (C&S) and Transfer Length Method (TLM) methods, which will be explained later.
 Not only are these steps time-consuming and complicated to perform, they pose limitations on the types of samples that can be used.
 Furthermore, thermal and chemical processing steps could alter the electrical properties of the contact of interest, and there is no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
 At the start of this project a simple measurement method was suggested, coat a sample with a thin film of silver, drive a current between the top and bottom of this sample and measure the resulting potential difference.
@@ -51,9 +53,7 @@ Multiplying the obtained resistance by the area of the sample should then give t
 While this suggested pin-to-plate measurement is very easy to perform, not needing any patterning and etching steps as required by C&S and TLM, it quickly became clear that the method was so unreliable that useful data could not be obtained.
 As the C&S and TLM methods provide some significant challenges, the choice was made to look deeper into the pin-to-plate method, and see if it can be improved on enough to be useful.
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
-With this controlled current flow
 \todo{fill in this part}
-
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
 * Background
 ** COMMENT Contact resistivity
