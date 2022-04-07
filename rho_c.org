@@ -1,6 +1,6 @@
 #+TITLE: Top-down measurements of contact resistivity.
 
-# +LATEX_CLASS: report
+#+LATEX_CLASS: report
 
 #+BIBLIOGRAPHY: zotero_refs
 #+LATEX_HEADER: \usepackage[numbers]{natbib}
@@ -12,6 +12,7 @@
 
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{svg}
+#+LATEX_HEADER: \usepackage{lipsum}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
 # Some commands for often used variables
@@ -25,7 +26,20 @@
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
 
 #+EXCLUDE_TAGS: todoex noexport
-# +OPTIONS: toc:nil
+#+OPTIONS: toc:nil
+
+\begin{abstract}
+\lipsum[1-2]
+\end{abstract}
+
+\tableofcontents
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\lipsum[1-2]
+
+
+
 
 * COMMENT Scratchpad
 \LaTeX stuff to test goes here.
@@ -40,8 +54,16 @@ Lets test it: \todo{achieve goal}.
 
 Also, \question{does my question command work?} it seems so!
 
+\lipsum[1-2]
 
-* Introduction
+
+* Zinc oxide contacts for solar cells
+** Intro
+\lipsum[1-2]
+** Background
+\lipsum[1-2]
+* Contact resistivity measurements
+** Introduction
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
 In this part of this thesis, the devised measurement setup and method will be described in full detail.
 The method provides an alternative to typical contact resistivity measurements, in which several processing steps are needed to create accurately shaped contacts on the samples of interest.
@@ -55,8 +77,8 @@ As the C&S and TLM methods provide some significant challenges, the choice was m
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
 \todo{fill in this part}
 The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
-* Background
-** COMMENT Contact resistivity
+** Background
+*** COMMENT Contact resistivity
 # made this section a comment, still meant for inspiration.
 Contacts between different materials often exhibit a voltage drop when a current is applied.
 In general, the relation between voltage drop, $V$, and resulting current density, $J$, can be described as
@@ -70,7 +92,7 @@ The contact resisivity is then defined as
 \rho_c = \left.\frac{\partial V}{\partial J}\right\vert_{V = 0},
 \end{equation}
 in which the dependency on the "other parameters" is implicit.
-** Contact resistivity
+*** Contact resistivity
 # In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
 # There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
 In solar cells, contact resistance can be an important loss mechanism, limiting cell efficiency.
@@ -106,7 +128,7 @@ These are further processed by thermal annealing after optional deposition of an
 As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
 This is the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
 
-** Typical measurement methods
+*** Typical measurement methods
 #+BEGIN_COMMENT
 Hier wil ik eigenlijk een beetje terugpakken op hoofdstuk drie van Semiconductor material and device characterization van Schroder.
 Het lijkt me een goed idee om van de two-terminal methods een paar te kiezen, zoals transmission line method en Cox & Strack, hoewel er andere varianten bestaan hebben ze allemaal hetzelfde praktische probleem: patterning stappen.
@@ -115,7 +137,7 @@ Daarna wil ik snel door naar de four terminal methodes. Hoofdzakelijk de cross b
 Belangrijke takeaway is hier het belang van de transfer length, en dat zaken makkelijker worden als deze groot is.
 Ook belangrijk om het voornaamste probleem te highlighten: scheiding van rho_c en andere termen kan lastig zijn.
 #+END_COMMENT
-*** Cox and Strack
+**** Cox and Strack
 In the Cox and Strack (C&S) method\cite{schroderDeviceCharacterization} samples are made that feature circular contacts of varying size on one side of the sample, while the other side has a full backplane contact, as illustrated in Figure \ref{fig:CnSIllustration}.
 
 #+LABEL: fig:CnSIllustration
@@ -135,7 +157,7 @@ The practical implications of this method are that samples have to be precisely 
 To make structures like this one would need to remove part of the contacting layer, this extra processing, as explained previously, is best avoided.
 \todo{what measurement range?}
 
-*** Transfer length method
+**** Transfer length method
 The transfer length method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
 In TLM, the chosen geometry can be either linear or circular \todo{cite}, these variants are conceptually similar, so only the linear variant is discussed here.
 A linear TLM setup is illustrated in Figure \ref{fig:TLMIllustration}.
@@ -171,7 +193,7 @@ After finding the intercepts, the specific contact resistivity can be found as $
 The drawbacks of this method are similar to those of the C&S method, patterning and etching steps are required, making TLM not only difficult, but also possibly undermining the validity of the obtained results.
 Again, the ZnO:Al film should be partially removed in a controlled way, which is best avoided.
 A difference with the C&S method is that TLM samples imply symmetric measurements of a contact, in Ohmic contacts this is not an issue, but since in TLM the contacts are always in an antiseries configuration, this can make non-Ohmic contacts difficult to characterize.
-*** Cross bridge Kelvin resistor
+**** Cross bridge Kelvin resistor
 While the previously described methods rely on being able to fit out the contact resistivity from some set of measurements, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
 In essence the method is a top-down four-terminal measurement, a current is driven from the top to the bottom of a sample using two terminals, while two other terminals are used to measure the resulting voltage.
 
@@ -220,7 +242,7 @@ Despite these drawbacks, by working carefully it is possible to make these struc
 Due to its compatibility with the ZnO:Al samples, the CBKR method can be used as a good sanity check for any new measurements of these samples.
 \todo{measurement limits}.
 
-*** Pin to plate
+**** Pin to plate
 The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable patterning and etching of this material is difficult, making TLM and the C&S method impractical.
 The approach that had been used to far was to clamp samples between a copper plate and some of the probe pins of the already available four point probe setup, as illustrated in Figure \ref{fig:PtPIllustration}.
 One of the probe pins would be used to drive a current to the plate, while another pin would be used to measure the voltage across the sample.
@@ -244,11 +266,11 @@ Addressing these challenges in the pin to plate method is the goal of the rest o
 The first step is to better understand the nature of current (or equivalently, voltage, by Ohm's law) inhomogeneities, this will be the goal of Chapter \ref{ch:TheoryChapter}.
 # What causes these inhomogeneities? Does this depend on geometry, physical properties of the samples, or maybe something else? Can these effects be fit out, like in TLM or the C&S method? Can they be neglected by a proper choice of electrode materials, like in the CBKR method?
 # In Chapter \ref{ch:TheoryChapter} these questions will be addressed, and
-* Theory
+** Theory
 \label{ch:TheoryChapter}
-** COMMENT Wiskunde achter spreiding: transfer length
+*** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
-** Transfer length effects
+*** Transfer length effects
 So far, all the top-down measurement methods had to mitigate one phenomenon, transfer length effects.
 Consider ideal conductors used as contacts, as these form regions of equal electric potential, the potential difference between top and bottom of the sample will be equal everywhere.
 The driven current density will be uniform, found simply by: $J = \frac{\Delta V}{\rho_s}$.
@@ -269,7 +291,7 @@ To quantify these effects, the interaction between electrodes and sample was mod
 #+LABEL: fig:lengthIllustration
 [[./images/length_diagram_new.png]]
 
-*** Governing equations
+**** Governing equations
 In this model an arbitrary slab of sample and electrodes is considered, oriented along the x-y plane, with the z-direction defining the top and bottom of the setup.
 The electrodes are considered to be very thin, and relatively conductive, so that the voltage within each electrode is independent of $z$.
 Within these electrodes, the current density is determined by Ohm's law, so that
@@ -324,7 +346,7 @@ In following sections the tilde on the Laplacian will be omitted, so that the di
 \label{eq:modelDefBC}
 \nabla\phi\cdot \hat{n} &= f  &\text{Contact edge}.
 \end{align}
-*** Uniqueness of solutions
+**** Uniqueness of solutions
 To show that solutions are unique, consider two solutions, $\phi_1$ and $\phi_2$ and let $\hat\phi \equiv \phi_1 - \phi_2$, the goal will be to show that the PDE and boundary conditions force $\phi$ to vanish.
 Linearity shows that $\hat\phi$ must obey
 \begin{align}
@@ -349,7 +371,7 @@ With the inner product
 \langle\phi,\psi\rangle \equiv \int_\Omega k\phi\psi + \nabla\phi\cdot\nabla\psi \mathrm{d}x,
 \end{equation}
 Equation \ref{eq:unicityInnerProduct} can be recognized as $\langle\hat\phi,\hat\phi\rangle = 0$, so that $V_{top} - V_{bottom} \equiv \phi = 0$, proving that solutions of Equations \ref{eq:modelDefDomain} and \ref{eq:modelDefBC} are indeed unique.
-*** Influence of transfer length
+**** Influence of transfer length
 Now, let's apply this model to a few practical situations, starting with a pin to plate measurement.
 For simplicity, the samples are modeled as circular with radius $1$, excluding the origin.
 Through an appropriate choice of $k$ the solutions can describe any arbitrary combination of sample radius, contact resistivity and sheet resistance.
@@ -384,7 +406,7 @@ The solutions for both geometries and varying $k$ are shown in Figure \ref{fig:p
 Figure \ref{fig:phiSolutions} clearly shows the impact of the transfer length on the homogeneity of the current distribution, short transfer lengths (compared to sample dimensions) result in very inhomogeneous current distributions.
 Additionally, when compared at similar transfer lengths, the cylindrical solutions are much less homogeneous than the cartesian ones.
 
-** Idea: reduce effective sample dimensions
+*** Idea: reduce effective sample dimensions
 Suppose you were to conduct a four-point probing experiment in either geometry, in which a current is driven through the sample, and some potential difference between the top and bottom of the sample, $\phi_M$, is measured.
 What would be a good way to perform these measurements?
 
@@ -432,10 +454,10 @@ Apparently driving currents with a grid of symmetric electrodes will let us effe
 #+LABEL: fig:phiSolutionsSym
 [[./images/phi_solutions_symmetric.png]]
 
-*** TODOS :noexport:
-**** TODO Generalization to what?
+**** TODOS :noexport:
+***** TODO Generalization to what?
 Weird wording, fix this
-* New approach
+** New approach
 This approach was realized using custom made printed circuit boards (PCBs), as shown in Figure \ref{fig:PCBimage}.
 The PCBs feature a pad of regularly spaced copper lines, covering an area of 15 by 15 mm^2.
 The copper lines are alternately connected to either of the shown pins, so that they resemble interleaved combs.
@@ -474,7 +496,7 @@ In this case an upper bound on contact resistivity can be given as $\rho_c < \fr
 #+LABEL: fig:PCBimage
 [[./images/pcb_cropped.jpeg]]
 
-* Characterization of measurement method
+** Characterization of measurement method
 So far the case for PCB measurements has boiled down on purely theoretical arguments, in the following chapters the measurement method will be experimentally characterized.
 The characterization will focus on two desired properties of the new measurement: reliability and validity.
 A measurement method is reliable when it is reproducible, yielding the same results on each measurement.
@@ -501,45 +523,45 @@ The needed patterning for Cox & Strack and other methods would imply the need to
 A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations, making it fit for a direct comparison of measurement methods.
 The used CBKR setup will be discussed in more detail in Section \ref{sec:CBKRResults}.
 
-** TODOS :noexport:
-*** DONE Why check validity/reliability?
+*** TODOS :noexport:
+**** DONE Why check validity/reliability?
 Because method has only been discussed theoretically, a proper assessment is needed in practice
-**** DONE Contrast reliability validity
+***** DONE Contrast reliability validity
 Reliability indicates how closely the measurements are spaced.
 Validity indicates the error between measurement and actual value.
 Both are needed for a proper measurement.
 Reliability can be assessed using just the PCBs, for validity at least one secondary method is required for calibration.
-*** TODO How will I check if the method works?
-**** TODO Check reliability with PCBs
+**** TODO How will I check if the method works?
+***** TODO Check reliability with PCBs
 As discussed before, the reliability can be assessed using just the PCBs, but how?
 Ideally this method is "hufter-proof", in the sense that it doesn't matter where the sample is exactly, as long as you know its area.
 First, the placement invarance is tackled in two steps: first the rotation (in?)variance, second the translation (in?)variance.
 After that, the sample area dependence is checked.
-***** TODO Is the measurement invariant in rotations?
+****** TODO Is the measurement invariant in rotations?
 A few rectangular samples were selected (why these? basically arbitrary...)
 For these, measurements were conducted in either orientation, with the long side parallel to the fingers and with the short side parallel to the fingers.
 To probe the per-measurement variance, measurements were conducted five times per orientation.
 (hint: does not matter much, you can mostly forget about it!)
-***** TODO Is the measurement invariant in translations?
+****** TODO Is the measurement invariant in translations?
 Next, the influence of the position of the sample on measured \rho was checked.
 Here the samples were located at each extreme of the PCB, i.e. top-right, top-left, etc.. and in the center.
 This was done for a few samples, including those used in the rotation experiment, again multiple times.
-***** TODO Is the measurement invariant in sample area?
+****** TODO Is the measurement invariant in sample area?
 Out of each sample wafer, different sample pieces were cut.
 A possible limitation of this method is that inhomogeneous processing such as localized backside deposition can effect in differences in overall sample resistivity.
 As it is difficult to cut out samples of specific sizes, wafer pieces are ranked by overall dimensions, with piece A being larger than piece B, and piece B being larger than piece C.
 These measurements were also performed on the five different positions noted in the translation invariance experiment, so that the resulting data can be used for either experiment.
-**** TODO Check validity with CBKR
+***** TODO Check validity with CBKR
 While the reliability can be assessed using just the PCB method itself, an extra calibration in needed to assess the validity of the method.
 For this a Cross Bridge Kelvin Resistor setup was devised out of aluminium foil.
 A few samples were probed with the PCBs and the CBKR setup, measuring multiple times to obtain decent statistics.
 Ideally the results match for both measurement methods.
-***** TODO How were CBKR experiments conducted?
+****** TODO How were CBKR experiments conducted?
 Cut out of aluminium foil.
-***** TODO Do the results match with the PCB method?
+****** TODO Do the results match with the PCB method?
 
-* Results
-** Reliability
+** Results
+*** Reliability
 Ideally the PCB method should yield the same contact resistivities, regardless of
 - Sample orientation,
 - Sample position,
@@ -572,13 +594,13 @@ A possible cause for this is backside deposition of \AlOx{} resulting in nonunif
 #+LABEL: fig:PCBPiece
 [[./images/measurement_piece.png]]
 
-*** TODOS :noexport:
-**** TODO Verschillen tussen samples
+**** TODOS :noexport:
+***** TODO Verschillen tussen samples
 Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside depo goed weg snijden geeft vergelijkbare data. Deze dataset moet ik nog even goed bij elkaar sprokkelen...
-**** TODO New samples with less backside depo
+***** TODO New samples with less backside depo
 Better results? -> Not really, dataset is small, no real way to know...
 
-** Validity: Cross Bridge Kelvin Resistor comparison
+*** Validity: Cross Bridge Kelvin Resistor comparison
 \label{sec:CBKRResults}
 Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
 While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
@@ -593,7 +615,7 @@ Several samples were used, for which the contact resistivity was measured multip
 #+LABEL: fig:CBKRvsPCB
 [[./images/CBKRvsPCB.png]]
 
-* Conclusion
+** Conclusion
 A method for easy contact resistivity measurements on laterally uniform samples was developed.
 This was achieved by contacting samples with custom made printed circuit boards, featuring interleaved comb-like copper contacts, which are used to drive a uniform current distribution through a sample.
 In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
@@ -604,27 +626,27 @@ In contrast to the CBKR method, in which the electrode dimensions need to match 
 \bibliography{zotero_refs}
 
 
-** TODOS :noexport:
-*** DONE Ease of measurement
-**** DONE Easy to execute
-**** DONE Ag step still needed
-*** TODO Reliability of results
+*** TODOS :noexport:
+**** DONE Ease of measurement
+***** DONE Easy to execute
+***** DONE Ag step still needed
+**** TODO Reliability of results
 
-* TODOS :noexport:
-** DONE Waarde L_t is ingeschat, wat betekent dit?
+** TODOS :noexport:
+*** DONE Waarde L_t is ingeschat, wat betekent dit?
 Met samples van 1x1cm^2 betekent dit een flinke spreiding in mogelijke \phi_M, zeker in cylindrische samples (oftewel, naieve fpp setup).
 Wanneer je precies aan de rand meet is er een minder groot probleem, zie Figuur \ref{fig:phiSolutionsEdge}.
-** DONE Leuk, maar wat kunnen we hiermee?
+*** DONE Leuk, maar wat kunnen we hiermee?
 Het zou mooi zijn als we L/L_t klein kunnen krijgen (~0.25 voor 1% error) zonder met ontzettend kleine ongecontroleerd gemaakte samples te hoeven werken.
 Vandaar: translatiesymmetrie, met een grid van electrodes breng je in principe dezelfde randvoorwaardes aan als in het originele cartesiaanse geval (toelichting: symmetrie leidt tot \phi'(1) = 0).
 Met hetzelfde sample kan je dus alsnog een veel kortere $L$ bereiken.
 
-** DONE Implementatie: PCBs
+*** DONE Implementatie: PCBs
 Hoe zijn ze gemaakt, welke elektrische eigenschappen
-** DONE resultaten
+*** DONE resultaten
 Spreidingen laten zien, maken orientatie en sample grootte nog uit?
-** TODO Reflectie
+*** TODO Reflectie
 Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
-** TODO Conclusie
+*** TODO Conclusie
 Methode is handig te gebruiken, levert herhaalbare resultaten.
 
