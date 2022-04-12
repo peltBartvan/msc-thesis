@@ -1,4 +1,5 @@
-#+TITLE: Top-down measurements of contact resistivity.
+#+TITLE: Design and implementation of a novel contact resistivity measurement method for solar Si-ZnO:Al contacts.
+# +SUBTITLE: and optimization of Si-ZnO:Al contacts.
 
 #+LATEX_CLASS: report
 
@@ -19,6 +20,7 @@
 # TODO: change occurences of R_{sq} into \Rsq
 #+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
 #+LATEX_HEADER: \newcommand{\AlOx}{$\mathrm{Al_2O_3}$}
+#+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
 
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
@@ -38,19 +40,23 @@
 
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-- Motivatie :: Wat is AZO, en waarom is het interessant voor zonnecellen?
+- Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
-  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in intro/theorie/background deel I.
+  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
 - Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
-- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, AZO) en anneal?
+- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
   + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
-- Hoe ga ik dat doen? :: ALD AZO op verschillende substraten deponeren en annealen, dan doormeten.
+  + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
+- Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
   + Wat zijn de resultaten? :: Wordt besproken in deel I.
   + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
+\question{Ik wil Percspective ergens noemen, is dit een goede plek?}
 
 * COMMENT Scratchpad
-\LaTeX stuff to test goes here.
+\LaTeX{} stuff to test goes here.
 Also serves as usage examples.
+
+Note to self: always test in complete sentence form, interpunction can be weird for \LaTeX{} commands...
 
 Sheet resistance $\Rsq$ in text.
 
@@ -61,14 +67,34 @@ Lets test it: \todo{achieve goal}.
 
 Also, \question{does my question command work?} it seems so!
 
-\lipsum[1-2]
+Can I typeset AZO? \AZO{} yes I can!
 
+# \lipsum[1-2]
 
 * Zinc oxide contacts for solar cells
 ** Introduction
-\lipsum[1-2]
+- Zoals besproken heeft \AZO{} goede eigenschappen voor zonnecellen, welke? :: Transparant, goede laterale geleiding, meer /abundant/ dan ITO.
+- Waarom zijn deze eigenschappen belangrijk? ::
 ** Background
-\lipsum[1-2]
+\question{Misschien beter om dit hoofdstuk te mergen met Theory}
+- Wat is er al bekend over \AZO{} contacten? ::
+** Theory
+*** Solar cell operation
+- Globaal :: Hoe werkt een zonnecel? \cite{wurfel2005}
+- Doel :: Welke factoren bepalen efficiëntie?
+- Specifiek :: Welke impact heeft contactweerstand?
+  Mooie plek voor het efficientie vs $J_sc$ en $\rho_c$ plotje, dan kan ik meteen bespreken waarom ook passivatie en transparantie zo belangrijk zijn.
+*** Physics of semiconductor contacts
+- Achtergrond :: Zojuist besproken dat een lage contactweerstand en goede passivatie belangrijk zijn voor de hele cel, in deze sectie gaan we inzoomen op het contact zelf.
+- Vraag :: Hoe werken halfgeleider contacten, welke zaken zijn relevant voor dit werk?
+  + Passivatiemechanismes :: Chemische passivatie vs veldpassivatie
+    \question{In principe heb ik het vooral over contactweerstand, toch wel goed om even het stuk passivatie goed te bespreken, hoe diep moet ik hier op in gaan?}
+  +  ::
+*** ALD
+\question{Hele sectie waard? of bij methods even het recept goed beschrijven.}
+** Methods
+** Results/discussion
+** Conclusion
 * Contact resistivity measurements
 ** Introduction
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
@@ -656,4 +682,3 @@ Spreidingen laten zien, maken orientatie en sample grootte nog uit?
 Methode vergelijkbaar met CBKR, ook in resultaten, in PCB setup lopen er echter geen stromen om het sample heen, wat een bron van fouten in CBKR weghaalt.
 *** TODO Conclusie
 Methode is handig te gebruiken, levert herhaalbare resultaten.
-
