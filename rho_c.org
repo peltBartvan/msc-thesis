@@ -26,6 +26,7 @@
 #+LATEX_HEADER: \usepackage{xcolor}
 #+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
+#+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{blue}{SOURCE: #1}}
 
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
@@ -72,6 +73,67 @@ Can I typeset AZO? \AZO{} yes I can!
 # \lipsum[1-2]
 
 * Zinc oxide contacts for solar cells
+** Content
+\todo{eerst verhaal uitwerken, dan pas opdelen in background, intro, etc...}
+
+- Zonnecellen zijn belangrijk voor de energietransitie :: Mogen efficiënter want BOS kosten domineren.
+- Tevens schaarste Indium :: Nieuwe contactmaterialen nodig.
+- AZO lijkt een goede kandidaat :: Want transparant, geleidt goed, veelvoorkomend, en passiveert (uniek in dit opzicht).
+- Wat voeg ik hier aan toe? :: Contactgedrag op silicium, onderwerp van deze thesis.
+- Formulering doel :: Goede zonnecellen met AZO contacten.
+- Definieer "goede zonnecel" :: Welke zonnecelparameters zijn belangrijk?
+  + $J_{sc}$ :: Wordt beinvloed door passivatie en transparantie.
+  + $V_{oc}$ :: Ook recombinatie.
+  + Serieweerstand :: Onderwerp deze thesis, liefst zo laag mogelijk, specifieker: contactweerstand.
+- Definieer "goed contact" :: contact is losjes gedefinieerd als totale contact stack, dus inclusief passivatie.
+  + Goede laterale geleiding :: Transport naar metalen grid.
+    Al bekend, haalbaar voor AZO.
+  + Goede transparantie :: Anders daalt efficiëntie via $J_{sc}$.
+    Haalbaar
+  + Passivatie :: Onderdrukking recombinatie is cruciaal voor efficiëntie.
+    Ook haalbaar. \source{Bas}
+  + Goede interface geleiding :: Mijn onderwerp
+- Welke procesparameters kunnen we beïnvloeden? :: Oftewel, waar ga ik mee experimenteren, en wat is hier al over bekend?
+  + Capping met AlOx :: Cruciaal voor passivatie, \source{Bas}.
+  + AZO doping :: Belangrijk voor geleidbaarheid AZO, wel slecht voor transparantie \source{Dennis/ik}.
+    Ook goed voor passivatie \source{Bas} (door veldeffect, dit later noemen?)
+  + Annealing :: Belangrijk voor passivatie.
+  + Si doping :: Belangrijk voor lage contactweerstand \source{Schroder}, wel slecht voor Auger recombinatie.
+- Vraag :: Kunnen we met AZO/Si contacten maken die goed passiveren, goed lateraal geleiden, transparant zijn, /en/ een lage contactweerstand hebben?
+- Plan van aanpak :: AZO doping, annealing, en Si doping variëren. In plane eigenschappen checken met Hall, optisch met SE, en contactweerstand met nieuwe methode.
+- Stresspunt eigen bijdrage :: Dit blijkt niet triviaal, nieuwe contactweerstandmethode en selectieve AlOx ets bleken nodig, hier ontwikkeld.
+- Hoe ga ik dit doen? ::
+  + Sample processing :: Eerst twee types sample beschrijven.
+    - ALD :: Supercycles, reactor, recepten, etc..
+    - Anneal :: Methodiek, hotplate tot 500C, daarboven RTA.
+    - Voor contactweerstand :: Ets + Ag
+      + Etsproces :: Wordt later geverificeerd, welke stoffen, welke temperatuur, hoe lang bleek sufficient?
+      + Ag evap :: e-beam evaporation, details beschrijven
+  + Karakterisatie :: Welke meetmethodes gebruik ik?
+    - Hall :: Conductiviteit: Mobiliteit, carrier density, soortelijke weerstand.
+    - SE :: Transparantie: Free carrier absorption, tevens info over mobiliteit, effectieve massa en AZO bandgap.
+      + Ook gebruikt voor laagdiktes :: belangrijk voor testen etsproces.
+    - Contactweerstandsmethode :: Contactweerstand (duh!)
+- Wat kan ik met de data? :: Framing: hoe maak je "goede" contacten?
+  + Eerst opstapje :: Waarom deze parameters gebruikt voor contactweerstandmetingen?
+    Niet te veel detail, stukjes terugpakken.
+    - Capping :: Duidelijk cruciaal voor geleidbaarheid (Hall).
+      Ook al eerder gevonden, niet teveel tijd aan kwijt raken.
+    - Doping :: Belangrijk voor geleidbaarheid AZO, wel slecht voor transparantie (samenvatten met $J_{sc}$ grafiek.)
+      Dus: lage dotering gebruiken, sufficient voor geleidbaarheid.
+    - Anneal :: 500C beste voor passivatie (al gepubliceerd).
+      Hierboven stijgt tevens carrier density.
+  + Contactweerstand :: Wat doen deze parameters nu voor de contactweerstand?
+    - Anneal :: Bij iZnO verlaging, verder verhoging.
+      Mogelijk door verplaatsing Al dopants, dit effect speelt niet in iZnO.
+    - AZO doping :: Gedoteerd heeft lagere weerstand dan intrinsiek.
+      Mogelijk Burrstein-Moss shift
+      + Opvallend :: Op 260nplus geeft r48 een hogere weerstand dan r96.
+        Mogelijk door afstand eerste doping plane tot interface.
+    - Si doping :: Verlaagt contactweerstand.
+      Daling verklaarbaar met Schottky model in Field Emission. \question{or is it? plaatjes zijn normaal omgedraaid qua banddiagram..}
+    - Overall :: Lage contactweerstand goed haalbaar en compatible met passivatie/TCO
+- Conclusie :: AZO lijkt ook qua contactweerstand erg geschikt voor zonnecellen.
 ** Introduction
 - Zoals besproken heeft \AZO{} goede eigenschappen voor zonnecellen, welke? :: Transparant, goede laterale geleiding, meer /abundant/ dan ITO.
 - Waarom zijn deze eigenschappen belangrijk? ::
