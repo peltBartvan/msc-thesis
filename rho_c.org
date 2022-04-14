@@ -26,7 +26,7 @@
 #+LATEX_HEADER: \usepackage{xcolor}
 #+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
-#+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{blue}{SOURCE: #1}}
+#+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
 
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
@@ -82,6 +82,7 @@ Can I typeset AZO? \AZO{} yes I can!
 - Wat voeg ik hier aan toe? :: Contactgedrag op silicium, onderwerp van deze thesis.
 - Formulering doel :: Goede zonnecellen met AZO contacten.
 - Definieer "goede zonnecel" :: Welke zonnecelparameters zijn belangrijk?
+  Ook belangrijk: kwantificeer, wat is laag genoeg qua serieweerstand?
   + $J_{sc}$ :: Wordt beinvloed door passivatie en transparantie.
   + $V_{oc}$ :: Ook recombinatie.
   + Serieweerstand :: Onderwerp deze thesis, liefst zo laag mogelijk, specifieker: contactweerstand.
@@ -115,23 +116,30 @@ Can I typeset AZO? \AZO{} yes I can!
       + Ook gebruikt voor laagdiktes :: belangrijk voor testen etsproces.
     - Contactweerstandsmethode :: Contactweerstand (duh!)
 - Wat kan ik met de data? :: Framing: hoe maak je "goede" contacten?
+  (Dit wordt ongeveer resultaten/discussie)
   + Eerst opstapje :: Waarom deze parameters gebruikt voor contactweerstandmetingen?
     Niet te veel detail, stukjes terugpakken.
+    Dit stuk overlapt voor een groot deel met Dennis, ik focus hier op de lessen qua procesparameters zodat ik verder kan naar contactweerstanden.
+    Voor meer details over de onderliggende fysica: zie thesis Dennis.
     - Capping :: Duidelijk cruciaal voor geleidbaarheid (Hall).
       Ook al eerder gevonden, niet teveel tijd aan kwijt raken.
+      Plotje sheet resistance vs anneal -> Capping cruciaal.
     - Doping :: Belangrijk voor geleidbaarheid AZO, wel slecht voor transparantie (samenvatten met $J_{sc}$ grafiek.)
       Dus: lage dotering gebruiken, sufficient voor geleidbaarheid.
     - Anneal :: 500C beste voor passivatie (al gepubliceerd).
       Hierboven stijgt tevens carrier density.
+  + Intermezzo :: Okay, nu willen we door naar contactweerstanden, maar dan moeten we wel kunnen etsen.
+    - Ets data :: Laat zien dat de dikte van AlOx sterk afneemt, terwijl de fitdikte van ZnO constant blijft.
+      Data is wat ruw voor langere etstijden, ook niet helemaal duidelijk in welke mate iets roughness of ZnO is, maar initiele slope geeft aan dat een ets van een paar minuten prima zou moeten zijn om AlOx te verwijderen.
   + Contactweerstand :: Wat doen deze parameters nu voor de contactweerstand?
     - Anneal :: Bij iZnO verlaging, verder verhoging.
       Mogelijk door verplaatsing Al dopants, dit effect speelt niet in iZnO.
     - AZO doping :: Gedoteerd heeft lagere weerstand dan intrinsiek.
-      Mogelijk Burrstein-Moss shift
+      Mogelijk Burstein-Moss shift
       + Opvallend :: Op 260nplus geeft r48 een hogere weerstand dan r96.
         Mogelijk door afstand eerste doping plane tot interface.
     - Si doping :: Verlaagt contactweerstand.
-      Daling verklaarbaar met Schottky model in Field Emission. \question{or is it? plaatjes zijn normaal omgedraaid qua banddiagram..}
+      Schottky model, van toepassing op accumulatiecontact?
     - Overall :: Lage contactweerstand goed haalbaar en compatible met passivatie/TCO
 - Conclusie :: AZO lijkt ook qua contactweerstand erg geschikt voor zonnecellen.
 ** Introduction
