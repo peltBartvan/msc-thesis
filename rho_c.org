@@ -80,8 +80,8 @@ Can I typeset AZO? \AZO{} yes I can!
 - Tevens schaarste Indium :: Nieuwe contactmaterialen nodig.
 - AZO lijkt een goede kandidaat :: Want transparant, geleidt goed, veelvoorkomend, en passiveert (uniek in dit opzicht).
 - Wat voeg ik hier aan toe? :: Contactgedrag op silicium, onderwerp van deze thesis.
-- Formulering doel :: Goede zonnecellen met AZO contacten.
-- Definieer "goede zonnecel" :: Welke zonnecelparameters zijn belangrijk?
+- Formulering doel :: Goede zonnecellen met passiverende AZO contacten.
+- Definieer "goede zonnecel" :: Welke zonnecelparameters zijn belangrijk? *Background*
   Ook belangrijk: kwantificeer, wat is laag genoeg qua serieweerstand?
   + $J_{sc}$ :: Wordt beinvloed door passivatie en transparantie.
   + $V_{oc}$ :: Ook recombinatie.
@@ -89,11 +89,14 @@ Can I typeset AZO? \AZO{} yes I can!
 - Definieer "goed contact" :: contact is losjes gedefinieerd als totale contact stack, dus inclusief passivatie.
   + Goede laterale geleiding :: Transport naar metalen grid.
     Al bekend, haalbaar voor AZO.
+    Belangrijk voor serieweerstand.
   + Goede transparantie :: Anders daalt efficiëntie via $J_{sc}$.
     Haalbaar
+    Belangrijk voor $J_{sc}$.
   + Passivatie :: Onderdrukking recombinatie is cruciaal voor efficiëntie.
     Ook haalbaar. \source{Bas}
-  + Goede interface geleiding :: Mijn onderwerp
+    Belangrijk voor $J_{sc}$.
+  + Goede interface geleiding :: Mijn onderwerp, belangrijk voor serieweerstand.
 - Welke procesparameters kunnen we beïnvloeden? :: Oftewel, waar ga ik mee experimenteren, en wat is hier al over bekend?
   + Capping met AlOx :: Cruciaal voor passivatie, \source{Bas}.
   + AZO doping :: Belangrijk voor geleidbaarheid AZO, wel slecht voor transparantie \source{Dennis/ik}.
@@ -129,6 +132,7 @@ Can I typeset AZO? \AZO{} yes I can!
     - Anneal :: 500C beste voor passivatie (al gepubliceerd).
       Hierboven stijgt tevens carrier density.
   + Intermezzo :: Okay, nu willen we door naar contactweerstanden, maar dan moeten we wel kunnen etsen.
+    \question{is dit hier een goede plek voor?}
     - Ets data :: Laat zien dat de dikte van AlOx sterk afneemt, terwijl de fitdikte van ZnO constant blijft.
       Data is wat ruw voor langere etstijden, ook niet helemaal duidelijk in welke mate iets roughness of ZnO is, maar initiele slope geeft aan dat een ets van een paar minuten prima zou moeten zijn om AlOx te verwijderen.
   + Contactweerstand :: Wat doen deze parameters nu voor de contactweerstand?
@@ -138,16 +142,24 @@ Can I typeset AZO? \AZO{} yes I can!
       Mogelijk Burstein-Moss shift
       + Opvallend :: Op 260nplus geeft r48 een hogere weerstand dan r96.
         Mogelijk door afstand eerste doping plane tot interface.
+        \question{Maar waarom dan niet op 130nplus?}
     - Si doping :: Verlaagt contactweerstand.
       Schottky model, van toepassing op accumulatiecontact?
     - Overall :: Lage contactweerstand goed haalbaar en compatible met passivatie/TCO
 - Conclusie :: AZO lijkt ook qua contactweerstand erg geschikt voor zonnecellen.
 ** Introduction
-- Zoals besproken heeft \AZO{} goede eigenschappen voor zonnecellen, welke? :: Transparant, goede laterale geleiding, meer /abundant/ dan ITO.
-- Waarom zijn deze eigenschappen belangrijk? ::
+
 ** Background
-\question{Misschien beter om dit hoofdstuk te mergen met Theory}
-- Wat is er al bekend over \AZO{} contacten? ::
+*** Solar cell parameters
+Loosely framed the goal of this work is to find out if \AZO passivating contacts can make /good/ solar cells.
+To start answering this question, let's first narrow down what is meant by a /good/ solar cell, before diving into the details about contacting layers.
+The purpose of solar cells is clear: to convert thermal radiation into usable electrical energy.
+In the ideal case, the incoming thermal power, $P_\mathrm{in}$, is totally converted to electrochemical power, $V_\mathrm{out}I_\mathrm{out}$, of course this total conversion is thermodynamically forbidden, the best we can do is to maximize the efficiency,
+\begin{equation}
+\eta = \frac{V_\mathrm{out}I_\mathrm{out}}{P_\mathrm{in}}.
+\end{equation}
+Since we cannot control the power output of the sun, this task practically boils down to maximizing the $V_\mathrm{out}I_\mathrm{out}$ product.
+
 ** Theory
 *** Solar cell operation
 - Globaal :: Hoe werkt een zonnecel? \cite{wurfel2005}
@@ -164,6 +176,7 @@ Can I typeset AZO? \AZO{} yes I can!
 \question{Hele sectie waard? of bij methods even het recept goed beschrijven.}
 ** Methods
 ** Results/discussion
+
 ** Conclusion
 * Contact resistivity measurements
 ** Introduction
