@@ -16,6 +16,11 @@
 #+LATEX_HEADER: \usepackage{lipsum}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usetikzlibrary{positioning}
+#+LATEX_HEADER: \usetikzlibrary{matrix}
+#+LATEX_HEADER: \usetikzlibrary{backgrounds}
+
 # Some commands for often used variables
 # TODO: change occurences of R_{sq} into \Rsq
 #+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
@@ -71,6 +76,45 @@ Also, \question{does my question command work?} it seems so!
 Can I typeset AZO? \AZO{} yes I can!
 
 # \lipsum[1-2]
+* Figures
+\tikzstyle{myblock}=[rectangle,thick, minimum width=3cm, minimum height=1.5cm]
+\tikzstyle{goal}=[myblock,draw=black]
+\tikzstyle{param}=[myblock,draw=black]
+\tikzstyle{focus}=[myblock,draw=red]
+\tikzstyle{known}=[myblock,draw=blue]
+\begin{tikzpicture}[scale=3]
+    \node[goal] (eff) {$\eta$};
+    \node[param] (Voc) [below=1.5cm of eff] {$V_{oc}$}
+        edge [->] (eff);
+    \node[param] (Jsc) [left=1.5cm of Voc] {$J_{sc}$}
+        edge [->] (eff);
+    \node[param] (FF) [right=1.5cm of Voc] {Fill Factor}
+        edge [->] (eff);
+    \node[focus] (nk) [below=1.5cm of Jsc,align=center] {Contact\\transparency}
+        edge [->] (Jsc)
+        edge [->] (Voc);
+    \node[known] (pass) [below=1.5cm of Voc] {Passivation\cite{wurfel2005}}
+        edge [->] (Jsc)
+        edge [->] (Voc);
+    \node[param] (Rs) [below=1.5cm of FF] {Series resistance}
+        edge [->] (FF);
+    \node[focus] (rho) [below=1.5cm of pass, align=center ] {Contact\\resistivity}
+        edge [->] (Rs);
+    \node[focus] (Rsh) [below=1.5cm of Rs, align=center] {Sheet\\resistance}
+        edge [->] (Rs);
+\begin{pgfonlayer}{background}
+    \filldraw [fill=black!30]
+        (Jsc.west |- eff.south) +(-0.1cm,-0.1cm)
+        rectangle (FF.east |- eff.north) ;
+    \filldraw [fill=black!30]
+        (Jsc.west |- Jsc.south) +(-0.1cm,-0.1cm)
+        rectangle (FF.east |- Jsc.north) ;
+    \filldraw [fill=black!30]
+        (Jsc.west |- eff.south) +(-0.1cm,-0.1cm)
+        rectangle (FF.east |- eff.north) ;
+\end{pgfonlayer}
+\end{tikzpicture}
+
 
 * Zinc oxide contacts for solar cells
 ** Content
@@ -159,6 +203,36 @@ In the ideal case, the incoming thermal power, $P_\mathrm{in}$, is totally conve
 \eta = \frac{V_\mathrm{out}I_\mathrm{out}}{P_\mathrm{in}}.
 \end{equation}
 Since we cannot control the power output of the sun, this task practically boils down to maximizing the $V_\mathrm{out}I_\mathrm{out}$ product.
+Two useful parameters of this current-voltage characteristic are the short circuit current, $J_\mathrm{sc}$, and the open circuit voltage, $V_\mathrm{oc}$.
+As the output current depends on the output voltage, these two limiting cases are not enough to know the cells efficiency, so a third parameter, the fill factor (FF) is introduced.
+Ideally, a solar cell would sustain full current output without a decline in output voltage, operating at an output power $V_\mathrm{out}I_\mathrm{out}$.
+Realistically though, there is some optimal operating voltage, $V_\mathrm{MP}$, at which the cell produces its maximal power, delivering a current $I_\mathrm{MP}$.
+This ratio of /real/ output power and /ideal/ output power is what defines the fill factor:
+\begin{equation}
+\mathrm{FF} = \frac{I_\mathrm{MP}V_\mathrm{MP}}{I_\mathrm{sc}V_\mathrm{oc}}.
+\end{equation}
+\todo{plotje IV karakteristiek + FF}
+In terms of these cell parameters, the efficiency can then be expressed as
+\begin{equation}
+\eta = \frac{I_\mathrm{sc}V_\mathrm{oc}\mathrm{FF}}{P_\mathrm{in}}.
+\end{equation}
+Measuring these cell parameters requires the fabrication of complete cells, to optimize a \AZO{} contact we should shift our focus to directly measurable material properties.
+Among the desired qualities of a contact are a high transparency, good passivation and a low series resistance.
+Let's take a look at how these parameters influence the overall solar cell performance.
+
+A typical high school explanation of solar cells goes as follows:
+1) A photon from the sun is absorbed by the solar cell, here it rips an electron apart from an atom in the crystal, transferring its energy.
+   The electron is negatively charged, but the void it leaves effectively has an opposite charge of equal magnitude, this void is called a "hole".
+2) The electron finds its way to one contact of the solar cell, while the hole finds its way to the other.
+3) The electron /really/ wants to get back to the hole, and the easiest way to do so is to go through the device that you want to power.
+   The electrical energy from the electron is then transferred to the device, providing useful energy.
+
+This rudimentary explanation completely skims over the complex thermodynamical nature of this energy conversion.
+Moreover it fails to answer basic questions such as "but why do the electrons and holes move away from each other if they attract each other?" and "okay, so the charges made it to the contacts, why would they not just go back the way they got there instead of taking the whole wire/device detour?".
+Despite these and several more shortcomings, this simple model can give us some meaningful heuristic insights into what is needed to make a good front contact.
+Let's go through the explanation again, and see what can go wrong with each step.
+
+
 
 ** Theory
 *** Solar cell operation
