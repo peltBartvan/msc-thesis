@@ -231,8 +231,89 @@ This rudimentary explanation completely skims over the complex thermodynamical n
 Moreover it fails to answer basic questions such as "but why do the electrons and holes move away from each other if they attract each other?" and "okay, so the charges made it to the contacts, why would they not just go back the way they got there instead of taking the whole wire/device detour?".
 Despite these and several more shortcomings, this simple model can give us some meaningful heuristic insights into what is needed to make a good front contact.
 Let's go through the explanation again, and see what can go wrong with each step.
+1) A photons should transfer its energy to an electon-hole pair, what if it can't?
+   This can occur due to several reasons.
+   1) The photon does not have enough energy to create an electron-hole pair in the base; that is, the photon has an energy below the so-called bandgap of the solar cell's base.
+   2) The photon does transfer all of its energy to an electron-hole pair, but the electron-hole pair loses some energy afterwards.
+      This process is called thermalization, by collisions with the crystal atoms the electrons and holes lose energy until they get stuck at an energy similar to the bandgap.
+   3) The photon might not even get to the base of the solar cell.
+      If the photon is absorbed in the front contact or reflected by the metal interconnections, its energy is effectively lost.
+      For this reason the front contact should obviously be as transparent as possible.
+2) Maybe the electron and hole don't make it to their intended contacts.
+   1) An electron or hole could reach the wrong contact.
+      In the high-school explanation this sounds very likely, after all, the positive holes should be strongly attracted to the contact that's filled with negative electrons (and vice versa), right?
+      # In solar cells, contacts need to be selective to ensure that charge carriers are separated, how this can be done will be discussed later \todo{where?}.
+      A crucial part to this selectivity is that the contacts should be highly conductive to one type of carrier, while highly resistive to the other.
+      Thus, for n-type contacts a very low electron resistivity should be obtained.
+      A more in-depth discussion of selectivity will be given in \todo{waar?}.
 
+   2) What if the electron and hole don't even make it to the contacts?
+      It's possible for the newly formed electron and hole to recombine with each other (or with other electrons and holes), if this happens their electrochemical energy will be lost (of course energy is conserved, but from an engineering perspective it will probably not be useful energy anymore).
+      One possible mechanism for this is radiative recombination, in which an electron and hole form a photon.
+      Luckily, this rarely occurs in crystalline silicon due to its indirect bandgap, which means that some additional momentum is needed for this reaction to occur.
+      In crystalling silicon, the most significant recombination pathways are Shockley-Read-Hall (SRH) and Auger recombination.
+      The former uses so-called trap states which have an energy between the valence and conduction bands \todo{I haven't talked about band structures yet...}, these enable electrons to transition back to the valence band in a few small steps instead of a single large step.
+      The latter uses a third electron or hole to absorb the excess momentum that makes a direct transition improbable.
+      Suppressing recombination is very important for efficient solar cells, and it is referred to as passivation.
+3) Maybe the generated charges do not transfer their energy to the intended load.
+   This can happen if a parasitic series resistance is present in the circuit, as these create potential gradients.
+   In these gradients the electrons lose some useful energy, which cannot be used in the device.
+   For this reason all parasitic series resistances should be minimized.
+   This series resistance can be attributed to a few contributions.
+   First, the carriers need to experience a low resistance during transport from the cell bulk to the contact, this is called contact resistivity.
+   Second, once in the contact the carriers should freely flow towards the metal connections, for this a low in-plane resistance is required.
 
+With this oversimplified treatment of solar cell physics, it already becomes clear that highly transparent highly conductive contacting layers are essential for efficient solar cells, moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine.
+
+\AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
+Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer\source{todo}.
+This combination of capping and annealing has also been studied by Dennis Loeffen, in partial collaboration on this work\source{todo}.
+There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
+An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
+
+To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} is difficult to do by conventional methods which often require patterning and etching to create sample structures.
+Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
+
+Due to these metrological difficulties a new measurement method was designed and implemented, which is discussed in detail in the second part of this thesis.
+
+For the first part of this thesis, let's dive into the really interesting question: does \AZO{} make good solar cell contacts?
+
+As a start we'll rid ourselves of the thusfar handwavy (and dramatically oversimplified) solar cell description so that questions can be framed quantitatively, so far it's only become clear that the contact resistivity should be low, but how is it even defined, and what is low enough?
+Then the experimental methodology will be discussed, including sample preparation, process parameters of interest, and measurement methods.
+Following will be an outline of experimental work on in-plane resistance and transparency, and how different process parameters influence these.
+This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis\source{Dennis}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
+Finally, it will be shown that \AZO{} contacts can have a promisingly low contact resistivity on c-Si, moreover, this can be achieved in a process window in which the other relevant material properties are also excellent.
+*** Contact resistivity: why relevant
+- Selectivity
+  - Combination with low J0 \source{todo}
+    Regenboogplotje
+  - Les: we hebben J0 laag (toch?) dus
+- Ohmic losses: berekeningetje, back of envelope
+*** Methodiek
+**** Preparatie
+recept etc
+***** Type 1
+***** Type 2
+****** Ets
+
+**** Metingen
+verwijs naar deel 2.
+Black boxes.
+***** SE
+Model, plotje absorptiecoeffient vs w_t w_p
+*** Results/discussion
+Parameter space prunen.
+Ook passivatie meepakken.
+- paper Bas
+- Wel/niet tunneloxide.
+Contactweerstanden.
+*** Conclusie
+Doping nodig, welke procesparameters.
+In principe groen licht voor AZO zonnecellen.
+Realiseren.
+*** TODO todos
+**** TODO Plaatjes in verhaal
+**** TODO Additional insights?
 
 ** Theory
 *** Solar cell operation
