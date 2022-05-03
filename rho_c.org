@@ -239,6 +239,10 @@ Let's go through the explanation again, and see what can go wrong with each step
    3) The photon might not even get to the base of the solar cell.
       If the photon is absorbed in the front contact or reflected by the metal interconnections, its energy is effectively lost.
       For this reason the front contact should obviously be as transparent as possible.
+   4) The photon is reflected.
+      If a solar cell reflects a photon back towards the sky, the photon's energy will not be of much use.
+      A few strategies are used to keep photons trapped in a cell, texturing and antireflection coatings.
+      While light trapping is very important for solar cell efficiency, it will not be further discussed in this thesis.
 2) Maybe the electron and hole don't make it to their intended contacts.
    1) An electron or hole could reach the wrong contact.
       In the high-school explanation this sounds very likely, after all, the positive holes should be strongly attracted to the contact that's filled with negative electrons (and vice versa), right?
@@ -288,7 +292,13 @@ Finally, it will be shown that \AZO{} contacts can have a promisingly low contac
   - Combination with low J0 \source{todo}
     Regenboogplotje
   - Les: we hebben J0 laag (toch?) dus
-- Ohmic losses: berekeningetje, back of envelope
+- Tot zover: boel factoren besproken, ga ik niet te ver op in
+  Wel recap, transparantie is belangrijk
+- Hier even uitlichten: contactweerstand, waarom zo belangrijk?
+  + Selectiviteit
+  + Ohmic losses
+    Back of envelope berekening
+
 *** Methodiek
 **** Preparatie
 recept etc
