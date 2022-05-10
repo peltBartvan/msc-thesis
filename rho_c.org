@@ -26,6 +26,10 @@
 #+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
 #+LATEX_HEADER: \newcommand{\AlOx}{$\mathrm{Al_2O_3}$}
 #+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
+#+LATEX_HEADER: \newcommand{\EFn}{E_{\mathrm{F}_n}}
+#+LATEX_HEADER: \newcommand{\EFp}{E_{\mathrm{F}_p}}
+#+LATEX_HEADER: \newcommand{\ECB}{E_{\mathrm{CB}}}
+#+LATEX_HEADER: \newcommand{\EVB}{E_{\mathrm{VB}}}
 
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
@@ -256,7 +260,7 @@ Let's go through the explanation again, and see what can go wrong with each step
       One possible mechanism for this is radiative recombination, in which an electron and hole form a photon.
       Luckily, this rarely occurs in crystalline silicon due to its indirect bandgap, which means that some additional momentum is needed for this reaction to occur.
       In crystalling silicon, the most significant recombination pathways are Shockley-Read-Hall (SRH) and Auger recombination.
-      The former uses so-called trap states which have an energy between the valence and conduction bands \todo{I haven't talked about band structures yet...}, these enable electrons to transition back to the valence band in a few small steps instead of a single large step.
+      In the former pathway electrons can make small jumps in energy using crystal imperfections, these small jumps are more likely to occur than a single large jump.
       The latter uses a third electron or hole to absorb the excess momentum that makes a direct transition improbable.
       Suppressing recombination is very important for efficient solar cells, and it is referred to as passivation.
 3) Maybe the generated charges do not transfer their energy to the intended load.
@@ -271,7 +275,7 @@ With this oversimplified treatment of solar cell physics, it already becomes cle
 
 \AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
 Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer\source{todo}.
-This combination of capping and annealing has also been studied by Dennis Loeffen, in partial collaboration on this work\source{todo}.
+This combination of capping and annealing has been previously studied within the PMP group, resulting in a publication that includes parts of this work\source{paper}.
 There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
 An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
 
@@ -288,6 +292,49 @@ Following will be an outline of experimental work on in-plane resistance and tra
 This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis\source{Dennis}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
 Finally, it will be shown that \AZO{} contacts can have a promisingly low contact resistivity on c-Si, moreover, this can be achieved in a process window in which the other relevant material properties are also excellent.
 *** Contact resistivity: why relevant
+In this section \todo{or chapter?}, we will look into solar cell physics in some more detail.
+For a better understanding, a thermodynamic description of charge carriers in a semiconductor is needed.
+Semiconductors are defined by having a bandgap, a band of energy values for which no electron state exists.
+An electron is then either moving around in the conduction band, or bound to an atom while in the valence band.
+To move between the bands, energy needs to either be supplied to an electron in the valence band, or an electron in the conduction band needs to somehow get rid of a considerable amount of energy.
+These generation and recombination processes don't happen instantly, which enables electrons to stay in the conduction band for quite long times.
+The states within the valence band without an electron are called holes and they can be seen as carrying a positive charge, essentially due to the /absence/ of an electron.
+This property is what distinguishes semiconductors from metals, in which no bandgap exists, in metals electrons are always free to decay into available lower energy states.
+For nondegenerate semiconductors the densities of electrons, $n$, and holes, $p$, can be well described by Boltzmann statistics:
+\begin{equation}
+n = n_\mathrm{CB}\exp\left(-\frac{\ECB - \EFn}{k_B T}\right);
+\end{equation}
+\begin{equation}
+p = n_\mathrm{VB}\exp\left(-\frac{ \EFp - \EVB}{k_B T}\right).
+\end{equation}
+Here $n_\mathrm{CB}$ and $n_\mathrm{VB}$ are the densities of states in respectively the conduction and valence bands, $\ECB$ and $\EVB$ are the energy bounds of the conduction and valence bands, and $\EFn$ and $\EFp$ are the so called Fermi levels of the electron and hole ensembles.
+For thermal equilibrium it can readily be derived that $\EFn = \EFp$, but this changes when electron-hole pairs are actively generated.
+In this non-equilibrium situation, one can ask if Boltzmann statistics can be applied, after all, this is a result in equilibrium thermodynamics.
+Luckily, it typically takes picoseconds for electrons (or holes) to reach equilibrium among themselves, meanwhile, the equilibration between conduction and valence bands is much slower, electrons can take up to milliseconds on average to make the transition.
+This means that electrons can be considered in equilibrium, and so can holes, just not in equilibrium with each other.
+The excesses in electron and hole densities can be described by an increase in $\EFn$ and a decrease in $\EFp$, a phenomenon called Fermi level splitting.
+As metals have no bandgap, electrons and holes are quick to equilibrate, as a consequence Fermi level splitting is impossible for metals.
+So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater physical relevance.
+A more physical interpretation of the Fermi levels is that they correspond, up to sign, to the electrochemical potentials of both carriers, i.e. $\EFn{} = \eta_n$, $\EFp{} = -\eta_p$.
+This enables us to relate electron and hole currents to gradients in Fermi levels:
+\begin{equation}
+J_n = \frac{\sigma_n}{e} \nabla \EFn{},
+\end{equation}
+\begin{equation}
+J_p = \frac{\sigma_p}{e} \nabla \EFp{},
+\end{equation}
+where $\sigma_n = e n \mu_n$ and $\sigma_p = e p \mu_p$ are the conductivities of electrons and holes respectively, expressed in terms of the elementary charge and density and mobility of the specific carriers.
+This picture also gives a more quantitative description of the heuristic "electrons want to move from one side of the cell to the other, transferring energy to the device".
+This statement corresponds to $\EFn{}$ being higher on one side of the cell than $\EFp{}$ on the other, the question is then how this can be realized.
+As noted before, metals do not exhibit Fermi level splitting, this means that while the Fermi levels are split in the bulk of the cell, they need to bend towards each other at the contacts.
+To get the desired asymmetry at a contact, one of the Fermi levels needs to bend strongly while the other does not.
+This can be achieved by controlling the conductivities to both carriers, an n-type contact should be very conductive to electrons, but very resistive to holes.
+This combination results in a strong gradient in $\EFp{}$, and a nearly constant $\EFn{}$.
+As the conductivities scale with carrier density, the most straightforward way to achieve this asymmetry is to strongly dope the contact, resulting in a very high electron density and a very low hole density.
+An additional benefit to this doping is that it reduces surface recombination at the contact interface, as thermal diffusion of holes always occurs, reducing the number of holes available to recombine can greatly improve passivation.
+Some care needs to be taken with this doping however, as an overabundance of free carriers can lead to the three-particle Auger recombination process and photon absorption in the contact.
+
+
 - Selectivity
   - Combination with low J0 \source{todo}
     Regenboogplotje
