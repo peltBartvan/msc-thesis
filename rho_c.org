@@ -28,6 +28,8 @@
 #+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
 #+LATEX_HEADER: \newcommand{\EFn}{E_{\mathrm{F}_n}}
 #+LATEX_HEADER: \newcommand{\EFp}{E_{\mathrm{F}_p}}
+#+LATEX_HEADER: \newcommand{\EF}{E_{\mathrm{F}}}
+#+LATEX_HEADER: \newcommand{\DEF}{\Delta E_{\mathrm{F}}}
 #+LATEX_HEADER: \newcommand{\ECB}{E_{\mathrm{CB}}}
 #+LATEX_HEADER: \newcommand{\EVB}{E_{\mathrm{VB}}}
 
@@ -313,18 +315,41 @@ In this non-equilibrium situation, one can ask if Boltzmann statistics can be ap
 Luckily, it typically takes picoseconds for electrons (or holes) to reach equilibrium among themselves, meanwhile, the equilibration between conduction and valence bands is much slower, electrons can take up to milliseconds on average to make the transition.
 This means that electrons can be considered in equilibrium, and so can holes, just not in equilibrium with each other.
 The excesses in electron and hole densities can be described by an increase in $\EFn$ and a decrease in $\EFp$, a phenomenon called Fermi level splitting.
-As metals have no bandgap, electrons and holes are quick to equilibrate, as a consequence Fermi level splitting is impossible for metals.
+Due to the absence of a bandgap, the separate equilibration of electrons and holes does not occur in metals, furthermore thermal equilibration is a very fast process.
+This implies that, in a metal, the carrier statistics can be described by a single Fermi level: $\EF{} = \EFn{} = \EFp{}$.
 So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater physical relevance.
 A more physical interpretation of the Fermi levels is that they correspond, up to sign, to the electrochemical potentials of both carriers, i.e. $\EFn{} = \eta_n$, $\EFp{} = -\eta_p$.
-This enables us to relate electron and hole currents to gradients in Fermi levels:
+The free energy of an electron-hole pair, which we want to extract, is then given by $\DEF{} \equiv \EFn{} - \EFp{}$.
+An interesting consideration: in the previous chapter recombination was described as categorically bad, the free energy picture gives a more nuanced view.
+As the free energy of an electron-hole pair is given by the Fermi level splitting, free energy is only lost when recombination occurs in a region with split Fermi levels, such as the bulk of the cell.
+In a contact, since there is no Fermi level splitting, recombination does not amount to free energy losses, and is actually necessary since without contact recombination no currents can flow.
+This picture also gives a more quantitative description of the heuristic "electrons want to move from one side of the cell to the other, transferring energy to the device".
+As the carrier statistics are described by only a single Fermi level in the contacts, the goal is to create a Fermi level difference between the two contacts.
+To see how these contact Fermi levels are related to the split Fermi levels in the bulk, we can write down the carrier flux densities as follows:
+# note: particle currents!
 \begin{equation}
-J_n = \frac{\sigma_n}{e} \nabla \EFn{},
+J_n = -\frac{\sigma_n}{e} \nabla \EFn{},
 \end{equation}
 \begin{equation}
 J_p = \frac{\sigma_p}{e} \nabla \EFp{},
 \end{equation}
 where $\sigma_n = e n \mu_n$ and $\sigma_p = e p \mu_p$ are the conductivities of electrons and holes respectively, expressed in terms of the elementary charge and density and mobility of the specific carriers.
-This picture also gives a more quantitative description of the heuristic "electrons want to move from one side of the cell to the other, transferring energy to the device".
+In the n-type contact, the Fermi level should be as close as possible to $\EFn{}$ in the bulk.
+As the Fermi levels need to come together in the metal, a direct consequence is that a strong gradient in $\EFp{}$ is needed in the contact.
+This asymmetry between a strong $\EFp{}$ gradient and an ideally constant $\EFn{}$ can be achieved through the associated conductivities, the n-type contact should be very conductive to electrons, but very nonconductive to holes.
+Both of these can be achieved by n-type doping of the contact, which strongly increases $n$ and strongly decreases $p$.
+An additional benefit of contact doping is that it reduces recombination in the semiconductor by lowering the minority carrier density.
+This reduces the SRH recombination rate, but at the same time the increase in majority carrier density can lead to Auger recombination, so a compromise needs to be made.
+The recombination current in the contact can be parametrized as
+\begin{equation}
+J_\mathrm{rec} = J_0 \exp\left(\frac{\DEF{}}{n_d k_B T}\right),
+\end{equation}
+where $n_d$ is an ideality factor, typically ranging between 1 and 2, and $J_0$ is a scaling factor.
+As a large Fermi splitting is a design goal for solar cells, the most interesting parameter for reducing recombination is $J_0$.
+Somewhat counterintuitively, $J_0$ mainly impacts cell efficiency not through $J_{sc}$, but through $V_{oc}$.
+This is because at high recombination rates, lower carrier densities and thus less Fermi level splitting are achieved.
+
+
 This statement corresponds to $\EFn{}$ being higher on one side of the cell than $\EFp{}$ on the other, the question is then how this can be realized.
 As noted before, metals do not exhibit Fermi level splitting, this means that while the Fermi levels are split in the bulk of the cell, they need to bend towards each other at the contacts.
 To get the desired asymmetry at a contact, one of the Fermi levels needs to bend strongly while the other does not.
@@ -332,8 +357,8 @@ This can be achieved by controlling the conductivities to both carriers, an n-ty
 This combination results in a strong gradient in $\EFp{}$, and a nearly constant $\EFn{}$.
 As the conductivities scale with carrier density, the most straightforward way to achieve this asymmetry is to strongly dope the contact, resulting in a very high electron density and a very low hole density.
 An additional benefit to this doping is that it reduces surface recombination at the contact interface, as thermal diffusion of holes always occurs, reducing the number of holes available to recombine can greatly improve passivation.
-Some care needs to be taken with this doping however, as an overabundance of free carriers can lead to the three-particle Auger recombination process and photon absorption in the contact.
-
+Some care needs to be taken with this doping however, as an overabundance of free carriers can lead to the three-particle Auger recombination process and photon absorption in the contact, in practice a balance should be found between too little and too much doping.
+While the selectivity
 
 - Selectivity
   - Combination with low J0 \source{todo}
