@@ -13,6 +13,8 @@
 
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{svg}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{gensymb}
 #+LATEX_HEADER: \usepackage{lipsum}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
@@ -25,6 +27,7 @@
 # TODO: change occurences of R_{sq} into \Rsq
 #+LATEX_HEADER: \newcommand{\Rsq}{R_\square}
 #+LATEX_HEADER: \newcommand{\AlOx}{$\mathrm{Al_2O_3}$}
+#+LATEX_HEADER: \newcommand{\SiOx}{$\mathrm{SiO_2}$}
 #+LATEX_HEADER: \newcommand{\AZO}{ZnO:Al}
 #+LATEX_HEADER: \newcommand{\EFn}{E_{\mathrm{F}_n}}
 #+LATEX_HEADER: \newcommand{\EFp}{E_{\mathrm{F}_p}}
@@ -64,7 +67,7 @@
   + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
 \question{Ik wil Percspective ergens noemen, is dit een goede plek?}
 
-* COMMENT Scratchpad
+* Scratchpad
 \LaTeX{} stuff to test goes here.
 Also serves as usage examples.
 
@@ -80,6 +83,19 @@ Lets test it: \todo{achieve goal}.
 Also, \question{does my question command work?} it seems so!
 
 Can I typeset AZO? \AZO{} yes I can!
+
+Degrees would be nice: 200\degree{}C
+
+| Name             | Symbol             | Notes              |
+|------------------+--------------------+--------------------|
+| sheet resistance | text $\Rsq$ text   | math mode          |
+| sheet resistance | text $\Rsq{}$ text | braces optional    |
+| Aluminium oxide  | text \AlOx text    | no math mode!      |
+| Aluminium oxide  | text \AlOx{} text  | braces for spacing |
+| Silicon dioxide  | text \SiOx text    | no math mode!      |
+| Silicon dioxide  | text \SiOx{} text  | braces for spacing |
+| ZnO:Al           | text \AZO text     | no math mode!      |
+| ZnO:Al           | text \AZO{} text   | braces for spacing |
 
 # \lipsum[1-2]
 * Figures
@@ -337,65 +353,121 @@ where $\sigma_n = e n \mu_n$ and $\sigma_p = e p \mu_p$ are the conductivities o
 In the n-type contact, the Fermi level should be as close as possible to $\EFn{}$ in the bulk.
 As the Fermi levels need to come together in the metal, a direct consequence is that a strong gradient in $\EFp{}$ is needed in the contact.
 This asymmetry between a strong $\EFp{}$ gradient and an ideally constant $\EFn{}$ can be achieved through the associated conductivities, the n-type contact should be very conductive to electrons, but very nonconductive to holes.
-Both of these can be achieved by n-type doping of the contact, which strongly increases $n$ and strongly decreases $p$.
-An additional benefit of contact doping is that it reduces recombination in the semiconductor by lowering the minority carrier density.
-This reduces the SRH recombination rate, but at the same time the increase in majority carrier density can lead to Auger recombination, so a compromise needs to be made.
-The recombination current in the contact can be parametrized as
+There are multiple ways to achieve this, but in this work we'll look at a homojunction in which the carrier densities are influenced by doping the bulk.
+# A conventional way to achieve this is by n-type doping of the contact, which strongly increases $n$ and strongly decreases $p$.
+# This contacting scheme is known as a homojunction,
+An additional benefit of contact doping is that it reduces recombination at the contact surface by lowering the minority carrier density.
+This reduces the SRH recombination rate, but at the same time the increase in majority carrier density can lead to Auger recombination in the highly doped region, so a compromise needs to be made.
+The recombination current in the contact can be parametrized as \source{todo}
 \begin{equation}
-J_\mathrm{rec} = J_0 \exp\left(\frac{\DEF{}}{n_d k_B T}\right),
+J_\mathrm{rec} = J_0 \left(\exp\left(\frac{\DEF{}}{n_d k_B T}\right)-1\right),
 \end{equation}
 where $n_d$ is an ideality factor, typically ranging between 1 and 2, and $J_0$ is a scaling factor.
 As a large Fermi splitting is a design goal for solar cells, the most interesting parameter for reducing recombination is $J_0$.
 Somewhat counterintuitively, $J_0$ mainly impacts cell efficiency not through $J_{sc}$, but through $V_{oc}$.
 This is because at high recombination rates, lower carrier densities and thus less Fermi level splitting are achieved.
 
+To wrap things up a bit, there are essentially two properties that a good passivating contact needs:
+- High majority carrier conductivity :: To encounter Ohmic losses, as parametrized by $\sigma_n$. In the rest of this thesis the associated /resistivity/ is used, defined by $\rho_n \equiv \frac{1}{\sigma_n}$.
+- Low recombination rates :: As parametrized through $J_0$, to enable a high Fermi level splitting.
 
-This statement corresponds to $\EFn{}$ being higher on one side of the cell than $\EFp{}$ on the other, the question is then how this can be realized.
-As noted before, metals do not exhibit Fermi level splitting, this means that while the Fermi levels are split in the bulk of the cell, they need to bend towards each other at the contacts.
-To get the desired asymmetry at a contact, one of the Fermi levels needs to bend strongly while the other does not.
-This can be achieved by controlling the conductivities to both carriers, an n-type contact should be very conductive to electrons, but very resistive to holes.
-This combination results in a strong gradient in $\EFp{}$, and a nearly constant $\EFn{}$.
-As the conductivities scale with carrier density, the most straightforward way to achieve this asymmetry is to strongly dope the contact, resulting in a very high electron density and a very low hole density.
-An additional benefit to this doping is that it reduces surface recombination at the contact interface, as thermal diffusion of holes always occurs, reducing the number of holes available to recombine can greatly improve passivation.
-Some care needs to be taken with this doping however, as an overabundance of free carriers can lead to the three-particle Auger recombination process and photon absorption in the contact, in practice a balance should be found between too little and too much doping.
-While the selectivity
+Assuming the rest of the solar cell to be ideal, these two parameters can be used to calculate an upper limit for solar cell efficiency, this relation is shown in Figure \ref{fig:rainbowplot}.
+Note that the efficiency barely depends on $\rho_c$ when $\rho_c < 100$ m\Omega cm^2 \todo{typeset unit}, in this range the cell efficiency is not contact resistance limited.
+In this thesis it will be shown that these low contact resistivities can be obtained!
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Maximum solar cell efficiency as limited by contact resistivity and $J_0$, adapted from \todo{welke bron hier?}.
+#+LABEL: fig:rainbowplot
+[[./images/regenboog.png]]
+
+
+
 
 - Selectivity
-  - Combination with low J0 \source{todo}
+  - Combination with low J0 \source{Jimmy}
     Regenboogplotje
-  - Les: we hebben J0 laag (toch?) dus
+  - Les: we hebben J0 laag bron: paper.
 - Tot zover: boel factoren besproken, ga ik niet te ver op in
   Wel recap, transparantie is belangrijk
 - Hier even uitlichten: contactweerstand, waarom zo belangrijk?
   + Selectiviteit
   + Ohmic losses
     Back of envelope berekening
+    ohmic losses 1% output power -> ongeveer 200 mOhmcm^2 op 44 mA/cm^2 0.6V
 
-*** Methodiek
-**** Preparatie
-recept etc
-***** Type 1
-***** Type 2
-****** Ets
+** Methods
+In this work two distinct types of samples were used.
+The first type, hereafter referred to simply as type 1 samples, were used for measuring the in-plane electrical and optical properties of the deposited \AZO{} films.
+While no contact resistivities were measured on type 1 samples, they allow us to focus on the more relevant parts of our parameter space in the later contact resistivity experiments.
+The second type, referred to as type 2 samples, feature two \AZO{} contacts, enabling passivation and contact resistivity measurements.
+# dubbelop
+In contrast to the type 1 samples these samples are symmetric, featuring a substrate with contacts deposited on both sides.
+These were originally intended to be used in carrier lifetime studies, but in this project a method was developed to also measure contact resistivities with relatively little added effort.
+The fabrication of both types of samples will be discussed in more detail in the following sections.
+*** \AZO{} ALD process
+The \AZO{} deposition process is the same in both sample preparations.
+\AZO{} was deposited by ALD using an Oxford Instruments OpAL tool at a temperature of 200\degree{}C.
+The films are deposited using diethylzinc (DEZ) and dimethylaluminium isopropoxide (DMAI) in a supercycle process, with water used as a coreactant.
+The Al content can be controlled using the number of DEZ cycles per DMAI cycles, which is called the cycle ratio, with for example r16 meaning 16 DEZ cycles per DMAI cycle.
+An exception to this naming scheme is intrinsic ZnO, in which no DMAI cycles are used, this is denoted as int.
+Note that a high cycle ratio implies a low Al doping.
+The used dopings used in this work were int, r96, r48, r24, r16.
+The order of the cycles is chosen so that the dopant cycles are evenly spaced, and not at the top or bottom of the film.
+r16 then implies 8 cycles of DEZ, 1 cycle of DMAI, followed by 8 cycles DEZ.
+This supercycle can then be repeated to obtain the desired film thickness.
+**** AlOx capping process
+On some samples a 30nm \AlOx{} capping layer was deposited by ALD, this was also done in the OpAL reactor, using only DMAI and water as precursors, again at 200\degree{}C.
+In type 1 depositions, the uncapped samples were removed from the reactor between the deposition of \AZO{} and \AlOx{}, venting the reactor.
+As it became clear that capping is absolutely crucial to obtain good material properties, all type 2 samples were capped.
+**** Anneal
+Type 1 samples were successively annealed so that a single sample could be reused at different anneal temperatures.
+As a check, pieces of capped r24 \AZO{} were annealed directly to the intended temperature, here little deviation could be found from the successive annealing. \todo{elaborate}
+Annealing occured in steps of 50\degree{}C, starting at 200\degree{}C.
+To be able to perform the annealing steps quickly in between measurements, the anneals up to 500\degree{}C were performed on a hotplate.
+Here a carrier wafer was used to support the samples, which was put on the hotplate and removed after 5 minutes, allowing the samples to cool down again.
+As the hotplate's maximum temperature was 500\degree{}C, the anneals up to 700\degree{}C were forming gas anneals done using a Jipelec RTA.
+The type 2 samples were directly annealed to the right temperature in the RTA.
+**** Type 1
+As noted before, the type 1 samples consist simply of a polished silicon wafer with 450nm \SiOx{}.
+On this substrate approximately 75nm \AZO{} and optionally 30nm \AlOx{} were deposited by ALD.
+For Hall measurements, care was taken to cut off the edges, so that no currents could flow through \AZO{} deposited on the edges and backsides of the samples.
+\todo{write part about hall probe piercing \AlOx{} film; probably in Hall section.}
 
-**** Metingen
+**** Type 2
+The type 2 samples are symmetric, featuring a substrate on which films are deposited on both sides.
+The used substrates in this work were silicon with 130\Omega and 260\Omega doping profiles. \todo{also include polysilicon?}
+Substrate pieces measured approximately 5cm by 5cm, these were put on a carrier wafer and a \AZO{} and \AlOx{} stack was deposited.
+After the first deposition, the sample was flipped and the recipe was repeated.
+In regions with backside deposition, this resulted in the deposition of a \AZO{}/\AlOx{}/\AZO{}/\AlOx{} stack.
+The samples were annealed to 400\degree{}C and 500\degree{}C, after which the passivation (not in this work) and contact resistivit
+
+
+20nm
+***** AZO
+***** AlOx
+***** Anneal
+***** Dan passivatie
+***** Ets
+***** Contactweerstand
+*** Metingen
 verwijs naar deel 2.
 Black boxes.
-***** SE
+**** SE
 Model, plotje absorptiecoeffient vs w_t w_p
-*** Results/discussion
+**** Hall
+** Results/discussion
 Parameter space prunen.
 Ook passivatie meepakken.
 - paper Bas
 - Wel/niet tunneloxide.
 Contactweerstanden.
-*** Conclusie
+** Conclusie
 Doping nodig, welke procesparameters.
 In principe groen licht voor AZO zonnecellen.
 Realiseren.
-*** TODO todos
-**** TODO Plaatjes in verhaal
-**** TODO Additional insights?
+** TODO todos
+*** TODO Plaatjes in verhaal
+*** TODO Additional insights?
 
 ** Theory
 *** Solar cell operation
