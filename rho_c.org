@@ -42,32 +42,33 @@
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
 #+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
 
+
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
 
-\begin{abstract}
-\todo{lipsum vervangen}
+# \begin{abstract}
+# \todo{lipsum vervangen}
+#
+# \lipsum[1-2]
+# \end{abstract}
+#
+# \tableofcontents
+#
+# \chapter*{Introduction}
+# \addcontentsline{toc}{chapter}{Introduction}
+# - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
+#   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
+#   + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
+# - Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
+# - Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
+#   + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
+#   + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
+# - Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
+#   + Wat zijn de resultaten? :: Wordt besproken in deel I.
+#   + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
+# \question{Ik wil Percspective ergens noemen, is dit een goede plek?}
 
-\lipsum[1-2]
-\end{abstract}
-
-\tableofcontents
-
-\chapter*{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
-- Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
-  + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
-  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
-- Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
-- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
-  + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
-  + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
-- Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
-  + Wat zijn de resultaten? :: Wordt besproken in deel I.
-  + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
-\question{Ik wil Percspective ergens noemen, is dit een goede plek?}
-
-* Scratchpad
+* COMMENT Scratchpad
 \LaTeX{} stuff to test goes here.
 Also serves as usage examples.
 
@@ -98,7 +99,7 @@ Degrees would be nice: 200\degree{}C
 | ZnO:Al           | text \AZO{} text   | braces for spacing |
 
 # \lipsum[1-2]
-* Figures
+* COMMENT Figures
 \tikzstyle{myblock}=[rectangle,thick, minimum width=3cm, minimum height=1.5cm]
 \tikzstyle{goal}=[myblock,draw=black]
 \tikzstyle{param}=[myblock,draw=black]
@@ -138,7 +139,7 @@ Degrees would be nice: 200\degree{}C
 \end{tikzpicture}
 
 
-* Zinc oxide contacts for solar cells
+* COMMENT Zinc oxide contacts for solar cells
 ** Content
 \todo{eerst verhaal uitwerken, dan pas opdelen in background, intro, etc...}
 
