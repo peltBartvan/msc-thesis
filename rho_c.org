@@ -46,27 +46,27 @@
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
 
-# \begin{abstract}
-# \todo{lipsum vervangen}
-#
-# \lipsum[1-2]
-# \end{abstract}
-#
-# \tableofcontents
-#
-# \chapter*{Introduction}
-# \addcontentsline{toc}{chapter}{Introduction}
-# - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
-#   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
-#   + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
-# - Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
-# - Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
-#   + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
-#   + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
-# - Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
-#   + Wat zijn de resultaten? :: Wordt besproken in deel I.
-#   + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
-# \question{Ik wil Percspective ergens noemen, is dit een goede plek?}
+\begin{abstract}
+\todo{lipsum vervangen}
+
+\lipsum[1-2]
+\end{abstract}
+
+\tableofcontents
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+- Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
+  + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
+  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
+- Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
+- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
+  + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
+  + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
+- Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
+  + Wat zijn de resultaten? :: Wordt besproken in deel I.
+  + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
+\question{Ik wil Percspective ergens noemen, is dit een goede plek?}
 
 * COMMENT Scratchpad
 \LaTeX{} stuff to test goes here.
@@ -139,8 +139,8 @@ Degrees would be nice: 200\degree{}C
 \end{tikzpicture}
 
 
-* COMMENT Zinc oxide contacts for solar cells
-** Content
+* Zinc oxide contacts for solar cells
+** COMMENT Content
 \todo{eerst verhaal uitwerken, dan pas opdelen in background, intro, etc...}
 
 - Zonnecellen zijn belangrijk voor de energietransitie :: Mogen efficiënter want BOS kosten domineren.
@@ -381,22 +381,44 @@ In this thesis it will be shown that these low contact resistivities can be obta
 #+LABEL: fig:rainbowplot
 [[./images/regenboog.png]]
 
+*** But first: what about transparency and conductivity?
+Before diving into contact resistivities, let's first look at what is required to make the \AZO{} films transparent and conductive, conductivity here implying in-plane conductivity.
+The bulk conductivity of an n-type conductor can be described in terms of its carrier density and carrier mobility,
+\begin{equation}
+\sigma = e \mu_n n,
+\end{equation}
+to reach a high conductivity, obviously the mobility and carrier densities should be maximized.
+Reaching a high carrier density can be rather straightforward, simply dope the material strongly.
+However, high carrier densities also result in increased free carrier absorption, making the material less transparent.
+This can be quantified by a Drude absorption model, for which the complex dielectric function is given by
+\begin{equation}
+\varepsilon(\omega) = -\frac{\omega_p^2}{\omega^2 - i \omega \omega_\tau}.
+\end{equation}
+Here $\omega_p$ is the so called plasma frequency, which essentially is the maximum frequency at which the carriers can follow an external field, is is given as
+\begin{equation}
+\omega_p = \sqrt{\frac{e^2 n}{\varepsilon_0 m^*}}.
+\end{equation}
+The material will be mostly transparent to frequencies above the plasma frequency.
+The parameter $\omega_\tau$ is called the scattering frequency, and it broadens the onset of photon absorption, so that photons with $\omega > \omega_p$ can be absorbed as well, it is given as
+\begin{equation}
+\omega_\tau = \frac{e}{m^* \mu_o},
+\end{equation}
+here $\mu_o$ is the /optical mobility/ of the material.
+For transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
+Note that the plasma frequency increases with the carrier density, which conflicts with the high carrier density required from conductivity.
+More straightforward is the role of the mobility, which increases conductivity and decreases the scattering frequency, making high mobilities very important for transparent conductive materials.
+As mentioned before, this combination of transparency and conductivity was one of the starting points of this project
 
 
 
-- Selectivity
-  - Combination with low J0 \source{Jimmy}
-    Regenboogplotje
-  - Les: we hebben J0 laag bron: paper.
-- Tot zover: boel factoren besproken, ga ik niet te ver op in
-  Wel recap, transparantie is belangrijk
-- Hier even uitlichten: contactweerstand, waarom zo belangrijk?
-  + Selectiviteit
+
+
   + Ohmic losses
     Back of envelope berekening
     ohmic losses 1% output power -> ongeveer 200 mOhmcm^2 op 44 mA/cm^2 0.6V
 
 ** Methods
+\todo{eerst measurements, dan sample preparation}
 In this work two distinct types of samples were used.
 The first type, hereafter referred to simply as type 1 samples, were used for measuring the in-plane electrical and optical properties of the deposited \AZO{} films.
 While no contact resistivities were measured on type 1 samples, they allow us to focus on the more relevant parts of our parameter space in the later contact resistivity experiments.
@@ -405,6 +427,83 @@ The second type, referred to as type 2 samples, feature two \AZO{} contacts, ena
 In contrast to the type 1 samples these samples are symmetric, featuring a substrate with contacts deposited on both sides.
 These were originally intended to be used in carrier lifetime studies, but in this project a method was developed to also measure contact resistivities with relatively little added effort.
 The fabrication of both types of samples will be discussed in more detail in the following sections.
+*** Measurements
+**** Spectroscopic Ellipsometry
+Spectroscopic ellipsometry (SE) is a method that is often used for measuring a myriad of thin film properties.
+The method is a form of spectroreflectometry, in which not just the amplitude but also the polarization angle of reflected light is measured.
+While no direct measurements can be performed, optical models involving material properties, thicknesses, and other parameters, can be fit to the measured spectra.
+In this work, SE was mainly used to determine layer thicknesses and free carrier absorption in the \AZO{} films.
+Free carrier absorption can be described by the Drude model, which relates the complex dielectric function, $\varepsilon(\omega)$ to the plasma frequency, $\omega_p$, and the scattering frequency, $\omega_\tau$ by
+\begin{equation}
+\varepsilon(\omega) = -\frac{\omega_p^2}{\omega^2 - i \omega \omega_\tau}.
+\end{equation}
+The plasma frequency can be interpreted as the onset frequency of free carrier absorption, it is given by
+\begin{equation}
+\omega_p = \sqrt{\frac{e^2 n}{\varepsilon_0 m^*}},
+\end{equation}
+where $m^*$ is the effective electron mass.
+The onset of absorption is broadened by electron scattering, so for large scattering frequency,
+\begin{equation}
+\omega_\tau = \frac{e}{m^* \mu_o},
+\end{equation}
+absorption can be significant for frequencies above the plasma frequency, amounting to optical losses.
+For transparency, it would be beneficial to reduce the free carrier density, while increasing the carrier mobility.
+This is in partial contrast to the needed conductivity, for which a high carrier density is required.
+For both transparency and conductivity, a high mobility is thus beneficial.
+\todo{move the theory above to background.}
+In this work, SE was mostly used to measure layer thicknesses and the two free carrier absorption parameters previously mentioned.
+**** Hall effect measurement
+Hall effect measurements can be used to determine in-plane electrical properties of thin films, such as sheet resistance, sheet carrier density and sheet carrier mobility.
+When combined with a film thickness measurement, SE in this work, the more familiar bulk resistivity, bulk carrier density and bulk mobility can be calculated.
+When a magnetic field is applied to a sample conducting a current, the moving charge carriers experience a Lorentz force,
+\begin{equation}
+\vec{F} = q(\vec{E} + \vec{v}\times\vec{B}),
+\end{equation}
+since the currents are confined to the sample, a counteracting electric field is formed, so that the Lorentz force equilibrates to net zero.
+While the electric field itself cannot be measured directly, a Hall voltage can be measured between two points on the sample's perimeter.
+It can be derived\cite{vanderpauw1956} that this induced Hall voltage is independent of the probe positions, as long as the driven current fully passes between the two probes.
+Furthermore, this measured voltage is found to be equal to
+\begin{equation}
+V_H = \frac{I B_\perp}{n q t} \equiv \frac{R_H}{t} I B_\perp,
+\end{equation}
+where the Hall coefficient $R_H$ is defined as $\frac{1}{n q}$.
+Since the total current, $I$, magnetic field magnitude, $B_\perp$ and film thickness, $t$, can be experimentally controlled, the Hall coefficient can be measured.
+By itself the Hall measurement merely measures the carrier density and type, but when the samples' resistivity, $\rho$, is also measured, the carrier mobility can also be found by
+\begin{equation}
+\mu_H = \frac{R_H}{\rho}.
+\end{equation}
+In this work, Hall effect measurements were all preceded by a resistivity measurement, and the term "Hall effect measurement" will informally refer to this combined measurement.
+Important to note is that the mobility measured by the Hall method can differ from the mobility measured by SE, this is because SE essentially measures how mobile charge carriers are confined to small sample regions, while the Hall method measures the mobility across the whole sample.
+Carrier mobility can be impeded by, for example, the presence of grain boundaries, this effect will be measured by the Hall method, while SE probes the mobility within individual grains.
+For this reason, the Hall mobilities and optical mobilities will be denoted as $\mu_H$ and $\mu_o$ in this work.
+
+In this work, Hall measurements were performed using a LakeShore \todo{type}, using a van der Pauw geometry.
+A magnetic field of 1T was applied, which is the maximum field strength of the setup.
+The current ranges for measuring required some fine tuning, with too little current no significant Hall voltages could be measured, while a too high current setting can result in the current source reaching its compliance voltage.
+As the resistivity and carrier density can vary by several orders of magnitude, this current tuning ended up taking some trial and error.
+To electrically isolate the \AZO{} films from the substrate, substrates with a top layer of 450nm \SiOx{} were used.
+While the \AlOx{} capping layer is not conductive, it could easily be pierced by the probe pins, in some cases after applying a gentle force.
+Since the van der Pauw geometry uses four-point probing, the contact resistance between the probe pins and the \AZO{} films is irrelevant, but care was taken to ensure that the contacts behave Ohmically, as non-Ohmic behaviour can indicate an improper contact.
+**** Contact resistivity
+The main contribution of this work is the measurements of contact resistivities of \AZO{} on doped silicon.
+These measurements proved very challenging, and this resulted in the design and implementation of a novel contact resistivity measurement.
+A full discussion of this method is given in part 2 \todo{reference} of this thesis.
+Typical contact resistivity measurements involve controlled patterning and etching steps to achieve a certain contact geometry.
+While this can be done with relative ease for some materials, using standard semiconductor fabrication processes, controlled etching of \AZO{} has previously proved itself challenging, due to its high etch rate in most common etchants.
+For this reason, typical measurements methods such as the Cox and Strack method (C&S) and the transfer length method (TLM), were not fit for use at the start of this project.
+Instead, a simple top-down method was used, in which a current is driven through the contact, and the resulting voltage is measured.
+Sadly, this method proved highly unreliable, mainly due to the inhomogeneities in the driven current distributions.
+It was found that through more careful electrode design, many of the problems associated with the top-down measurements could be managed.
+For this, printed circuit boards were designed and used, featuring sets of interleaved copper electrodes.
+Again, this method is detailed in much more detail in Part 2 of this thesis \todo{ref}, but for now, let's focus on the samples that should be used for this method.
+With the novel method, the interfacial resistance is not actually measured, but instead, the $V(J)$ behaviour of a sample is obtained.
+Assuming linearity here, the resulting resistivity includes contributions from different materials and interfaces.
+To give a strict upper bound on the resistivity of the \AZO{}-Si interface, the other contributions need to be minimized.
+As the \AlOx{} capping layer is very resistvive, it thus needs to be removed prior to the measurements.
+For this purpose, a selective wet etch process was used, which will be discussed in more detail later.
+Important is that this selective etch only needs to fully remove the \AlOx{} capping layer while leaving the \AZO{} layer intact, doing this is much easier than patterned etching.
+
+
 *** \AZO{} ALD process
 The \AZO{} deposition process is the same in both sample preparations.
 \AZO{} was deposited by ALD using an Oxford Instruments OpAL tool at a temperature of 200\degree{}C.
@@ -438,24 +537,20 @@ For Hall measurements, care was taken to cut off the edges, so that no currents 
 The type 2 samples are symmetric, featuring a substrate on which films are deposited on both sides.
 The used substrates in this work were silicon with 130\Omega and 260\Omega doping profiles. \todo{also include polysilicon?}
 Substrate pieces measured approximately 5cm by 5cm, these were put on a carrier wafer and a \AZO{} and \AlOx{} stack was deposited.
+In these samples, only 20nm of \AZO{} was deposited.
 After the first deposition, the sample was flipped and the recipe was repeated.
 In regions with backside deposition, this resulted in the deposition of a \AZO{}/\AlOx{}/\AZO{}/\AlOx{} stack.
-The samples were annealed to 400\degree{}C and 500\degree{}C, after which the passivation (not in this work) and contact resistivit
-
-
-20nm
-***** AZO
-***** AlOx
-***** Anneal
-***** Dan passivatie
-***** Ets
-***** Contactweerstand
-*** Metingen
-verwijs naar deel 2.
-Black boxes.
-**** SE
-Model, plotje absorptiecoeffient vs w_t w_p
-**** Hall
+The samples were annealed to 400\degree{}C and 500\degree{}C, after which the passivation qualities were measured.
+To prepare the samples for contact resistivity measurements, the \AlOx{} capping layer needed to be removed.
+For this purpose, an \AlOx{}/\AZO{} selective wet etch was used, which will be discussed in more detail in section \todo{which?}.
+In the regions with backside deposition, the process was only able to etch the top layer of \AlOx{}, so a layer of insulating \AlOx{} stayed present between the two \AZO{} films.
+After the etch, a 300nm Ag film was deposited by e-beam evaporation using the BVR2008 FC, to enable a good contact for the contact resistivity measurements.
+During the first of these measurements, a few of the sample pieces were found to be significantly more resistive than others.
+While care had been taken to cleave off the backside deposited regions, it was hypothesized that this was inadequately done, and the partial presence of the \AlOx{} layer influenced the measurements.
+This was later confirmed in a TEM study, where an \AlOx{} layer was clearly found between two \AZO{} layers.
+To effectively remove the backside deposited regions, it was found useful to mildly scratch these visually recognizable regions before silver evaporation.
+After evaporation, the color differences between the \AZO{} and \AZO{}/\AlOx{}/\AZO{} coated regions could of course not be seen, but the scratches remained visible after deposition.
+Good samples could then be cleaved from the non-scratched region of the wafer.
 ** Results/discussion
 Parameter space prunen.
 Ook passivatie meepakken.
