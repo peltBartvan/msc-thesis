@@ -35,12 +35,15 @@
 #+LATEX_HEADER: \newcommand{\DEF}{\Delta E_{\mathrm{F}}}
 #+LATEX_HEADER: \newcommand{\ECB}{E_{\mathrm{CB}}}
 #+LATEX_HEADER: \newcommand{\EVB}{E_{\mathrm{VB}}}
+#+LATEX_HEADER: \newcommand{\Ohmsq}{$\Omega_\square$}
+#+LATEX_HEADER: \newcommand{\mOhmcm}{$\mathrm{m}\Omega\mathrm{cm}^2$}
 
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
 #+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
 #+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
+#+LATEX_HEADER: \newcommand{\contribution}[1]{\colorbox{yellow}{#1}}
 
 
 #+EXCLUDE_TAGS: todoex noexport
@@ -97,6 +100,8 @@ Degrees would be nice: 200\degree{}C
 | Silicon dioxide  | text \SiOx{} text  | braces for spacing |
 | ZnO:Al           | text \AZO text     | no math mode!      |
 | ZnO:Al           | text \AZO{} text   | braces for spacing |
+
+Before the project X was unknown, \contribution{but this has now been studied.}
 
 # \lipsum[1-2]
 * COMMENT Figures
@@ -407,15 +412,17 @@ here $\mu_o$ is the /optical mobility/ of the material.
 For transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
 Note that the plasma frequency increases with the carrier density, which conflicts with the high carrier density required from conductivity.
 More straightforward is the role of the mobility, which increases conductivity and decreases the scattering frequency, making high mobilities very important for transparent conductive materials.
-As mentioned before, this combination of transparency and conductivity was one of the starting points of this project
+- \todo{reflect on history of project}
+  + AZO passivates on FZ
+  + Absorption and sheet resistance studied, but influence of annealing temp not known yet.
+  + Contacts not really measurable
+    - But looks bad on intrinsic Si
+    - So: \contribution{fix measurements}
+    - Then: \contribution{let's give diffused junctions a go}
 
-
-
-
-
-  + Ohmic losses
-    Back of envelope berekening
-    ohmic losses 1% output power -> ongeveer 200 mOhmcm^2 op 44 mA/cm^2 0.6V
+- \todo{Ohmic losses}
+  Back of envelope berekening
+  ohmic losses 1% output power -> ongeveer 200 mOhmcm^2 op 44 mA/cm^2 0.6V
 
 ** Methods
 \todo{eerst measurements, dan sample preparation}
@@ -557,10 +564,121 @@ Ook passivatie meepakken.
 - paper Bas
 - Wel/niet tunneloxide.
 Contactweerstanden.
-** Conclusie
-Doping nodig, welke procesparameters.
-In principe groen licht voor AZO zonnecellen.
+*** Hall/SE
+# First: look at the sheet resistance, it is immediately clear that this increases drastically while annealing uncapped samples.
+# Furthermore, doping decreases the resistance as expected.
+# Above 500C anneal temperatures, the resistance drops slightly.
+# \todo{look at resistivity instead, trends are comparable}
+We start by looking at the resistivity within the \AZO{} films, as measured by the Hall method, these results are shown in Figure \ref{fig:capping_rho}.
+Clearly seen is that the uncapped samples deteriorate after even mild annealing, increasing in resistivity by orders of magnitude, this shows that the presence of a capping layer is crucial for achieving good film conductivity.
+Also visible is that, unsurprisingly, the resistivity decreases with doping level.
+Focusing our attention to the capped samples, the annealing step results in a reduction of resistivity, in some samples up to 50% compared to as-deposited.
+For the doped samples a minimum in resistivity is reached around 550\degree{}C to 650\degree{}C, after which an increase is found at 700\degree{}C anneals.
+Interestingly, this increase in resistivity at the highest anneal temperatures is not seen in intrinsic ZnO.
+
+#+LABEL: fig:capping_rho
+#+CAPTION: \AZO{} resistivity, depending on doping level, capping and annealing temperature. A strong degradation is seen when annealing uncapped samples, indicating that the capping step is crucial. The resistivity decreases with doping level. During annealing of capped samples the resistivity decreases significantly, in some cases being half as resistive as the as-deposited films.
+[[./images/rho_vs_acd.png]]
+
+# Question: is this due to carrier mobility or carrier density?
+# See Figure \ref{fig:capping_mu_H}
+# The mobility of uncapped samples deteriorates strongly upon mild doping, the decrease in resistance for capped samples at 500-550C annealing temperatures is reflected in lowering mobilities.
+# Overall, the mobility decreases with doping level, which \question{correct?} could be caused by increased impurity scattering.
+
+These trends can be viewed by the carrier densities and mobilities, which are shown in Figure \ref{fig:capping_n} and Figure \ref{fig:capping_mu_H} respectively.
+The deterioration of uncapped films can be attributed to a decrease in both carrier density and mobility.
+The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the mobility decreases with doping level.
+This decrease in mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
+
+#+LABEL: fig:capping_n_sh
+#+CAPTION: Carrier density as function of doping and annealing, the carrier density decays strongly during the annealing of uncapped samples. For capped samples a minimum is seen around 450\degree{}C to 500\degree{}C, after which the carrier density starts increasing. As expected, the carrier density depends strongly on the cycle ratio.
+[[./images/n_vs_acd.png]]
+
+
+#+LABEL: fig:capping_mu_H
+#+CAPTION: Hall mobility during annealing.
+[[./images/mu_H_vs_acd.png]]
+
+
+So far, it is clear that capping is crucial for achieving a low resistivity, the annealing temperature has a less dramatic but significant impact on resistivity, in some samples reducing the resistivity by half.
+Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
+As expected, the resistivity decreases while increasing the doping level.
+
+Next, let's look at the transparency of the produced films, now focusing only on the capped samples.
+As seen in Figure \ref{fig:omega_p}, the plasma frequency depends on the doping level, as was expected.
+Furthermore, a small increase is seen at anneal temperatures above 500\degree{}C, this trend stops at higher temperatures for doped samples, but the plasma frequency keeps increasing for intrinsic ZnO, this trend is consistent with the carrier densities found by Hall measurements.
+\todo{any clue why?}
+
+#+LABEL: fig:omega_p
+#+CAPTION: Plasma frequency of capped samples as function of annealing temperature and doping.
+[[./images/omega_p_vs_anneal.png]]
+
+As shown in Figure \ref{fig:omega_t}, annealing has a more pronounced effect on the scattering frequency.
+For doped samples, the scattering frequency decreases at higher annealing temperatures, while it increases for intrinsic ZnO.
+This amounts to an increasing optical mobility in doped \AZO{}, while the mobility decreases in intrinsic ZnO.
+It has been hypothesized that the increasing mobility in doped samples is caused by clustering of Al at high anneal temperatures, leaving larger regions of intrinsic ZnO.
+This however does not account for the higher plasma frequency in intrinsic ZnO than in \AZO{} at these higher temperatures.
+
+#+LABEL: fig:omega_t
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
+[[./images/omega_t_vs_anneal.png]]
+
+Overall, for transparency it is beneficial to use lower doping levels, and to anneal to a sufficient temperature.
+While not featured in this work, previously published\cite{maccoAtomiclayerdepositedAldopedZinc2021} passivation results show a maximum in $iV_{oc}$ for annealing temperatures in the 400\degree{}C to 500\degree{}C range.
+
+For these reasons, the choice was made to continue the contact resistivity studies with only capped samples of relatively low doping (int, r96, r48), annealed at 400\degree{}C and 500\degree{}C.
+
+
+*** TODO Etch
+Look at the etch steps first, verify that they work!
+*** Contact resistivity
+Measured contact resistivities are shown in Figure \ref{fig:rho_c}.
+Some observations \todo{elaborate}:
+- Contact resistivities below 100mOhmcm^2 can be obtained! records around 20 mOhmcm^2.
+- Contact resistivity increases with anneal temperature, except in intrinsic ZnO.
+  This might be caused by Al diffusion, which is seen in TEM images.
+- Si doping decreases contact resistivity, previously no good contacts could be made on intrinsic Si \source{is there data showing this?}
+- \AZO{} doping seems critical in achieving a low contact resistivity.
+  Note: r48 doping is more resistive than r96 on 260 Ohm Si.
+  This could be due to the presence of a dopant plane close to the interface, and this has been observed in \source{Niemela et al.}
+
+Finally, we look at the contact resistivities of \AZO{} on n+ diffused silicon.
+Measured results are shown in Figure \ref{fig:rho_c}.
+It can be seen that low contact resistivities around 20 \mOhmcm{} can be obtained, well below the 100 \mOhmcm{} goal for device fitness.
+Moreover, it can be seen that \AZO{} doping is crucial in creating these good contacts, as the undoped ZnO films produce contacts an order of magnitude more resistive.
+Interestingly, stronger \AZO{} doping is not necessarily beneficial, as on 260 \Ohmsq{} n+ Si, r48 doped \AZO{} produces more resistive contacts than r96 \AZO{}.
+A possible explanation for this effect is the distance of the first Al doping layer from the interface.
+In strongly doped \AZO{} this layer is relatively close to the interface, as ZnO initially grows in islands, there is a possibility of depositing \AlOx{} directly on the \SiOx{} if the ZnO islands do not yet fully cover the interface.
+\todo{compare with Niemelä}
+
+Recall that previous attempts to create contacts between \AZO{} and intrinsic silicon were not succesful, indicating that this doping is also necessary.
+
+Next, let's consider the impact of the annealing temperature on contact resistivity.
+Focusing on samples with doped \AZO{}, annealing at 500\degree{}C can be seen to increase contact resistivity when compared to a milder anneal of 400\degree{}C.
+This trend is opposed in intrinsic ZnO samples, for which the resistivity decreases slightly in this range.
+The mechanism for this is not precisely known, but it is hypothesized to be caused by diffusion of Al within the \AZO{}, based on the following cues.
+In TEM investigations within this project \todo{incorporate}, it was found that Al was more dispersed after a 500\degree{}C anneal than after a 400\degree{}C anneal.
+In another study, accumulation of Al was found to occur in polysilicon-\AZO{} interfaces \source{Gerlach}.
+Together, the occurence of Al diffusion and its apparent tendency to accumulate at interfaces might be the factors contributing to this increased resistivity.
+
+
+
+#+LABEL: fig:rho_c
+#+CAPTION: Contact resistivities of \AZO{} on doped silicon. \todo{properly plot with own data, surprisingly hard with Seaborn/matplotlib}
+[[./images/rho_c.png]]
+
+
+** Conclusion and outlook
+Doping nodig, zowel AZO als Si, welke procesparameters.
+Samen met passivatie, geleiding en transparantie: in principe groen licht voor AZO zonnecellen.
 Realiseren.
+
+In this work it is shown that an \AZO{}/\AlOx{} stack can provide excellent contacts on n+ doped silicon.
+Luckily, the process conditions needed to achieve this align well with those needed to obtain high quality passivation, conductivity and transparency.
+It was found that the doping of both the silicon and \AZO{} is crucial for forming good contacts, and the contact quality decreases for high temperature anneals, with a significant degradation found between 400\degree{}C and 500\degree{}C anneal temperatures.
+\todo{maybe mention first dopant plane problem}
+
+Overall, \AZO{} is clearly a promising material for novel solar cell types.
 ** TODO todos
 *** TODO Plaatjes in verhaal
 *** TODO Additional insights?
@@ -580,9 +698,7 @@ Realiseren.
 *** ALD
 \question{Hele sectie waard? of bij methods even het recept goed beschrijven.}
 ** Methods
-** Results/discussion
 
-** Conclusion
 * Contact resistivity measurements
 ** Introduction
 In the previous part of this thesis, the contact resistivity of Al-doped zinc-oxide on doped silicon was investigated, while omitting details on the performed measurements.
