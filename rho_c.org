@@ -340,7 +340,7 @@ Luckily, it typically takes picoseconds for electrons (or holes) to reach equili
 This means that electrons can be considered in equilibrium, and so can holes, just not in equilibrium with each other.
 The excesses in electron and hole densities can be described by an increase in $\EFn$ and a decrease in $\EFp$, a phenomenon called Fermi level splitting.
 Due to the absence of a bandgap, the separate equilibration of electrons and holes does not occur in metals, furthermore thermal equilibration is a very fast process.
-This implies that, in a metal, the carrier statistics can be described by a single Fermi level: $\EF{} = \EFn{} = \EFp{}$.
+This implies that in a metal, the carrier statistics can be described by a single Fermi level: $\EF{} = \EFn{} = \EFp{}$.
 So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater physical relevance.
 A more physical interpretation of the Fermi levels is that they correspond, up to sign, to the electrochemical potentials of both carriers, i.e. $\EFn{} = \eta_n$, $\EFp{} = -\eta_p$.
 The free energy of an electron-hole pair, which we want to extract, is then given by $\DEF{} \equiv \EFn{} - \EFp{}$.
@@ -360,7 +360,7 @@ J_p = \frac{\sigma_p}{e} \nabla \EFp{},
 where $\sigma_n = e n \mu_n$ and $\sigma_p = e p \mu_p$ are the conductivities of electrons and holes respectively, expressed in terms of the elementary charge and density and mobility of the specific carriers.
 In the n-type contact, the Fermi level should be as close as possible to $\EFn{}$ in the bulk.
 As the Fermi levels need to come together in the metal, a direct consequence is that a strong gradient in $\EFp{}$ is needed in the contact.
-This asymmetry between a strong $\EFp{}$ gradient and an ideally constant $\EFn{}$ can be achieved through the associated conductivities, the n-type contact should be very conductive to electrons, but very nonconductive to holes.
+This asymmetry between a strong $\EFp{}$ gradient and an ideally constant $\EFn{}$ can be achieved through the associated conductivities: the n-type contact should be very conductive to electrons, but very nonconductive to holes.
 There are multiple ways to achieve this, but in this work we'll look at a homojunction in which the carrier densities are influenced by doping the bulk.
 # A conventional way to achieve this is by n-type doping of the contact, which strongly increases $n$ and strongly decreases $p$.
 # This contacting scheme is known as a homojunction,
@@ -379,14 +379,19 @@ To wrap things up a bit, there are essentially two properties that a good passiv
 - High majority carrier conductivity :: To encounter Ohmic losses, as parametrized by $\sigma_n$. In the rest of this thesis the associated /resistivity/ is used, defined by $\rho_n \equiv \frac{1}{\sigma_n}$.
 - Low recombination rates :: As parametrized through $J_0$, to enable a high Fermi level splitting.
 
-Assuming the rest of the solar cell to be ideal, these two parameters can be used to calculate an upper limit for solar cell efficiency, this relation is shown in Figure \ref{fig:rainbowplot}.
-Note that the efficiency barely depends on $\rho_c$ when $\rho_c < 100$ m\Omega cm^2 \todo{typeset unit}, in this range the cell efficiency is not contact resistance limited.
-In this thesis it will be shown that these low contact resistivities can be obtained!
+An acceptable upper limit for contact resistivity can be found by a rough back-of-the-envelope calculation, as the resistive loss power is given by $P_{loss} = \rho_c J^2 A$ and the output power by $P = V J A$, the resistive losses amount to 1% of the total power when $\rho_c > 0.01 \frac{V}{J}$.
+Taking $J \approx 44$ mAcm^2 and $V \approx 0.5$ V, this limit amounts to $\rho_{max} \approx 100$ \mOhmcm{}. 
+
+A more detailed analysis was performed by \source{todo}, where the maximum solar cell efficiency was modeled from the contact resistivity and $J_0$.
+The found relations are shown in Figure \ref{fig:rainbowplot}, along with some practically obtained effiencies.
+It can be seen that at contact resistivities below 100\mOhmcm{}, the efficiency is mostly determined by recombination, indicating that these contact resistivities can indeed be considered /sufficiently low/.
 
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: Maximum solar cell efficiency as limited by contact resistivity and $J_0$, adapted from \todo{welke bron hier?}.
 #+LABEL: fig:rainbowplot
 [[./images/regenboog.png]]
+
+In the rest of this thesis, it will be shown that these sufficiently low contact resistivities can be obtained by a wide margin between \AZO{} and doped silicon.
 
 *** But first: what about transparency and conductivity?
 Before diving into contact resistivities, let's first look at what is required to make the \AZO{} films transparent and conductive, conductivity here implying in-plane conductivity.
