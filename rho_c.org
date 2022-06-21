@@ -223,10 +223,11 @@ Before the project X was unknown, \contribution{but this has now been studied.}
 
 ** Background
 *** Solar cell parameters
-Loosely framed the goal of this work is to find out if \AZO passivating contacts can make /good/ solar cells.
+Loosely framed the goal of this work is to find out if \AZO{} passivating contacts can make /good/ solar cells.
 To start answering this question, let's first narrow down what is meant by a /good/ solar cell, before diving into the details about contacting layers.
 The purpose of solar cells is clear: to convert thermal radiation into usable electrical energy.
-In the ideal case, the incoming thermal power, $P_\mathrm{in}$, is totally converted to electrochemical power, $V_\mathrm{out}I_\mathrm{out}$, of course this total conversion is thermodynamically forbidden, the best we can do is to maximize the efficiency,
+In the ideal case, the incoming thermal power, $P_\mathrm{in}$, is totally converted to electrochemical power, $V_\mathrm{out}I_\mathrm{out}$.
+Thermodynamically, this total conversion is forbidden, the best we can do is to maximize the efficiency,
 \begin{equation}
 \eta = \frac{V_\mathrm{out}I_\mathrm{out}}{P_\mathrm{in}}.
 \end{equation}
@@ -248,7 +249,7 @@ Measuring these cell parameters requires the fabrication of complete cells, to o
 Among the desired qualities of a contact are a high transparency, good passivation and a low series resistance.
 Let's take a look at how these parameters influence the overall solar cell performance.
 
-A typical high school explanation of solar cells goes as follows:
+A typical high school explanation of solar cell operation goes as follows:
 1) A photon from the sun is absorbed by the solar cell, here it rips an electron apart from an atom in the crystal, transferring its energy.
    The electron is negatively charged, but the void it leaves effectively has an opposite charge of equal magnitude, this void is called a "hole".
 2) The electron finds its way to one contact of the solar cell, while the hole finds its way to the other.
@@ -283,7 +284,7 @@ Let's go through the explanation again, and see what can go wrong with each step
       It's possible for the newly formed electron and hole to recombine with each other (or with other electrons and holes), if this happens their electrochemical energy will be lost (of course energy is conserved, but from an engineering perspective it will probably not be useful energy anymore).
       One possible mechanism for this is radiative recombination, in which an electron and hole form a photon.
       Luckily, this rarely occurs in crystalline silicon due to its indirect bandgap, which means that some additional momentum is needed for this reaction to occur.
-      In crystalling silicon, the most significant recombination pathways are Shockley-Read-Hall (SRH) and Auger recombination.
+      In crystalline silicon, the most significant recombination pathways are Shockley-Read-Hall (SRH) and Auger recombination.
       In the former pathway electrons can make small jumps in energy using crystal imperfections, these small jumps are more likely to occur than a single large jump.
       The latter uses a third electron or hole to absorb the excess momentum that makes a direct transition improbable.
       Suppressing recombination is very important for efficient solar cells, and it is referred to as passivation.
@@ -303,8 +304,9 @@ This combination of capping and annealing has been previously studied within the
 There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
 An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
 
-To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} is difficult to do by conventional methods which often require patterning and etching to create sample structures.
+To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} films is difficult to do by conventional methods which often require patterning and etching to create sample structures.
 Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
+\todo{link to etching, this is described in part I}
 
 Due to these metrological difficulties a new measurement method was designed and implemented, which is discussed in detail in the second part of this thesis.
 
@@ -585,29 +587,28 @@ Interestingly, this increase in resistivity at the highest anneal temperatures i
 # The mobility of uncapped samples deteriorates strongly upon mild doping, the decrease in resistance for capped samples at 500-550C annealing temperatures is reflected in lowering mobilities.
 # Overall, the mobility decreases with doping level, which \question{correct?} could be caused by increased impurity scattering.
 
-These trends can be viewed by the carrier densities and mobilities, which are shown in Figure \ref{fig:capping_n} and Figure \ref{fig:capping_mu_H} respectively.
-The deterioration of uncapped films can be attributed to a decrease in both carrier density and mobility.
-The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the mobility decreases with doping level.
-This decrease in mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
+These trends can be viewed by the carrier densities and Hall mobilities, which are shown in Figure \ref{fig:capping_n} and Figure \ref{fig:capping_mu_H} respectively.
+The deterioration of uncapped films can be attributed to a decrease in both carrier density and Hall mobility.
+The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the Hall mobility decreases with doping level.
+This decrease in Hall mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
+For capped samples, annealing at temperatures above 500\degree{}C results in an increased Hall mobility and carrier density, this is potentially caused by an activation of the Al dopants by diffusion.
+This diffusion will be discussed in more detail in Section \todo{ref} about the TEM studies performed within this project.
 
 #+LABEL: fig:capping_n_sh
 #+CAPTION: Carrier density as function of doping and annealing, the carrier density decays strongly during the annealing of uncapped samples. For capped samples a minimum is seen around 450\degree{}C to 500\degree{}C, after which the carrier density starts increasing. As expected, the carrier density depends strongly on the cycle ratio.
 [[./images/n_vs_acd.png]]
 
-
 #+LABEL: fig:capping_mu_H
 #+CAPTION: Hall mobility during annealing.
 [[./images/mu_H_vs_acd.png]]
 
-
-So far, it is clear that capping is crucial for achieving a low resistivity, the annealing temperature has a less dramatic but significant impact on resistivity, in some samples reducing the resistivity by half.
-Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
-As expected, the resistivity decreases while increasing the doping level.
+# So far, it is clear that capping is crucial for achieving a low resistivity, the annealing temperature has a less dramatic but significant impact on resistivity, in some samples reducing the resistivity by half.
+# Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
+# As expected, the resistivity decreases while increasing the doping level.
 
 Next, let's look at the transparency of the produced films, now focusing only on the capped samples.
 As seen in Figure \ref{fig:omega_p}, the plasma frequency depends on the doping level, as was expected.
 Furthermore, a small increase is seen at anneal temperatures above 500\degree{}C, this trend stops at higher temperatures for doped samples, but the plasma frequency keeps increasing for intrinsic ZnO, this trend is consistent with the carrier densities found by Hall measurements.
-\todo{any clue why?}
 
 #+LABEL: fig:omega_p
 #+CAPTION: Plasma frequency of capped samples as function of annealing temperature and doping.
@@ -616,18 +617,28 @@ Furthermore, a small increase is seen at anneal temperatures above 500\degree{}C
 As shown in Figure \ref{fig:omega_t}, annealing has a more pronounced effect on the scattering frequency.
 For doped samples, the scattering frequency decreases at higher annealing temperatures, while it increases for intrinsic ZnO.
 This amounts to an increasing optical mobility in doped \AZO{}, while the mobility decreases in intrinsic ZnO.
-It has been hypothesized that the increasing mobility in doped samples is caused by clustering of Al at high anneal temperatures, leaving larger regions of intrinsic ZnO.
-This however does not account for the higher plasma frequency in intrinsic ZnO than in \AZO{} at these higher temperatures.
+The cause of these opposing trend is not known.
 
 #+LABEL: fig:omega_t
 #+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
-[[./images/omega_t_vs_anneal.png]]
+[[./images/omega_t_vs_ad.png]]
+
+\todo{plot optische mobiliteit samen met Hall}
 
 Overall, for transparency it is beneficial to use lower doping levels, and to anneal to a sufficient temperature.
 While not featured in this work, previously published\cite{maccoAtomiclayerdepositedAldopedZinc2021} passivation results show a maximum in $iV_{oc}$ for annealing temperatures in the 400\degree{}C to 500\degree{}C range.
 
 For these reasons, the choice was made to continue the contact resistivity studies with only capped samples of relatively low doping (int, r96, r48), annealed at 400\degree{}C and 500\degree{}C.
-
+*** Transmission electron microscopy
+Notable observations:
+- Al diffusion occurs at 600\degree{}C, but not yet at 400\degree{}C
+  + 400C shows clear lines with more dopants
+  + 600C does not
+- This diffusion can account for the increased carrier density, as Al dopants are more active when they are not clustered together in dopant planes.
+- ZnO crystal structure continues along dopant planes
+- Grain coarsening found at 600C: explains degrading Hall mobility!
+- Sanity check: edge deposited \AlOx{} found on 500\degree{}C sample
+- Still: what's up with increasing optical mobility?
 
 *** TODO Etch
 Look at the etch steps first, verify that they work!
@@ -680,10 +691,10 @@ It was found that the doping of both the silicon and \AZO{} is crucial for formi
 
 Overall, \AZO{} is clearly a promising material for novel solar cell types.
 ** TODO todos
-*** TODO Plaatjes in verhaal
+*** TODO Plotjes verbeteren, fatsoenlijke assen etc
 *** TODO Additional insights?
 
-** Theory
+** COMMENT Theory
 *** Solar cell operation
 - Globaal :: Hoe werkt een zonnecel? \cite{wurfel2005}
 - Doel :: Welke factoren bepalen efficiëntie?
@@ -697,7 +708,6 @@ Overall, \AZO{} is clearly a promising material for novel solar cell types.
   +  ::
 *** ALD
 \question{Hele sectie waard? of bij methods even het recept goed beschrijven.}
-** Methods
 
 * Contact resistivity measurements
 ** Introduction
