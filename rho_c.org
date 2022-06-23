@@ -391,7 +391,7 @@ It can be seen that at contact resistivities below 100\mOhmcm{}, the efficiency 
 #+LABEL: fig:rainbowplot
 [[./images/regenboog.png]]
 
-In the rest of this thesis, it will be shown that these sufficiently low contact resistivities can be obtained by a wide margin between \AZO{} and doped silicon.
+In the rest of this thesis, it will be shown that these sufficiently low contact resistivities between \AZO{} and doped silicon can be attained by a wide margin.
 
 *** But first: what about transparency and conductivity?
 Before diving into contact resistivities, let's first look at what is required to make the \AZO{} films transparent and conductive, conductivity here implying in-plane conductivity.
@@ -635,28 +635,68 @@ While not featured in this work, previously published\cite{maccoAtomiclayerdepos
 
 For these reasons, the choice was made to continue the contact resistivity studies with only capped samples of relatively low doping (int, r96, r48), annealed at 400\degree{}C and 500\degree{}C.
 *** Transmission electron microscopy
-Notable observations:
-- Al diffusion occurs at 600\degree{}C, but not yet at 400\degree{}C
-  + 400C shows clear lines with more dopants
-  + 600C does not
-- This diffusion can account for the increased carrier density, as Al dopants are more active when they are not clustered together in dopant planes.
-- ZnO crystal structure continues along dopant planes
-- Grain coarsening found at 600C: explains degrading Hall mobility!
-- Sanity check: edge deposited \AlOx{} found on 500\degree{}C sample
-- Still: what's up with increasing optical mobility?
+To gain more insight into how annealing impacts the \AZO{} properties, some samples were analyzed by transmission electron microscopy (TEM).
+As the Hall and SE measurements indicate some interesting differences between the anneals at 400\degree{}C and 600\degree{}C, these conditions were chosen for further investigation.
+Both samples were capped during the anneal, and both contained r24 \AZO{}.
+As mentioned before, the diffusion of Al dopants was expected to play a role in the increased carrier densities at high annealing temperatures, as these dopants become more active when spread out.
+This possible explanation is compatible with the TEM studies, where clear Al dopant planes could be found in the 400\degree{}C sample.
+In the 600\degree{}C sample, these dopant planes could not be discerned anymore, indicating a possible diffusion of dopants.
+Due to difficulties of measuring the textured samples, the absence of dopant planes cannot strictly be confirmed, as for example not measuring perpendicularly to the dopant planes could also explain the lack of observed dopant planes.
+
+Furthermore, the ZnO crystal structure was found to continue across the dopant planes. \todo{wat wil ik hier precies mee zeggen?}
+At a 600\degree{}C anneal, the observed ZnO crystal grains were found to be smaller than at the 400\degree{}C anneal, this increased presence of grain boundaries can explain the decrease in Hall mobility.
+\todo{plaatjes, welke plaatjes?}
+
+# Notable observations:
+# - Al diffusion occurs at 600\degree{}C, but not yet at 400\degree{}C
+#   + 400C shows clear lines with more dopants
+#   + 600C does not
+# - This diffusion can account for the increased carrier density, as Al dopants are more active when they are not clustered together in dopant planes.
+# - ZnO crystal structure continues along dopant planes
+# - Grain coarsening found at 600C: explains degrading Hall mobility!
+# - Sanity check: edge deposited \AlOx{} found on 500\degree{}C sample
+# - Still: what's up with increasing optical mobility?
 
 *** TODO Etch
-Look at the etch steps first, verify that they work!
+To prepare the type 2 samples for contact resistivity measurements, the \AlOx{} capping layer needs to be removed without destroying the \AZO{} film.
+A selective wet etch was adapted from \source{todo}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C.
+To verify that this etching process works as intended, film thicknesses were measured with SE before and after etching.
+This run was performed on as-deposited r24 \AZO{} + \AlOx{} samples, with etching times ranging between 30 seconds and 5 minutes.
+The results are illustrated in Figure \ref{fig:etchingSE}, where the \AZO{} and \AlOx{} thicknesses are shown as a stack, the error bars indicate the surface roughness as determined by SE.
+Shown on the left are the film stacks before the etching process, these all appear very similar in thicknesses.
+Shown on the right are the same samples, but after being etched at the indicated etching times.
+
+#+LABEL: fig:etchingSE
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
+[[./images/etching_thicknesses.png]]
+
+As visible, the \AlOx{} thickness significantly decreases for even 30s etches, furthermore, the decrease in thickness saturates, indicating that no more material is being etched after around 3 minutes.
+Still, the SE measurements appear to indicate that some \AlOx{} remains, further inspection of the performed fits however shows that the \AlOx{} and \AZO{} thickness are strongly inversely correlated.
+This indicates that the apparent remaining \AlOx{} is a mere fitting artefact.
+Since the total \AZO{} + \AlOx{} thickness does not decrease after around 3 minutes, is is assumed that the etching process indeed stops when it reaches the \AZO{} film.
+Looking only at the initial measurements, in which SE could more clearly distinguish between the \AZO{} and \AlOx{} films, the etch rate is estimated at around 4\AA per second.
+
+Less quantitative, but perhaps more convincing, evidence for the efficacy of the etch process was accidentally found in a TEM study on a contact resistivity sample.
+This sample was annealed at 500\degree{}C, etched for two minutes, and then coated with silver.
+
+Here, instead of the expected Si/\AZO{}/Ag stack, a Si/\AZO{}/\AlOx{}/\AZO{}/Ag stack was found
+The reason for this is the backside deposition of the ALD films, resulting in a \AZO{}/\AlOx{}/\AZO{}/\AlOx{} stack being deposited around the edges of the sample.
+While this backside deposition was unintended, the TEM image in Figure \ref{fig:etchingTEM} clearly shows a full removal of the top \AlOx{} layer, while the top \AZO{} layer did not significantly reduce in thickness.
+
+#+LABEL: fig:etchingTEM
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
+[[./images/etch_TEM.jpeg]]
+
 *** Contact resistivity
-Measured contact resistivities are shown in Figure \ref{fig:rho_c}.
-Some observations \todo{elaborate}:
-- Contact resistivities below 100mOhmcm^2 can be obtained! records around 20 mOhmcm^2.
-- Contact resistivity increases with anneal temperature, except in intrinsic ZnO.
-  This might be caused by Al diffusion, which is seen in TEM images.
-- Si doping decreases contact resistivity, previously no good contacts could be made on intrinsic Si \source{is there data showing this?}
-- \AZO{} doping seems critical in achieving a low contact resistivity.
-  Note: r48 doping is more resistive than r96 on 260 Ohm Si.
-  This could be due to the presence of a dopant plane close to the interface, and this has been observed in \source{Niemela et al.}
+# Measured contact resistivities are shown in Figure \ref{fig:rho_c}.
+# Some observations \todo{elaborate}:
+# - Contact resistivities below 100mOhmcm^2 can be obtained! records around 20 mOhmcm^2.
+# - Contact resistivity increases with anneal temperature, except in intrinsic ZnO.
+#   This might be caused by Al diffusion, which is seen in TEM images.
+# - Si doping decreases contact resistivity, previously no good contacts could be made on intrinsic Si \source{is there data showing this?}
+# - \AZO{} doping seems critical in achieving a low contact resistivity.
+#   Note: r48 doping is more resistive than r96 on 260 Ohm Si.
+#   This could be due to the presence of a dopant plane close to the interface, and this has been observed in \source{Niemela et al.}
 
 Finally, we look at the contact resistivities of \AZO{} on n+ diffused silicon.
 Measured results are shown in Figure \ref{fig:rho_c}.
