@@ -645,6 +645,7 @@ Due to difficulties of measuring the textured samples, the absence of dopant pla
 
 Furthermore, the ZnO crystal structure was found to continue across the dopant planes. \todo{wat wil ik hier precies mee zeggen?}
 At a 600\degree{}C anneal, the observed ZnO crystal grains were found to be smaller than at the 400\degree{}C anneal, this increased presence of grain boundaries can explain the decrease in Hall mobility.
+Additionally, in the 600\degree{}C sample, voids were found within the \AZO{} film.
 \todo{plaatjes, welke plaatjes?}
 
 # Notable observations:
@@ -667,7 +668,7 @@ Shown on the left are the film stacks before the etching process, these all appe
 Shown on the right are the same samples, but after being etched at the indicated etching times.
 
 #+LABEL: fig:etchingSE
-#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
 [[./images/etching_thicknesses.png]]
 
 As visible, the \AlOx{} thickness significantly decreases for even 30s etches, furthermore, the decrease in thickness saturates, indicating that no more material is being etched after around 3 minutes.
@@ -684,8 +685,10 @@ The reason for this is the backside deposition of the ALD films, resulting in a 
 While this backside deposition was unintended, the TEM image in Figure \ref{fig:etchingTEM} clearly shows a full removal of the top \AlOx{} layer, while the top \AZO{} layer did not significantly reduce in thickness.
 
 #+LABEL: fig:etchingTEM
-#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
 [[./images/etch_TEM.jpeg]]
+
+This combination of estimated etch rate and TEM imagery motivated the decision to etch all samples for a duration of 2 minutes.
 
 *** Contact resistivity
 # Measured contact resistivities are shown in Figure \ref{fig:rho_c}.
@@ -717,24 +720,20 @@ In TEM investigations within this project \todo{incorporate}, it was found that 
 In another study, accumulation of Al was found to occur in polysilicon-\AZO{} interfaces \source{Gerlach}.
 Together, the occurence of Al diffusion and its apparent tendency to accumulate at interfaces might be the factors contributing to this increased resistivity.
 
-
-
 #+LABEL: fig:rho_c
 #+CAPTION: Contact resistivities of \AZO{} on doped silicon. \todo{properly plot with own data, surprisingly hard with Seaborn/matplotlib}
 [[./images/rho_c.png]]
 
 
 ** Conclusion and outlook
-Doping nodig, zowel AZO als Si, welke procesparameters.
-Samen met passivatie, geleiding en transparantie: in principe groen licht voor AZO zonnecellen.
-Realiseren.
-
 In this work it is shown that an \AZO{}/\AlOx{} stack can provide excellent contacts on n+ doped silicon.
 Luckily, the process conditions needed to achieve this align well with those needed to obtain high quality passivation, conductivity and transparency.
 It was found that the doping of both the silicon and \AZO{} is crucial for forming good contacts, and the contact quality decreases for high temperature anneals, with a significant degradation found between 400\degree{}C and 500\degree{}C anneal temperatures.
-\todo{maybe mention first dopant plane problem}
+When combined with the previous passivation studies, this work presents a clear process window in which \AZO{} films can be made laterally conductive, transparent and passivation while making excellent contacts on n-doped Si.
+The neccessity of a capping layer is shown, furthermore, with mild \AZO{} doping a high transparency and conductivity can be achieved, both in-plane and as a contact.
+Annealing should occur around 400\degree{}C to 500\degree{}C, as in this range the passivation, contact resistivity, \AZO{} bulk conductivity and transparency are excellent.
+This means that further research can focus on device integration, something which is already being done in for example the Percspective project, aiming to use \AZO{} as a full area passivating contact layer.
 
-Overall, \AZO{} is clearly a promising material for novel solar cell types.
 ** TODO todos
 *** TODO Plotjes verbeteren, fatsoenlijke assen etc
 *** TODO Additional insights?
