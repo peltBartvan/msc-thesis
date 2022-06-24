@@ -245,7 +245,13 @@ This ratio of /real/ output power and /ideal/ output power is what defines the f
 \begin{equation}
 \mathrm{FF} = \frac{I_\mathrm{MP}V_\mathrm{MP}}{I_\mathrm{sc}V_\mathrm{oc}}.
 \end{equation}
-\todo{plotje IV karakteristiek + FF}
+The fill factor is illustrated in Figure \ref{fig:FFDiagram}, where it can be recognized as the ratio between the green and gray surface areas.
+
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Illustration of $V_{oc}$, $I_{sc}$ and fill factor in relation to a cells' IV-curve. The fill factor can be recognized as the ratio between the areas of the green and gray rectangles.
+#+LABEL: fig:FFDiagram
+[[./images/FF_diagram.drawio.png]]
+
 In terms of these cell parameters, the efficiency can then be expressed as
 \begin{equation}
 \eta = \frac{I_\mathrm{sc}V_\mathrm{oc}\mathrm{FF}}{P_\mathrm{in}}.
