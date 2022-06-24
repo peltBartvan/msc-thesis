@@ -1,7 +1,8 @@
 #+TITLE: Design and implementation of a novel contact resistivity measurement method for solar Si-ZnO:Al contacts.
 # +SUBTITLE: and optimization of Si-ZnO:Al contacts.
 
-#+LATEX_CLASS: report
+# this might be overkill, for now using report works just fine...
+#+LATEX_CLASS: msc-thesis
 
 #+BIBLIOGRAPHY: zotero_refs
 #+LATEX_HEADER: \usepackage[numbers]{natbib}
@@ -48,6 +49,10 @@
 
 #+EXCLUDE_TAGS: todoex noexport
 #+OPTIONS: toc:nil
+
+# This line fixes the subsections being exported as items
+# turns out this is an org-export thing, not a latex template thing
+#+OPTIONS: H:4
 
 \begin{abstract}
 \todo{lipsum vervangen}
@@ -641,12 +646,13 @@ Both samples were capped during the anneal, and both contained r24 \AZO{}.
 As mentioned before, the diffusion of Al dopants was expected to play a role in the increased carrier densities at high annealing temperatures, as these dopants become more active when spread out.
 This possible explanation is compatible with the TEM studies, where clear Al dopant planes could be found in the 400\degree{}C sample.
 In the 600\degree{}C sample, these dopant planes could not be discerned anymore, indicating a possible diffusion of dopants.
-Due to difficulties of measuring the textured samples, the absence of dopant planes cannot strictly be confirmed, as for example not measuring perpendicularly to the dopant planes could also explain the lack of observed dopant planes.
+Unfortunately, in this sample the Al signal was dominated by the presence of the \AlOx{} capping layer, which can also be the reason no dopant planes could be discerned.
 
-Furthermore, the ZnO crystal structure was found to continue across the dopant planes. \todo{wat wil ik hier precies mee zeggen?}
-At a 600\degree{}C anneal, the observed ZnO crystal grains were found to be smaller than at the 400\degree{}C anneal, this increased presence of grain boundaries can explain the decrease in Hall mobility.
+# Furthermore, the ZnO crystal structure was found to continue across the dopant planes. \todo{wat wil ik hier precies mee zeggen?}
+At a 600\degree{}C anneal, the observed ZnO crystal grains were much more distinct than at the 400\degree{}C anneal, indicating grain coarsening. this increased presence of grain boundaries can explain the decrease in Hall mobility.
 Additionally, in the 600\degree{}C sample, voids were found within the \AZO{} film.
 \todo{plaatjes, welke plaatjes?}
+\question{wil ik hier te diep op ingaan, of gewoon doorverwijzen naar publicatie?}
 
 # Notable observations:
 # - Al diffusion occurs at 600\degree{}C, but not yet at 400\degree{}C
