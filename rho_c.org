@@ -13,6 +13,7 @@
 # to get sources working
 
 #+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \usepackage{subcaption}
 #+LATEX_HEADER: \usepackage{svg}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{gensymb}
@@ -411,7 +412,7 @@ It can be seen that at contact resistivities below 100\mOhmcm{}, the efficiency 
 
 In the rest of this thesis, it will be shown that contact resistivities as low as 20\mOhmcm{} can be obtained between \AZO{} and doped silicon.
 
-*** But first: what about transparency and conductivity?
+*** Transparency and conductivity
 Before diving into contact resistivities, let's first look at what is required to make the \AZO{} films transparent and conductive, conductivity here implying in-plane conductivity.
 The bulk conductivity of an n-type conductor can be described in terms of its carrier density and carrier mobility,
 \begin{equation}
@@ -433,21 +434,26 @@ The parameter $\omega_\tau$ is called the scattering frequency, and it broadens 
 \begin{equation}
 \omega_\tau = \frac{e}{m^* \mu_o},
 \end{equation}
-here $\mu_o$ is the /optical mobility/ of the material.
-For transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
+where $\mu_o$ is the /optical mobility/ of the material.
+The influence of these two parameters on the optical properties is illustrated in Figure \ref{fig:nkFreqs}, the plasma frequency determines the onset of the low energy absorption, while the scattering frequency broadens this absorption front.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./images/omega_p_nk.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./images/omega_t_nk.png}
+    \end{subfigure}
+    \caption{Modeled impact of plasma frequency (left) and scattering frequency (right) on the optical properties of \AZO{}. For realism, bandgap absorption is also shown at the higher energies. Adapted from \cite{MasterThesisDGJA}.}
+\label{fig:nkFreqs}
+\end{figure}
+
+It is clear that for high transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
 Note that the plasma frequency increases with the carrier density, which conflicts with the high carrier density required from conductivity.
 More straightforward is the role of the mobility, which increases conductivity and decreases the scattering frequency, making high mobilities very important for transparent conductive materials.
-- \todo{reflect on history of project}
-  + AZO passivates on FZ
-  + Absorption and sheet resistance studied, but influence of annealing temp not known yet.
-  + Contacts not really measurable
-    - But looks bad on intrinsic Si
-    - So: \contribution{fix measurements}
-    - Then: \contribution{let's give diffused junctions a go}
-
-- \todo{Ohmic losses}
-  Back of envelope berekening
-  ohmic losses 1% output power -> ongeveer 200 mOhmcm^2 op 44 mA/cm^2 0.6V
 
 ** Methods
 \todo{eerst measurements, dan sample preparation}
