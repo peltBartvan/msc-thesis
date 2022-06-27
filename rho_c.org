@@ -19,6 +19,8 @@
 #+LATEX_HEADER: \usepackage{lipsum}
 #+LATEX_HEADER: \captionsetup{font=footnotesize}
 
+#+LATEX_HEADER: \usepackage{pdfpages}
+
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{positioning}
 #+LATEX_HEADER: \usetikzlibrary{matrix}
@@ -331,17 +333,18 @@ Following will be an outline of experimental work on in-plane resistance and tra
 This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis \cite{MasterThesisDGJA}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
 Finally, it will be shown that \AZO{} contacts can have a promisingly low contact resistivity on c-Si, moreover, this can be achieved in a process window in which the other relevant material properties are also excellent.
 \todo{mirror thesis structure more closely here, needs some reevaluation}
-*** Contact resistivity: why relevant
+*** What is contact resistivity?
 \label{sec:selectivity}
-In this section \todo{or chapter?}, we will look into solar cell physics in some more detail.
+In this section, we will look into solar cell physics in some more detail.
 For a better understanding, a thermodynamic description of charge carriers in a semiconductor is needed.
 Semiconductors are defined by having a bandgap, a band of energy values for which no electron state exists.
 An electron is then either moving around in the conduction band, or bound to an atom while in the valence band.
 To move between the bands, energy needs to either be supplied to an electron in the valence band, or an electron in the conduction band needs to somehow get rid of a considerable amount of energy.
 These generation and recombination processes don't happen instantly, which enables electrons to stay in the conduction band for quite long times.
 The states within the valence band without an electron are called holes and they can be seen as carrying a positive charge, essentially due to the /absence/ of an electron.
-This property is what distinguishes semiconductors from metals, in which no bandgap exists, in metals electrons are always free to decay into available lower energy states.
-For nondegenerate semiconductors the densities of electrons, $n$, and holes, $p$, can be well described by Boltzmann statistics:
+# This property is what distinguishes semiconductors from metals, in which no bandgap exists, in metals electrons are always free to decay into available lower energy states.
+This property is what distinguishes semiconductors from metals, as electrons are free to decay into lower energy states, no bandgap exists.
+For nondegenerate semiconductors like \AZO{}, the densities of electrons, $n$, and holes, $p$, can be well described by Boltzmann statistics:
 \begin{equation}
 n = n_\mathrm{CB}\exp\left(-\frac{\ECB - \EFn}{k_B T}\right);
 \end{equation}
@@ -356,7 +359,7 @@ This means that electrons can be considered in equilibrium, and so can holes, ju
 The excesses in electron and hole densities can be described by an increase in $\EFn$ and a decrease in $\EFp$, a phenomenon called Fermi level splitting.
 Due to the absence of a bandgap, the separate equilibration of electrons and holes does not occur in metals, furthermore thermal equilibration is a very fast process.
 This implies that in a metal, the carrier statistics can be described by a single Fermi level: $\EF{} = \EFn{} = \EFp{}$.
-So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater physical relevance.
+So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater relevance.
 A more physical interpretation of the Fermi levels is that they correspond, up to sign, to the electrochemical potentials of both carriers, i.e. $\EFn{} = \eta_n$, $\EFp{} = -\eta_p$.
 The free energy of an electron-hole pair, which we want to extract, is then given by $\DEF{} \equiv \EFn{} - \EFp{}$.
 An interesting consideration: in the previous chapter recombination was described as categorically bad, the free energy picture gives a more nuanced view.
@@ -381,7 +384,7 @@ There are multiple ways to achieve this, but in this work we'll look at a homoju
 # This contacting scheme is known as a homojunction,
 An additional benefit of contact doping is that it reduces recombination at the contact surface by lowering the minority carrier density.
 This reduces the SRH recombination rate, but at the same time the increase in majority carrier density can lead to Auger recombination in the highly doped region, so a compromise needs to be made.
-The recombination current in the contact can be parametrized as \source{todo}
+The recombination current in the contact can be parametrized as \cite{cuevasRecombinationParameterJ02014}
 \begin{equation}
 J_\mathrm{rec} = J_0 \left(\exp\left(\frac{\DEF{}}{n_d k_B T}\right)-1\right),
 \end{equation}
@@ -390,23 +393,23 @@ As a large Fermi splitting is a design goal for solar cells, the most interestin
 Somewhat counterintuitively, $J_0$ mainly impacts cell efficiency not through $J_{sc}$, but through $V_{oc}$.
 This is because at high recombination rates, lower carrier densities and thus less Fermi level splitting are achieved.
 
-To wrap things up a bit, there are essentially two properties that a good passivating contact needs:
+To wrap things up a bit, there are essentially two properties that a good passivating n-type contact needs:
 - High majority carrier conductivity :: To encounter Ohmic losses, as parametrized by $\sigma_n$. In the rest of this thesis the associated /resistivity/ is used, defined by $\rho_n \equiv \frac{1}{\sigma_n}$.
+  Note that $\rho_n$ is a /bulk/ resistivity. In contrast, the symbol $\rho_c$ will be used for the contact resistivity.
 - Low recombination rates :: As parametrized through $J_0$, to enable a high Fermi level splitting.
 
 An acceptable upper limit for contact resistivity can be found by a rough back-of-the-envelope calculation, as the resistive loss power is given by $P_{loss} = \rho_c J^2 A$ and the output power by $P = V J A$, the resistive losses amount to 1% of the total power when $\rho_c > 0.01 \frac{V}{J}$.
 Taking $J \approx 44$ mAcm^2 and $V \approx 0.5$ V, this limit amounts to $\rho_{max} \approx 100$ \mOhmcm{}. 
 
-A more detailed analysis was performed by \source{todo}, where the maximum solar cell efficiency was modeled from the contact resistivity and $J_0$.
-The found relations are shown in Figure \ref{fig:rainbowplot}, along with some practically obtained effiencies.
+The results of a more detailed analysis, modeling the impact of contact resistivity and $J_0$ on an otherwise ideal solar cell's efficiency are shown in Figure \ref{fig:rainbowplot}, along with some practically attained efficiencies.
 It can be seen that at contact resistivities below 100\mOhmcm{}, the efficiency is mostly determined by recombination, indicating that these contact resistivities can indeed be considered /sufficiently low/.
 
 #+ATTR_LATEX: :width 0.9\textwidth
-#+CAPTION: Maximum solar cell efficiency as limited by contact resistivity and $J_0$, adapted from \todo{welke bron hier?}.
+#+CAPTION: Maximum solar cell efficiency as limited by contact resistivity and $J_0$, adapted from \cite{maccoAtomicLayerDeposition2017}.
 #+LABEL: fig:rainbowplot
-[[./images/regenboog.png]]
+[[./images/RainbowPlot.pdf]]
 
-In the rest of this thesis, it will be shown that these sufficiently low contact resistivities between \AZO{} and doped silicon can be attained by a wide margin.
+In the rest of this thesis, it will be shown that contact resistivities as low as 20\mOhmcm{} can be obtained between \AZO{} and doped silicon.
 
 *** But first: what about transparency and conductivity?
 Before diving into contact resistivities, let's first look at what is required to make the \AZO{} films transparent and conductive, conductivity here implying in-plane conductivity.
