@@ -62,6 +62,7 @@
 
 \tableofcontents
 
+# this is useful for directly inserting an introduction chapter before the parts
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
@@ -227,7 +228,7 @@ Before the project X was unknown, \contribution{but this has now been studied.}
 ** Introduction
 
 ** Background
-*** Solar cell parameters
+*** Solar cell operation
 Loosely framed the goal of this work is to find out if \AZO{} passivating contacts can make /good/ solar cells.
 To start answering this question, let's first narrow down what is meant by a /good/ solar cell, before diving into the details about contacting layers.
 The purpose of solar cells is clear: to convert thermal radiation into usable electrical energy.
@@ -237,8 +238,9 @@ Thermodynamically, this total conversion is forbidden, the best we can do is to 
 \eta = \frac{V_\mathrm{out}I_\mathrm{out}}{P_\mathrm{in}}.
 \end{equation}
 Since we cannot control the power output of the sun, this task practically boils down to maximizing the $V_\mathrm{out}I_\mathrm{out}$ product.
-Two useful parameters of this current-voltage characteristic are the short circuit current, $J_\mathrm{sc}$, and the open circuit voltage, $V_\mathrm{oc}$.
-As the output current depends on the output voltage, these two limiting cases are not enough to know the cells efficiency, so a third parameter, the fill factor (FF) is introduced.
+Two useful parameters of this current-voltage characteristic are the short circuit current, $I_\mathrm{sc}$, and the open circuit voltage, $V_\mathrm{oc}$.
+As the output current depends on the output voltage, these two limiting cases are not enough to know the cells efficiency.
+To address this a third parameter, the fill factor (FF), is introduced.
 Ideally, a solar cell would sustain full current output without a decline in output voltage, operating at an output power $V_\mathrm{out}I_\mathrm{out}$.
 Realistically though, there is some optimal operating voltage, $V_\mathrm{MP}$, at which the cell produces its maximal power, delivering a current $I_\mathrm{MP}$.
 This ratio of /real/ output power and /ideal/ output power is what defines the fill factor:
@@ -256,7 +258,7 @@ In terms of these cell parameters, the efficiency can then be expressed as
 \begin{equation}
 \eta = \frac{I_\mathrm{sc}V_\mathrm{oc}\mathrm{FF}}{P_\mathrm{in}}.
 \end{equation}
-Measuring these cell parameters requires the fabrication of complete cells, to optimize a \AZO{} contact we should shift our focus to directly measurable material properties.
+Measuring these cell parameters requires the fabrication of complete cells, to more directly optimize a \AZO{} contact we should shift our focus to measurable material and interface properties.
 Among the desired qualities of a contact are a high transparency, good passivation and a low series resistance.
 Let's take a look at how these parameters influence the overall solar cell performance.
 
@@ -281,7 +283,7 @@ Let's go through the explanation again, and see what can go wrong with each step
       For this reason the front contact should obviously be as transparent as possible.
    4) The photon is reflected.
       If a solar cell reflects a photon back towards the sky, the photon's energy will not be of much use.
-      A few strategies are used to keep photons trapped in a cell, texturing and antireflection coatings.
+      A few strategies are used to keep photons trapped in a cell, notably: texturing and antireflection coatings.
       While light trapping is very important for solar cell efficiency, it will not be further discussed in this thesis.
 2) Maybe the electron and hole don't make it to their intended contacts.
    1) An electron or hole could reach the wrong contact.
@@ -289,7 +291,7 @@ Let's go through the explanation again, and see what can go wrong with each step
       # In solar cells, contacts need to be selective to ensure that charge carriers are separated, how this can be done will be discussed later \todo{where?}.
       A crucial part to this selectivity is that the contacts should be highly conductive to one type of carrier, while highly resistive to the other.
       Thus, for n-type contacts a very low electron resistivity should be obtained.
-      A more in-depth discussion of selectivity will be given in \todo{waar?}.
+      A more in-depth discussion of selectivity will be given in Section \ref{sec:selectivity}.
 
    2) What if the electron and hole don't even make it to the contacts?
       It's possible for the newly formed electron and hole to recombine with each other (or with other electrons and holes), if this happens their electrochemical energy will be lost (of course energy is conserved, but from an engineering perspective it will probably not be useful energy anymore).
@@ -300,9 +302,9 @@ Let's go through the explanation again, and see what can go wrong with each step
       The latter uses a third electron or hole to absorb the excess momentum that makes a direct transition improbable.
       Suppressing recombination is very important for efficient solar cells, and it is referred to as passivation.
 3) Maybe the generated charges do not transfer their energy to the intended load.
-   This can happen if a parasitic series resistance is present in the circuit, as these create potential gradients.
+   This can happen if parasitic series resistances are present in the circuit, as these create potential gradients.
    In these gradients the electrons lose some useful energy, which cannot be used in the device.
-   For this reason all parasitic series resistances should be minimized.
+   For this reason all series resistances should be minimized.
    This series resistance can be attributed to a few contributions.
    First, the carriers need to experience a low resistance during transport from the cell bulk to the contact, this is called contact resistivity.
    Second, once in the contact the carriers should freely flow towards the metal connections, for this a low in-plane resistance is required.
@@ -310,25 +312,27 @@ Let's go through the explanation again, and see what can go wrong with each step
 With this oversimplified treatment of solar cell physics, it already becomes clear that highly transparent highly conductive contacting layers are essential for efficient solar cells, moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine.
 
 \AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
-Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer\source{todo}.
-This combination of capping and annealing has been previously studied within the PMP group, resulting in a publication that includes parts of this work\source{paper}.
+Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer \cite{vandelooSiliconSurfacePassivation2019}.
+This combination of capping and annealing has been previously studied within the PMP group, resulting in a publication that includes parts of this work \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
 There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
 An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
 
 To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} films is difficult to do by conventional methods which often require patterning and etching to create sample structures.
 Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
-\todo{link to etching, this is described in part I}
+In this work, a wet etching process was used to selectively etch away the capping layer, this etching process is described in Section \todo{welke?}.
 
 Due to these metrological difficulties a new measurement method was designed and implemented, which is discussed in detail in the second part of this thesis.
 
-For the first part of this thesis, let's dive into the really interesting question: does \AZO{} make good solar cell contacts?
+For the first part of this thesis, let's dive into the really interesting question: can \AZO{} form good solar cell contacts on doped silicon?
 
 As a start we'll rid ourselves of the thusfar handwavy (and dramatically oversimplified) solar cell description so that questions can be framed quantitatively, so far it's only become clear that the contact resistivity should be low, but how is it even defined, and what is low enough?
-Then the experimental methodology will be discussed, including sample preparation, process parameters of interest, and measurement methods.
+Then the experimental methods will be discussed, including measurements, deposition of the \AZO{}/\AlOx{} stacks, annealing, the removal of the capping layer and subsequent Ag evaporation.
 Following will be an outline of experimental work on in-plane resistance and transparency, and how different process parameters influence these.
-This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis\source{Dennis}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
+This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis \cite{MasterThesisDGJA}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
 Finally, it will be shown that \AZO{} contacts can have a promisingly low contact resistivity on c-Si, moreover, this can be achieved in a process window in which the other relevant material properties are also excellent.
+\todo{mirror thesis structure more closely here, needs some reevaluation}
 *** Contact resistivity: why relevant
+\label{sec:selectivity}
 In this section \todo{or chapter?}, we will look into solar cell physics in some more detail.
 For a better understanding, a thermodynamic description of charge carriers in a semiconductor is needed.
 Semiconductors are defined by having a bandgap, a band of energy values for which no electron state exists.
