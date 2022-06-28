@@ -22,6 +22,9 @@
 
 #+LATEX_HEADER: \usepackage{pdfpages}
 
+#+LATEX_HEADER: \usepackage{algorithmicx}
+#+LATEX_HEADER: \usepackage{algpseudocode}
+
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{positioning}
 #+LATEX_HEADER: \usetikzlibrary{matrix}
@@ -111,6 +114,17 @@ Degrees would be nice: 200\degree{}C
 | ZnO:Al           | text \AZO{} text   | braces for spacing |
 
 Before the project X was unknown, \contribution{but this has now been studied.}
+
+Just some algorithm:
+
+\begin{algorithmic}
+    \Repeat
+        \State Dose A
+        \State Purge A
+        \State Dose B
+        \State Purge B
+    \Until{Desired thickness is reached}
+\end{algorithmic}
 
 # \lipsum[1-2]
 * COMMENT Figures
@@ -526,6 +540,7 @@ As the resistivity and carrier density can vary by several orders of magnitude, 
 To electrically isolate the \AZO{} films from the substrate, substrates with a top layer of 450nm \SiOx{} were used.
 While the \AlOx{} capping layer is not conductive, it could easily be pierced by the probe pins, in some cases after applying a gentle force.
 Since the van der Pauw geometry uses four-point probing, the contact resistance between the probe pins and the \AZO{} films is irrelevant, but care was taken to ensure that the contacts behave Ohmically, as non-Ohmic behaviour can indicate an improper contact.
+**** TODO TEM
 **** Contact resistivity
 The main contribution of this work is the measurements of contact resistivities of \AZO{} on doped silicon.
 These measurements proved very challenging, and this resulted in the design and implementation of a novel contact resistivity measurement.
@@ -565,6 +580,9 @@ Then, the \AZO{}/\AlOx{} stack was deposited using the ALD process described bel
 After annealing and passivation experiments, which are outside the scope of this thesis, the \AlOx{} capping layer is selectively etched and a silver contacting layer is deposited by e-beam evaporation to allow contact resistivity measurements.
 In the following sections the process steps will be discussed in more detail.
 
+**** Oxide treatment
+The type 2 samples received a 1 minute etch in a 1% HF solution to remove the native \SiOx{}.
+After this, a new oxide layer was formed by a 30 minute UV-ozone treatment in a Novascan PSD Series UV Ozone Cleaner.
 **** \AZO{} ALD process
 The \AZO{} deposition process is the same in both sample preparations.
 \AZO{} was deposited by ALD using an Oxford Instruments OpAL tool at a temperature of 200\degree{}C.
@@ -576,6 +594,12 @@ The used dopings used in this work were int, r96, r48, r24, r16.
 The order of the cycles is chosen so that the dopant cycles are evenly spaced, and not at the top or bottom of the film.
 r16 then implies 8 cycles of DEZ, 1 cycle of DMAI, followed by 8 cycles DEZ.
 This supercycle can then be repeated to obtain the desired film thickness.
+The used supercycle is illustrated in Figure
+
+#+LABEL: fig:supercycle
+#+CAPTION: Illustration of the supercycle used to deposit \AZO{} films, here $n$ denotes the cycle ratio. Not explicitly shown are the purge steps between the dosing steps.
+[[./images/supercycle.pdf]]
+
 **** AlOx capping process
 On some samples a 30nm \AlOx{} capping layer was deposited by ALD, this was also done in the OpAL reactor, using only DMAI and water as precursors, again at 200\degree{}C.
 In type 1 depositions, the uncapped samples were removed from the reactor between the deposition of \AZO{} and \AlOx{}, venting the reactor.
@@ -588,15 +612,50 @@ To be able to perform the annealing steps quickly in between measurements, the a
 Here a carrier wafer was used to support the samples, which was put on the hotplate and removed after 5 minutes, allowing the samples to cool down again.
 As the hotplate's maximum temperature was 500\degree{}C, the anneals up to 700\degree{}C were forming gas anneals done using a Jipelec RTA.
 The type 2 samples were directly annealed to the right temperature in the RTA.
-**** Capping layer etch
-**** Silver evaporation
-**** Type 1
+**** TODO Capping layer etch and silver evaporation
+To prepare the type 2 samples for contact resistivity measurements, the \AlOx{} capping layer needs to be removed without destroying the \AZO{} film.
+A selective wet etch was adapted from \source{todo}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C.
+To verify that this etching process works as intended, film thicknesses were measured with SE before and after etching.
+This run was performed on as-deposited r24 \AZO{} + \AlOx{} samples, with etching times ranging between 30 seconds and 5 minutes.
+The results are illustrated in Figure \ref{fig:etchingSE}, where the \AZO{} and \AlOx{} thicknesses are shown as a stack, the error bars indicate the surface roughness as determined by SE.
+Shown on the left are the film stacks before the etching process, these all appear very similar in thicknesses.
+Shown on the right are the same samples, but after being etched at the indicated etching times.
+
+#+LABEL: fig:etchingSE
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
+[[./images/etching_thicknesses.png]]
+
+As visible, the \AlOx{} thickness significantly decreases for even 30s etches, furthermore, the decrease in thickness saturates, indicating that no more material is being etched after around 3 minutes.
+Still, the SE measurements appear to indicate that some \AlOx{} remains, further inspection of the performed fits however shows that the \AlOx{} and \AZO{} thickness are strongly inversely correlated.
+This indicates that the apparent remaining \AlOx{} is a mere fitting artefact.
+Since the total \AZO{} + \AlOx{} thickness does not decrease after around 3 minutes, is is assumed that the etching process indeed stops when it reaches the \AZO{} film.
+Looking only at the initial measurements, in which SE could more clearly distinguish between the \AZO{} and \AlOx{} films, the etch rate is estimated at around 4\AA per second.
+
+Less quantitative, but perhaps more convincing, evidence for the efficacy of the etch process was accidentally found in a TEM study on a contact resistivity sample.
+This sample was annealed at 500\degree{}C, etched for two minutes, and then coated with silver.
+
+Here, instead of the expected Si/\AZO{}/Ag stack, a Si/\AZO{}/\AlOx{}/\AZO{}/Ag stack was found
+The reason for this is the backside deposition of the ALD films, resulting in a \AZO{}/\AlOx{}/\AZO{}/\AlOx{} stack being deposited around the edges of the sample.
+While this backside deposition was unintended, the TEM image in Figure \ref{fig:etchingTEM} clearly shows a full removal of the top \AlOx{} layer, while the top \AZO{} layer did not significantly reduce in thickness.
+
+#+LABEL: fig:etchingTEM
+#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
+[[./images/etch_TEM.jpeg]]
+
+This combination of estimated etch rate and TEM imagery motivated the decision to etch all samples for a duration of 2 minutes.
+
+After the removal of the capping layer, the type 2 samples were covered with 300nm of silver by e-beam evaporation.
+To effectively remove the backside deposited regions, it was found useful to mildly scratch these visually recognizable regions before silver evaporation.
+After evaporation, the color differences between the \AZO{} and \AZO{}/\AlOx{}/\AZO{} coated regions could of course not be seen, but the scratches remained visible after deposition.
+Good samples could then be cleaved from the non-scratched region of the wafer.
+
+**** COMMENT Type 1
 As noted before, the type 1 samples consist simply of a polished silicon wafer with 450nm \SiOx{}.
 On this substrate approximately 75nm \AZO{} and optionally 30nm \AlOx{} were deposited by ALD.
 For Hall measurements, care was taken to cut off the edges, so that no currents could flow through \AZO{} deposited on the edges and backsides of the samples.
 \todo{write part about hall probe piercing \AlOx{} film; probably in Hall section.}
 
-**** Type 2
+**** COMMENT Type 2
 The type 2 samples are symmetric, featuring a substrate on which films are deposited on both sides.
 The used substrates in this work were silicon with 130\Omega and 260\Omega doping profiles. \todo{also include polysilicon?}
 Substrate pieces measured approximately 5cm by 5cm, these were put on a carrier wafer and a \AZO{} and \AlOx{} stack was deposited.
@@ -614,6 +673,7 @@ This was later confirmed in a TEM study, where an \AlOx{} layer was clearly foun
 To effectively remove the backside deposited regions, it was found useful to mildly scratch these visually recognizable regions before silver evaporation.
 After evaporation, the color differences between the \AZO{} and \AZO{}/\AlOx{}/\AZO{} coated regions could of course not be seen, but the scratches remained visible after deposition.
 Good samples could then be cleaved from the non-scratched region of the wafer.
+
 ** Results/discussion
 Parameter space prunen.
 Ook passivatie meepakken.
@@ -708,7 +768,7 @@ Additionally, in the 600\degree{}C sample, voids were found within the \AZO{} fi
 # - Sanity check: edge deposited \AlOx{} found on 500\degree{}C sample
 # - Still: what's up with increasing optical mobility?
 
-*** TODO Etch
+*** TODO COMMENT Etch
 To prepare the type 2 samples for contact resistivity measurements, the \AlOx{} capping layer needs to be removed without destroying the \AZO{} film.
 A selective wet etch was adapted from \source{todo}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C.
 To verify that this etching process works as intended, film thicknesses were measured with SE before and after etching.
