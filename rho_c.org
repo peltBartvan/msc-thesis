@@ -336,7 +336,7 @@ An important remaining piece of the puzzle is then to find out whether a low con
 
 To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} films is difficult to do by conventional methods which often require patterning and etching to create sample structures.
 Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
-In this work, a wet etching process was used to selectively etch away the capping layer, this etching process is described in Section \todo{welke?}.
+In this work, a wet etching process was used to selectively etch away the capping layer, this etching process is described in Section \ref{sec:etching}.
 
 Due to these metrological difficulties a new measurement method was designed and implemented, which is discussed in detail in the second part of this thesis.
 
@@ -533,7 +533,7 @@ Important to note is that the mobility measured by the Hall method can differ fr
 Carrier mobility can be impeded by, for example, the presence of grain boundaries, this effect will be measured by the Hall method, while SE probes the mobility within individual grains.
 For this reason, the Hall mobilities and optical mobilities will be denoted as $\mu_H$ and $\mu_o$ in this work.
 
-In this work, Hall measurements were performed using a LakeShore \todo{type}, using a van der Pauw geometry.
+In this work, Hall measurements were performed using a LakeShore 8400 Series system, using a van der Pauw geometry.
 A magnetic field of 1T was applied, which is the maximum field strength of the setup.
 The current ranges for measuring required some fine tuning, with too little current no significant Hall voltages could be measured, while a too high current setting can result in the current source reaching its compliance voltage.
 As the resistivity and carrier density can vary by several orders of magnitude, this current tuning ended up taking some trial and error.
@@ -577,7 +577,8 @@ The other type, type 2, are symmetric samples which were initially used for pass
 These samples consist of a substrate of silicon with an n+ doping profile of either 130\Ohmsq{} or 260\Ohmsq{} on both sides.
 The native \SiOx{} top layer was etched away and replaced by a new oxide layer by a UV-ozone treatment.
 Then, the \AZO{}/\AlOx{} stack was deposited using the ALD process described below twice, flipping the sample between the depositions.
-After annealing and passivation experiments, which are outside the scope of this thesis, the \AlOx{} capping layer is selectively etched and a silver contacting layer is deposited by e-beam evaporation to allow contact resistivity measurements.
+After annealing, the passivation of the deposited stacks was studied, more details about this work on passivation can be found in the published paper \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
+After the passivation studies, the \AlOx{} capping layer is selectively etched, and a contact layer of 300 nm silver is deposited by e-beam evaporation to prepare the samples for contact resistivity measurements.
 In the following sections the process steps will be discussed in more detail.
 
 **** Oxide treatment
@@ -594,13 +595,13 @@ The used dopings used in this work were int, r96, r48, r24, r16.
 The order of the cycles is chosen so that the dopant cycles are evenly spaced, and not at the top or bottom of the film.
 r16 then implies 8 cycles of DEZ, 1 cycle of DMAI, followed by 8 cycles DEZ.
 This supercycle can then be repeated to obtain the desired film thickness.
-The used supercycle is illustrated in Figure
+The used supercycle is illustrated in Figure \ref{fig:supercycle}.
 
 #+LABEL: fig:supercycle
 #+CAPTION: Illustration of the supercycle used to deposit \AZO{} films, here $n$ denotes the cycle ratio. Not explicitly shown are the purge steps between the dosing steps.
 [[./images/supercycle.pdf]]
 
-**** AlOx capping process
+**** \AlOx{} capping process
 On some samples a 30nm \AlOx{} capping layer was deposited by ALD, this was also done in the OpAL reactor, using only DMAI and water as precursors, again at 200\degree{}C.
 In type 1 depositions, the uncapped samples were removed from the reactor between the deposition of \AZO{} and \AlOx{}, venting the reactor.
 As it became clear that capping is absolutely crucial to obtain good material properties, all type 2 samples were capped.
@@ -608,11 +609,12 @@ As it became clear that capping is absolutely crucial to obtain good material pr
 Type 1 samples were successively annealed so that a single sample could be reused at different anneal temperatures.
 As a check, pieces of capped r24 \AZO{} were annealed directly to the intended temperature, here little deviation could be found from the successive annealing. \todo{elaborate}
 Annealing occured in steps of 50\degree{}C, starting at 200\degree{}C.
-To be able to perform the annealing steps quickly in between measurements, the anneals up to 500\degree{}C were performed on a hotplate.
+To be able to perform the annealing steps quickly in between measurements, the anneals up to 500\degree{}C were performed on a hotplate, as the used hotplate has a maximum temperature of 500\degree{}C.
+Anneals at higher temperatures were performed in a Jipelec Rapid Thermal Annealer (RTA).
 Here a carrier wafer was used to support the samples, which was put on the hotplate and removed after 5 minutes, allowing the samples to cool down again.
-As the hotplate's maximum temperature was 500\degree{}C, the anneals up to 700\degree{}C were forming gas anneals done using a Jipelec RTA.
 The type 2 samples were directly annealed to the right temperature in the RTA.
-**** TODO Capping layer etch and silver evaporation
+**** Capping layer etch and silver evaporation
+\label{sec:etching}
 To prepare the type 2 samples for contact resistivity measurements, the \AlOx{} capping layer needs to be removed without destroying the \AZO{} film.
 A selective wet etch was adapted from \source{todo}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C.
 To verify that this etching process works as intended, film thicknesses were measured with SE before and after etching.
@@ -622,7 +624,7 @@ Shown on the left are the film stacks before the etching process, these all appe
 Shown on the right are the same samples, but after being etched at the indicated etching times.
 
 #+LABEL: fig:etchingSE
-#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
+#+CAPTION: Cumulative thicknesses of deposited films before and after etching, as measured by SE.
 [[./images/etching_thicknesses.png]]
 
 As visible, the \AlOx{} thickness significantly decreases for even 30s etches, furthermore, the decrease in thickness saturates, indicating that no more material is being etched after around 3 minutes.
@@ -639,7 +641,7 @@ The reason for this is the backside deposition of the ALD films, resulting in a 
 While this backside deposition was unintended, the TEM image in Figure \ref{fig:etchingTEM} clearly shows a full removal of the top \AlOx{} layer, while the top \AZO{} layer did not significantly reduce in thickness.
 
 #+LABEL: fig:etchingTEM
-#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping. \todo{duh}
+#+CAPTION: TEM image of a sample with unintended background deposition, after removal of the top \AlOx{} layer and silver evaporation. 
 [[./images/etch_TEM.jpeg]]
 
 This combination of estimated etch rate and TEM imagery motivated the decision to etch all samples for a duration of 2 minutes.
@@ -675,31 +677,28 @@ After evaporation, the color differences between the \AZO{} and \AZO{}/\AlOx{}/\
 Good samples could then be cleaved from the non-scratched region of the wafer.
 
 ** Results/discussion
-Parameter space prunen.
-Ook passivatie meepakken.
-- paper Bas
-- Wel/niet tunneloxide.
-Contactweerstanden.
+# Parameter space prunen.
+# Ook passivatie meepakken.
+# - paper Bas
+# - Wel/niet tunneloxide.
+# Contactweerstanden.
 *** Hall/SE
 # First: look at the sheet resistance, it is immediately clear that this increases drastically while annealing uncapped samples.
 # Furthermore, doping decreases the resistance as expected.
 # Above 500C anneal temperatures, the resistance drops slightly.
 # \todo{look at resistivity instead, trends are comparable}
-We start by looking at the resistivity within the \AZO{} films, as measured by the Hall method, these results are shown in Figure \ref{fig:capping_rho}.
+
+We start by looking at the bulk resistivity, carrier density and carrier mobility \AZO{} films, shown in Figure \ref{fig:rho_n_mu}.
 Clearly seen is that the uncapped samples deteriorate after even mild annealing, increasing in resistivity by orders of magnitude, this shows that the presence of a capping layer is crucial for achieving good film conductivity.
 Also visible is that, unsurprisingly, the resistivity decreases with doping level.
 Focusing our attention to the capped samples, the annealing step results in a reduction of resistivity, in some samples up to 50% compared to as-deposited.
 For the doped samples a minimum in resistivity is reached around 550\degree{}C to 650\degree{}C, after which an increase is found at 700\degree{}C anneals.
 Interestingly, this increase in resistivity at the highest anneal temperatures is not seen in intrinsic ZnO.
 
-#+LABEL: fig:capping_rho
+#+LABEL: fig:rho_n_mu
 #+CAPTION: \AZO{} resistivity, depending on doping level, capping and annealing temperature. A strong degradation is seen when annealing uncapped samples, indicating that the capping step is crucial. The resistivity decreases with doping level. During annealing of capped samples the resistivity decreases significantly, in some cases being half as resistive as the as-deposited films.
-[[./images/rho_vs_acd.png]]
+[[./images/rho_n_mu.eps]]
 
-# Question: is this due to carrier mobility or carrier density?
-# See Figure \ref{fig:capping_mu_H}
-# The mobility of uncapped samples deteriorates strongly upon mild doping, the decrease in resistance for capped samples at 500-550C annealing temperatures is reflected in lowering mobilities.
-# Overall, the mobility decreases with doping level, which \question{correct?} could be caused by increased impurity scattering.
 
 These trends can be viewed by the carrier densities and Hall mobilities, which are shown in Figure \ref{fig:capping_n} and Figure \ref{fig:capping_mu_H} respectively.
 The deterioration of uncapped films can be attributed to a decrease in both carrier density and Hall mobility.
@@ -707,14 +706,6 @@ The decrease in resistivity with doping is found to be attributed to the increas
 This decrease in Hall mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
 For capped samples, annealing at temperatures above 500\degree{}C results in an increased Hall mobility and carrier density, this is potentially caused by an activation of the Al dopants by diffusion.
 This diffusion will be discussed in more detail in Section \todo{ref} about the TEM studies performed within this project.
-
-#+LABEL: fig:capping_n_sh
-#+CAPTION: Carrier density as function of doping and annealing, the carrier density decays strongly during the annealing of uncapped samples. For capped samples a minimum is seen around 450\degree{}C to 500\degree{}C, after which the carrier density starts increasing. As expected, the carrier density depends strongly on the cycle ratio.
-[[./images/n_vs_acd.png]]
-
-#+LABEL: fig:capping_mu_H
-#+CAPTION: Hall mobility during annealing.
-[[./images/mu_H_vs_acd.png]]
 
 # So far, it is clear that capping is crucial for achieving a low resistivity, the annealing temperature has a less dramatic but significant impact on resistivity, in some samples reducing the resistivity by half.
 # Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
