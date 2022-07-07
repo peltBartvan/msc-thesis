@@ -249,14 +249,14 @@ Just some algorithm:
 Loosely framed the goal of this work is to find out if \AZO{} passivating contacts can make /good/ solar cells.
 To start answering this question, let's first narrow down what is meant by a /good/ solar cell, before diving into the details about contacting layers.
 The purpose of solar cells is clear: to convert thermal radiation into usable electrical energy.
-In the ideal case, the incoming thermal power, $P_\mathrm{in}$, is totally converted to electrochemical power, $V_\mathrm{out}I_\mathrm{out}$.
+In the ideal case, the incident thermal power, $P_\mathrm{in}$, is totally converted to electrochemical power, $V_\mathrm{out}I_\mathrm{out}$.
 Thermodynamically, this total conversion is forbidden, the best we can do is to maximize the efficiency,
 \begin{equation}
 \eta = \frac{V_\mathrm{out}I_\mathrm{out}}{P_\mathrm{in}}.
 \end{equation}
 Since we cannot control the power output of the sun, this task practically boils down to maximizing the $V_\mathrm{out}I_\mathrm{out}$ product.
 Two useful parameters of this current-voltage characteristic are the short circuit current, $I_\mathrm{sc}$, and the open circuit voltage, $V_\mathrm{oc}$.
-As the output current depends on the output voltage, these two limiting cases are not enough to know the cells efficiency.
+As $I_\mathrm{out}$ is a function of $V_\mathrm{out}$, these two limiting cases are not enough to know the cells efficiency.
 To address this a third parameter, the fill factor (FF), is introduced.
 Ideally, a solar cell would sustain full current output without a decline in output voltage, operating at an output power $V_\mathrm{out}I_\mathrm{out}$.
 Realistically though, there is some optimal operating voltage, $V_\mathrm{MP}$, at which the cell produces its maximal power, delivering a current $I_\mathrm{MP}$.
@@ -267,7 +267,7 @@ This ratio of /real/ output power and /ideal/ output power is what defines the f
 The fill factor is illustrated in Figure \ref{fig:FFDiagram}, where it can be recognized as the ratio between the green and gray surface areas.
 
 #+ATTR_LATEX: :width 0.9\textwidth
-#+CAPTION: Illustration of $V_{oc}$, $I_{sc}$ and fill factor in relation to a cells' IV-curve. The fill factor can be recognized as the ratio between the areas of the green and gray rectangles.
+#+CAPTION: Illustration of $V_{oc}$, $I_{sc}$ and fill factor in relation to a cell's IV-curve. The fill factor can be recognized as the ratio between the areas of the green and gray rectangles.
 #+LABEL: fig:FFDiagram
 [[./images/FF_diagram.drawio.png]]
 
@@ -275,7 +275,8 @@ In terms of these cell parameters, the efficiency can then be expressed as
 \begin{equation}
 \eta = \frac{I_\mathrm{sc}V_\mathrm{oc}\mathrm{FF}}{P_\mathrm{in}}.
 \end{equation}
-Measuring these cell parameters requires the fabrication of complete cells, to more directly optimize a \AZO{} contact we should shift our focus to measurable material and interface properties.
+Measuring these cell parameters requires the fabrication of complete cells.
+In practice it is more efficient to resort to directly measurable film and contact properties, without relying on the time-consuming fabrication of full devices.
 Among the desired qualities of a contact are a high transparency, good passivation and a low series resistance.
 Let's take a look at how these parameters influence the overall solar cell performance.
 
@@ -290,18 +291,18 @@ This rudimentary explanation completely skims over the complex thermodynamical n
 Moreover it fails to answer basic questions such as "but why do the electrons and holes move away from each other if they attract each other?" and "okay, so the charges made it to the contacts, why would they not just go back the way they got there instead of taking the whole wire/device detour?".
 Despite these and several more shortcomings, this simple model can give us some meaningful heuristic insights into what is needed to make a good front contact.
 Let's go through the explanation again, and see what can go wrong with each step.
-1) A photons should transfer its energy to an electon-hole pair, what if it can't?
+1) A photons should transfer all of its energy to an electon-hole pair, what if it can't?
    This can occur due to several reasons.
    1) The photon does not have enough energy to create an electron-hole pair in the base; that is, the photon has an energy below the so-called bandgap of the solar cell's base.
-   2) The photon does transfer all of its energy to an electron-hole pair, but the electron-hole pair loses some energy afterwards.
-      This process is called thermalization, by collisions with the crystal atoms the electrons and holes lose energy until they get stuck at an energy similar to the bandgap.
-   3) The photon might not even get to the base of the solar cell.
+   2) The photon might not even get to the base of the solar cell.
       If the photon is absorbed in the front contact or reflected by the metal interconnections, its energy is effectively lost.
       For this reason the front contact should obviously be as transparent as possible.
-   4) The photon is reflected.
+   3) The photon is reflected.
       If a solar cell reflects a photon back towards the sky, the photon's energy will not be of much use.
       A few strategies are used to keep photons trapped in a cell, notably: texturing and antireflection coatings.
       While light trapping is very important for solar cell efficiency, it will not be further discussed in this thesis.
+   4) The photon does transfer all of its energy to an electron-hole pair, but the electron-hole pair loses some energy afterwards.
+      This process is called thermalization, by collisions with the crystal atoms the electrons and holes lose energy until they get stuck at an energy similar to the bandgap.
 2) Maybe the electron and hole don't make it to their intended contacts.
    1) An electron or hole could reach the wrong contact.
       In the high-school explanation this sounds very likely, after all, the positive holes should be strongly attracted to the contact that's filled with negative electrons (and vice versa), right?
@@ -313,11 +314,12 @@ Let's go through the explanation again, and see what can go wrong with each step
    2) What if the electron and hole don't even make it to the contacts?
       It's possible for the newly formed electron and hole to recombine with each other (or with other electrons and holes), if this happens their electrochemical energy will be lost (of course energy is conserved, but from an engineering perspective it will probably not be useful energy anymore).
       One possible mechanism for this is radiative recombination, in which an electron and hole form a photon.
-      Luckily, this rarely occurs in crystalline silicon due to its indirect bandgap, which means that some additional momentum is needed for this reaction to occur.
+      This rarely occurs in crystalline silicon due to its indirect bandgap, which means that some additional momentum is needed for this reaction to occur.
       In crystalline silicon, the most significant recombination pathways are Shockley-Read-Hall (SRH) and Auger recombination.
-      In the former pathway electrons can make small jumps in energy using crystal imperfections, these small jumps are more likely to occur than a single large jump.
-      The latter uses a third electron or hole to absorb the excess momentum that makes a direct transition improbable.
-      Suppressing recombination is very important for efficient solar cells, and it is referred to as passivation.
+      In the SRH mechanism electrons can make small jumps in energy using crystal defects, passing through energy states within the bandgap.
+      These small jumps are more likely to occur than a single large jump.
+      Suppression of SRH recombination is referred to as passivation, and in general this can be achieved by keeping carrier pairs away from defect states.
+      The Auger mechanism is similar to direct radiative recombination, except in this case excess momentum is transferred to a third particle in the vicinity of the recombinating carriers.
 3) Maybe the generated charges do not transfer their energy to the intended load.
    This can happen if parasitic series resistances are present in the circuit, as these create potential gradients.
    In these gradients the electrons lose some useful energy, which cannot be used in the device.
@@ -326,26 +328,48 @@ Let's go through the explanation again, and see what can go wrong with each step
    First, the carriers need to experience a low resistance during transport from the cell bulk to the contact, this is called contact resistivity.
    Second, once in the contact the carriers should freely flow towards the metal connections, for this a low in-plane resistance is required.
 
-With this oversimplified treatment of solar cell physics, it already becomes clear that highly transparent highly conductive contacting layers are essential for efficient solar cells, moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine.
+With this oversimplified treatment of solar cell physics, it already becomes clear that highly transparent highly conductive contacting layers are essential for efficient solar cells.
+Moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine. \question{hier had je een punt staan, inmiddels heb ik "passivation" tot volzin gemaakt. Vind je het nu wel beter volgen?}.
 
-\AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
-Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer \cite{vandelooSiliconSurfacePassivation2019}.
-This combination of capping and annealing has been previously studied within the PMP group, resulting in a publication that includes parts of this work \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
-There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
-An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
+# \AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
+Within the PMP group it was found that, in addition to being highly transparent and conductive, \AZO{} can provide excellent passivation on c-Si \cite{vandelooSiliconSurfacePassivation2019}, a unique combination of properties.
+\todo{schematic}
+A few crucial factors for achieving good passivation were identified.
+The first is the formation of a high-quality \SiOx{} interface between the semiconductor bulk and the \AZO{} contact, reducing the availability of defects for SRH recombination.
+Second, available defects can be passivated by hydrogenating them.
+Keeping hydrogen from effusing out of the contact during annealing is crucial, and this can be achieved by capping the contact with a sacrificial \AlOx{} layer.
+While the first two passivating factors rely on creating a defect-free material, the third factor works by keeping carrier pairs away from available surface defects.
+This so-called field effect passivation can be achieved by doping the \AZO{} contact, as charged Al dopants repel holes from defects at the interface.
+
+Besides its importance for passivation, the presence of a capping layer was found to be equally crucial for forming high mobility conductive films.
+
+So far, \AZO{} had shown promising results in passivation, conductivity and transparency, however, attempts to create good contacts on intrinsic silicon were unsuccesful.
+The focus of this work is to show how high-quality contacts can be made by instead using doped silicon.
+These results have contributed to a publication \cite{maccoAtomiclayerdepositedAldopedZinc2021} detailing recent work on Si/\AZO{} contacts within the PMP group.
+
+# Previous work has shown that a good passivation can be achieved by hydrogenation of surface defects by annealing the material while it is covered with an \AlOx{} capping layer \cite{vandelooSiliconSurfacePassivation2019}.
+# This combination of capping and annealing has been previously studied within the PMP group, resulting in a publication that includes parts of this work \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
+# There (and in this work), the presence of a capping layer was found to be critical for achieving a high in-plane \AZO{} conductivity and transparency.
+# An important remaining piece of the puzzle is then to find out whether a low contact resistivity can be achieved as well, this is the focus of this work.
 
 To do this turned out not to be an easy task, put shortly: measuring contact resistances of \AZO{} films is difficult to do by conventional methods which often require patterning and etching to create sample structures.
-Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
-In this work, a wet etching process was used to selectively etch away the capping layer, this etching process is described in Section \ref{sec:etching}.
+The reason being that \AZO{} is too easily etched by most common etchants, making it difficult to accurately form common testing structures.
+# Furthermore, the presence of the \AlOx{} capping layer makes it impossible to directly contact the \AZO{} film of interest (at least for contact resistivity measurements).
+Furthermore, contact resistivity measurements require the sacrificial \AlOx{} capping layers to be fully removed while not keeping the delicate \AZO{} films intact.
+To achieve this, a selective etching process was needed.
+Section \ref{sec:etching} shows how such an etch can be performed with relative ease, achieving a high selectivity.
 
+While the selective removal of \AlOx{} is shown to be feasible and reliable, still no practical solution was known for forming \AZO{} testing structures.
 Due to these metrological difficulties a new measurement method was designed and implemented, which is discussed in detail in the second part of this thesis.
 
 For the first part of this thesis, let's dive into the really interesting question: can \AZO{} form good solar cell contacts on doped silicon?
 
-As a start we'll rid ourselves of the thusfar handwavy (and dramatically oversimplified) solar cell description so that questions can be framed quantitatively, so far it's only become clear that the contact resistivity should be low, but how is it even defined, and what is low enough?
+As a start we'll rid ourselves of the thusfar handwavy (and dramatically oversimplified) solar cell description so that questions can be framed quantitatively.
+So far it's only become clear that the contact resistivity should be low, but how is it even defined, and what is low enough?
 Then the experimental methods will be discussed, including measurements, deposition of the \AZO{}/\AlOx{} stacks, annealing, the removal of the capping layer and subsequent Ag evaporation.
 Following will be an outline of experimental work on in-plane resistance and transparency, and how different process parameters influence these.
-This part of the work was done in partial collaboration with Dennis Loeffen, who discussed these fully in his masters' thesis \cite{MasterThesisDGJA}, here these results are treated with less detail, focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
+This part of the work was done in partial collaboration with Dennis Loeffen, who discussed the electrical and optical properties of \AZO{} in detail in his masters' thesis \cite{MasterThesisDGJA}.
+Here these results are treated with less detail, rather focussing on what these results can tell us about which process conditions are needed to obtain low transparencies and low in-plane resistances.
 Finally, it will be shown that \AZO{} contacts can have a promisingly low contact resistivity on c-Si, moreover, this can be achieved in a process window in which the other relevant material properties are also excellent.
 \todo{mirror thesis structure more closely here, needs some reevaluation}
 *** What is contact resistivity?
@@ -616,7 +640,8 @@ The type 2 samples were directly annealed to the right temperature in the RTA.
 **** Capping layer etch and silver evaporation
 \label{sec:etching}
 To prepare the type 2 samples for contact resistivity measurements, the \AlOx{} capping layer needs to be removed without destroying the \AZO{} film.
-A selective wet etch was adapted from \source{todo}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C.
+A selective wet etch was adapted from \cite{sunPHControlledSelectiveEtching2014a}, using a solution of Na_{2}CO_{3} and KOH, at a temperature of 60\degree{}C and a pH of 11.
+
 To verify that this etching process works as intended, film thicknesses were measured with SE before and after etching.
 This run was performed on as-deposited r24 \AZO{} + \AlOx{} samples, with etching times ranging between 30 seconds and 5 minutes.
 The results are illustrated in Figure \ref{fig:etchingSE}, where the \AZO{} and \AlOx{} thicknesses are shown as a stack, the error bars indicate the surface roughness as determined by SE.
@@ -696,16 +721,14 @@ For the doped samples a minimum in resistivity is reached around 550\degree{}C t
 Interestingly, this increase in resistivity at the highest anneal temperatures is not seen in intrinsic ZnO.
 
 #+LABEL: fig:rho_n_mu
-#+CAPTION: \AZO{} resistivity, depending on doping level, capping and annealing temperature. A strong degradation is seen when annealing uncapped samples, indicating that the capping step is crucial. The resistivity decreases with doping level. During annealing of capped samples the resistivity decreases significantly, in some cases being half as resistive as the as-deposited films.
+#+CAPTION: \AZO{} bulk resistivity, carrier density and carrier mobility, depending on doping level, capping and annealing temperature. A strong degradation is seen when annealing uncapped samples, indicating that the capping step is crucial. The resistivity decreases with doping level. During annealing of capped samples the resistivity decreases significantly, in some cases being half as resistive as the as-deposited films.
 [[./images/rho_n_mu.eps]]
 
-
-These trends can be viewed by the carrier densities and Hall mobilities, which are shown in Figure \ref{fig:capping_n} and Figure \ref{fig:capping_mu_H} respectively.
 The deterioration of uncapped films can be attributed to a decrease in both carrier density and Hall mobility.
 The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the Hall mobility decreases with doping level.
 This decrease in Hall mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
 For capped samples, annealing at temperatures above 500\degree{}C results in an increased Hall mobility and carrier density, this is potentially caused by an activation of the Al dopants by diffusion.
-This diffusion will be discussed in more detail in Section \todo{ref} about the TEM studies performed within this project.
+This diffusion will be discussed in more detail in Section \ref{sec:TEM} about the TEM studies performed within this project.
 
 # So far, it is clear that capping is crucial for achieving a low resistivity, the annealing temperature has a less dramatic but significant impact on resistivity, in some samples reducing the resistivity by half.
 # Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
@@ -735,6 +758,7 @@ While not featured in this work, previously published\cite{maccoAtomiclayerdepos
 
 For these reasons, the choice was made to continue the contact resistivity studies with only capped samples of relatively low doping (int, r96, r48), annealed at 400\degree{}C and 500\degree{}C.
 *** Transmission electron microscopy
+\label{sec:TEM}
 To gain more insight into how annealing impacts the \AZO{} properties, some samples were analyzed by transmission electron microscopy (TEM).
 As the Hall and SE measurements indicate some interesting differences between the anneals at 400\degree{}C and 600\degree{}C, these conditions were chosen for further investigation.
 Both samples were capped during the anneal, and both contained r24 \AZO{}.
@@ -835,7 +859,7 @@ The neccessity of a capping layer is shown, furthermore, with mild \AZO{} doping
 Annealing should occur around 400\degree{}C to 500\degree{}C, as in this range the passivation, contact resistivity, \AZO{} bulk conductivity and transparency are excellent.
 This means that further research can focus on device integration, something which is already being done in for example the Percspective project, aiming to use \AZO{} as a full area passivating contact layer.
 
-** TODO todos
+** TODO COMMENT todos
 *** TODO Plotjes verbeteren, fatsoenlijke assen etc
 *** TODO Additional insights?
 
