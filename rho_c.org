@@ -381,9 +381,8 @@ An electron is then either moving around in the conduction band, or bound to an 
 To move between the bands, energy needs to either be supplied to an electron in the valence band, or an electron in the conduction band needs to somehow get rid of a considerable amount of energy.
 These generation and recombination processes don't happen instantly, which enables electrons to stay in the conduction band for quite long times.
 The states within the valence band without an electron are called holes and they can be seen as carrying a positive charge, essentially due to the /absence/ of an electron.
-# This property is what distinguishes semiconductors from metals, in which no bandgap exists, in metals electrons are always free to decay into available lower energy states.
-This property is what distinguishes semiconductors from metals, as electrons are free to decay into lower energy states, no bandgap exists.
-For nondegenerate semiconductors like \AZO{}, the densities of electrons, $n$, and holes, $p$, can be well described by Boltzmann statistics:
+This property is what distinguishes semiconductors from metals, where electrons are free to decay into lower energy states.
+For so-called nondegenerate semiconductors, the densities of electrons, $n$, and holes, $p$, can be well described by Boltzmann statistics:
 \begin{equation}
 n = n_\mathrm{CB}\exp\left(-\frac{\ECB - \EFn}{k_B T}\right);
 \end{equation}
@@ -391,12 +390,17 @@ n = n_\mathrm{CB}\exp\left(-\frac{\ECB - \EFn}{k_B T}\right);
 p = n_\mathrm{VB}\exp\left(-\frac{ \EFp - \EVB}{k_B T}\right).
 \end{equation}
 Here $n_\mathrm{CB}$ and $n_\mathrm{VB}$ are the densities of states in respectively the conduction and valence bands, $\ECB$ and $\EVB$ are the energy bounds of the conduction and valence bands, and $\EFn$ and $\EFp$ are the so called Fermi levels of the electron and hole ensembles.
+In heavily doped semiconductors, such as the \AZO{} films used in this work, carriers typically follow Fermi statistics instead of the given Boltzmann statistics, these semiconductors are then called degenerate.
+For the purposes of this explanation, considering only the somewhat simpler nondegenerate statistics is sufficient.
+
 For thermal equilibrium it can readily be derived that $\EFn = \EFp$, but this changes when electron-hole pairs are actively generated.
 In this non-equilibrium situation, one can ask if Boltzmann statistics can be applied, after all, this is a result in equilibrium thermodynamics.
-Luckily, it typically takes picoseconds for electrons (or holes) to reach equilibrium among themselves, meanwhile, the equilibration between conduction and valence bands is much slower, electrons can take up to milliseconds on average to make the transition.
+Luckily, it typically takes picoseconds for electrons (or holes) to reach equilibrium among themselves.
+Meanwhile, the equilibration between conduction and valence bands is much slower, electrons can take up to milliseconds on average to make the transition.
 This means that electrons can be considered in equilibrium, and so can holes, just not in equilibrium with each other.
 The excesses in electron and hole densities can be described by an increase in $\EFn$ and a decrease in $\EFp$, a phenomenon called Fermi level splitting.
-Due to the absence of a bandgap, the separate equilibration of electrons and holes does not occur in metals, furthermore thermal equilibration is a very fast process.
+Due to the absence of a bandgap, the separate equilibration of electrons and holes does not occur in metals.
+# Furthermore thermal equilibration is a very fast process.
 This implies that in a metal, the carrier statistics can be described by a single Fermi level: $\EF{} = \EFn{} = \EFp{}$.
 So far, the Fermi levels have been interpreted merely as a useful way to parametrize the carrier distributions, but they carry greater relevance.
 A more physical interpretation of the Fermi levels is that they correspond, up to sign, to the electrochemical potentials of both carriers, i.e. $\EFn{} = \eta_n$, $\EFp{} = -\eta_p$.
@@ -406,7 +410,7 @@ As the free energy of an electron-hole pair is given by the Fermi level splittin
 In a contact, since there is no Fermi level splitting, recombination does not amount to free energy losses, and is actually necessary since without contact recombination no currents can flow.
 This picture also gives a more quantitative description of the heuristic "electrons want to move from one side of the cell to the other, transferring energy to the device".
 As the carrier statistics are described by only a single Fermi level in the contacts, the goal is to create a Fermi level difference between the two contacts.
-To see how these contact Fermi levels are related to the split Fermi levels in the bulk, we can write down the carrier flux densities as follows:
+To see how these contact Fermi levels are related to the split Fermi levels in the bulk of the semiconductor, we can write down the carrier flux densities as follows:
 # note: particle currents!
 \begin{equation}
 J_n = -\frac{\sigma_n}{e} \nabla \EFn{},
@@ -433,22 +437,24 @@ Somewhat counterintuitively, $J_0$ mainly impacts cell efficiency not through $J
 This is because at high recombination rates, lower carrier densities and thus less Fermi level splitting are achieved.
 
 To wrap things up a bit, there are essentially two properties that a good passivating n-type contact needs:
-- High majority carrier conductivity :: To encounter Ohmic losses, as parametrized by $\sigma_n$. In the rest of this thesis the associated /resistivity/ is used, defined by $\rho_n \equiv \frac{1}{\sigma_n}$.
+- High majority carrier conductivity :: To avoid Ohmic losses, as parametrized by $\sigma_n$. In the rest of this thesis the associated /resistivity/ is used, defined by $\rho_n \equiv \frac{1}{\sigma_n}$.
   Note that $\rho_n$ is a /bulk/ resistivity. In contrast, the symbol $\rho_c$ will be used for the contact resistivity.
+  This is reflected in the used units, $\rho_n$ is expressed in $\mathrm{m \Omega cm}$ while $\rho_c$ is given in $\mathrm{m \Omega cm^2}$.
 - Low recombination rates :: As parametrized through $J_0$, to enable a high Fermi level splitting.
 
-An acceptable upper limit for contact resistivity can be found by a rough back-of-the-envelope calculation, as the resistive loss power is given by $P_{loss} = \rho_c J^2 A$ and the output power by $P = V J A$, the resistive losses amount to 1% of the total power when $\rho_c > 0.01 \frac{V}{J}$.
-Taking $J \approx 44$ mAcm^2 and $V \approx 0.5$ V, this limit amounts to $\rho_{max} \approx 100$ \mOhmcm{}. 
+An acceptable upper limit for contact resistivity can be found by a rough back-of-the-envelope calculation.
+As the resistive loss power is given by $P_{loss} = \rho_c J^2 A$ and the output power by $P = V J A$, the resistive losses amount to 1% of the total power when $\rho_c > 0.01 \frac{V}{J}$.
+Taking typical values for a silicon solar cell: $J \approx 44$ mAcm^2 and $V \approx 0.5$ V, this limit amounts to $\rho_{max} \approx 100$ \mOhmcm{}.
 
 The results of a more detailed analysis, modeling the impact of contact resistivity and $J_0$ on an otherwise ideal solar cell's efficiency are shown in Figure \ref{fig:rainbowplot}, along with some practically attained efficiencies.
-It can be seen that at contact resistivities below 100\mOhmcm{}, the efficiency is mostly determined by recombination, indicating that these contact resistivities can indeed be considered /sufficiently low/.
+It can be seen that at contact resistivities below 100 \mOhmcm{}, the efficiency is mostly determined by recombination, indicating that these contact resistivities can indeed be considered /sufficiently low/.
 
 #+ATTR_LATEX: :width 0.9\textwidth
 #+CAPTION: Maximum solar cell efficiency as limited by contact resistivity and $J_0$, adapted from \cite{maccoAtomicLayerDeposition2017}.
 #+LABEL: fig:rainbowplot
 [[./images/RainbowPlot.pdf]]
 
-In the rest of this thesis, it will be shown that contact resistivities as low as 20\mOhmcm{} can be obtained between \AZO{} and doped silicon.
+In the rest of this thesis, it will be shown that contact resistivities as low as 20 \mOhmcm{} can be obtained between \AZO{} and doped silicon.
 
 *** Transparency and conductivity
 \label{sec:backgroundNK}
