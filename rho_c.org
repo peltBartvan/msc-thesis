@@ -594,7 +594,8 @@ Assuming linearity here, the resulting resistivity includes contributions from d
 To give a strict upper bound on the resistivity of the \AZO{}-Si interface, the other contributions need to be minimized.
 As the \AlOx{} capping layer is very resistive, it thus needs to be removed prior to the measurements.
 For this purpose, a selective wet etch process was used, which will be discussed in more detail later.
-Important is that this selective etch only needs to fully remove the \AlOx{} capping layer while leaving the \AZO{} layer intact, doing this is much easier than patterned etching.
+Important is that this selective etch only needs to fully remove the \AlOx{} capping layer while leaving the \AZO{} layer intact.
+Doing this is much easier than patterned etching.
 
 
 *** Sample preparation
