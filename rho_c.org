@@ -649,10 +649,10 @@ While fabricating these type 2 samples the process was not interrupted between t
 **** Anneal
 Type 1 samples were successively annealed so that a single sample could be reused at different anneal temperatures.
 As a check, pieces of capped r24 \AZO{} were annealed directly to the intended temperature, here little deviation could be found from the successive annealing. \todo{elaborate}
-Annealing occured in steps of 50\degree{}C, starting at 200\degree{}C.
+Annealing was performed in steps of 50\degree{}C, starting at 300\degree{}C.
 To be able to perform the annealing steps quickly in between measurements, the anneals up to 500\degree{}C were performed on a hotplate, as the used hotplate has a maximum temperature of 500\degree{}C.
-Anneals at higher temperatures were performed in a Jipelec Rapid Thermal Annealer (RTA).
 Here a carrier wafer was used to support the samples, which was put on the hotplate and removed after 5 minutes, allowing the samples to cool down again.
+Anneals at temperatures higher than 500\degree{}C were performed in a Jipelec Rapid Thermal Annealer (RTA).
 The type 2 samples were directly annealed to the right temperature in the RTA.
 **** Capping layer etch and silver evaporation
 \label{sec:etching}
