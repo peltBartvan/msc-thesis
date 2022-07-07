@@ -72,6 +72,7 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
+  + Plaatje :: Wat is de bedoeling van de \AZO{} laag, diagrammetje zonnecel.
   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
   + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
 - Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
@@ -470,7 +471,7 @@ This can be quantified by a Drude absorption model, for which the complex dielec
 \begin{equation}
 \varepsilon(\omega) = -\frac{\omega_p^2}{\omega^2 - i \omega \omega_\tau}.
 \end{equation}
-Here $\omega_p$ is the so called plasma frequency, which essentially is the maximum frequency at which the carriers can follow an external field, is is given as
+Here $\omega_p$ is the so called plasma frequency, which essentially is the maximum frequency at which the carriers can follow an external field, is given as
 \begin{equation}
 \omega_p = \sqrt{\frac{e^2 n}{\varepsilon_0 m^*}}.
 \end{equation}
@@ -499,6 +500,7 @@ The influence of these two parameters on the optical properties is illustrated i
 It is clear that for high transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
 Note that the plasma frequency increases with the carrier density, which conflicts with the high carrier density required from conductivity.
 More straightforward is the role of the mobility, which increases conductivity and decreases the scattering frequency, making high mobilities very important for transparent conductive materials.
+\todo{wat bepaalt mobiliteit, beschrijven!}
 
 ** Methods
 # \todo{eerst measurements, dan sample preparation}
@@ -515,8 +517,11 @@ More straightforward is the role of the mobility, which increases conductivity a
 Spectroscopic ellipsometry (SE) is a method that is often used for measuring a myriad of thin film properties.
 The method is a form of spectroreflectometry, in which not just the amplitude but also the polarization angle of reflected light is measured.
 While no direct measurements can be performed, optical models involving material properties, thicknesses, and other parameters, can be fit to the measured spectra.
-The most relevant absorption parameters here are the frequencies $\omega_p$ and $\omega_\tau$, as they were defined in Section \ref{sec:backgroundNK}.
+The SE methodology has been described in detail in the MSc thesis of Dennis Loeffen \cite{MasterThesisDGJA} and the already published paper \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
+# The most relevant parameters here are the frequencies $\omega_p$ and $\omega_\tau$, as they were defined in Section \ref{sec:backgroundNK}.
 In this work, SE was mainly used to determine layer thicknesses and free carrier absorption in the \AZO{} films.
+Here, free carrier absorbtion is modeled with a Drude model, parametrized by the frequencies $\omega_p$ and $\omega_\tau$ which were discussed in Section \ref{sec:backgroundNK}.
+Absorption at higher frequencies is modeled using a Tauc-Lorentz model.
 Layer thicknesses were typically measured with a Woollam variable angle spectroscopic reflectometer (VASE) as measuring at multiple angles makes layer thicknesses easier to fit.
 However, the used VASE is insensitive in the near infrared range which is relevant to free carrier absorption, so for these measurements a Woollam \todo{type} was used at a fixed angle.
 
@@ -539,13 +544,13 @@ However, the used VASE is insensitive in the near infrared range which is releva
 # For both transparency and conductivity, a high mobility is thus beneficial.
 # \todo{move the theory above to background.}
 **** Hall effect measurement
-Hall effect measurements can be used to determine in-plane electrical properties of thin films, such as sheet resistance, sheet carrier density and sheet carrier mobility.
-When combined with a film thickness measurement, SE in this work, the more familiar bulk resistivity, bulk carrier density and bulk mobility can be calculated.
+Hall effect measurements can be used to determine in-plane electrical properties of thin films, such as sheet resistance and sheet carrier density.
+When combined with a film thickness measurement, SE in this work, the more familiar bulk resistivity and bulk carrier density can be calculated.
 When a magnetic field is applied to a sample conducting a current, the moving charge carriers experience a Lorentz force,
 \begin{equation}
-\vec{F} = q(\vec{E} + \vec{v}\times\vec{B}),
+\vec{F} = q(\vec{E} + \vec{v}\times\vec{B}).
 \end{equation}
-since the currents are confined to the sample, a counteracting electric field is formed, so that the Lorentz force equilibrates to net zero.
+As the currents are confined to the sample, a counteracting electric field is formed, so that the Lorentz force equilibrates to net zero.
 While the electric field itself cannot be measured directly, a Hall voltage can be measured between two points on the sample's perimeter.
 It can be derived\cite{vanderpauw1956} that this induced Hall voltage is independent of the probe positions, as long as the driven current fully passes between the two probes.
 Furthermore, this measured voltage is found to be equal to
@@ -559,16 +564,17 @@ By itself the Hall measurement merely measures the carrier density and type, but
 \mu_H = \frac{R_H}{\rho}.
 \end{equation}
 In this work, Hall effect measurements were all preceded by a resistivity measurement, and the term "Hall effect measurement" will informally refer to this combined measurement.
-Important to note is that the mobility measured by the Hall method can differ from the mobility measured by SE, this is because SE essentially measures how mobile charge carriers are confined to small sample regions, while the Hall method measures the mobility across the whole sample.
-Carrier mobility can be impeded by, for example, the presence of grain boundaries, this effect will be measured by the Hall method, while SE probes the mobility within individual grains.
-For this reason, the Hall mobilities and optical mobilities will be denoted as $\mu_H$ and $\mu_o$ in this work.
+Important to note is that the mobility measured by the Hall method can differ from the mobility measured by SE.
+A key difference between the two methods is that while in Hall measurements carriers flow through large sections of the sample, in SE incident photons only cause high-frequency local oscillation of carriers.
+As a result, effects such as grain boundary scattering can significantly impede the movement of carriers in Hall measurements, while locally oscillating carriers might not even come near such grain boundaries.
+To clarify this distinction the Hall mobilities and optical mobilities will be denoted as $\mu_H$ and $\mu_o$ in this work.
 
 In this work, Hall measurements were performed using a LakeShore 8400 Series system, using a van der Pauw geometry.
 A magnetic field of 1T was applied, which is the maximum field strength of the setup.
 The current ranges for measuring required some fine tuning, with too little current no significant Hall voltages could be measured, while a too high current setting can result in the current source reaching its compliance voltage.
 As the resistivity and carrier density can vary by several orders of magnitude, this current tuning ended up taking some trial and error.
 To electrically isolate the \AZO{} films from the substrate, substrates with a top layer of 450nm \SiOx{} were used.
-While the \AlOx{} capping layer is not conductive, it could easily be pierced by the probe pins, in some cases after applying a gentle force.
+On some of the samples, an \AlOx{} capping layer was present, this caused no issues as the capping layer can easily be pierced by the probe pins of the Hall setup, sometimes requiring gentle pressure.
 Since the van der Pauw geometry uses four-point probing, the contact resistance between the probe pins and the \AZO{} films is irrelevant, but care was taken to ensure that the contacts behave Ohmically, as non-Ohmic behaviour can indicate an improper contact.
 **** TODO TEM
 **** Contact resistivity
