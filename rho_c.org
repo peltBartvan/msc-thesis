@@ -612,8 +612,10 @@ The \SiOx{} provides electrical insulation between the \AZO{} and the substrate,
 Due to their flatness, these samples were also used in the transparency studies, as they give a clean SE signal.
 The other type, type 2, are symmetric samples which were initially used for passivation studies and then adapted for contact resistivity measurements.
 These samples consist of a substrate of silicon with an n+ doping profile of either 130\Ohmsq{} or 260\Ohmsq{} on both sides.
+As is common in solar cell applications, the used substrates were KOH-textured, resulting in a surface of random pyramids.
 The native \SiOx{} top layer was etched away and replaced by a new oxide layer by a UV-ozone treatment.
-Then, the \AZO{}/\AlOx{} stack was deposited using the ALD process described below twice, flipping the sample between the depositions.
+Then, the \AZO{}/\AlOx{} stack was deposited using the ALD process described below.
+After deposition on one side of the sample, the samples were flipped and the deposition process was repeated for the other side.
 After annealing, the passivation of the deposited stacks was studied, more details about this work on passivation can be found in the published paper \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
 After the passivation studies, the \AlOx{} capping layer is selectively etched, and a contact layer of 300 nm silver is deposited by e-beam evaporation to prepare the samples for contact resistivity measurements.
 In the following sections the process steps will be discussed in more detail.
