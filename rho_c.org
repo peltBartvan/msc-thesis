@@ -670,9 +670,11 @@ Shown on the right are the same samples, but after being etched at the indicated
 [[./images/etching_thicknesses.png]]
 
 As visible, the \AlOx{} thickness significantly decreases for even 30s etches, furthermore, the decrease in thickness saturates, indicating that no more material is being etched after around 3 minutes.
-Still, the SE measurements appear to indicate that some \AlOx{} remains, further inspection of the performed fits however shows that the \AlOx{} and \AZO{} thickness are strongly inversely correlated.
+Still, the SE measurements appear to indicate that some \AlOx{} remains.
+Further inspection of the performed fits however shows that the \AlOx{} and \AZO{} thickness are strongly inversely correlated.
 This indicates that the apparent remaining \AlOx{} is a mere fitting artefact.
 Since the total \AZO{} + \AlOx{} thickness does not decrease after around 3 minutes, is is assumed that the etching process indeed stops when it reaches the \AZO{} film.
+Full removal of the \AlOx{} film was verified using a Si/\AlOx{} sample, on which no \AlOx{} could be found by SE after etching.
 Looking only at the initial measurements, in which SE could more clearly distinguish between the \AZO{} and \AlOx{} films, the etch rate is estimated at around 4\AA per second.
 
 Less quantitative, but perhaps more convincing, evidence for the efficacy of the etch process was accidentally found in a TEM study on a contact resistivity sample.
@@ -688,7 +690,7 @@ While this backside deposition was unintended, the TEM image in Figure \ref{fig:
 
 This combination of estimated etch rate and TEM imagery motivated the decision to etch all samples for a duration of 2 minutes.
 
-After the removal of the capping layer, the type 2 samples were covered with 300nm of silver by e-beam evaporation.
+After the removal of the capping layer, the type 2 samples were covered with 300 nm of silver by e-beam evaporation.
 To effectively remove the backside deposited regions, it was found useful to mildly scratch these visually recognizable regions before silver evaporation.
 After evaporation, the color differences between the \AZO{} and \AZO{}/\AlOx{}/\AZO{} coated regions could of course not be seen, but the scratches remained visible after deposition.
 Good samples could then be cleaved from the non-scratched region of the wafer.
