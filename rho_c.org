@@ -642,8 +642,10 @@ The used supercycle is illustrated in Figure \ref{fig:supercycle}.
 
 **** \AlOx{} capping process
 On some samples a 30nm \AlOx{} capping layer was deposited by ALD, this was also done in the OpAL reactor, using only DMAI and water as precursors, again at 200\degree{}C.
-In type 1 depositions, the uncapped samples were removed from the reactor between the deposition of \AZO{} and \AlOx{}, venting the reactor.
+To deposit capped and uncapped type 1 samples efficiently, the uncapped samples were removed from the reactor after \AZO{} deposition.
+After this, the remaining samples received the \AlOx{} capping layer.
 As it became clear that capping is absolutely crucial to obtain good material properties, all type 2 samples were capped.
+While fabricating these type 2 samples the process was not interrupted between the \AZO{} and \AlOx{} depositions.
 **** Anneal
 Type 1 samples were successively annealed so that a single sample could be reused at different anneal temperatures.
 As a check, pieces of capped r24 \AZO{} were annealed directly to the intended temperature, here little deviation could be found from the successive annealing. \todo{elaborate}
