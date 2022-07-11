@@ -71,6 +71,15 @@
 # this is useful for directly inserting an introduction chapter before the parts
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
+Amidst the ongoing climate and energy crises, solar energy need little introduction.
+To curb global emissions we need access to efficient, cheap, and reliable energy sources, preferably by yesterday.
+Broadly speaking, the goal of this work is to find out if cells with aluminium doped zinc oxide (\AZO{}) front contacts can meet these demands.
+\AZO{} is a promising material for solar cells, as it uniquely combines excellent transparency and conductivity with the ability to directly passivate silicon.
+While typical solar cell designs separate the front contact conductivity and passivation functionalities into different layers, \AZO{} might be able to deliver all these qualities in a single layer.
+The goal of this work is to
+
+
+
 - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
   + Plaatje :: Wat is de bedoeling van de \AZO{} laag, diagrammetje zonnecel.
   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
@@ -732,9 +741,15 @@ Good samples could then be cleaved from the non-scratched region of the wafer.
 # Above 500C anneal temperatures, the resistance drops slightly.
 # \todo{look at resistivity instead, trends are comparable}
 
-We start by looking at the bulk resistivity, carrier density and carrier mobility \AZO{} films, shown in Figure \ref{fig:rho_n_mu}.
-Clearly seen is that the uncapped samples deteriorate after even mild annealing, increasing in resistivity by orders of magnitude, this shows that the presence of a capping layer is crucial for achieving good film conductivity.
-Also visible is that, unsurprisingly, the resistivity decreases with doping level.
+We start by looking at the bulk resistivity, carrier density and carrier mobility of \AZO{} films, shown in Figure \ref{fig:rho_n_mu}.
+Immediately clear is that doping the ZnO lowers the bulk resistivity by an order of magnitude.
+This decreasing resistivity can be attributed to an increasing carrier density, as the Hall mobility decreases with doping.
+In the as-deposited state, the capped and uncapped samples show similar properties.
+
+Next, let's look at the impact of an annealing treatment.
+Here, a clear difference is found between the capped and uncapped samples, as uncapped samples become more resistive by several orders of magnitude.
+This shows that the presence of a capping layer is crucial for achieving good film conductivity.
+
 Focusing our attention to the capped samples, the annealing step results in a reduction of resistivity, in some samples up to 50% compared to as-deposited.
 For the doped samples a minimum in resistivity is reached around 550\degree{}C to 650\degree{}C, after which an increase is found at 700\degree{}C anneals.
 Interestingly, this increase in resistivity at the highest anneal temperatures is not seen in intrinsic ZnO.
@@ -744,8 +759,8 @@ Interestingly, this increase in resistivity at the highest anneal temperatures i
 [[./images/rho_n_mu.eps]]
 
 The deterioration of uncapped films can be attributed to a decrease in both carrier density and Hall mobility.
-The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the Hall mobility decreases with doping level.
-This decrease in Hall mobility could be caused by increased impurity scattering on Al dopants. \question{doublecheck this.}
+# The decrease in resistivity with doping is found to be attributed to the increased carrier density only, as overall the Hall mobility decreases with doping level.
+This decrease in Hall mobility could be caused by increased impurity scattering on Al dopants.
 For capped samples, annealing at temperatures above 500\degree{}C results in an increased Hall mobility and carrier density, this is potentially caused by an activation of the Al dopants by diffusion.
 This diffusion will be discussed in more detail in Section \ref{sec:TEM} about the TEM studies performed within this project.
 
@@ -759,16 +774,12 @@ Furthermore, a small increase is seen at anneal temperatures above 500\degree{}C
 
 #+LABEL: fig:omega_p
 #+CAPTION: Plasma frequency of capped samples as function of annealing temperature and doping.
-[[./images/omega_p_vs_anneal.png]]
+[[./images/omegas_jsc.eps]]
 
 As shown in Figure \ref{fig:omega_t}, annealing has a more pronounced effect on the scattering frequency.
 For doped samples, the scattering frequency decreases at higher annealing temperatures, while it increases for intrinsic ZnO.
 This amounts to an increasing optical mobility in doped \AZO{}, while the mobility decreases in intrinsic ZnO.
 The cause of these opposing trend is not known.
-
-#+LABEL: fig:omega_t
-#+CAPTION: Scattering frequency of capped samples as function of annealing temperature and doping.
-[[./images/omega_t_vs_ad.png]]
 
 \todo{plot optische mobiliteit samen met Hall}
 
