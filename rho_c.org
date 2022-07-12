@@ -74,24 +74,51 @@
 Amidst the ongoing climate and energy crises, solar energy need little introduction.
 To curb global emissions we need access to efficient, cheap, and reliable energy sources, preferably by yesterday.
 Broadly speaking, the goal of this work is to find out if cells with aluminium doped zinc oxide (\AZO{}) front contacts can meet these demands.
-\AZO{} is a promising material for solar cells, as it uniquely combines excellent transparency and conductivity with the ability to directly passivate silicon.
-While typical solar cell designs separate the front contact conductivity and passivation functionalities into different layers, \AZO{} might be able to deliver all these qualities in a single layer.
-The goal of this work is to
+A general solar cell is illustrated in Figure \ref{fig:CellDiagram}, accompanied with a proposed contact design utilizing \AZO{}.
 
+#+ATTR_LATEX: :width 0.9\textwidth
+#+CAPTION: Illustration of $V_{oc}$, $I_{sc}$ and fill factor in relation to a cell's IV-curve. The fill factor can be recognized as the ratio between the areas of the green and gray rectangles.
+#+LABEL: fig:CellDiagram
+[[./images/cell_diagram_v2.png]]
 
+Several properties are desired for a good front contact, shortly listed here.
+A more detailed discussion can be found in Section \ref{sec:backgroundAZO}.
+A high lateral conductivity is needed so that charge carriers can easily reach the metal contacts.
+The contact should be highly transparent, and provide good optical coupling into the semiconductor bulk.
+The contact should be /selective/, meaning that it only accepts charge carriers of a particular kind, electrons in our case.
+Without going into too much detail for now, two parameters need to be low to achieve selectivity: minority carrier recombination and contact resistivity.
+\AZO{} has proven itself capable of being transparent and conductive, while showing very little minority carrier recombination.
+The contact resistivity is the main subject of this work.
 
-- Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
-  + Plaatje :: Wat is de bedoeling van de \AZO{} laag, diagrammetje zonnecel.
-  + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
-  + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
-- Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
-- Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
-  + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
-  + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
-- Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
-  + Wat zijn de resultaten? :: Wordt besproken in deel I.
-  + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
-\question{Ik wil Percspective ergens noemen, is dit een goede plek?}
+Several important process parameters are studied, such as \AZO{} doping, the impact of an annealing step, and the silicon doping.
+It is known \source{bas} that annealing plays an important role in activating the interface passivation, but what impact does this have on the \AZO{} itself?
+Furthermore, previous attempts at creating contacts on intrinsic silicon resulted in high contact resistivities.
+Can conductive contacts be made by instead using doped silicon?
+These questions and more are addressed in this thesis.
+With these results, the main question can be addressed: is \AZO{} a good front contact material for solar cells?
+Part I of this thesis shows that this is indeed the case, furthermore, a process window is found in which \AZO{} provides all of the qualities mentioned above.
+
+The approach taken would seem rather straightforward: \AZO{} films are deposited, processed further, and then the mentioned material properties are measured.
+For most material properties, suitable measurement systems were available, however, measuring contact resistivities turned out to be a difficult task.
+The main obstacle: most etchants etch \AZO{} too easily to fabricate the test structures usually used to measure contact resistivities.
+A simple top-down measurement method that had been used previously was found to be very unreliable.
+To accurately study contact resistivities, a new method had to be found.
+Part II of this thesis is dedicated to the design and implementation of such a method.
+The method is a significant improvement of the top-down method which is much more reliable.
+Compared to conventional methods, a significant advantage is that it works on samples without any testing structures.
+
+# - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
+#   + Plaatje :: Wat is de bedoeling van de \AZO{} laag, diagrammetje zonnecel.
+#   + Bepaalde goede eigenschappen :: Uniek als passiverende TCO.
+#   + Wat betekenen deze eigenschappen? :: Wordt uitgelegd in deel I.
+# - Wat moet er nog gebeuren? :: Nog weinig bekend over contactweerstand -> onderwerp van deze thesis.
+# - Wat wil ik hier over leren? :: Hoe hangt de contactweerstand af van doping (Si, \AZO{}) en anneal?
+#   + Bijvraag :: Is het mogelijk om een goede contactweerstand te krijgen /tegelijkertijd/ met goede conductiviteit en transparantie?
+#   + Hamvraag :: Goed genoeg voor efficiënte zonnecellen?
+# - Hoe ga ik dat doen? :: ALD \AZO{} op verschillende substraten deponeren en annealen, dan doormeten.
+#   + Wat zijn de resultaten? :: Wordt besproken in deel I.
+#   + Caveat: hoe ga ik dit doormeten? :: Bleek verrassend lastig, methode verbeterd, zie deel II.
+# \question{Ik wil Percspective ergens noemen, is dit een goede plek?}
 
 * COMMENT Scratchpad
 \LaTeX{} stuff to test goes here.
@@ -255,6 +282,7 @@ Just some algorithm:
 ** Introduction
 
 ** Background
+\label{sec:backgroundAZO}
 *** Solar cell operation
 Loosely framed the goal of this work is to find out if \AZO{} passivating contacts can make /good/ solar cells.
 To start answering this question, let's first narrow down what is meant by a /good/ solar cell, before diving into the details about contacting layers.
@@ -768,15 +796,17 @@ This diffusion will be discussed in more detail in Section \ref{sec:TEM} about t
 # Some interesting differences can be seen between intrinsic and doped ZnO at higher anneal temperatures. \todo{discuss somewhere}.
 # As expected, the resistivity decreases while increasing the doping level.
 
+\todo{fix figures and refs here}
+
 Next, let's look at the transparency of the produced films, now focusing only on the capped samples.
-As seen in Figure \ref{fig:omega_p}, the plasma frequency depends on the doping level, as was expected.
+As seen in Figure \ref{fig:omegasJsc}, the plasma frequency depends on the doping level, as was expected.
 Furthermore, a small increase is seen at anneal temperatures above 500\degree{}C, this trend stops at higher temperatures for doped samples, but the plasma frequency keeps increasing for intrinsic ZnO, this trend is consistent with the carrier densities found by Hall measurements.
 
-#+LABEL: fig:omega_p
+#+LABEL: fig:omegasJsc
 #+CAPTION: Plasma frequency of capped samples as function of annealing temperature and doping.
 [[./images/omegas_jsc.eps]]
 
-As shown in Figure \ref{fig:omega_t}, annealing has a more pronounced effect on the scattering frequency.
+As shown in Figure \ref{fig:omegasJsc}, annealing has a more pronounced effect on the scattering frequency.
 For doped samples, the scattering frequency decreases at higher annealing temperatures, while it increases for intrinsic ZnO.
 This amounts to an increasing optical mobility in doped \AZO{}, while the mobility decreases in intrinsic ZnO.
 The cause of these opposing trend is not known.
