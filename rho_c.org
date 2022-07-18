@@ -842,17 +842,35 @@ Before looking into contact resistivities, the next section discussed TEM result
 To gain more insight into how annealing impacts the \AZO{} properties, some samples were analyzed by transmission electron microscopy (TEM).
 As the Hall and SE measurements indicate some interesting differences between the anneals at 400\degree{}C and 600\degree{}C, these conditions were chosen for further investigation.
 Both samples were capped during the anneal, and both contained r24 \AZO{}.
+TEM images of both samples are shown in Figure \ref{fig:TEMcomparison}.
+In the 400\degree{}C sample the capping layer was etched away, followed by silver deposition.
+As the silver was found to diffuse into the sample, the choice was made to keep the capping layer intact on the 600\degree{}C sample.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./images/TEM_400C.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./images/TEM_600C.png}
+    \end{subfigure}
+    \caption{Comparison between r24 \AZO{} annealed at 400\degree{}C (left) and 600\degree{}C (right). In the 400\degree{}C sample the \AlOx{} capping layer was removed, followed by Ag evaporation. In the 600\degree{}C the \AlOx{} capping layer was not removed. Note the presence of two faint dopant lines in the 400\degree{}C sample.}
+\label{fig:TEMcomparison}
+\end{figure}
+
 As mentioned before, the diffusion of Al dopants was expected to play a role in the increased carrier densities at high annealing temperatures, as these dopants become more active when spread out.
-This possible explanation is compatible with the TEM studies, where clear Al dopant planes could be found in the 400\degree{}C sample.
+In the 400\degree{}C sample, Al dopant planes can be seen as faint lines, indicating that no diffusion had taken place.
 In the 600\degree{}C sample, these dopant planes could not be discerned anymore, indicating a possible diffusion of dopants.
 Unfortunately, in this sample the Al signal was dominated by the presence of the \AlOx{} capping layer, which can also be the reason no dopant planes could be discerned.
 
-# Furthermore, the ZnO crystal structure was found to continue across the dopant planes. \todo{wat wil ik hier precies mee zeggen?}
-At a 600\degree{}C anneal, the observed ZnO crystal grains were much more distinct than at the 400\degree{}C anneal, indicating grain coarsening. this increased presence of grain boundaries can explain the decrease in Hall mobility.
-Additionally, in the 600\degree{}C sample, voids were found within the \AZO{} film.
-\todo{plaatjes, welke plaatjes?}
-\question{wil ik hier te diep op ingaan, of gewoon doorverwijzen naar publicatie?}
+Besides dopant dispersion, a clear difference in crystal structure can be seen between the samples.
+After annealing at 600\degree{}C, crystals grains are easily distinguished from each other, indicating significant growth and grain coarsening.
+The 600\degree{}C film also looks much rougher, and voids in the \AZO{} film can be seen as lighter spots.
+Overall, the grain coarsening appears to increase the Hall mobility, as the influence of grain boundaries is decreased.
 
+# this increased presence of grain boundaries can explain the decrease in Hall mobility.
 # Notable observations:
 # - Al diffusion occurs at 600\degree{}C, but not yet at 400\degree{}C
 #   + 400C shows clear lines with more dopants
@@ -906,7 +924,7 @@ This combination of estimated etch rate and TEM imagery motivated the decision t
 #   Note: r48 doping is more resistive than r96 on 260 Ohm Si.
 #   This could be due to the presence of a dopant plane close to the interface, and this has been observed in \source{Niemela et al.}
 
-Finally, we look at the contact resistivities of \AZO{} on n+ diffused silicon.
+Finally, we look at the contact resistivities of \AZO{} on n^+ diffused silicon.
 Measured results are shown in Figure \ref{fig:rho_c}.
 It can be seen that low contact resistivities around 20 \mOhmcm{} can be obtained, well below the 100 \mOhmcm{} goal for device fitness.
 Moreover, it can be seen that \AZO{} doping is crucial in creating these good contacts, as the undoped ZnO films produce contacts an order of magnitude more resistive.
