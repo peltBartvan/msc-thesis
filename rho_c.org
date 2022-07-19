@@ -47,9 +47,12 @@
 
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
-#+LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
+# +LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
+#+LATEX_HEADER: \newcommand{\todo}[1]{}
+
 #+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
-#+LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
+# +LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
+#+LATEX_HEADER: \newcommand{\source}[1]{}
 #+LATEX_HEADER: \newcommand{\contribution}[1]{\colorbox{yellow}{#1}}
 
 
@@ -60,11 +63,6 @@
 # turns out this is an org-export thing, not a latex template thing
 #+OPTIONS: H:4
 
-\begin{abstract}
-\todo{lipsum vervangen}
-
-\lipsum[1-2]
-\end{abstract}
 
 \tableofcontents
 
@@ -77,7 +75,7 @@ Broadly speaking, the goal of this work is to find out if cells with aluminium d
 A general solar cell is illustrated in Figure \ref{fig:CellDiagram}, accompanied with a proposed contact design utilizing \AZO{}.
 
 #+ATTR_LATEX: :width 0.9\textwidth
-#+CAPTION: Illustration of $V_{oc}$, $I_{sc}$ and fill factor in relation to a cell's IV-curve. The fill factor can be recognized as the ratio between the areas of the green and gray rectangles.
+#+CAPTION: Illustration of a generic solar cell, photons enter the cell through the front contact and generate charge carriers. These charge carriers are collected in the back and front contacts. The box on the left shows the front contact studied in this work, consisting of a textured silicon wafer with an n^{+} diffusion zone, covered by a \SiOx{}/\AZO{} stack. The front metal used here is silver.
 #+LABEL: fig:CellDiagram
 [[./images/cell_diagram_v2.png]]
 
@@ -90,7 +88,7 @@ Without going into too much detail for now, two parameters need to be low to ach
 \AZO{} has proven itself capable of being transparent and conductive, while showing very little minority carrier recombination.
 The contact resistivity is the main subject of this work.
 
-Several important process parameters are studied, such as \AZO{} doping, the impact of an annealing step, and the silicon doping.
+Several important process parameters have been studied, such as \AZO{} doping, the impact of an annealing step, and the silicon doping.
 It is known \source{bas} that annealing plays an important role in activating the interface passivation, but what impact does this have on the \AZO{} itself?
 Furthermore, previous attempts at creating contacts on intrinsic silicon resulted in high contact resistivities.
 Can conductive contacts be made by instead using doped silicon?
@@ -106,7 +104,9 @@ To accurately study contact resistivities, a new method had to be found.
 Part II of this thesis is dedicated to the design and implementation of such a method.
 The method is a significant improvement of the top-down method which is much more reliable.
 Compared to conventional methods, a significant advantage is that it can be used for very simple samples, requiring little sample preparation effort.
-\todo{include percspective}
+
+Beyond the direct scope of this project, being the silicon-\AZO{} interface, it is worth mentioning potential integration pathways.
+One of these is currently being explored in the PERCspective project \cite{percspectiveWeb} of which the goal is to create a high-quality connection between an industrial PERC cell and a perovskite cell.
 
 # - Motivatie :: Wat is \AZO{}, en waarom is het interessant voor zonnecellen?
 #   + Plaatje :: Wat is de bedoeling van de \AZO{} laag, diagrammetje zonnecel.
@@ -366,11 +366,10 @@ Let's go through the explanation again, and see what can go wrong with each step
    Second, once in the contact the carriers should freely flow towards the metal connections, for this a low in-plane resistance is required.
 
 With this oversimplified treatment of solar cell physics, it already becomes clear that highly transparent highly conductive contacting layers are essential for efficient solar cells.
-Moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine. \question{hier had je een punt staan, inmiddels heb ik "passivation" tot volzin gemaakt. Vind je het nu wel beter volgen?}.
+Moreover, a high degree of passivation should be achieved so that the generated free charge carriers do not recombine.
 
 # \AZO{} is a material that has gained attention for being highly transparent and conductive, at the same time it offers passivation on c-Si, giving it a unique combination of properties.
 Within the PMP group it was found that, in addition to being highly transparent and conductive, \AZO{} can provide excellent passivation on c-Si \cite{vandelooSiliconSurfacePassivation2019}, a unique combination of properties.
-\todo{schematic}
 A few crucial factors for achieving good passivation were identified.
 The first is the formation of a high-quality \SiOx{} interface between the semiconductor bulk and the \AZO{} contact, reducing the availability of defects for SRH recombination.
 Second, available defects can be passivated by hydrogenating them.
@@ -536,7 +535,6 @@ The influence of these two parameters on the optical properties is illustrated i
 It is clear that for high transparency, both $\omega_p$ and $\omega_\tau$ should ideally be minimized.
 Note that the plasma frequency increases with the carrier density, which conflicts with the high carrier density required from conductivity.
 More straightforward is the role of the mobility, which increases conductivity and decreases the scattering frequency, making high mobilities very important for transparent conductive materials.
-\todo{wat bepaalt mobiliteit, beschrijven!}
 
 ** Methods
 # \todo{eerst measurements, dan sample preparation}
@@ -559,7 +557,7 @@ In this work, SE was mainly used to determine layer thicknesses and free carrier
 Here, free carrier absorbtion is modeled with a Drude model, parametrized by the frequencies $\omega_p$ and $\omega_\tau$ which were discussed in Section \ref{sec:backgroundNK}.
 Absorption at higher frequencies is modeled using a Tauc-Lorentz model.
 Layer thicknesses were typically measured with a Woollam variable angle spectroscopic reflectometer (VASE) as measuring at multiple angles makes layer thicknesses easier to fit.
-However, the used VASE is insensitive in the near infrared range which is relevant to free carrier absorption, so for these measurements a Woollam \todo{type} was used at a fixed angle.
+However, the used VASE is insensitive in the near infrared range which is relevant to free carrier absorption, so for these measurements a Woollam NIR-SE was used at a fixed angle.
 
 # Free carrier absorption can be described by the Drude model, which relates the complex dielectric function, $\varepsilon(\omega)$ to the plasma frequency, $\omega_p$, and the scattering frequency, $\omega_\tau$ by
 # \begin{equation}
@@ -612,7 +610,6 @@ As the resistivity and carrier density can vary by several orders of magnitude, 
 To electrically isolate the \AZO{} films from the substrate, substrates with a top layer of 450nm \SiOx{} were used.
 On some of the samples, an \AlOx{} capping layer was present, this caused no issues as the capping layer can easily be pierced by the probe pins of the Hall setup, sometimes requiring gentle pressure.
 Since the van der Pauw geometry uses four-point probing, the contact resistance between the probe pins and the \AZO{} films is irrelevant, but care was taken to ensure that the contacts behave Ohmically, as non-Ohmic behaviour can indicate an improper contact.
-**** TODO TEM
 **** Contact resistivity
 The main contribution of this work is the measurements of contact resistivities of \AZO{} on doped silicon.
 These measurements proved very challenging, and this resulted in the design and implementation of a novel contact resistivity measurement.
@@ -841,12 +838,12 @@ Before looking into contact resistivities, the next section discussed TEM result
 \label{sec:TEM}
 To gain more insight into how annealing impacts the \AZO{} properties, some samples were analyzed by transmission electron microscopy (TEM).
 As the Hall and SE measurements indicate some interesting differences between the anneals at 400\degree{}C and 600\degree{}C, these conditions were chosen for further investigation.
-Both samples were capped during the anneal, and both contained r24 \AZO{}.
-TEM images of both samples are shown in Figure \ref{fig:TEMcomparison}.
+Both samples were capped during the anneal, and both contained r48 \AZO{}.
+HAADF-STEM (High-Angle Annular Dark-Field) images of both samples are shown in Figure \ref{fig:TEMcomparison}.
 In the 400\degree{}C sample the capping layer was etched away, followed by silver deposition.
 As the silver was found to diffuse into the sample, the choice was made to keep the capping layer intact on the 600\degree{}C sample.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
@@ -856,18 +853,19 @@ As the silver was found to diffuse into the sample, the choice was made to keep 
         \centering
         \includegraphics[width=\textwidth]{./images/TEM_600C.png}
     \end{subfigure}
-    \caption{Comparison between r24 \AZO{} annealed at 400\degree{}C (left) and 600\degree{}C (right). In the 400\degree{}C sample the \AlOx{} capping layer was removed, followed by Ag evaporation. In the 600\degree{}C the \AlOx{} capping layer was not removed. Note the presence of two faint dopant lines in the 400\degree{}C sample.}
+    \caption{Comparison between r48 \AZO{} annealed at 400\degree{}C (left) and 600\degree{}C (right). In the 400\degree{}C sample the \AlOx{} capping layer was removed, followed by Ag evaporation. In the 600\degree{}C the \AlOx{} capping layer was not removed. Note the presence of two faint dopant lines in the 400\degree{}C sample.}
 \label{fig:TEMcomparison}
 \end{figure}
 
+In this TEM variant elements with high atomic mass appear brighter.
+The lower dark section of each image corresponds to the silicon wafer, covered by a brighter ZnO film.
 As mentioned before, the diffusion of Al dopants was expected to play a role in the increased carrier densities at high annealing temperatures, as these dopants become more active when spread out.
 In the 400\degree{}C sample, Al dopant planes can be seen as faint lines, indicating that no diffusion had taken place.
 In the 600\degree{}C sample, these dopant planes could not be discerned anymore, indicating a possible diffusion of dopants.
-Unfortunately, in this sample the Al signal was dominated by the presence of the \AlOx{} capping layer, which can also be the reason no dopant planes could be discerned.
 
 Besides dopant dispersion, a clear difference in crystal structure can be seen between the samples.
 After annealing at 600\degree{}C, crystals grains are easily distinguished from each other, indicating significant growth and grain coarsening.
-The 600\degree{}C film also looks much rougher, and voids in the \AZO{} film can be seen as lighter spots.
+The 600\degree{}C film also looks much rougher, and voids in the \AZO{} film can be seen as darker spots.
 Overall, the grain coarsening appears to increase the Hall mobility, as the influence of grain boundaries is decreased.
 
 # this increased presence of grain boundaries can explain the decrease in Hall mobility.
@@ -924,16 +922,19 @@ This combination of estimated etch rate and TEM imagery motivated the decision t
 #   Note: r48 doping is more resistive than r96 on 260 Ohm Si.
 #   This could be due to the presence of a dopant plane close to the interface, and this has been observed in \source{Niemela et al.}
 
-Finally, we look at the contact resistivities of \AZO{} on n^+ diffused silicon.
-Measured results are shown in Figure \ref{fig:rho_c}.
-It can be seen that low contact resistivities around 20 \mOhmcm{} can be obtained, well below the 100 \mOhmcm{} goal for device fitness.
-Moreover, it can be seen that \AZO{} doping is crucial in creating these good contacts, as the undoped ZnO films produce contacts an order of magnitude more resistive.
-Interestingly, stronger \AZO{} doping is not necessarily beneficial, as on 260 \Ohmsq{} n+ Si, r48 doped \AZO{} produces more resistive contacts than r96 \AZO{}.
+Finally, we look at the contact resistivities of \AZO{} on n^{+} diffused silicon.
+Recall that on intrinsic silicon, no good contacts could be created, is this different on doped silicon?
+Luckily, this is the case, Figure \ref{fig:rho_c} shows measured contact resistivities as low as 20 \mOhmcm{}!
+This is well below the device fitness goal of 100 \mOhmcm{}.
+Previously obtained passivation results indicated that reaching $J_0 \lessapprox 100$  fA/cm^2 is well feasible \cite{maccoAtomiclayerdepositedAldopedZinc2021}.
+Combined with these new contact resistivity results, Figure \ref{fig:rainbowplot} shows that \AZO{} contacts perform similarly to other state-of-the-art contacts.
+
+A few important behaviours can be found.
+First, \AZO{} doping is crucial and it can decrease the contact resistivity by over an order of magnitude.
+Interestingly, stronger \AZO{} doping is not necessarily beneficial, as on 260 \Ohmsq{} n^{+} Si, r48 doped \AZO{} produces more resistive contacts than r96 \AZO{}.
 A possible explanation for this effect is the distance of the first Al doping layer from the interface.
 In strongly doped \AZO{} this layer is relatively close to the interface, as ZnO initially grows in islands, there is a possibility of depositing \AlOx{} directly on the \SiOx{} if the ZnO islands do not yet fully cover the interface.
 \todo{compare with Niemelä}
-
-Recall that previous attempts to create contacts between \AZO{} and intrinsic silicon were not succesful, indicating that this doping is also necessary.
 
 Next, let's consider the impact of the annealing temperature on contact resistivity.
 Focusing on samples with doped \AZO{}, annealing at 500\degree{}C can be seen to increase contact resistivity when compared to a milder anneal of 400\degree{}C.
@@ -944,15 +945,16 @@ In another study, accumulation of Al was found to occur in polysilicon-\AZO{} in
 Together, the occurence of Al diffusion and its apparent tendency to accumulate at interfaces might be the factors contributing to this increased resistivity.
 
 #+LABEL: fig:rho_c
-#+CAPTION: Contact resistivities of \AZO{} on doped silicon. \todo{properly plot with own data, surprisingly hard with Seaborn/matplotlib}
+#+CAPTION: Contact resistivities of \AZO{} on doped silicon. For comparison, contacts on SiO_{2}/poly-Si(n^{+}) stacks are also shown.
 [[./images/rho_c.png]]
 
 
 ** Conclusion and outlook
+The goal of this project was to find out whether \AZO{} can be used to create high quality front contacts for silicon solar cells.
 In this work it is shown that an \AZO{}/\AlOx{} stack can provide excellent contacts on n+ doped silicon.
 Luckily, the process conditions needed to achieve this align well with those needed to obtain high quality passivation, conductivity and transparency.
 It was found that the doping of both the silicon and \AZO{} is crucial for forming good contacts, and the contact quality decreases for high temperature anneals, with a significant degradation found between 400\degree{}C and 500\degree{}C anneal temperatures.
-When combined with the previous passivation studies, this work presents a clear process window in which \AZO{} films can be made laterally conductive, transparent and passivation while making excellent contacts on n-doped Si.
+When combined with the previous passivation studies, this work presents a clear process window in which \AZO{} films can be made laterally conductive, transparent and passivating while making excellent contacts on n-doped Si.
 The neccessity of a capping layer is shown, furthermore, with mild \AZO{} doping a high transparency and conductivity can be achieved, both in-plane and as a contact.
 Annealing should occur around 400\degree{}C to 500\degree{}C, as in this range the passivation, contact resistivity, \AZO{} bulk conductivity and transparency are excellent.
 This means that further research can focus on device integration, something which is already being done in for example the Percspective project, aiming to use \AZO{} as a full area passivating contact layer.
