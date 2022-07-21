@@ -1125,40 +1125,46 @@ Again, the ZnO:Al film should be partially removed in a controlled way, which is
 A difference with the C&S method is that TLM samples imply symmetric measurements of a contact, in Ohmic contacts this is not an issue, but since in TLM the contacts are always in an antiseries configuration, this can make non-Ohmic contacts difficult to characterize.
 **** Cross bridge Kelvin resistor
 While the previously described methods rely on being able to fit out the contact resistivity from some set of measurements, the cross bridge Kelvin resistor (CBKR) method takes a different approach.
-In essence the method is a top-down four-terminal measurement, a current is driven from the top to the bottom of a sample using two terminals, while two other terminals are used to measure the resulting voltage.
+In essence the method is a top-down four-terminal measurement.
+A current is driven from the top to the bottom of a sample using two terminals, while two other terminals are used to measure the resulting voltage.
+The typical setup is illustrated in Figure \ref{fig:CBKRIllustration}. 
 
 #+ATTR_LATEX: :width 0.7\textwidth
 #+LABEL: fig:CBKRIllustration
 #+CAPTION: Illustration of a CBKR setup, shown are two L-shaped electrodes with a sample located in between. The electrodes are not in direct contact with each other. A current is driven from one of the legs of an L, through the sample, through the opposing leg of the other L. Meanwhile the resulting voltage is measured along the remaining legs. Also shown is a misalignment between the edges of the sample and the edges of the electrodes, this should ideally be small.
 [[./images/CBKR_drawing.png]]
 
-These electrodes are formed as two L-shapes, one on either side of the sample, with the "legs" opposed to each other.
+The electrodes are formed as two L-shapes, one on either side of the sample, with their "legs" opposed to each other.
 One set of opposed legs is used to drive the current, while the other opposed set is used to measure the voltage.
 With this approach parasitic resistances are easily ignored, as the voltage measuring wires carry no current.
 
 Measure the total resistance of the sample, and multiply this by its area to get the /measured/ specific resistance,
 \begin{equation}
-\rho_M \equiv \frac{V_\text{meas}}{I_\text{src}} A,
+\rho_M \equiv \frac{V_\text{meas}}{I_\text{src}} A.
 \end{equation}
-ideally this should equal the specific resistance, $\rho_c$, of the sample, but this relies on some assumptions that will be checked next.
-# While the method might sound very simple, just drive a current and measure /the/ voltage, a possible challenge lies in the basic assumption that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
-One of there assumptions is that the current is evenly distributed over the sample, or equivalently, that the contacting electrodes form isopotentials.
-When measuring samples with low specific resistivities this might not hold, currents can be localized near the edge of the sample, and the measured voltage might not accurately represent the average voltage across the sample.
-Additionally, misaligned contacts can result in currents "wrapping around" the sample, this can result in an overestimation of the average voltage over the sample.
-\todo{illustrate wrap-around}
-# TODO source, probably Schreyer&Saraswat
-This effect was modeled by Schreyer and Saraswat \cite{schreyerTwodimensionalAnalyticalModel1986a}, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, and the transfer length $L_t$ as $\sqrt{\frac{\rho_c}{R_\square}}$, their main result can be expressed as,
+Ideally this $\rho_M$ should equal the specific resistance, $\rho_c$, of the sample, but this relies on some assumptions that will be checked next.
+
+The beauty of the chosen geometry is that the measured voltage can closely resemble the average voltage over the sample. 
+Sadly, this might not always be the case, especially not if currents flow /around/ the sample due to misalignment. 
+This is illustrated in Figure \ref{fig:CBKRmisalignment}, showing simulated voltage fields around a significantly misaligned sample.
+
+#+ATTR_LATEX: :width 0.7\textwidth
+#+LABEL: fig:CBKRmisalignment
+#+CAPTION: Simulated voltage field in a heavily misaligned square sample, current flows into the left leg while the bottom leg measures the voltage. For simplicity the bottom electrode is modeled as an isopotential. Simulations were performed using FreeFem++ \cite{freeFEM}. Note that the average voltage in the sample does not match the average voltage along the measurement leg.
+[[./images/large_misalignment.eps]]
+
+This effect was modeled by Schreyer and Saraswat \cite{schreyerTwodimensionalAnalyticalModel1986a}, defining the measured contact resistivity $\rho_M$ as the product of measured resistance and sample area, their result can be expressed as
 \begin{equation}
 \label{eqn:CBKRError}
-\frac{\rho_M}{\rho_c} = 1 + \underbrace{\frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right]}_{C_g},
+\frac{\rho_M}{\rho_c} = 1 + \underbrace{\frac{4}{3}\frac{\delta^2}{W_x W_y}\frac{A}{L_t^2}\left[1 + \frac{\delta}{2(W_x - \delta)}\right]}_{C_g}.
 \end{equation}
-in which $\delta$ is the sample misalignment, and $W_x$ and $W_y$ are the thicknesses of the legs of the electrodes.
-Here the second term is referred to as the geometric correction factor, or $C_g$.
+Here $\delta$ is the sample misalignment, and $W_x$ and $W_y$ are the thicknesses of the voltage measurement and current driving legs.
+The second term in Equation \ref{eqn:CBKRError} is here referred to as the geometric correction factor, or $C_g$.
 Ideally $C_g$ is small, so that $\rho_M \approx \rho_c$, this can be realized by using small samples, small misalignments, and highly conductive electrodes.
 Luckily $C_g$ can easily be estimated.
 # For example, consider making a rudimentary CBKR structure using household aluminium foil.
 \todo{how does next section fit here?}
-Taking $\rho_c \approx 10\text{m}\Omega\text{cm}^2$ as a lower bound, and suppose using pieces of household aluminium foil for contacts ($R_\square \approx 3\text{m}\Omega_\square$, measured with a four-point probe), this gives a worst case (i.e. shortest) transfer length of around 2 cm.
+Taking $\rho_c \approx 10$ \mOhmcm{} as a lower bound, and suppose using pieces of household aluminium foil for contacts ($R_\square \approx 3$ m\Ohmsq, measured with a four-point probe), this gives a worst case (i.e. shortest) transfer length of around 2 cm.
 For easy measurements, the needed samples should not be much smaller than a squared cm, otherwise they will be difficult to cleave and handle with tweezers.
 By cutting the foil carefully, electrodes can be made with an estimated misalignment of around one mm.
 Substitution yields a $C_g$ on the order of magnitude of a few thousandth's, indicating that geometric effects will not be significant in this setup.
@@ -1170,7 +1176,6 @@ Additionally, making sure that there are no shorts between the flimsy pieces of 
 Experience shows that strategically placed pieces of insulating tape can help, but in the end eyebrows will probably be raised when reading "we sandwiched the sample between some household foil and duct tape, and it just appeared to work" in the methods section of any report.
 Despite these drawbacks, by working carefully it is possible to make these structures from aluminium foil.
 Due to its compatibility with the ZnO:Al samples, the CBKR method can be used as a good sanity check for any new measurements of these samples.
-\todo{measurement limits}.
 
 **** Pin to plate
 The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable patterning and etching of this material is difficult, making TLM and the C&S method impractical.
