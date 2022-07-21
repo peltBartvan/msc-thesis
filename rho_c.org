@@ -1457,29 +1457,31 @@ In this case an upper bound on contact resistivity can be given as $\rho_c < \fr
 
 
 ** Characterization of measurement method
-So far the case for PCB measurements has boiled down on purely theoretical arguments, in the following chapters the measurement method will be experimentally characterized.
+So far the case for PCB measurements has boiled down to purely theoretical arguments.
+In the following sections the measurement method will be experimentally characterized.
 The characterization will focus on two desired properties of the new measurement: reliability and validity.
-A measurement method is reliable when it is reproducible, yielding the same results on each measurement.
+A measurement method is considered reliable when it is reproducible, yielding the same results on each measurement.
 Reliability by itself is not enough though, simply because observations being close to each other does not imply that they are close to the /correct/ value.
-A measurement is called valid if its results actually resemble what is *intended* to be measured.
+A measurement is considered valid if its results actually resemble what is *intended* to be measured.
 For a good measurement system these two qualities obviously go hand in hand.
 
 While the reliability often refers to repeated measurements under the exact same conditions, this strict definition is not very useful when considering the PCB measurements, as the goal is to reliably measure the contact resistivity *without* regard to some sample handling details.
-For context, the initial measurement system (TODO footnote: detail pin to plate) proved quite reliable when a single sample was contacted and stayed fixed between measurements.
+For context, the initially used pin-to-plate method proved quite reliable when a single sample was contacted and stayed fixed between measurements.
 Problems started appearing however, as soon as this sample was contacted with different pins, in slightly different locations, rotated a bit, or a different sample piece was used.
 The estimated contact resistivities varied unpredictably when even slight, to the user practically unnoticeable, changes were made to the setup.
-The goal here is not to be reliable under strict control of all influencing factors, but to be reliable in a somewhat chaotic environment, one in which the user can choose not to care about the exact shape and contacting points of their samples, and still get /reliable/ results.
+The goal here is not to be reliable under strict control of all influencing factors, but to be reliable in a somewhat chaotic environment.
+That is, one in which the user can choose not to care about the exact shape and contacting points of their samples, and still get /reliable/ results.
 For this reason, the term reliability is used in a looser sense in this work: a measurement is considered reliable when it yields similar (enough) results in a range of realistic usage scenarios.
 
 More practically speaking, these "realistic usage scenarios" should at least include different contacting conditions, like where the sample is located and in which orientation, but also simply using another sample of differing dimensions.
-These reliability experiments were done by varying exactly the mentioned conditions and measuring if these influence the measurement, this will be discussed in more detail in following sections.
+These reliability experiments were performed by varying exactly the mentioned conditions and measuring if these influence the measurement, this will be the subject of the following sections.
 
 To check the validity of the measurement, a reference measurement is needed.
 Ideally a sample with a well known specific resistance could be used, but these were not available.
 Another option is to take a sample, measure the specific resistance through some other means, and then compare the results with the new method.
-This concurrent validity test was chosen, in which the novel method was compared to a cross bridge kelvin resistor (CBKR).
+This concurrent validity test was chosen, in which the novel method was compared to a cross bridge Kelvin resistor (CBKR).
 The choice for a CBKR test was made since it can handle the same type of samples that the PCBs can.
-The needed patterning for Cox & Strack and other methods would imply the need to make separate samples, process them differently, and just hope that they have the same specific resistance.
+As noted before, the TLM and C&S methods are not feasible for the considered \AZO{} contacts.
 A CBKR allows for measurements on the exact same samples as on the PCBs, without any alterations, making it fit for a direct comparison of measurement methods.
 The used CBKR setup will be discussed in more detail in Section \ref{sec:CBKRResults}.
 
