@@ -1,0 +1,7 @@
+int n = 3;
+mesh Th=square(n,n,[x,y]);
+fespace Vh(Th,P2);
+Vh f = x*y;
+plot(f,wait=true,fill=true,cmm="ok");
+plot(f,wait=true,fill=false,cmm="not ok");
+cout << "finished" << endl;

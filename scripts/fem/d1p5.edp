@@ -1,0 +1,76 @@
+// Parameters
+
+bool debug = true;
+
+real leg = 5;
+real d = 1.5;
+real Wx = 1;
+real Wy = 1;
+real Jin = 1;
+
+real ksq = 0.001;
+
+int isolating = 99;
+int current = 98;
+int sample = 97;
+
+border M0(t=0.,1.){x=0; y=0. - leg*t; label=isolating;};
+border M1(t=0.,1.){x = (2*d+Wx)*t; y = -leg; label=isolating;};
+border M2(t=0.,1.){x = (2*d+Wx); y = -leg + (leg + 2*d + Wy)*t; label=isolating;};
+border M3(t=0.,1.){x = (2*d+Wx) - (2*d+Wx+leg)*t; y = 2*d + Wy; label=isolating;};
+border M4(t=0.,1.){x = -leg; y =  (2*d + Wy)*(1-t); label=current;};
+border M5(t=0.,1.){x = leg*(t-1); y =  0; label=isolating;};
+
+border S0(t=0.,1.){x = d + Wx*t; y = d ; label = sample;};
+border S1(t=0.,1.){x = d + Wx; y = d + Wy*t; label = sample;};
+border S2(t=0.,1.){x = d + Wx*(1-t); y = d + Wy; label = sample;};
+border S3(t=0.,1.){x = d ; y = d + Wy*(1-t); label = sample;};
+
+
+plot(
+M0(20) 
++ M1(20) 
++ M2(20)
++ M3(20)
++ M4(20)
++ M5(20)
++ S0(20)
++ S1(20)
++ S2(20)
++ S3(20)
+, wait=debug);
+
+mesh Th = buildmesh(
+M0(20) 
++ M1(20) 
++ M2(20)
++ M3(20)
++ M4(20)
++ M5(20)
++ S0(20)
++ S1(20)
++ S2(20)
++ S3(20)
+);
+
+plot(Th, wait = debug);
+
+fespace Vh(Th, P1);
+Vh u, v;
+Vh k = (x > d)*(x<d + Wx)*(y > d)*(y<d + Wy)*ksq;
+
+solve a(u, v)
+   = int2d(Th)(
+	dx(u)*dx(v) + 
+	dy(u)*dy(v) 
+	- u*v*k
+      )
+      + int1d(Th, current)(Jin*v);
+
+plot(u 
+,wait=true
+//,value=true
+,fill=true
+,ps="image.eps"
+);
+
