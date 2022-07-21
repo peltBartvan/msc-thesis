@@ -1343,6 +1343,7 @@ Figure \ref{fig:phiSolutions} clearly shows the impact of the transfer length on
 Additionally, when compared at similar transfer lengths, the cylindrical solutions are much less homogeneous than the cartesian ones.
 
 *** Idea: reduce effective sample dimensions
+\label{sec:theorySymm}
 Suppose you were to conduct a four-point probing experiment in either the linear or circular geometry mentioned in the previous section.
 You drive a current through the sample, and measure some potential difference between the top and bottom of the sample, $\phi_M$.
 You have some freedom in choosing your geometry, which one should give the best results?
@@ -1408,22 +1409,33 @@ In the next chapters, the actual implementation and validation of this method ar
 **** TODOS :noexport:
 ***** TODO Generalization to what?
 Weird wording, fix this
-** New approach
-This approach was realized using custom made printed circuit boards (PCBs), as shown in Figure \ref{fig:PCBimage}.
+** Implementation
+The approach illustrated in Figure \ref{fig:gridSymmetry} was implemented using custom printed circuit boards (PCBs), as shown in Figure \ref{fig:PCBimage}.
 The PCBs feature a pad of regularly spaced copper lines, covering an area of 15 by 15 mm^2.
 The copper lines are alternately connected to either of the shown pins, so that they resemble interleaved combs.
+
+#+ATTR_LATEX: :width 1\textwidth :options angle=270 
+#+CAPTION: An image of a used PCB, shown are two interleaved comb-shaped copper contacts, these can be connected to measurement equipment using the two header pins. The four holes can be used to systematically align two PCBs using a pin.
+#+LABEL: fig:PCBimage
+[[./images/pcb_cropped.jpeg]]
+
 To perform a measurement, a sample is clamped between two such PCBs, and a current is driven between two combs on alternate sides of the sample, while the other combs are used to measure the resulting potential across the sample in a four-terminal configuration.
-The used copper lines were 0.6 mm wide and spaced 0.3 mm apart, with this spacing and a sample spreading length on the order of half a cm, the requirement that $\frac{L}{L_t} < 0.25$ is easily met, so that the current distribution can be considered homogeneous.
+This does not directly match the geometry of Figure \ref{fig:gridSymmetry}.
+In the illustration all metal bars were used to drive a current, while no voltage measurement electrodes were shown.
+In practice the voltages are measured using the contacts interleaved with the current drive contacts.
+The used copper contacts are 0.6 mm wide and spaced 0.3 mm apart.
+With this spacing and a sample spreading length on the order of half a cm, the condition that $\frac{L}{L_t} < 0.25$ is easily met.
+As shown in Section \ref{sec:theorySymm} this implies that the current distribution can be considered homogeneous.
 
 Practically, the measurements come down to the following steps:
 
 #+LATEX: \noindent\fbox{
 #+LATEX: \parbox{\textwidth}{%
 1) Create samples that:
-   - Have a spreading length significantly larger than the distance between the fingers of the PCBs to be used. Cover with silver if neccesary.
+   - Have a spreading length significantly larger than the distance between the fingers of the PCBs to be used. Cover with silver if necessary.
    - Are homogeneous, this might not be the case when deposited films wrap around the samples.
    - Feature no edge deposited conductive films, it is recommended to cleave off the edges of the samples after silver deposition.
-   - Have an accurately known surface area, $A$, in this work this was achieved with a computer vision method, which will be discussed later. \todo{describe script in appendix}
+   - Have an accurately known surface area, $A$, in this work this was achieved with a computer vision method. \todo{appendix?} 
    - Fit on the 15 mm by 15 mm measurement pads of the PCBs.
 2) Set up the resistance measurement system:
    - Use a sourcemeter in a four-terminal sensing configuration, in this work a Keithley 2400 was used.
@@ -1439,13 +1451,10 @@ Practically, the measurements come down to the following steps:
 
 \todo{include figure of wiring}
 
-The interpretation of the measured stack resistivity depends on the used samples, as in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
+The interpretation of the measured stack resistivity depends on the used samples.
+As in this work symmetric samples were used, the stack resistivity must be larger than twice the interfacial resistivity of the AZO-Si interface.
 In this case an upper bound on contact resistivity can be given as $\rho_c < \frac{1}{2}\rho_s$.
 
-#+ATTR_LATEX: :width 1\textwidth :options angle=270
-#+CAPTION: An image of a used PCB, shown are two interleaved comb-shaped copper contacts, these can be connected to measurement equipment using the two header pins. The four holes can be used to systematically align two PCBs using a pin.
-#+LABEL: fig:PCBimage
-[[./images/pcb_cropped.jpeg]]
 
 ** Characterization of measurement method
 So far the case for PCB measurements has boiled down on purely theoretical arguments, in the following chapters the measurement method will be experimentally characterized.
