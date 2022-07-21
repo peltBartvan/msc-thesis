@@ -1531,12 +1531,13 @@ Ideally the PCB method should yield the same contact resistivities, regardless o
 These assumptions were checked, starting with the sample orientation.
 Here the contact resistivity was measured for two cases, in the "long" case the long edge of the sample was aligned parallel to the fingers of the PCBs, while in the "short" case the short edge was aligned parallel to the fingers.
 This was done for two symmetric samples:
-1) pSi substrate with r48 AZO annealed at 400C, measuring approx 4.5 mm by 6.5 mm.
-2) 130 \Omega n+ Si with r48 AZO annealed at 400C, measuring approx 6.5 mm by 9.0 mm.
+1) A polysilicon substrate with r48 \AZO{} annealed at 400\degree{}C, measuring approximately 4.5 mm by 6.5 mm.
+2) 130 \Omega n^{+} Si with r48 \AZO{} annealed at 400\degree{}C, measuring approximately 6.5 mm by 9.0 mm.
 
 The results are shown in Figure \ref{fig:PCBOrientation}.
-For the pSi sample, the results are quite consistent, while for the n+ Si sample there is more spreading in the measurements.
-This can be explained by the pSi sample having a larger contact resistivity than the n+ Si sample, and thus a larger spreading length, this sample also happened to have smaller dimensions, so that overall the current distribution can be expected to be more homogeneous.
+For the pSi sample, the results are quite consistent, while for the n^{+} Si sample there is more spreading in the measurements.
+This can be explained by the pSi sample having a larger contact resistivity than the n^{+} Si sample, and thus a larger spreading length.
+This sample also happened to have smaller dimensions, so that overall the current distribution can be expected to be more homogeneous.
 Overall, the measurement seems most repeatable in the "short" configuration.
 
 #+ATTR_LATEX: :width 1\textwidth
@@ -1544,12 +1545,14 @@ Overall, the measurement seems most repeatable in the "short" configuration.
 #+LABEL: fig:PCBOrientation
 [[./images/measurement_orientation.png]]
 
-Next the location of the sample on the PCB was varied for a few samples. The samples were located at all four extreme corners of the PCB pad and at the center.
+Next the location of the sample on the PCB was varied for a variety of samples.
+The samples were located at all four extreme corners of the PCB pad and at the center.
 Figure \ref{fig:PCBPiece} shows the measured results for each of the tested samples, note the logarithmic vertical axis.
 This shows that the measurement is typically reliable on a per-sample basis.
-There are some clear deviations between pieces cut out of the same wafer, while these should all have the same contact resistivities, Figure \ref{fig:PCBPiece} shows that this is not the case.
-A possible cause for this is backside deposition of \AlOx{} resulting in nonuniform samples, which was observed to occur by TEM. \todo{reference to figure}
-\todo{how does this influence $\rho_c$, why is it expected to increase?}
+There are some clear deviations between pieces cut out of the same wafer, while these should all have the same contact resistivities.
+Figure \ref{fig:PCBPiece} shows that this is not the case.
+A possible cause for this is backside deposition of \AlOx{} resulting in samples with partially remaining \AlOx{} layers, this was discussed in Section \ref{sec:etching}.
+For proper measurements, it is recommended to use a few separate pieces of sample. 
 
 #+ATTR_LATEX: :width 1\textwidth
 #+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. The pieces are labeled in order of their overall size, A being the largest within each category.
@@ -1562,28 +1565,41 @@ Hoe komt dit? Deels backside depo, iig niet uit te sluiten, ervaring: backside d
 ***** TODO New samples with less backside depo
 Better results? -> Not really, dataset is small, no real way to know...
 
-*** Validity: Cross Bridge Kelvin Resistor comparison
+*** Comparison with CBKR
 \label{sec:CBKRResults}
 Finally the PCB method was cross-validated with a Cross Bridge Kelvin Resistor (CBKR) setup which was carefully crafted from pieces of aluminium foil.
-While this alternate method is difficult and time consuming to perform, it provides a good sanity check for the PCB method.
+While this alternate method requires some dexterity and is time consuming to perform, it provides a good sanity check for the PCB method.
 To do this, two L-shaped pieces of aluminium foil were cut, with the widths of the legs matching the dimensions of the samples.
 These contacting pads were made for each specific sample.
 Then the sample was clamped between the pieces of foil, while pieces of insulating tape ensured that no shorts could occur between the contacting pads.
-Two opposing "legs" were used to drive a current, while the potential difference was measured between the others, again in a four-point probe configuration.
 Several samples were used, for which the contact resistivity was measured multiple times with the PCB method and the CBKR method, Figure \ref{fig:CBKRvsPCB} shows that the results correlate strongly, here the error bars show the minimal and maximal values for each measurement.
 
 #+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: Comparison between PCB measurements and and CBKR measurements on a set of samples, the error bars indicate the minimum and maximum of the measured values. Ideally the measurements should match exactly, which is indicated by the black line.
+#+CAPTION: Comparison between PCB measurements and and CBKR measurements on a set of samples. The error bars indicate the minimum and maximum of the measured values. Ideally the measurements should match exactly, which is indicated by the black line.
 #+LABEL: fig:CBKRvsPCB
 [[./images/CBKRvsPCB.png]]
 
 ** Conclusion
-A method for easy contact resistivity measurements on laterally uniform samples was developed.
-This was achieved by contacting samples with custom made printed circuit boards, featuring interleaved comb-like copper contacts, which are used to drive a uniform current distribution through a sample.
-In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
-This is especially important for ZnO:Al samples, since controlled etching of these layers is known to be difficult, rendering TLM and the C&S method impractical.
-In essence, the new method shows similarities to the CBKR method, both methods use a four terminal approach, and both aim to eliminate inhomogeneous currents by electrode design.
-In contrast to the CBKR method, in which the electrode dimensions need to match the sample dimensions, the PCBs used in the new method enable a rapid reuse of the same testing structure for samples of different dimensions.
+# A method for easy contact resistivity measurements on laterally uniform samples was developed.
+# This was achieved by contacting samples with custom made printed circuit boards, featuring interleaved comb-like copper contacts, which are used to drive a uniform current distribution through a sample.
+# In contrast to the Cox & Strack and transmission line methods, which involve delicate sample patterning steps, the method developed here only requires uniform conductive contacting layers.
+# This is especially important for ZnO:Al samples, since controlled etching of these layers is known to be difficult, rendering TLM and the C&S method impractical.
+# In essence, the new method shows similarities to the CBKR method, both methods use a four terminal approach, and both aim to eliminate inhomogeneous currents by electrode design.
+# In contrast to the CBKR method, in which the electrode dimensions need to match the sample dimensions, the PCBs used in the new method enable a rapid reuse of the same testing structure for samples of different dimensions.
+In this work, a novel method for measuring contact resistivities was developed.
+Such a method was needed because existing methods were not fit for use on \AZO{} films.
+Existing methods typically require controlled etching which is infeasible due to the fast irregular etching of \AZO{} in most common etchants.
+The method presented here does not require such an etch, making it a viable option for the characterization of \AZO{} contacts.
+At the start of this project, a pin-to-plate top-down measurement method was used, which was found to be highly unreliable.
+By utilizing a different contacting geometry, consisting of interleaved electrodes, many of the irregularities of the pin-to-plate method could be ameliorated. 
+This resulted in a new method which is much more reliable the this pin-to-plate method, giving much more consistent results upon variations in sample positioning.
+Some reliability concerns were caused by potential backside-deposited \AlOx{}, as some regions of specific samples were found to be much more resistive than others.
+A comparison with CBKR measurements indicates that these variations are not an artefact of the measurement method itself, as the two methods give highly correlated results.
+While essentially only upper limits on contact resistivity can be determined by this method, these upper limits can be low enough to determine fitness for solar cell applications.
+While more limited in measurement range than more conventional methods, the main benefit of this method is that it enables the characterization of samples that would simply not be feasible by these conventional methods.
+This distinction is due to very few constraints being enforced on the prepared samples.
+Loosely speaking, the complexity of testing structures is moved out of the samples, and into the measurement device itself.
+This makes it very easy and fast to characterize simple laterally symmetric samples.
 
 \bibliography{zotero_refs}
 
