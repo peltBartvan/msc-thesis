@@ -1075,18 +1075,21 @@ The resistance between the backplane and the circular contacts is then measured 
 The main assumption here is that the total resistance can be described as a sum of three resistances: contact resistance $R_c$, spreading resistance $R_s$, and some fixed residual resistance $R_0$.
 Cox and Strack originally modeled these terms as
 \begin{equation}
+\label{eqn:CnS}
 R_{T} \approx \underbrace{\frac{\rho_W}{\pi d}\arctan\left(\frac{4t}{d}\right)}_{R_s} + \underbrace{\frac{\rho_c}{\frac{1}{4}\pi d^2}}_{R_c} + R_0,
 \end{equation}
 where $d$ is the diameter of the contact, $\rho_W$ is the wafer resistivity, $\rho_c$ the contact resistivity and $t$ is the thickness of the wafer \cite{coxOhmicContactsGaAs1967}.
 Since the contact and spreading resistances depend differently on the contact radius, the contact resistivity can be determined by varying $d$ and fitting to the model.
-While more accurate models for the resistance terms have been found \cite{vanrijnbachAccuracyCoxStrack2020,ahmadDeterminationContactResistivity1995}, the concept behind the measurement stays the same.
+While more accurate models for the resistance terms in Equation \ref{eqn:CnS} have been found \cite{vanrijnbachAccuracyCoxStrack2020,ahmadDeterminationContactResistivity1995}, the concept behind the measurement stays the same.
 The practical implications of this method are that samples have to be precisely made, the circular contacts are typically tens of micrometers in radius. \todo{source, this depends on resistances, how?}
-To make structures like this one would need to remove part of the contacting layer, this extra processing, as explained previously, is best avoided.
-\todo{what measurement range?}
+To make structures like this one would need to remove most of the \AZO{} contacting layer, leaving only the circular contacts behind.
+As discussed previously, this is not practical for \AZO{}.
+While it has this major drawback for \AZO{} contacts, the Cox and Strack is a popular measurement method for solar cell applications.
+Contact resistivity measurements in the sub-\mOhmcm{} range have been reported \cite{fongOptimizationCharacterizationPhosphorus2018} using this method. 
 
 **** Transfer length method
 The transfer length method (TLM) somewhat resembles the C&S method in the sense that multiple sample geometries are used to fit out the contact resistivity.
-In TLM, the chosen geometry can be either linear or circular \todo{cite}, these variants are conceptually similar, so only the linear variant is discussed here.
+In TLM, the chosen geometry can be either linear or circular \cite{schroderDeviceCharacterization}, these variants are conceptually similar, so only the linear variant is discussed here.
 A linear TLM setup is illustrated in Figure \ref{fig:TLMIllustration}.
 
 #+ATTR_LATEX: :width 0.7\textwidth
@@ -1110,7 +1113,7 @@ R_T = 2\underbrace{\frac{R_\square L_t}{W}}_{R_c} + \underbrace{\frac{LR_\square
 \end{equation}
 Here, the horizontal and vertical intercepts signify twice the transfer length and twice the contact resistance respectively, as shown in Figure \ref{fig:TLMGraph}.
 
-#+ATTR_LATEX: :width 0.7\textwidth
+#+ATTR_LATEX: :width 0.7\textwidth :placement [h!]
 #+LABEL: fig:TLMGraph
 #+CAPTION: Example of a TLM analysis, the red fit line intercepts the horizontal axis at $-2L_t$ and the vertical axis at $2R_c$.
 [[./images/TLM_graph.png]]
