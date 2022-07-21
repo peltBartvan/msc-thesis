@@ -1343,8 +1343,9 @@ Figure \ref{fig:phiSolutions} clearly shows the impact of the transfer length on
 Additionally, when compared at similar transfer lengths, the cylindrical solutions are much less homogeneous than the cartesian ones.
 
 *** Idea: reduce effective sample dimensions
-Suppose you were to conduct a four-point probing experiment in either geometry, in which a current is driven through the sample, and some potential difference between the top and bottom of the sample, $\phi_M$, is measured.
-What would be a good way to perform these measurements?
+Suppose you were to conduct a four-point probing experiment in either the linear or circular geometry mentioned in the previous section.
+You drive a current through the sample, and measure some potential difference between the top and bottom of the sample, $\phi_M$.
+You have some freedom in choosing your geometry, which one should give the best results?
 
 To answer this question, it is useful to first estimate $L_t$ for the samples of interest.
 As the current distribution is least homogeneous for small $L_t$, it is safest to underestimate it by using large sheet resistivities and low stack resistivities.
@@ -1383,12 +1384,26 @@ These solutions correspond to a current being injected through two separate cont
 
 Symmetric solutions are shown in Figure \ref{fig:phiSolutionsSym}, it is clear that now $\phi'(\frac{1}{2}) = 0$.
 Notice the similarity between the solutions as shown in Figure \ref{fig:phiSolutions} and the left half of Figure \ref{fig:phiSolutionsSym}, they are the same!
-Apparently driving currents with a grid of symmetric electrodes will let us effectively change $L$. \question{is dit argument duidelijk?}
 
 #+ATTR_LATEX: :width 1\textwidth
 #+CAPTION: Symmetric solutions to Equation \ref{eq:modelDefDomain} in a 1D Cartesian geometry. Note that $\phi' = 0$ halfway between the two contacts, in this case the boundary conditions are imposed through the contact spacing, not through the total dimensions of the sample.
 #+LABEL: fig:phiSolutionsSym
 [[./images/phi_solutions_symmetric.png]]
+
+Okay, so we changed the boundary conditions a bit and now we're getting symmetric solutions, what's the deal?
+The essential difference between the two boundary conditions is that in the first case the $\phi'(L)=0$ condition was enforced by the samples' size.
+In this new one, the $\phi'(L) = 0$ condition is enforced by /where/ we put our contacts, giving us freedom in choosing $L$ ourselves!
+This idea is illustrated in Figure \ref{fig:gridSymmetry}, where a current is driven through a sample using a grid of regularly spaced electrodes.
+Halfway each pair of electrodes, we recognize the familiar $\phi' = 0$ condition.
+The nonuniformities in the applied voltage are now determined by $k$, as indicated.
+
+#+ATTR_LATEX: :width 1\textwidth
+#+CAPTION: Illustration of a sample contacted by a grid of electrodes, shown below is a plot of the resulting potential as function of position. Indicated are the $\phi' = 0$ boundary condition and the effect of $k$ on the voltage uniformity.
+#+LABEL: fig:gridSymmetry
+[[./images/sample_symmetry.png]]
+
+By using a regular grid of electrodes with spacing $L << L_t$, we can then minimize the measurement errors.
+In the next chapters, the actual implementation and validation of this method are discussed.
 
 **** TODOS :noexport:
 ***** TODO Generalization to what?
