@@ -1178,7 +1178,7 @@ Despite these drawbacks, by working carefully it is possible to make these struc
 Due to its compatibility with the ZnO:Al samples, the CBKR method can be used as a good sanity check for any new measurements of these samples.
 
 **** Pin to plate
-The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable patterning and etching of this material is difficult, making TLM and the C&S method impractical.
+The challenges of measuring contact resistivities of ZnO:Al films were known at the start of this project, previous experience showed that reliable etching of this material is difficult, making TLM and the C&S method impractical.
 The approach that had been used to far was to clamp samples between a copper plate and some of the probe pins of the already available four point probe setup, as illustrated in Figure \ref{fig:PtPIllustration}.
 One of the probe pins would be used to drive a current to the plate, while another pin would be used to measure the voltage across the sample.
 The copper plate would serve as both a current driving electrode and a reference voltage since, due to its high conductivity, the electric fields within the plate can be assumed to be negligible.
