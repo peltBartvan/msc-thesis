@@ -47,13 +47,18 @@
 
 # Custom todo command
 #+LATEX_HEADER: \usepackage{xcolor}
+
 # +LATEX_HEADER: \newcommand{\todo}[1]{\colorbox{orange}{TODO: #1}}
 #+LATEX_HEADER: \newcommand{\todo}[1]{}
 
-#+LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
+# +LATEX_HEADER: \newcommand{\question}[1]{\colorbox{green}{QUESTION: #1}}
+#+LATEX_HEADER: \newcommand{\question}[1]{}
+
 # +LATEX_HEADER: \newcommand{\source}[1]{\colorbox{cyan}{SOURCE: #1}}
 #+LATEX_HEADER: \newcommand{\source}[1]{}
-#+LATEX_HEADER: \newcommand{\contribution}[1]{\colorbox{yellow}{#1}}
+
+# +LATEX_HEADER: \newcommand{\contribution}[1]{\colorbox{yellow}{#1}}
+#+LATEX_HEADER: \newcommand{\contribution}[1]{}
 
 
 #+EXCLUDE_TAGS: todoex noexport
@@ -1548,14 +1553,14 @@ Overall, the measurement seems most repeatable in the "short" configuration.
 Next the location of the sample on the PCB was varied for a variety of samples.
 The samples were located at all four extreme corners of the PCB pad and at the center.
 Figure \ref{fig:PCBPiece} shows the measured results for each of the tested samples, note the logarithmic vertical axis.
-This shows that the measurement is typically reliable on a per-sample basis.
+This shows that the measurement is typically reliable on a per-piece basis.
 There are some clear deviations between pieces cut out of the same wafer, while these should all have the same contact resistivities.
 Figure \ref{fig:PCBPiece} shows that this is not the case.
 A possible cause for this is backside deposition of \AlOx{} resulting in samples with partially remaining \AlOx{} layers, this was discussed in Section \ref{sec:etching}.
 For proper measurements, it is recommended to use a few separate pieces of sample. 
 
 #+ATTR_LATEX: :width 1\textwidth
-#+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. The pieces are labeled in order of their overall size, A being the largest within each category.
+#+CAPTION: Measured contact resistivities of different pieces of different samples, the spread between measurements on different pieces are often larger than the spread within the pieces. The pieces are labeled in order of their overall size, A being the largest within each category and C being the smallest. 
 #+LABEL: fig:PCBPiece
 [[./images/measurement_piece.png]]
 
