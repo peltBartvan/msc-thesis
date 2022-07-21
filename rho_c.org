@@ -985,15 +985,19 @@ In the previous part of this thesis, the contact resistivity of Al-doped zinc-ox
 In this part of this thesis, the devised measurement setup and method will be described in full detail.
 The method provides an alternative to typical contact resistivity measurements, in which several processing steps are needed to create accurately shaped contacts on the samples of interest.
 These methods include the Cox and Strack (C&S) and Transfer Length Method (TLM) methods, which will be explained later.
-Not only are these steps time-consuming and complicated to perform, they pose limitations on the types of samples that can be used.
-Furthermore, thermal and chemical processing steps could alter the electrical properties of the contact of interest, and there is no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
-At the start of this project a simple measurement method was suggested, coat a sample with a thin film of silver, drive a current between the top and bottom of this sample and measure the resulting potential difference.
+Fabrication of testing structures is especially difficult for ZnO samples, as ZnO etches quickly and irregularly in most common etchants \cite{hupkesChemicalEtchingZinc2012,bunteNovelTexturingMethod}.
+Essentially, this means that any sample preparation method involving a "carefully etch away a specific piece of \AZO{}" step is off-limits.
+Furthermore, even if this were achievable, thermal and chemical processing steps could alter the electrical properties of the contact of interest.
+After sample preparation there is then no guarantee that the tested contacts accurately resemble the contact as it would behave in a practical device.
+
+At the start of this project a simple measurement method was suggested.
+Coat a sample with a thin film of silver, drive a current between the top and bottom of this sample and measure the resulting potential difference.
 Multiplying the obtained resistance by the area of the sample should then give the specific resistance of the sample.
-While this suggested pin-to-plate measurement is very easy to perform, not needing any patterning and etching steps as required by C&S and TLM, it quickly became clear that the method was so unreliable that useful data could not be obtained.
+While this suggested pin-to-plate measurement is very easy to perform, it quickly became clear that the method was so unreliable that useful data could not be obtained.
 As the C&S and TLM methods provide some significant challenges, the choice was made to look deeper into the pin-to-plate method, and see if it can be improved on enough to be useful.
 This work presents a solution to this problem, in which custom printed circuit boards are used to control the current flow in the samples.
 \todo{fill in this part}
-The method devised here is able to characterize samples without the need of these patterning steps, requiring only a metallization step to ensure good contacts between the probes and the sample.
+This method is able to characterize samples without the need of controlled \AZO{} removal, requiring only a metallization step to ensure good contacts between the probes and the sample.
 ** Background
 *** COMMENT Contact resistivity
 # made this section a comment, still meant for inspiration.
@@ -1012,9 +1016,12 @@ in which the dependency on the "other parameters" is implicit.
 *** Contact resistivity
 # In the previous part of this thesis the contact resistivity of ZnO:Al on silicon was discussed.
 # There, several factors that influence contact resistivity were mentioned (COMMENT: such as?) but in all cases the important questions could be phrased as "when a contact is made by process X, how does its current density $J$ depend on the driving voltage $V$?", in which only the process parameters were changed.
-In solar cells, contact resistance can be an important loss mechanism, limiting cell efficiency.
-As a result, it is an important parameter to minimize.
-While the total contact resistance can be defined as $R_c = \frac{V}{I}$, with $V$ and $I$ being the voltage along the contact and the total current respectively, this changes with contact area.
+# In solar cells, contact resistance can be an important loss mechanism, limiting cell efficiency.
+In Part 1 of this thesis, contact resistivity was identified as a potential limiting factor for solar cell efficiency.
+As a consequence, it is important that the contact resistivity is minimized.
+But first: what does contact resistivity even mean?
+A total contact resistance can be defined as $R_c = \frac{V}{I}$, with $V$ and $I$ being the voltage along the contact and the total current respectively.
+This quantity is not really that useful, if you double the area of a contact you should get approximately (more on this later) twice the current at the same voltage, halving the contact resistance.
 A more useful quantity is the contact resistivity, also known as specific contact resistance, which is area independent.
 This $\rho_c$ is defined not using the total current, but the current density $J$:
 \begin{equation}
@@ -1023,9 +1030,12 @@ This $\rho_c$ is defined not using the total current, but the current density $J
 While from a theoretical point of view this description of contacts in terms of $J(V)$ sounds perfectly reasonable, its usage can be challenging in practice.
 To understand the problem, consider preparing a sample of area $A$ and assuming that the current is uniformly distributed along the contact.
 The definition then easily translates to $\rho_c = \frac{V}{I}A$, where the total current $I$ and induced voltage $V$ can be measured.
-In reality, the current distribution into a contact can be localized near the edge of the contact, an effect called current crowding\cite{schroderSolarCellContact1984}.
-The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, here $R_\square$ is the sheet resistance of the wafer.
+In reality, the current distribution into a contact might not be uniform.
+For example, this can occur due to an effect called current crowding\cite{schroderSolarCellContact1984}.
+In current crowding, most of the current flows through a narrow region along the edge of a contact, instead of being evenly spread out.
 This phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
+The current density decays exponentially with characteristic length $L_t = \sqrt{\frac{\rho_c}{R_\square}}$, called the transfer length, here $R_\square$ is the sheet resistance of the wafer.
+This effect is analyzed in Section \ref{sec:Lt}, where this characteristic transfer length is derived.
 
 #+LABEL: fig:LtIllustration
 #+CAPTION: Illustration of current crowding along the edge of a contact. The current density $J$ decays exponentially with distance from the contact edge. Shown are a wafer and a contact, current flows into the wafer from the left and into the contact, as indicated by the arrows.
@@ -1033,15 +1043,15 @@ This phenomenon is illustrated in Figure \ref{fig:LtIllustration}.
 
 This effect will be explained in more detail in Chapter \ref{ch:TheoryChapter}, but first, let's think about its experimental implications.
 If the transfer length is much larger than the contacts, then the current will effectively be equally distributed.
-Sadly, for the samples used in this work, the transfer length was often found to be smaller than the contact dimensions.
+Sadly, for the samples used in this work, the transfer length was often found to be smaller than the samples' dimensions.
 In such cases measuring $V$ and $J$ is not trivial, as they can vary greatly within the contact.
 In contrast to these locally defined $V$ and $J$, it is typically only the total current, $I$, and /some/ induced voltage, $V_M$, that can be measured experimentally.
 This is the main challenge of contact resistivity measurements: reliably distilling local $J(V)$ behaviour from global $I(V_M)$ measurements.
 In the next sections some typical solutions to this challenge will be discussed.
-Sadly, most of these methods involve patterning and etching, which, as discussed, can be difficult for ZnO:Al.
-\todo{does the next part fit here?}
+Sadly, most of these methods involve controlled partial etching, which, as discussed, can be extremely difficult for ZnO:Al.
+
 Within the context of this project, symmetric lifetime samples were often made, consisting of a substrate with ZnO:Al deposited on both sides.
-These are further processed by thermal annealing after optional deposition of an \AlOx{} capping layer.
+These are further processed by thermal annealing after deposition of an \AlOx{} capping layer.
 As this capped etching step is one of the focuses of this work, it is desirable to not change this process too much for contact resistivity samples.
 This is the main motivation for this part of this thesis, to figure out a way to quantify the contact resistivity of Si-ZnO:Al contacts using the available lifetime samples, without needing to drastically alter them.
 
@@ -1188,6 +1198,7 @@ The first step is to better understand the nature of current (or equivalently, v
 *** COMMENT Wiskunde achter spreiding: transfer length
 Dit vind ik een lastige qua plek, enerzijds zou ik hem voor de "typical measurement methods" kwijt willen, maar een lezer die niet bekend is met de werking van de methodes heeft er waarschijnlijk nog niet gek veel aan. Het lijkt me een beter plan om eerst een paar praktische situaties te omschrijven, zoals spreiding in C&S, CBKR en TLM, om er naderhand verklarend op terug te komen met de transfer length, en de algemene rol die deze heeft in dit soort metingen.
 *** Transfer length effects
+\label{sec:Lt}
 So far, all the top-down measurement methods had to mitigate one phenomenon, transfer length effects.
 Consider ideal conductors used as contacts, as these form regions of equal electric potential, the potential difference between top and bottom of the sample will be equal everywhere.
 The driven current density will be uniform, found simply by: $J = \frac{\Delta V}{\rho_s}$.
